@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3934941355049019175
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2081709896645091595}
+  - component: {fileID: 5314322591792569341}
+  m_Layer: 0
+  m_Name: WaterBlueFront
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2081709896645091595
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3934941355049019175}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5314322591792569341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3934941355049019175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1483407d072ad04408b2123a628618b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Animations:
+  - {fileID: -625344470307520746, guid: 47eda45704f0970408768b45dc3aecb0, type: 3}
+  - {fileID: -165715064190681504, guid: 47eda45704f0970408768b45dc3aecb0, type: 3}
+  - {fileID: -8069099051439335989, guid: 47eda45704f0970408768b45dc3aecb0, type: 3}
+  - {fileID: 7671618175662464741, guid: 47eda45704f0970408768b45dc3aecb0, type: 3}
+  - {fileID: -9005626330374861309, guid: 47eda45704f0970408768b45dc3aecb0, type: 3}
+  - {fileID: 7649653652540257469, guid: 47eda45704f0970408768b45dc3aecb0, type: 3}
+  - {fileID: 2188595834935286918, guid: 47eda45704f0970408768b45dc3aecb0, type: 3}
+  - {fileID: 1375880866792500367, guid: 47eda45704f0970408768b45dc3aecb0, type: 3}
+  - {fileID: -8912288077051911220, guid: 47eda45704f0970408768b45dc3aecb0, type: 3}
+  - {fileID: 4504851975827773892, guid: 47eda45704f0970408768b45dc3aecb0, type: 3}
+  - {fileID: 8498840679748395238, guid: 47eda45704f0970408768b45dc3aecb0, type: 3}
+  - {fileID: -5753626249799607843, guid: 47eda45704f0970408768b45dc3aecb0, type: 3}
+  FramesPerSecond: 10
+  Loop: 1
+  Full: 0

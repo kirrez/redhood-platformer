@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8217014964321997710
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2962809522081095981}
+  - component: {fileID: 4317367699808816348}
+  m_Layer: 0
+  m_Name: BombBlast
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2962809522081095981
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8217014964321997710}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4317367699808816348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8217014964321997710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1483407d072ad04408b2123a628618b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Animations:
+  - {fileID: -4590324036312645036, guid: 8fd904ac641f15d49bc0a8492cef6434, type: 3}
+  - {fileID: -8137700862376801928, guid: 8fd904ac641f15d49bc0a8492cef6434, type: 3}
+  - {fileID: -1832674988560018437, guid: 8fd904ac641f15d49bc0a8492cef6434, type: 3}
+  - {fileID: -8089579462211843645, guid: 8fd904ac641f15d49bc0a8492cef6434, type: 3}
+  - {fileID: 4320447547634153948, guid: 8fd904ac641f15d49bc0a8492cef6434, type: 3}
+  - {fileID: -6775648224740696242, guid: 8fd904ac641f15d49bc0a8492cef6434, type: 3}
+  - {fileID: 1619489785875873158, guid: 8fd904ac641f15d49bc0a8492cef6434, type: 3}
+  - {fileID: 5061654934738097243, guid: 8fd904ac641f15d49bc0a8492cef6434, type: 3}
+  - {fileID: 8921536281970033210, guid: 8fd904ac641f15d49bc0a8492cef6434, type: 3}
+  - {fileID: -530306917, guid: 8fd904ac641f15d49bc0a8492cef6434, type: 3}
+  FramesPerSecond: 8
+  Loop: 0
+  Full: 0
