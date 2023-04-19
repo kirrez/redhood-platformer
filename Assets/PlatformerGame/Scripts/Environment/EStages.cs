@@ -4,6 +4,7 @@ namespace Platformer
 {
     public enum EStages
     {
-        TheVillage
+        TheVillage,
+        WestForest
     }
 }

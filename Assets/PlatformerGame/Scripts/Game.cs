@@ -29,8 +29,10 @@ namespace Platformer
             UIRoot = CompositionRoot.GetUIRoot();
 
             //temporary solution
-            CurrentStage = ResourceManager.CreatePrefab<Stage, EStages>(EStages.TheVillage);
-            
+            //CurrentStage = ResourceManager.CreatePrefab<Stage, EStages>(EStages.TheVillage);
+
+            CurrentStage = ResourceManager.CreatePrefab<Stage, EStages>(EStages.WestForest);
+
             Player = CompositionRoot.GetPlayer();
             Player.Position = CurrentStage.SpawnPoints[0].position;
             

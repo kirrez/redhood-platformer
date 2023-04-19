@@ -716,6 +716,90 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Platform_1
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 494
+        width: 33
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c197512b69478d34b861e7cfddce7bca
+      internalID: -1624028744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Platform_2
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 478
+        width: 33
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2c7f67f5f4530940b25f99f12dc4941
+      internalID: 17101485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Platform_3
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 494
+        width: 33
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84b1b96c6b8b2e84f8888b5094a3a7c9
+      internalID: 880925628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Platform_4
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 478
+        width: 33
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0cb1564eff394dc4d8a2bb538d229c73
+      internalID: 933978366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -727,10 +811,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Mother_0: 1539828992
+      WaterBlueTransparent: 1422703808
       DoorGreen_0: -425144864
       Fall_1: 2073561585
       DoorRed_0: 1550466903
+      Platform_3: 880925628
       Stream_1: 855704516
       DoorGreen_2: 1295310118
       Stream_2: -309486281
@@ -738,9 +823,11 @@ TextureImporter:
       Candle_0: -387247735
       Mother_1: 759018448
       Key_Grey: -6393119
+      Platform_4: 933978366
       Key_Green: 2089127135
       DoorGrey_2: -604756203
       Fireplace_2: 1631699850
+      Platform_1: -1624028744
       Fall_0: -628325260
       DoorGreen_1: -227913323
       Fireplace_1: -1024916941
@@ -753,8 +840,9 @@ TextureImporter:
       DoorRed_1: 729713761
       Key_Red: 1805074571
       DoorGrey_1: -16567571
+      Platform_2: 17101485
       Mother_2: 996843073
-      WaterBlueTransparent: 1422703808
+      Mother_0: 1539828992
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
