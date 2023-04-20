@@ -27,6 +27,13 @@ namespace Platformer
             Quests.Add(EQuest.BerriesCurrent, 0);
             Quests.Add(EQuest.BerriesRequired, 4);
 
+            Quests.Add(EQuest.Mushroom1, 0);
+            Quests.Add(EQuest.Mushroom2, 0);
+            Quests.Add(EQuest.Mushroom3, 0);
+            Quests.Add(EQuest.Blackberry1, 0);
+            Quests.Add(EQuest.Blackberry2, 0);
+            Quests.Add(EQuest.Blackberry3, 0);
+            Quests.Add(EQuest.Blackberry4, 0);
         }
 
         public int GetQuest(EQuest key)

@@ -18,6 +18,9 @@ namespace Platformer
         [SerializeField]
         private float BatSpeed = 300f;
 
+        [SerializeField]
+        private float SpawnDistance = 15f;
+
         private IResourceManager ResourceManager;
 
         private float Timer = 0f;
@@ -70,12 +73,12 @@ namespace Platformer
 
                 if (!CurrentDirection)
                 {
-                    StartX -= 15f; // magic number
-                    direction = 1f;
+                    StartX -= SpawnDistance; // magic number
+                    direction = 1;
                 }
                 else
                 {
-                    StartX += 15f;
+                    StartX += SpawnDistance;
                     direction = -1f;
                 }
 

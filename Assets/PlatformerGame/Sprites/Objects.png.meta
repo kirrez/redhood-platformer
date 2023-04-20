@@ -725,7 +725,7 @@ TextureImporter:
         width: 33
         height: 10
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -746,7 +746,7 @@ TextureImporter:
         width: 33
         height: 10
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -767,7 +767,7 @@ TextureImporter:
         width: 33
         height: 10
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -788,7 +788,7 @@ TextureImporter:
         width: 33
         height: 10
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -796,6 +796,174 @@ TextureImporter:
       bones: []
       spriteID: 0cb1564eff394dc4d8a2bb538d229c73
       internalID: 933978366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Firebowl_0
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 472
+        width: 16
+        height: 28
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e76130f68aea30d4d95d215e7de846a7
+      internalID: 267164088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Firebowl_1
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 472
+        width: 16
+        height: 28
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01470d9d190d5fd41bb646cd83f3c382
+      internalID: -388648844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Firebowl_2
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 472
+        width: 16
+        height: 28
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17e5ad3996ccd4e489165c9c1d884b53
+      internalID: 456338429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spikes_grey
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 440
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9262841a95001a34d92636b9b867d342
+      internalID: -1018720058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mushroom
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 488
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f17eec561fa16ba4ab0e4f4b790ec911
+      internalID: 1425082455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blackberry
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 488
+        width: 17
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe59c2526ea95d841a5edd99f578ffa7
+      internalID: 961531519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MaxHealthUp
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 464
+        width: 17
+        height: 17
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 366fce08f47e65d44a81330c5b1aec58
+      internalID: 2022743721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MotherPie
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 464
+        width: 22
+        height: 17
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b9f280d53b60314cb8ea2ea1daaeb89
+      internalID: -1015853895
       vertices: []
       indices: 
       edges: []
@@ -811,38 +979,46 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      WaterBlueTransparent: 1422703808
+      Mother_0: 1539828992
       DoorGreen_0: -425144864
       Fall_1: 2073561585
       DoorRed_0: 1550466903
-      Platform_3: 880925628
+      Blackberry: 961531519
+      MotherPie: -1015853895
       Stream_1: 855704516
       DoorGreen_2: 1295310118
+      MaxHealthUp: 2022743721
       Stream_2: -309486281
       DoorGrey_0: 1360749912
+      Mushroom: 1425082455
       Candle_0: -387247735
+      Firebowl_2: 456338429
       Mother_1: 759018448
       Key_Grey: -6393119
+      Spikes_grey: -1018720058
       Platform_4: 933978366
       Key_Green: 2089127135
       DoorGrey_2: -604756203
       Fireplace_2: 1631699850
       Platform_1: -1624028744
-      Fall_0: -628325260
+      Platform_3: 880925628
       DoorGreen_1: -227913323
       Fireplace_1: -1024916941
-      Fall_2: 1255714272
+      Fall_0: -628325260
       DoorRed_2: -1579968724
+      Firebowl_0: 267164088
       Stream_0: 1860220395
-      Stream_3: -1190808691
+      Fall_2: 1255714272
       Candle_1: 1892384369
+      Stream_3: -1190808691
       Fireplace_0: -630716480
-      DoorRed_1: 729713761
       Key_Red: 1805074571
+      DoorRed_1: 729713761
+      Firebowl_1: -388648844
       DoorGrey_1: -16567571
       Platform_2: 17101485
       Mother_2: 996843073
-      Mother_0: 1539828992
+      WaterBlueTransparent: 1422703808
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

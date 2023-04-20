@@ -12,6 +12,7 @@ namespace Platformer
         WaterBlueBack,
         Candle,
         Fireplace,
+        FireBowl,
         WaterStream,
         WaterFall,
         DoorRedOpen,

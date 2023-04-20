@@ -1,14 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Platformer
 {
-    public class KeyRed : MonoBehaviour
+    public class Mushroom : MonoBehaviour
     {
+        [SerializeField]
+        private EQuest Item;
+
         private IProgressManager ProgressManager;
 
-        private void OnEnable()
+        private void Awake()
         {
             ProgressManager = CompositionRoot.GetProgressManager();
         }
@@ -17,11 +18,11 @@ namespace Platformer
         {
             if (collision.gameObject.CompareTag("Player"))
             {
-                if (ProgressManager.GetQuest(EQuest.RedKey) == 0)
+                if (ProgressManager.GetQuest(Item) == 0)
                 {
-                    ProgressManager.SetQuest(EQuest.RedKey, 1);
+                    ProgressManager.SetQuest(Item, 1);
+                    ProgressManager.AddValue(EQuest.MushroomsCurrent, 1);
                 }
-
                 gameObject.SetActive(false);
             }
         }

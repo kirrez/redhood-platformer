@@ -25,28 +25,27 @@ namespace Platformer
 
         private void Update()
         {
-            if (Player != null)
+            if (Player == null) return;
+
+            if (Collider.bounds.Contains(Player.Position) && !Inside)
             {
-                if (Collider.bounds.Contains(Player.Position) && !Inside)
+                if (ProgressManager.GetQuest(EQuest.RedKey) == 1)
                 {
-                    if (ProgressManager.GetQuest(EQuest.RedKey) == 1)
-                    {
-                        Block.enabled = false;
-                        DoorRedAnimator.AnimateOpen();
+                    Block.enabled = false;
+                    DoorRedAnimator.AnimateOpen();
 
-                        Inside = true;
-                    }
+                    Inside = true;
                 }
+            }
 
-                if (!Collider.bounds.Contains(Player.Position) && Inside)
+            if (!Collider.bounds.Contains(Player.Position) && Inside)
                 {
-                    if (ProgressManager.GetQuest(EQuest.RedKey) == 1)
-                    {
-                        Block.enabled = true;
-                        DoorRedAnimator.AnimateClose();
+                if (ProgressManager.GetQuest(EQuest.RedKey) == 1)
+                {
+                    Block.enabled = true;
+                    DoorRedAnimator.AnimateClose();
 
-                        Inside = false;
-                    }
+                    Inside = false;
                 }
             }
         }
