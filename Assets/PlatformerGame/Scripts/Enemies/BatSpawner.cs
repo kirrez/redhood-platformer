@@ -83,6 +83,7 @@ namespace Platformer
                 }
 
                 var instance = ResourceManager.GetFromPool(Enemies.Bat);
+                instance.transform.SetParent(transform.parent, false);
                 Bat = instance.GetComponent<Bat>();
                 Bat.Initiate(direction, new Vector2(StartX, StartY), BatSpeed);
                 // keep only one active "OnBatKilled"

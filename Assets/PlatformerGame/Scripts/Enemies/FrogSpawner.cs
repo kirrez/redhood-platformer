@@ -59,6 +59,7 @@ namespace Platformer
                 StartY = transform.position.y - Collider.bounds.extents.y;
 
                 var instance = ResourceManager.GetFromPool(Enemies.Frog);
+                instance.transform.SetParent(transform.parent, false);
                 Frog = instance.GetComponent<Frog>();
 
                 Frog.Initiate(direction, StartY, new Vector2(StartX, StartY), Player.GetComponent<Player>());

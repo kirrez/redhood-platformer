@@ -7,6 +7,7 @@ namespace Platformer
         Exit,
         TalkToMom,
         TalkToMomAgain,
+        PullLever,
 
         DialoguePie1_1,
         DialoguePie1_2,

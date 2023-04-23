@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System;
 
 namespace Platformer
 {
@@ -8,32 +9,42 @@ namespace Platformer
 
         public void ResetProgress()
         {
-            Quests.Add(EQuest.Stage, 0);
-            Quests.Add(EQuest.SpawnPoint, 0);
-
-            Quests.Add(EQuest.SubWeaponEnabled, 0);
-
-            //Keys
-            Quests.Add(EQuest.RedKey, 0);
-            Quests.Add(EQuest.GreyKey, 0);
-            Quests.Add(EQuest.GreenKey, 0);
-
-            //Mother's quest
-            Quests.Add(EQuest.MotherPie, 0);
+            var type = typeof(EQuest);
+            foreach (EQuest item in Enum.GetValues(type))
+            {
+                Quests.Add(item, 0);
+            }
 
             //Mother's Pie quest
-            Quests.Add(EQuest.MushroomsCurrent, 0);
-            Quests.Add(EQuest.MushroomsRequired, 3);
-            Quests.Add(EQuest.BerriesCurrent, 0);
-            Quests.Add(EQuest.BerriesRequired, 4);
+            SetQuest(EQuest.MushroomsRequired, 3);
+            SetQuest(EQuest.BerriesRequired, 4);
 
-            Quests.Add(EQuest.Mushroom1, 0);
-            Quests.Add(EQuest.Mushroom2, 0);
-            Quests.Add(EQuest.Mushroom3, 0);
-            Quests.Add(EQuest.Blackberry1, 0);
-            Quests.Add(EQuest.Blackberry2, 0);
-            Quests.Add(EQuest.Blackberry3, 0);
-            Quests.Add(EQuest.Blackberry4, 0);
+            //Quests.Add(EQuest.Stage, 0);
+            //Quests.Add(EQuest.SpawnPoint, 0);
+
+            //Quests.Add(EQuest.SubWeaponEnabled, 0);
+
+            ////Keys
+            //Quests.Add(EQuest.RedKey, 0);
+            //Quests.Add(EQuest.GreyKey, 0);
+            //Quests.Add(EQuest.GreenKey, 0);
+
+            ////Mother's quest
+            //Quests.Add(EQuest.MotherPie, 0);
+
+            
+            //Quests.Add(EQuest.MushroomsCurrent, 0);
+            //Quests.Add(EQuest.MushroomsRequired, 3);
+            //Quests.Add(EQuest.BerriesCurrent, 0);
+            //Quests.Add(EQuest.BerriesRequired, 4);
+
+            //Quests.Add(EQuest.Mushroom1, 0);
+            //Quests.Add(EQuest.Mushroom2, 0);
+            //Quests.Add(EQuest.Mushroom3, 0);
+            //Quests.Add(EQuest.Blackberry1, 0);
+            //Quests.Add(EQuest.Blackberry2, 0);
+            //Quests.Add(EQuest.Blackberry3, 0);
+            //Quests.Add(EQuest.Blackberry4, 0);
         }
 
         public int GetQuest(EQuest key)

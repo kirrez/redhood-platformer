@@ -24,7 +24,10 @@ namespace Platformer
         Blackberry1,
         Blackberry2,
         Blackberry3,
-        Blackberry4
+        Blackberry4,
+
+        Drawbridge,
+        WFElevator
     }
 }
 

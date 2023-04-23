@@ -968,6 +968,111 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: BridgeLeft
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 448
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4aede7f9dcec3044b68cf62c30cc9d8
+      internalID: -479444781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeCenter
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 448
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7619678ef37e608408771d25de79bd91
+      internalID: 1616014153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeRight
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 448
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40a6e167b45c4054fb4c41ea5abbf5ed
+      internalID: 27038073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SwitchOff
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 472
+        width: 16
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53bcc400971d84d42b98bc8045c174c1
+      internalID: 1425627654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SwitchOn
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 472
+        width: 32
+        height: 20
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2d966cfe2084f140b84524fd6822e03
+      internalID: -1816534046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -979,46 +1084,52 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      DoorRed_0: 1550466903
+      BridgeRight: 27038073
+      DoorGrey_0: 1360749912
+      Candle_0: -387247735
+      Firebowl_2: 456338429
+      Mother_1: 759018448
+      DoorGrey_2: -604756203
+      Fireplace_2: 1631699850
+      DoorGreen_1: -227913323
+      DoorRed_2: -1579968724
+      Candle_1: 1892384369
+      BridgeLeft: -479444781
+      Platform_2: 17101485
+      MotherPie: -1015853895
       Mother_0: 1539828992
+      WaterBlueTransparent: 1422703808
       DoorGreen_0: -425144864
       Fall_1: 2073561585
-      DoorRed_0: 1550466903
-      Blackberry: 961531519
-      MotherPie: -1015853895
+      BridgeCenter: 1616014153
+      SwitchOff: 1425627654
       Stream_1: 855704516
       DoorGreen_2: 1295310118
       MaxHealthUp: 2022743721
       Stream_2: -309486281
-      DoorGrey_0: 1360749912
       Mushroom: 1425082455
-      Candle_0: -387247735
-      Firebowl_2: 456338429
-      Mother_1: 759018448
       Key_Grey: -6393119
       Spikes_grey: -1018720058
       Platform_4: 933978366
       Key_Green: 2089127135
-      DoorGrey_2: -604756203
-      Fireplace_2: 1631699850
+      Fall_2: 1255714272
       Platform_1: -1624028744
+      Firebowl_0: 267164088
       Platform_3: 880925628
-      DoorGreen_1: -227913323
       Fireplace_1: -1024916941
       Fall_0: -628325260
-      DoorRed_2: -1579968724
-      Firebowl_0: 267164088
-      Stream_0: 1860220395
-      Fall_2: 1255714272
-      Candle_1: 1892384369
-      Stream_3: -1190808691
-      Fireplace_0: -630716480
-      Key_Red: 1805074571
-      DoorRed_1: 729713761
+      Blackberry: 961531519
       Firebowl_1: -388648844
+      Stream_0: 1860220395
+      DoorRed_1: 729713761
+      SwitchOn: -1816534046
+      Fireplace_0: -630716480
+      Objects_1: 1985532748
+      Key_Red: 1805074571
       DoorGrey_1: -16567571
-      Platform_2: 17101485
+      Stream_3: -1190808691
       Mother_2: 996843073
-      WaterBlueTransparent: 1422703808
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

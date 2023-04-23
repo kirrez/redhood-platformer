@@ -5,6 +5,7 @@ namespace Platformer
     public class CollectibleSpawner : MonoBehaviour
     {
         private IProgressManager ProgressManager;
+        private bool IsSpawned;
 
         [SerializeField]
         private EQuest Item;
@@ -19,12 +20,13 @@ namespace Platformer
 
         private void OnEnable()
         {
-            var instance = GameObject.Instantiate(ItemPrefab);
-            instance.transform.position = transform.position;
+            if (IsSpawned) return;
 
-            if (ProgressManager.GetQuest(Item) != 0)
+            if (ProgressManager.GetQuest(Item) == 0)
             {
-                instance.SetActive(false);
+                var instance = GameObject.Instantiate(ItemPrefab, transform.parent, false);
+                instance.transform.position = transform.position;
+                IsSpawned = true;
             }
         }
     }

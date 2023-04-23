@@ -73,6 +73,7 @@ namespace Platformer
                 }
 
                 var instance = ResourceManager.GetFromPool(Enemies.Bear);
+                instance.transform.SetParent(transform.parent, false);
                 Bear = instance.GetComponent<Bear>();
 
                 Bear.Initiate(direction, SpawnPoint.transform.position, Player.GetComponent<Player>(), DeathTrigger);

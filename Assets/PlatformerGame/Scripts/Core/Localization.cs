@@ -43,6 +43,7 @@ namespace Platformer
             Texts[ETexts.Exit] = "EXIT 'C'";
             Texts[ETexts.TalkToMom] = "Talk to Mom 'C'";
             Texts[ETexts.TalkToMomAgain] = "Talk to Mom again";
+            Texts[ETexts.PullLever] = "PULL LEVER 'C'";
 
             Texts[ETexts.DialoguePie1_1] = "- Hello, mom!";
             Texts[ETexts.DialoguePie1_2] = "- Guten Tag, mein Dear.";
@@ -56,6 +57,7 @@ namespace Platformer
             Texts[ETexts.Exit] = "НАРУЖУ 'C'";
             Texts[ETexts.TalkToMom] = "Ответить маме 'C''";
             Texts[ETexts.TalkToMomAgain] = "Снова ответить маме";
+            Texts[ETexts.PullLever] = "ДЕРНУТЬ РЫЧАГ 'C'";
 
             Texts[ETexts.DialoguePie1_1] = "- Привет, мама!";
             Texts[ETexts.DialoguePie1_2] = "- Добрий дэн, мой радост.";
