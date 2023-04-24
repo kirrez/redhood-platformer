@@ -1073,6 +1073,48 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: ButtonOff
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 488
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b73567475df74484c884d87af25de565
+      internalID: 1654182457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ButtonOn
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 472
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da7f66f6f7cde7e44a7b02bb0fa29653
+      internalID: 876549026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -1092,17 +1134,19 @@ TextureImporter:
       Mother_1: 759018448
       DoorGrey_2: -604756203
       Fireplace_2: 1631699850
+      ButtonOff: 1654182457
       DoorGreen_1: -227913323
       DoorRed_2: -1579968724
       Candle_1: 1892384369
       BridgeLeft: -479444781
       Platform_2: 17101485
       MotherPie: -1015853895
-      Mother_0: 1539828992
       WaterBlueTransparent: 1422703808
+      Mother_0: 1539828992
       DoorGreen_0: -425144864
       Fall_1: 2073561585
       BridgeCenter: 1616014153
+      ButtonOn: 876549026
       SwitchOff: 1425627654
       Stream_1: 855704516
       DoorGreen_2: 1295310118

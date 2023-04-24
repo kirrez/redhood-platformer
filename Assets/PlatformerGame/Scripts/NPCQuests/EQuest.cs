@@ -26,8 +26,10 @@ namespace Platformer
         Blackberry3,
         Blackberry4,
 
+        SuspensionBridge,
         Drawbridge,
-        WFElevator
+        WFElevator,
+        WFPlatform
     }
 }
 

@@ -43,8 +43,8 @@ TextureImporter:
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
-  spriteExtrude: 1
-  spriteMeshType: 1
+  spriteExtrude: 13
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 16
@@ -21711,12 +21711,12 @@ TextureImporter:
       RedHood Tiles_832: -2115123292
       RedHood Tiles_926: -180686246
       RedHood Tiles_111: 1376422390
-      RedHood Tiles_781: -705493383
       RedHood Tiles_168: 1769998016
-      RedHood Tiles_213: 2041655650
-      RedHood Tiles_319: 1093456992
+      RedHood Tiles_781: -705493383
       RedHood Tiles_817: 1480918602
+      RedHood Tiles_319: 1093456992
       RedHood Tiles_701: 486991475
+      RedHood Tiles_213: 2041655650
       RedHood Tiles_646: 1907567709
       RedHood Tiles_120: -1488534572
       RedHood Tiles_859: 438269336
