@@ -29,7 +29,8 @@ namespace Platformer
         SuspensionBridge,
         Drawbridge,
         WFElevator,
-        WFPlatform
+        WFPlatform,
+        WFSecondElevator
     }
 }
 
