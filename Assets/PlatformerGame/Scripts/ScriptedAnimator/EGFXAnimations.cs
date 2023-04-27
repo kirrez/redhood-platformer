@@ -20,6 +20,9 @@ namespace Platformer
         DoorGreyOpen,
         DoorGreyClose,
         DoorGreenOpen,
-        DoorGreenClose
+        DoorGreenClose,
+        DarkCloudsL1,
+        DarkCloudsL2,
+        DarkCloudsL3
     }
 }

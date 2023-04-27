@@ -3959,7 +3959,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3980,7 +3980,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -4001,7 +4001,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -4022,7 +4022,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -4043,7 +4043,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -4064,7 +4064,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -4072,6 +4072,48 @@ TextureImporter:
       bones: []
       spriteID: 1704727a57586fb42baf59889f68c7bb
       internalID: -908373589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraTiles_188
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 336
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b820ddea452a874caa53cb2c6c50adb
+      internalID: 370510736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraTiles_189
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 320
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc3fe93649620e54db13a1a08372c9f4
+      internalID: 1255241474
       vertices: []
       indices: 
       edges: []
@@ -4100,6 +4142,7 @@ TextureImporter:
       ExtraTiles_155: -556583402
       ExtraTiles_137: 1322342065
       ExtraTiles_150: 669654513
+      ExtraTiles_188: 370510736
       ExtraTiles_109: -1712107636
       ExtraTiles_170: 1354857710
       ExtraTiles_181: -355736500
@@ -4185,6 +4228,7 @@ TextureImporter:
       ExtraTiles_67: 1574458820
       ExtraTiles_179: 340046495
       ExtraTiles_39: 193431388
+      ExtraTiles_189: 1255241474
       ExtraTiles_52: -2126757493
       ExtraTiles_22: 1044445424
       ExtraTiles_103: -61980588
