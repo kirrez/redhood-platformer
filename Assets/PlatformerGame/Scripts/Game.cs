@@ -38,6 +38,11 @@ namespace Platformer
             
             VirtualPlayerCamera = CompositionRoot.GetVirtualPlayerCamera();
             VirtualPlayerCamera.Follow = Player.Transform;
+            
+            //temporary
+            CinemachineConfiner confiner = VirtualPlayerCamera.GetComponent<CinemachineConfiner>();
+            confiner.m_BoundingShape2D = CurrentStage.Confiners[0];
+            
         }
 
     }

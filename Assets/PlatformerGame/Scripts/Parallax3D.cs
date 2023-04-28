@@ -16,7 +16,6 @@ namespace Platformer
         {
             float offset = Time.time * ScrollSpeed;
             Renderer.material.SetTextureOffset("_MainTex", new Vector2(offset, 0));
-
         }
     }
 }

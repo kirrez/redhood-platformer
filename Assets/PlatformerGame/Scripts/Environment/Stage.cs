@@ -7,5 +7,7 @@ namespace Platformer
     public class Stage : MonoBehaviour
     {
         public List<Transform> SpawnPoints;
+
+        public List<Collider2D> Confiners;
     }
 }

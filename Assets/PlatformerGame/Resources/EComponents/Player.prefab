@@ -55,9 +55,6 @@ MonoBehaviour:
   SittingCollider: {fileID: 8522719760752516168}
   StandingFirePoint: {fileID: 8522719761679007767}
   SittingFirePoint: {fileID: 8522719761865829912}
-  Hud: {fileID: 0}
-  GameOver: {fileID: 0}
-  StartScreen: {fileID: 0}
 --- !u!114 &8522719760752516164
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -71,7 +68,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DamageDirection: 0
-  MaxHitPoints: 3
+  MaxHitPoints: 10
   DamageCooldown: 2
   Type: 0
 --- !u!212 &8522719760752516165
