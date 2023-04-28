@@ -193,7 +193,7 @@ GameObject:
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -267,7 +267,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 766451245}
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 1.873, y: 4.464, z: -3.244}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -328,10 +328,14 @@ PrefabInstance:
     - target: {fileID: 6269433562638281470, guid: 9f3e231ddb0e25545a1eba1c9faf69c2, type: 3}
       propertyPath: m_Icon
       value: 
-      objectReference: {fileID: -5938655980376293919, guid: 0000000000000000d000000000000000, type: 0}
+      objectReference: {fileID: 0}
     - target: {fileID: 6269433562638281470, guid: 9f3e231ddb0e25545a1eba1c9faf69c2, type: 3}
       propertyPath: m_Name
       value: Game
+      objectReference: {fileID: 0}
+    - target: {fileID: 6269433562638281470, guid: 9f3e231ddb0e25545a1eba1c9faf69c2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f3e231ddb0e25545a1eba1c9faf69c2, type: 3}

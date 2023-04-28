@@ -22,7 +22,6 @@ namespace Platformer
         {
             Timer = 0f;
             SpriteIndex = 0;
-
         }
 
         private void FixedUpdate()
