@@ -85,21 +85,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cd7e1824ad0ca44d85c32628e157c69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DirectionWeapon: 1
-  isDamageable: 0
-  InAir: 0
-  DirectionX: 0
-  DirectionY: 0
-  HitJump: 0
-  HitAttack: 0
   StandingCollider: {fileID: 7637045951683859510}
   SittingCollider: {fileID: 7637045951683859511}
-  DeltaY: 0
   StandingFirePoint: {fileID: 5489822301467759809}
   SittingFirePoint: {fileID: 3314406101628713662}
-  Hud: {fileID: 0}
-  GameOver: {fileID: 0}
-  StartScreen: {fileID: 0}
 --- !u!114 &7517495801880504683
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113,7 +102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DamageDirection: 0
-  MaxHealth: 10
+  MaxHitPoints: 0
   DamageCooldown: 1
   Type: 0
 --- !u!212 &7637045951683859496
@@ -155,7 +144,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1802282183
-  m_SortingLayer: 2
+  m_SortingLayer: 1
   m_SortingOrder: 3
   m_Sprite: {fileID: 5770251550782387183, guid: f72e54c8496a0b7409b4bede43468f18, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -283,7 +272,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_CategoryHash: 0
   m_labelHash: 0
-  m_SpriteKey: 2.301813e-28
+  m_SpriteKey: 0
 --- !u!111 &7517495801880504687
 Animation:
   m_ObjectHideFlags: 0

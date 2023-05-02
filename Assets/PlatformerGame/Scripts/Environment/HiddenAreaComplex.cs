@@ -16,12 +16,9 @@ namespace Platformer
         private IPlayer Player;
         private bool Inside;
 
-        private void OnTriggerEnter2D(Collider2D collision)
+        private void Start()
         {
-            if (collision.gameObject.CompareTag("Player"))
-            {
-                Player = collision.gameObject.GetComponent<IPlayer>();
-            }
+            Player = CompositionRoot.GetPlayer();
         }
 
         private void Update()

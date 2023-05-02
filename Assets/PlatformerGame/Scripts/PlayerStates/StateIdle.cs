@@ -21,7 +21,7 @@ namespace Platformer.PlayerStates
         public override void OnFixedUpdate()
         {
             // Carried by platform
-            if (Model.Grounded(LayerMasks.PlatformOneWay))
+            if (Model.Grounded(LayerMasks.Platforms))
             {
                 Model.StickToPlatform();
             }

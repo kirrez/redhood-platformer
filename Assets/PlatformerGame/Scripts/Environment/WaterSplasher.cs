@@ -9,15 +9,15 @@ namespace Platformer
         private IPlayer Player;
         private bool Inside;
 
-        private void Awake()
+        private void Start()
         {
             ResourceManager = CompositionRoot.GetResourceManager();
             Collider = GetComponent<Collider2D>();
+            Player = CompositionRoot.GetPlayer();
         }
 
         private void Update()
         {
-            if (Player == null) return;
 
             if (Collider.bounds.Contains(Player.Position) && !Inside)
             {
@@ -34,12 +34,5 @@ namespace Platformer
             }
         }
 
-        private void OnTriggerEnter2D(Collider2D collision)
-        {
-            if (collision.gameObject.CompareTag("Player"))
-            {
-                Player = collision.gameObject.GetComponent<IPlayer>();
-            }
-        }
     }
 }

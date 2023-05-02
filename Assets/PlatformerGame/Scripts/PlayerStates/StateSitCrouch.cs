@@ -17,18 +17,10 @@ namespace Platformer.PlayerStates
 
         public override void OnFixedUpdate()
         {
-
             Model.DirectionCheck();
 
             // Horizontal movement with checking platform riding
-            if (Model.Grounded(LayerMasks.Platforms))
-            {
-                Model.Crouch(true);
-            }
-            else
-            {
-                Model.Crouch(false);
-            }
+            Model.Crouch();
 
             // Sit
             if (Model.Horizontal == 0)

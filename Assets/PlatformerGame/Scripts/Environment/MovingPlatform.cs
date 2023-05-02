@@ -8,6 +8,10 @@ namespace Platformer
     {
         private Rigidbody2D Rigidbody;
         private Vector2 Velocity;
+        private IPlayer Player;
+
+        [SerializeField]
+        private Collider2D Collider;
 
         [SerializeField]
         private Transform[] Waypoints;
@@ -21,12 +25,17 @@ namespace Platformer
             Rigidbody = GetComponent<Rigidbody2D>();
         }
 
+        private void OnEnable()
+        {
+            Player = CompositionRoot.GetPlayer();
+        }
+
         private void FixedUpdate()
         {
             Velocity = (Waypoints[Index].position - transform.position).normalized * Force;
             Rigidbody.velocity = Velocity;
 
-            if (Vector2.Distance(Waypoints[Index].position, this.transform.position) < 0.1f)
+            if (Vector2.Distance(Waypoints[Index].position, transform.position) < 0.1f)
             {
                 Index++;
                 if (Index >= Waypoints.Length)
@@ -34,6 +43,10 @@ namespace Platformer
                     Index = 0;
                 }
 
+                //if (Collider.bounds.Contains(Player.Position))
+                //{
+                //    Player.StickToPlatform();
+                //}
             }
         }
     }

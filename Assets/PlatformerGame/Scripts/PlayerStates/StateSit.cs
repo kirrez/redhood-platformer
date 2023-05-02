@@ -22,16 +22,17 @@ namespace Platformer.PlayerStates
         {
 
             // Push Down, should i use it while sitting?
-            if (Model.Vertical < 0)
-            {
-                Model.PushDown();
-            }
+            //if (Model.Vertical < 0)
+            //{
+            //    Model.PushDown();
+            //}
 
             // Carried by platform
-            if (Model.Grounded(LayerMasks.PlatformOneWay))
+            if (Model.Grounded(LayerMasks.Platforms))
             {
                 Model.StickToPlatform();
             }
+            
 
             // Crouch
             if (Model.Horizontal != 0)

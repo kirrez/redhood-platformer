@@ -35,8 +35,8 @@ namespace Platformer
         //Commands
 
         void SetState(EPlayerStates state, float time = 0f);
-        void Walk(bool platform = false);
-        void Crouch(bool platform = false);
+        void Walk();
+        void Crouch();
         void StickToPlatform();
         void ResetVelocity();
         void PushDown();

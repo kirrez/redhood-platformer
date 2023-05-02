@@ -147,7 +147,7 @@ namespace Platformer
 
             Health.RefillHealth();
 
-            //not won't work
+            //now won't work
             //int lives = Health.GetHitPoints;
             //Hud.ChangeLivesAmount(lives);
 
@@ -168,6 +168,8 @@ namespace Platformer
 
         private void FixedUpdate()
         {
+            //Grounded(LayerMasks.Platforms);
+
             DeltaY = transform.position.y - LastPosition.y;
             LastPosition = transform.position;
 
@@ -270,25 +272,27 @@ namespace Platformer
         //    InAir = state;
         //}
 
-        public void Walk(bool platform = false)
+        public void Walk()
         {
-            if (platform)
+            if (Platform != null)
             {
                 Rigidbody.velocity = new Vector2(Horizontal * Time.fixedDeltaTime * HorizontalSpeed, 0f) + Platform.velocity;
             }
-            else
+            
+            if (Platform == null)
             {
                 Rigidbody.velocity = new Vector2(Horizontal * Time.fixedDeltaTime * HorizontalSpeed, Rigidbody.velocity.y);
             }
         }
 
-        public void Crouch(bool platform = false)
+        public void Crouch()
         {
-            if (platform)
+            if (Platform != null)
             {
                 Rigidbody.velocity = new Vector2(Horizontal * Time.fixedDeltaTime * CrouchSpeed, 0f) + Platform.velocity;
             }
-            else
+            
+            if (Platform == null)
             {
                 Rigidbody.velocity = new Vector2(Horizontal * Time.fixedDeltaTime * CrouchSpeed, Rigidbody.velocity.y);
             }
@@ -297,6 +301,7 @@ namespace Platformer
         // For Idle and Sit States while riding a platform
         public void StickToPlatform()
         {
+            //if (Platform == null) return;
             Rigidbody.velocity = Platform.velocity;
         }
 
@@ -401,15 +406,28 @@ namespace Platformer
             var origin = new Vector2(Collider.bounds.center.x, Collider.bounds.center.y - Collider.bounds.extents.y);
             var boxSize = new Vector2(Collider.bounds.size.x, 0.05f);
 
-            float distance = 0.05f; // Magic number, empirical
+            //float distance = 0.05f; // Magic number, empirical
+            float distance = 0.1f;
 
             RaycastHit2D GroundHit = Physics2D.BoxCast(origin, boxSize, 0f, Vector2.down, distance, mask);
 
-            // check moving platform
             if (GroundHit.collider != null && GroundHit.collider.gameObject.layer == (int)Layers.PlatformOneWay)
             {
                 Platform = GroundHit.collider.gameObject.GetComponent<Rigidbody2D>();
             }
+
+            // check moving platform
+            //if (mask == LayerMasks.Platforms)
+            //{
+            //    if (GroundHit.collider != null)
+            //    {
+            //        Platform = GroundHit.collider.gameObject.GetComponent<Rigidbody2D>();
+            //    }
+            //    if (GroundHit.collider == null)
+            //    {
+            //        Platform = null;
+            //    }
+            //}
 
             return GroundHit.collider != null;
         }

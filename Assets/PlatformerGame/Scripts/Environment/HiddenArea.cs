@@ -13,9 +13,10 @@ namespace Platformer
 
         private Collider2D Collider;
 
-        private void Awake()
+        private void Start()
         {
             Collider = GetComponent<Collider2D>();
+            Player = CompositionRoot.GetPlayer();
         }
 
         private void Update()
@@ -34,15 +35,5 @@ namespace Platformer
                 Inside = false;
             }
         }
-
-        private void OnTriggerEnter2D(Collider2D collision)
-        {
-            if (collision.gameObject.CompareTag("Player"))
-            {
-                Player = collision.gameObject.GetComponent<IPlayer>();
-
-            }
-        }
-
     }
 }
