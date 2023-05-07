@@ -7,6 +7,10 @@ namespace Platformer
 {
     public class Game : MonoBehaviour
     {
+        //temporary
+        [SerializeField]
+        private EStages Stage;
+
         private IPlayer Player;
         private IUIRoot UIRoot;
         private CinemachineVirtualCamera VirtualPlayerCamera;
@@ -31,7 +35,7 @@ namespace Platformer
             //temporary solution
             //CurrentStage = ResourceManager.CreatePrefab<Stage, EStages>(EStages.TheVillage);
 
-            CurrentStage = ResourceManager.CreatePrefab<Stage, EStages>(EStages.WestForest);
+            CurrentStage = ResourceManager.CreatePrefab<Stage, EStages>(Stage);
 
             Player = CompositionRoot.GetPlayer();
             Player.Position = CurrentStage.SpawnPoints[0].position;

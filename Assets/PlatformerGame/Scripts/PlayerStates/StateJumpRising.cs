@@ -35,6 +35,11 @@ namespace Platformer.PlayerStates
                 Model.Walk();
             }
 
+            if (Model.Grounded(LayerMasks.Platforms))
+            {
+                
+            }
+
             // State Walk, while in jump on a steep slope  "Solid"
             if (Model.Horizontal != 0 && Model.Grounded(LayerMasks.Slope))
             {

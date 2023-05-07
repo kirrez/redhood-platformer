@@ -16,13 +16,13 @@ namespace Platformer.PlayerStates
         {
             base.Activate(time);
 
-            Model.JumpDown(true);
+            Model.JumpDown();
         }
 
         protected override void OnHealthChanged()
         {
             Model.ChangeHealthUI();
-            Model.JumpDown(false);
+            Model.JumpDown();
             Model.SetState(EPlayerStates.DamageTaken);
         }
 
@@ -44,7 +44,7 @@ namespace Platformer.PlayerStates
                 if (Timer <= 0)
                 {
                     Model.StandUp();
-                    Model.JumpDown(false);
+                    Model.JumpDown();
                     Model.SetState(EPlayerStates.JumpFalling);
                 }
             }
@@ -54,7 +54,7 @@ namespace Platformer.PlayerStates
             {
                 //Model.UpdateInAir(false);
                 Model.StandUp();
-                Model.JumpDown(false);
+                Model.JumpDown();
                 Model.Animations.Idle();
                 Model.SetState(EPlayerStates.Idle);
             }

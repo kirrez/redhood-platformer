@@ -20,6 +20,8 @@ namespace Platformer.PlayerStates
             Model.DirectionCheck();
 
             // Horizontal movement with checking platform riding
+            Model.Grounded(LayerMasks.Platforms);
+
             Model.Walk();
 
             // State Idle

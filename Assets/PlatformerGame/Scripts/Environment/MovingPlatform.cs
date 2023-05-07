@@ -4,14 +4,17 @@ using UnityEngine;
 
 namespace Platformer
 {
-    public class MovingPlatform : MonoBehaviour
+    public class MovingPlatform : BasePlatform
     {
         private Rigidbody2D Rigidbody;
         private Vector2 Velocity;
         private IPlayer Player;
 
         [SerializeField]
-        private Collider2D Collider;
+        private Collider2D StickTrigger;
+
+        [SerializeField]
+        private Collider2D ComeThroughTrigger;
 
         [SerializeField]
         private Transform[] Waypoints;
@@ -30,12 +33,16 @@ namespace Platformer
             Player = CompositionRoot.GetPlayer();
         }
 
-        private void FixedUpdate()
+        protected override void FixedUpdate()
         {
-            Velocity = (Waypoints[Index].position - transform.position).normalized * Force;
-            Rigidbody.velocity = Velocity;
+            var distance = Vector2.Distance(Waypoints[Index].position, transform.position);
+            if ( distance > 0.1f)
+            {
+                Velocity = (Waypoints[Index].position - transform.position).normalized * Force;
+                Rigidbody.velocity = Velocity;
+            }
 
-            if (Vector2.Distance(Waypoints[Index].position, transform.position) < 0.1f)
+            if (distance <= 0.1f)
             {
                 Index++;
                 if (Index >= Waypoints.Length)
@@ -43,10 +50,34 @@ namespace Platformer
                     Index = 0;
                 }
 
-                //if (Collider.bounds.Contains(Player.Position))
-                //{
-                //    Player.StickToPlatform();
-                //}
+                if (StickTrigger.bounds.Contains(Player.Position))
+                {
+                    Velocity = (Waypoints[Index].position - transform.position).normalized * Force;
+                    Rigidbody.velocity = Velocity;
+                    Player.ResetVelocity();
+                    Player.StickToPlatform();
+                    //Debug.Log("Stick!");
+                }
+            }
+
+            if (!IsActive) return;
+
+            Timer -= Time.fixedDeltaTime;
+
+            if (ComeThroughTrigger.bounds.Contains(Player.Position))
+            {
+                Inside = true;
+            }
+
+            if (!ComeThroughTrigger.bounds.Contains(Player.Position))
+            {
+                Inside = false;
+            }
+
+            if (Timer <= 0f && !Inside)
+            {
+                gameObject.layer = (int)Layers.PlatformOneWay;
+                IsActive = false;
             }
         }
     }

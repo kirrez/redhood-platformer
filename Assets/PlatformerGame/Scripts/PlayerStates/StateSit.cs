@@ -28,11 +28,11 @@ namespace Platformer.PlayerStates
             //}
 
             // Carried by platform
-            if (Model.Grounded(LayerMasks.Platforms))
-            {
-                Model.StickToPlatform();
-            }
-            
+            //if (Model.Grounded(LayerMasks.Platforms))
+            //{
+            //    Model.StickToPlatform();
+            //}
+            //Model.StickToPlatform();
 
             // Crouch
             if (Model.Horizontal != 0)
@@ -55,12 +55,23 @@ namespace Platformer.PlayerStates
                 Model.SetState(EPlayerStates.SitAttack, Model.Animations.SitAttack());
             }
 
-            // Jump down from platform
-            if (Model.HitJump && Model.Grounded(LayerMasks.OneWay + LayerMasks.PlatformOneWay))
+            // Jump down from OneWay
+            if (Model.HitJump && Model.Grounded(LayerMasks.OneWay))
             {
                 Model.HitJump = false;
+                Model.JumpDown();
                 Model.Animations.JumpFalling();
-                Model.SetState(EPlayerStates.JumpDown, Model.JumpDownTime);
+                //Model.SetState(EPlayerStates.JumpDown, Model.JumpDownTime);
+                Model.SetState(EPlayerStates.JumpFalling, 0.75f);
+            }
+
+            // Jump down from OneWay
+            if (Model.HitJump && Model.Grounded(LayerMasks.PlatformOneWay))
+            {
+                Model.HitJump = false;
+                Model.JumpDown();
+                Model.Animations.JumpFalling();
+                Model.SetState(EPlayerStates.JumpFalling, 0.75f);
             }
 
             // Roll Down while on ground !! not Solid (esp. Slope)
@@ -82,7 +93,7 @@ namespace Platformer.PlayerStates
             if (Model.DeltaY < 0 && !Model.Grounded(LayerMasks.Walkable))
             {
                 Model.Animations.JumpFalling();
-                Model.SetState(EPlayerStates.JumpFalling);
+                Model.SetState(EPlayerStates.JumpFalling, 0.75f);
             }
         }
     }

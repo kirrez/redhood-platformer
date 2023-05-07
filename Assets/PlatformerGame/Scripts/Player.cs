@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using Platformer.ScriptedAnimator;
 using Platformer.PlayerStates;
 using UnityEngine;
@@ -49,7 +47,7 @@ namespace Platformer
         private StateRollDown StateRollDown;
         private StateDamageTaken StateDamageTaken;
         private StateSitDamageTaken StateSitDamageTaken;
-        
+
         private BaseState CurrentState;
 
         private Rigidbody2D Rigidbody;
@@ -78,6 +76,7 @@ namespace Platformer
 
         // link to a moving platform under player's feet
         private Rigidbody2D Platform = null;
+        
 
 
         //Weapons
@@ -168,8 +167,6 @@ namespace Platformer
 
         private void FixedUpdate()
         {
-            //Grounded(LayerMasks.Platforms);
-
             DeltaY = transform.position.y - LastPosition.y;
             LastPosition = transform.position;
 
@@ -301,7 +298,7 @@ namespace Platformer
         // For Idle and Sit States while riding a platform
         public void StickToPlatform()
         {
-            //if (Platform == null) return;
+            if (Platform == null) return;
             Rigidbody.velocity = Platform.velocity;
         }
 
@@ -404,30 +401,30 @@ namespace Platformer
         public bool Grounded(LayerMask mask)
         {
             var origin = new Vector2(Collider.bounds.center.x, Collider.bounds.center.y - Collider.bounds.extents.y);
-            var boxSize = new Vector2(Collider.bounds.size.x, 0.05f);
+            var boxSize = new Vector2(Collider.bounds.size.x, 0.1f);
 
             //float distance = 0.05f; // Magic number, empirical
             float distance = 0.1f;
 
             RaycastHit2D GroundHit = Physics2D.BoxCast(origin, boxSize, 0f, Vector2.down, distance, mask);
 
-            if (GroundHit.collider != null && GroundHit.collider.gameObject.layer == (int)Layers.PlatformOneWay)
-            {
-                Platform = GroundHit.collider.gameObject.GetComponent<Rigidbody2D>();
-            }
+            //if (GroundHit.collider != null && GroundHit.collider.gameObject.layer == (int)Layers.PlatformOneWay)
+            //{
+            //    Platform = GroundHit.collider.gameObject.GetComponent<Rigidbody2D>();
+            //}
 
             // check moving platform
-            //if (mask == LayerMasks.Platforms)
-            //{
-            //    if (GroundHit.collider != null)
-            //    {
-            //        Platform = GroundHit.collider.gameObject.GetComponent<Rigidbody2D>();
-            //    }
-            //    if (GroundHit.collider == null)
-            //    {
-            //        Platform = null;
-            //    }
-            //}
+            if (mask == LayerMasks.Platforms)
+            {
+                if (GroundHit.collider != null)
+                {
+                    Platform = GroundHit.collider.gameObject.GetComponent<Rigidbody2D>();
+                }
+                if (GroundHit.collider == null)
+                {
+                    Platform = null;
+                }
+            }
 
             return GroundHit.collider != null;
         }
@@ -446,16 +443,16 @@ namespace Platformer
             //GameOver.Show();
         }
 
-        public void JumpDown(bool state)
+        public void JumpDown()
         {
-            if (state)
-            {
-                this.gameObject.layer = (int)Layers.JumpDown;
-            }
-            if (!state)
-            {
-                this.gameObject.layer = (int)Layers.FeetCollider;
-            }
+            //if (state)
+            //{
+            //    this.gameObject.layer = (int)Layers.JumpDown;
+            //}
+            //if (!state)
+            //{
+            //    this.gameObject.layer = (int)Layers.FeetCollider;
+            //}
         }
 
         public void InactivateCollider()

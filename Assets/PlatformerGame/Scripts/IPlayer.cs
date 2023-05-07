@@ -41,7 +41,7 @@ namespace Platformer
         void ResetVelocity();
         void PushDown();
         void Jump();
-        void JumpDown(bool state);
+        void JumpDown();
         void InactivateCollider();
         void DamagePushBack();
         void RollDown();

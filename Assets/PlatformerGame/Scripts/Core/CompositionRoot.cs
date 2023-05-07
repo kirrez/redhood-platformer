@@ -24,7 +24,9 @@ namespace Platformer
             if (Player == null)
             {
                 var resourceManager = GetResourceManager();
-                Player = resourceManager.CreatePrefab<IPlayer, EComponents>(EComponents.Player);
+                //under development
+                //Player = resourceManager.CreatePrefab<IPlayer, EComponents>(EComponents.Player);
+                Player = resourceManager.CreatePrefab<IPlayer, EComponents>(EComponents.Player2);
             }
             return Player;
         }

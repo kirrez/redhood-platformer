@@ -33,9 +33,8 @@ namespace Platformer.PlayerStates
                     Model.StandUp();
                 }
             }
-            
 
-            // Horizontal movement, controllable fall
+            // Horizontal movement, should change to some more smooth logic for controllable falling
             if (Model.Horizontal != 0)
             {
                 Model.Walk();

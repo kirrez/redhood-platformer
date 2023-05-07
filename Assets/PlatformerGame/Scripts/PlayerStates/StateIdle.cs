@@ -21,10 +21,13 @@ namespace Platformer.PlayerStates
         public override void OnFixedUpdate()
         {
             // Carried by platform
-            if (Model.Grounded(LayerMasks.Platforms))
-            {
-                Model.StickToPlatform();
-            }
+            //if (Model.Grounded(LayerMasks.Platforms))
+            //{
+            //    Model.StickToPlatform();
+            //}
+            //Model.StickToPlatform();
+
+            Model.Grounded(LayerMasks.Platforms);
 
             // Steep slope
             if (Model.Grounded(LayerMasks.Slope))
@@ -52,6 +55,7 @@ namespace Platformer.PlayerStates
                 Model.HitJump = false;
 
                 Model.Animations.JumpRising();
+                Model.ResetVelocity(); //new part for platforms
                 Model.Jump();
                 Model.SetState(EPlayerStates.JumpRising);
             }
