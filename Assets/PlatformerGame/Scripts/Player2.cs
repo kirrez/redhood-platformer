@@ -242,6 +242,7 @@ namespace Platformer
             CurrentState.Activate(time);
         }
 
+
         // also returns "1" if player faces right and "-1" if left )) for external checks in spawners etc.
         public float DirectionCheck()
         {
@@ -442,6 +443,7 @@ namespace Platformer
                         PlatformInstance = GroundHit.collider.gameObject.GetComponent<MovingPlatform>();
                     }
                 }
+
                 if (GroundHit.collider == null)
                 {
                     PlatformRigidbody = null;
@@ -453,6 +455,11 @@ namespace Platformer
             }
 
             return GroundHit.collider != null;
+        }
+
+        public void ReleasePlatform()
+        {
+            PlatformRigidbody = null;
         }
 
         public void ResetDamageCooldown()

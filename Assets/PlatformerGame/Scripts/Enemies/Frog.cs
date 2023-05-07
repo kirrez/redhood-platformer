@@ -27,7 +27,7 @@ namespace Platformer
         private Health Health;
         private Rigidbody2D Rigidbody;
         private SpriteRenderer Renderer;
-        private Player Target;
+        private IPlayer Player;
         private IResourceManager ResourceManager;
 
         private float DeltaY;
@@ -77,6 +77,7 @@ namespace Platformer
         private void OnEnable()
         {
             LastPosition.y = transform.position.y;
+            Player = CompositionRoot.GetPlayer();
             FrogAnimator.JumpRising();
         }
 
@@ -159,7 +160,7 @@ namespace Platformer
             }
         }
 
-        public void Initiate(float direction, float disappearY, Vector2 startPosition, Player target)
+        public void Initiate(float direction, float disappearY, Vector2 startPosition)
         {
             DirectionX = direction;
             DisappearY = disappearY;
@@ -167,8 +168,6 @@ namespace Platformer
             IsDamaged = false;
             //face right
             CheckDirection();
-
-            Target = target;
 
             transform.position = startPosition;
 
@@ -336,8 +335,8 @@ namespace Platformer
 
             if (Timer <= 0f)
             {
-                var distance = transform.position.x - Target.transform.position.x;
-                var height = Target.transform.position.y - transform.position.y;
+                var distance = transform.position.x - Player.Position.x;
+                var height = Player.Position.y - transform.position.y;
                 var chance = UnityEngine.Random.Range(0f, 1f);
 
                 // Player not too far ??

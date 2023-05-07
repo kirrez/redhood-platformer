@@ -20,19 +20,12 @@ namespace Platformer.PlayerStates
 
         public override void OnFixedUpdate()
         {
-
-            // Push Down, should i use it while sitting?
-            //if (Model.Vertical < 0)
-            //{
-            //    Model.PushDown();
-            //}
-
-            // Carried by platform
-            //if (Model.Grounded(LayerMasks.Platforms))
-            //{
-            //    Model.StickToPlatform();
-            //}
-            //Model.StickToPlatform();
+            // Carried by MovingPlatform
+            if (Model.Grounded(LayerMasks.Platforms))
+            {
+                Model.StickToPlatform();
+            }
+            Model.StickToPlatform();
 
             // Crouch
             if (Model.Horizontal != 0)

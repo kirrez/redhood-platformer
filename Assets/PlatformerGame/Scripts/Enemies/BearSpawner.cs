@@ -22,7 +22,6 @@ namespace Platformer
         private float Timer = 0f;
         private bool isActive;
         private int SpawnCount;
-        private GameObject Player;
 
         private void Awake()
         {
@@ -34,7 +33,6 @@ namespace Platformer
             if (collision.gameObject.CompareTag("Player"))
             {
                 isActive = true;
-                Player = collision.gameObject;
             }
         }
 
@@ -76,7 +74,7 @@ namespace Platformer
                 instance.transform.SetParent(transform.parent, false);
                 Bear = instance.GetComponent<Bear>();
 
-                Bear.Initiate(direction, SpawnPoint.transform.position, Player.GetComponent<Player>(), DeathTrigger);
+                Bear.Initiate(direction, SpawnPoint.transform.position, DeathTrigger);
                 Bear.Killed -= OnBearKilled;
                 Bear.Killed += OnBearKilled;
             }

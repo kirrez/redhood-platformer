@@ -429,6 +429,11 @@ namespace Platformer
             return GroundHit.collider != null;
         }
 
+        public void ReleasePlatform()
+        {
+            Platform = null;
+        }
+
         public void ResetDamageCooldown()
         {
             Health.ResetDamageCooldown();

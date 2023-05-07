@@ -20,6 +20,7 @@ namespace Platformer.PlayerStates
 
         public override void OnFixedUpdate()
         {
+            Timer -= Time.fixedDeltaTime;
 
             Model.DirectionCheck();
 
@@ -35,9 +36,10 @@ namespace Platformer.PlayerStates
                 Model.Walk();
             }
 
-            if (Model.Grounded(LayerMasks.Platforms))
+            // Check MovingPlatform again after cooldown
+            if (Timer <= 0)
             {
-                
+                Model.Grounded(LayerMasks.Platforms);
             }
 
             // State Walk, while in jump on a steep slope  "Solid"

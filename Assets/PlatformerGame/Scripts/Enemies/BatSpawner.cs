@@ -28,12 +28,13 @@ namespace Platformer
         private bool BatSpawned;
         private float StartY;
         private float StartX;
-        private GameObject Player;
+        private IPlayer Player;
         private Bat Bat;
 
         private void Awake()
         {
             ResourceManager = CompositionRoot.GetResourceManager();
+            Player = CompositionRoot.GetPlayer();
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
@@ -41,7 +42,6 @@ namespace Platformer
             if (collision.gameObject.CompareTag("Player"))
             {
                 isActive = true;
-                Player = collision.gameObject;
             }
         }
 
@@ -63,8 +63,8 @@ namespace Platformer
                 //Debug.Log("Bat Spawned!");
                 BatSpawned = true;
 
-                StartY = Player.transform.position.y + 2f;
-                StartX = Player.transform.position.x;
+                StartY = Player.Position.y + 2f;
+                StartX = Player.Position.x;
 
                 if (!SpawnOnOneSide)
                 {

@@ -19,9 +19,7 @@ namespace Platformer.PlayerStates
         {
             Model.DirectionCheck();
 
-            // Horizontal movement with checking platform riding
-            Model.Grounded(LayerMasks.Platforms);
-
+            // Horizontal movement
             Model.Walk();
 
             // State Idle
@@ -50,10 +48,10 @@ namespace Platformer.PlayerStates
             {
                 //Model.UpdateInAir(true);
                 Model.HitJump = false;
-                Model.ResetVelocity();
-
                 Model.Animations.JumpRising();
-                Model.SetState(EPlayerStates.JumpRising);
+                Model.ReleasePlatform();
+                Model.ResetVelocity(); // test
+                Model.SetState(EPlayerStates.JumpRising, 0.75f);
                 Model.Jump();
             }
 

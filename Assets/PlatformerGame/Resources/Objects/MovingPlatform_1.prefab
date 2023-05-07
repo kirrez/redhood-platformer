@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &637706668071650754
 Transform:
   m_ObjectHideFlags: 0
@@ -109,7 +109,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Delay: 0.75
-  StickTrigger: {fileID: 339140700043190611}
   ComeThroughTrigger: {fileID: 6272487934957754417}
   Waypoints:
   - {fileID: 0}
@@ -243,7 +242,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1420538758988809344}
   - component: {fileID: 6272487934957754417}
-  m_Layer: 14
+  m_Layer: 0
   m_Name: ComeThrough
   m_TagString: Untagged
   m_Icon: {fileID: 0}

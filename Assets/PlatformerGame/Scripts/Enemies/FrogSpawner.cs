@@ -17,13 +17,14 @@ namespace Platformer
         private float StartY;
         private float StartX;
         private Collider2D Collider; // for calculating boundaries of spawner
-        private GameObject Player;
+        private IPlayer Player;
         private Frog Frog;
 
         private void Awake()
         {
             ResourceManager = CompositionRoot.GetResourceManager();
             Collider = GetComponent<Collider2D>();
+            Player = CompositionRoot.GetPlayer();
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
@@ -31,7 +32,6 @@ namespace Platformer
             if (collision.gameObject.CompareTag("Player"))
             {
                 isActive = true;
-                Player = collision.gameObject;
             }
         }
 
@@ -52,9 +52,9 @@ namespace Platformer
             {
                 FrogSpawned = true;
 
-                StartX = Player.transform.position.x;
+                StartX = Player.Position.x;
                 // frog jumps from direction, where player is facing
-                direction = Player.GetComponent<Player>().DirectionCheck() * -1;
+                direction = Player.DirectionCheck() * -1;
                 StartX += InitialDistance * direction * -1;
                 StartY = transform.position.y - Collider.bounds.extents.y;
 
@@ -62,7 +62,7 @@ namespace Platformer
                 instance.transform.SetParent(transform.parent, false);
                 Frog = instance.GetComponent<Frog>();
 
-                Frog.Initiate(direction, StartY, new Vector2(StartX, StartY), Player.GetComponent<Player>());
+                Frog.Initiate(direction, StartY, new Vector2(StartX, StartY));
                 Frog.Killed -= OnFrogKilled;
                 Frog.Killed += OnFrogKilled;
 

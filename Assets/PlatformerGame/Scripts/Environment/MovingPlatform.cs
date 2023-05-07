@@ -10,8 +10,8 @@ namespace Platformer
         private Vector2 Velocity;
         private IPlayer Player;
 
-        [SerializeField]
-        private Collider2D StickTrigger;
+        //[SerializeField]
+        //private Collider2D StickTrigger;
 
         [SerializeField]
         private Collider2D ComeThroughTrigger;
@@ -50,14 +50,14 @@ namespace Platformer
                     Index = 0;
                 }
 
-                if (StickTrigger.bounds.Contains(Player.Position))
-                {
-                    Velocity = (Waypoints[Index].position - transform.position).normalized * Force;
-                    Rigidbody.velocity = Velocity;
-                    Player.ResetVelocity();
-                    Player.StickToPlatform();
-                    //Debug.Log("Stick!");
-                }
+                //if (StickTrigger.bounds.Contains(Player.Position))
+                //{
+                //    Velocity = (Waypoints[Index].position - transform.position).normalized * Force;
+                //    Rigidbody.velocity = Velocity;
+                //    Player.ResetVelocity();
+                //    Player.StickToPlatform();
+                //    Debug.Log("Stick!");
+                //}
             }
 
             if (!IsActive) return;

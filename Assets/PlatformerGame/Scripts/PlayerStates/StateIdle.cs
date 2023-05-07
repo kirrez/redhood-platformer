@@ -20,19 +20,16 @@ namespace Platformer.PlayerStates
 
         public override void OnFixedUpdate()
         {
-            // Carried by platform
-            //if (Model.Grounded(LayerMasks.Platforms))
-            //{
-            //    Model.StickToPlatform();
-            //}
-            //Model.StickToPlatform();
-
-            Model.Grounded(LayerMasks.Platforms);
-
             // Steep slope
             if (Model.Grounded(LayerMasks.Slope))
             {
                 Model.ResetVelocity();
+            }
+
+            // Carried by MovingPlatform
+            if (Model.Grounded(LayerMasks.Platforms))
+            {
+                Model.StickToPlatform();
             }
 
             // State Walk
@@ -53,11 +50,11 @@ namespace Platformer.PlayerStates
             if (Model.HitJump && Model.Grounded(LayerMasks.Walkable) && !Model.StandingCeiled(LayerMasks.Solid))
             {
                 Model.HitJump = false;
-
                 Model.Animations.JumpRising();
-                Model.ResetVelocity(); //new part for platforms
+                Model.ReleasePlatform();
+                Model.ResetVelocity();//test
                 Model.Jump();
-                Model.SetState(EPlayerStates.JumpRising);
+                Model.SetState(EPlayerStates.JumpRising, 0.75f);
             }
 
             // State Jump Rising without hitting "Jump" button ))

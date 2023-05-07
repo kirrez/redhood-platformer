@@ -40,6 +40,12 @@ namespace Platformer.PlayerStates
                 Model.Walk();
             }
 
+            // Trying to stick..
+            if (Model.Grounded(LayerMasks.Platforms))
+            {
+                Model.StickToPlatform();
+            }
+
             // State JumpFallingAttack
             if (Model.HitAttack)
             {

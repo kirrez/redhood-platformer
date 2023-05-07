@@ -59,19 +59,6 @@ namespace Platformer
             {
                 Timer -= AnimationDelay;
 
-                //if (SpriteIndex == CurrentAnimations.Count - 1)
-                //{
-                //    // if not Full and not Loop, then animation just stops
-                //    if (NextAnimationSwitched && Full)
-                //    {
-                //        SetupAnimation();
-                //    }
-                //    if (Loop)
-                //    {
-                //        SpriteIndex = 0;
-                //    }
-                //}
-
                 if (SpriteIndex < CurrentAnimations.Count - 1)
                 {
                     SpriteIndex++;

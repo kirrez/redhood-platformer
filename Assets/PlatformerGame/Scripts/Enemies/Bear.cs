@@ -31,7 +31,7 @@ namespace Platformer
         private Health Health;
         private Rigidbody2D Rigidbody;
         private SpriteRenderer Renderer;
-        private Player Target;
+        private IPlayer Player;
 
         private Enemies Slash = Enemies.BearSlash;
 
@@ -54,6 +54,7 @@ namespace Platformer
         private void Awake()
         {
             ResourceManager = CompositionRoot.GetResourceManager();
+            Player = CompositionRoot.GetPlayer();
             Health = GetComponent<Health>();
             Rigidbody = GetComponent<Rigidbody2D>();
             Renderer = GetComponent<SpriteRenderer>();
@@ -130,12 +131,11 @@ namespace Platformer
             gameObject.SetActive(false);
         }
 
-        public void Initiate(float direction, Vector2 startPosition, Player target, Collider2D deathTrigger = null)
+        public void Initiate(float direction, Vector2 startPosition, Collider2D deathTrigger = null)
         {
             DirectionX = direction;
             CheckDirection();
             transform.position = startPosition;
-            Target = target;
             DeathTrigger = deathTrigger;
 
             CurrentState = StateInitial;
@@ -191,7 +191,7 @@ namespace Platformer
 
         private bool CheckRageZone(float distance)
         {
-            if (RageTrigger.bounds.Contains(Target.transform.position))
+            if (RageTrigger.bounds.Contains(Player.Position))
             {
                 if (Mathf.Sign(distance) == DirectionX)
                 {
@@ -210,8 +210,8 @@ namespace Platformer
         {
             MoveHorizontal();
 
-            var distance = Target.transform.position.x - transform.position.x;
-            var height = Target.transform.position.y - transform.position.y;
+            var distance = Player.Position.x - transform.position.x;
+            var height = Player.Position.y - transform.position.y;
 
             if (AttackTimer > 0)
             {

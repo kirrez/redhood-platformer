@@ -29,6 +29,7 @@ namespace Platformer
         bool Grounded(LayerMask mask);
         bool Ceiled(LayerMask mask);
         bool StandingCeiled(LayerMask mask);
+        void ReleasePlatform();
         float DirectionCheck();
         void AttackCheck();
 
