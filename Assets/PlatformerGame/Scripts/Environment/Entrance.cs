@@ -10,10 +10,13 @@ namespace Platformer
         private IPlayer Player;
 
         [SerializeField]
-        private List<GameObject> NewLocation;
+        private Stage Stage;
 
         [SerializeField]
-        private List<GameObject> OldLocation;
+        private int LocationIndex;
+
+        [SerializeField]
+        private int SpawnPointIndex;
 
         [SerializeField]
         ETexts Label;
@@ -87,15 +90,7 @@ namespace Platformer
 
         private void OnLocationEnter()
         {
-            for (int i = 0; i < OldLocation.Count; i++)
-            {
-                OldLocation[i].SetActive(false);
-            }
-
-            for (int i = 0; i < NewLocation.Count; i++)
-            {
-                NewLocation[i].SetActive(true);
-            }
+            Stage.SwitchLocation(LocationIndex, SpawnPointIndex);
         }
 
     }

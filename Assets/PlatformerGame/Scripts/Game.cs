@@ -13,12 +13,16 @@ namespace Platformer
 
         private IPlayer Player;
         private IUIRoot UIRoot;
-        private CinemachineVirtualCamera VirtualPlayerCamera;
 
         private IResourceManager ResourceManager;
         private IProgressManager ProgressManager;
 
         private Stage CurrentStage;
+
+        public void SetStage(Stage newStage)
+        {
+            CurrentStage = newStage;
+        }
 
         private void Awake()
         {
@@ -36,18 +40,11 @@ namespace Platformer
             //CurrentStage = ResourceManager.CreatePrefab<Stage, EStages>(EStages.TheVillage);
 
             CurrentStage = ResourceManager.CreatePrefab<Stage, EStages>(Stage);
+            CurrentStage.Initiate(this);
+            CurrentStage.SwitchLocation(0, 0);
 
             Player = CompositionRoot.GetPlayer();
-            Player.Position = CurrentStage.SpawnPoints[0].position;
-            
-            VirtualPlayerCamera = CompositionRoot.GetVirtualPlayerCamera();
-            VirtualPlayerCamera.Follow = Player.Transform;
-            
-            //temporary
-            CinemachineConfiner confiner = VirtualPlayerCamera.GetComponent<CinemachineConfiner>();
-            confiner.m_BoundingShape2D = CurrentStage.Confiners[0];
-            
+            //
         }
-
     }
 }
