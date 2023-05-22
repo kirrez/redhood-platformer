@@ -71,7 +71,9 @@ namespace Platformer
                 }
 
                 var instance = ResourceManager.GetFromPool(Enemies.EvilBear);
-                instance.transform.SetParent(transform.parent, false);
+                var dynamics = CompositionRoot.GetDynamicsContainer();
+                instance.transform.SetParent(dynamics.Transform, false);
+                dynamics.AddItem(instance);
                 Bear = instance.GetComponent<EvilBear>();
 
                 Bear.Initiate(direction, SpawnPoint.transform.position, DeathTrigger);

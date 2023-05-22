@@ -6,11 +6,9 @@ namespace Platformer
 {
     public class Entrance : MonoBehaviour
     {
+        private IDynamicsContainer Dynamics;
         private ILocalization Localization;
         private IPlayer Player;
-
-        [SerializeField]
-        private Stage Stage;
 
         [SerializeField]
         private int LocationIndex;
@@ -31,6 +29,7 @@ namespace Platformer
         private void Awake()
         {
             Localization = CompositionRoot.GetLocalization();
+            Dynamics = CompositionRoot.GetDynamicsContainer();
         }
 
         private void OnEnable()
@@ -90,7 +89,9 @@ namespace Platformer
 
         private void OnLocationEnter()
         {
-            Stage.SwitchLocation(LocationIndex, SpawnPointIndex);
+            //Stage.SwitchLocation(LocationIndex, SpawnPointIndex);
+            Dynamics.DeactivateAll();
+            CompositionRoot.SetLocation(LocationIndex, SpawnPointIndex);
         }
 
     }

@@ -73,6 +73,11 @@ namespace Platformer
             BearAnimator.Idle();
         }
 
+        private void OnDisable()
+        {
+            Killed();
+        }
+
         private void Update()
         {
             BearAnimator.Update();
@@ -125,6 +130,9 @@ namespace Platformer
         {
             var newPosition = new Vector2(Collider.bounds.center.x, Collider.bounds.center.y);
             var instance = ResourceManager.GetFromPool(GFXs.BombBlast);
+            var dynamics = CompositionRoot.GetDynamicsContainer();
+            instance.transform.SetParent(dynamics.Transform, false);
+            dynamics.AddItem(instance);
             instance.GetComponent<BombBlast>().Initiate(newPosition);
 
             Killed();
@@ -253,6 +261,9 @@ namespace Platformer
             if (Timer <= 0)
             {
                 var instance = ResourceManager.GetFromPool(Slash);
+                var dynamics = CompositionRoot.GetDynamicsContainer();
+                instance.transform.SetParent(dynamics.Transform, false);
+                dynamics.AddItem(instance);
                 instance.transform.position = FirePoint.position;
 
                 instance.GetComponent<BearSlash>().SetHitDirection(DirectionX);

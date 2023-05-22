@@ -9,6 +9,8 @@ namespace Platformer
         UIRoot,
         MainCMCamera,
         VirtualPlayerCamera,
-        EventSystemContainer
+        EventSystemContainer,
+        DynamicsContainer,
+        Game
     }
 }

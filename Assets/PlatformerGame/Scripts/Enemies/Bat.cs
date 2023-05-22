@@ -40,6 +40,11 @@ namespace Platformer
             SpriteIndex = 0;
         }
 
+        private void OnDisable()
+        {
+            Killed();
+        }
+
         public void Initiate(float direction, Vector2 startPosition, float speed = 300f)
         {
             DirectionX = direction;
@@ -92,6 +97,9 @@ namespace Platformer
             var collider = gameObject.GetComponent<Collider2D>();
             var newPosition = new Vector2(collider.bounds.center.x, collider.bounds.center.y);
             var instance = ResourceManager.GetFromPool(GFXs.BloodBlast);
+            var dynamics = CompositionRoot.GetDynamicsContainer();
+            instance.transform.SetParent(dynamics.Transform, false);
+            dynamics.AddItem(instance.gameObject);
 
             if (Rigidbody.velocity.x > 0)
             {

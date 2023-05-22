@@ -10,15 +10,12 @@ namespace Platformer
 
         public List<LocationConfig> LocationTransitions;
 
-        private Game Game;
         private IPlayer Player;
-        private IResourceManager ResourceManager;
         private CinemachineVirtualCamera VirtualPlayerCamera;
         private CinemachineConfiner Confiner;
 
         private void Awake()
         {
-            ResourceManager = CompositionRoot.GetResourceManager();
             Player = CompositionRoot.GetPlayer();
 
             VirtualPlayerCamera = CompositionRoot.GetVirtualPlayerCamera();
@@ -27,12 +24,7 @@ namespace Platformer
             Confiner = VirtualPlayerCamera.GetComponent<CinemachineConfiner>();
         }
 
-        public void Initiate(Game game)
-        {
-            Game = game;
-        }
-
-        public void SwitchLocation(int LocationIndex, int SpawnPointIndex)
+        public void SetLocation(int LocationIndex, int SpawnPointIndex)
         {
             var originLocation = LocationTransitions[LocationIndex].OriginLocation;
             var targetLocation = LocationTransitions[LocationIndex].TargetLocation;
@@ -53,13 +45,14 @@ namespace Platformer
             Confiner.m_BoundingShape2D = confiner;
         }
 
-        public void LoadStage(EStages newStage, int LocationIndex, int SpawnPointIndex)
-        {
-            Stage stageInstance = ResourceManager.CreatePrefab<Stage, EStages>(newStage);
-            Game.SetStage(stageInstance);
+        //public void LoadStage(EStages newStage, int LocationIndex, int SpawnPointIndex)
+        //{
+        //    Stage stageInstance = ResourceManager.CreatePrefab<Stage, EStages>(newStage);
+        //    // is it safe?
+        //    var game = CompositionRoot.GetGame();
+        //    game.SetStage(stageInstance);
 
-            stageInstance.Initiate(Game);
-            stageInstance.SwitchLocation(LocationIndex, SpawnPointIndex);
-        }
+        //    stageInstance.SwitchLocation(LocationIndex, SpawnPointIndex);
+        //}
     }
 }

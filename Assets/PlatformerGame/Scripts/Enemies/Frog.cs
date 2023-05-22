@@ -81,6 +81,11 @@ namespace Platformer
             FrogAnimator.JumpRising();
         }
 
+        private void OnDisable()
+        {
+            Killed();
+        }
+
         private void OnHealthChanged()
         {
             IsDamaged = true;
@@ -128,6 +133,9 @@ namespace Platformer
             var collider = gameObject.GetComponent<Collider2D>();
             var newPosition = new Vector2(collider.bounds.center.x, collider.bounds.center.y);
             var instance = ResourceManager.GetFromPool(GFXs.BloodBlast);
+            var dynamics = CompositionRoot.GetDynamicsContainer();
+            instance.transform.SetParent(dynamics.Transform, false);
+            dynamics.AddItem(instance);
 
             if (DirectionX == 1)
             {
@@ -488,6 +496,10 @@ namespace Platformer
             {
                 //splash effect
                 var effect = ResourceManager.GetFromPool(GFXs.BlueSplash);
+                var dynamics = CompositionRoot.GetDynamicsContainer();
+                effect.transform.SetParent(dynamics.Transform, false);
+                dynamics.AddItem(effect);
+
                 effect.transform.position = transform.position;
 
                 Killed();
@@ -505,6 +517,10 @@ namespace Platformer
             if (Timer <= 0)
             {
                 var instance = ResourceManager.GetFromPool(Bullet);
+                var dynamics = CompositionRoot.GetDynamicsContainer();
+                instance.transform.SetParent(dynamics.Transform, false);
+                dynamics.AddItem(instance);
+
                 instance.transform.position = FirePoint.position;
 
                 var weaponVelocity = instance.GetComponent<DamageDealer>().Velocity;

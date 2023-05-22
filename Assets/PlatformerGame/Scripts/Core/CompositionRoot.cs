@@ -8,8 +8,10 @@ namespace Platformer
 {
     public class CompositionRoot : MonoBehaviour
     {
+        private static IGame Game;
         private static IUIRoot UIRoot;
         private static GameObject MainCMCamera;
+        private static IDynamicsContainer DynamicsContainer;
         private static CinemachineVirtualCamera VirtualPlayerCamera;
         private static GameObject EventSystemContainer;
 
@@ -18,6 +20,47 @@ namespace Platformer
         private static IResourceManager ResourceManager;
         private static IProgressManager ProgressManager;
         private static ILocalization Localization;
+
+        private static Stage CurrentStage;
+
+        public static void LoadStage(EStages stage)
+        {
+            if (CurrentStage != null)
+            {
+                Destroy(CurrentStage.gameObject);
+                CurrentStage = null;
+            }
+
+            Stage instance = ResourceManager.CreatePrefab<Stage, EStages>(stage);
+            CurrentStage = instance;
+        }
+
+        public static void SetLocation(int locationIndex, int spawnPointIndex)
+        {
+            CurrentStage.SetLocation(locationIndex, spawnPointIndex);
+        }
+
+        public static IDynamicsContainer GetDynamicsContainer()
+        {
+            if (DynamicsContainer == null)
+            {
+                var resourceManager = GetResourceManager();
+                DynamicsContainer = resourceManager.CreatePrefab<IDynamicsContainer, EComponents>(EComponents.DynamicsContainer);
+            }
+
+            return DynamicsContainer;
+        }
+
+        public static IGame GetGame()
+        {
+            if (Game == null)
+            {
+                var resourceManager = GetResourceManager();
+                Game = resourceManager.CreatePrefab<IGame, EComponents>(EComponents.Game);
+            }
+
+            return Game;
+        }
 
         public static IPlayer GetPlayer()
         {
@@ -109,12 +152,15 @@ namespace Platformer
 
         private void OnDestroy()
         {
+            Game = null;
             Player = null;
             UIRoot = null;
             MainCMCamera = null;
+            CurrentStage = null;
             ResourceManager = null;
             VirtualPlayerCamera = null;
             EventSystemContainer = null;
+            DynamicsContainer = null;
         }
     }
 }

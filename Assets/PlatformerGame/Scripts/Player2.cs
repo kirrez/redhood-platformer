@@ -538,6 +538,9 @@ namespace Platformer
         private void ShootWeaponKnife()
         {
             var instance = ResourceManager.GetFromPool(Weapons.PlayerKnife);
+            var dynamics = CompositionRoot.GetDynamicsContainer();
+            instance.transform.SetParent(dynamics.Transform, false);
+            dynamics.AddItem(instance);
 
             var weaponVelocity = instance.GetComponent<DamageDealer>().Velocity;
             weaponVelocity.x *= DirectionX;
@@ -549,6 +552,9 @@ namespace Platformer
         private void ShootWeaponAxe()
         {
             var instance = ResourceManager.GetFromPool(Weapons.PlayerAxe);
+            var dynamics = CompositionRoot.GetDynamicsContainer();
+            instance.transform.SetParent(dynamics.Transform, false);
+            dynamics.AddItem(instance);
 
             var weaponVelocity = instance.GetComponent<DamageDealer>().Velocity;
             weaponVelocity.x *= DirectionX;
