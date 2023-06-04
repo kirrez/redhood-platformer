@@ -21,12 +21,14 @@ namespace Platformer
         private float TransitionTime;
 
         private IDynamicsContainer Dynamics;
+        private IProgressManager ProgressManager;
         private float Timer;
         private bool Inside;
 
         private void Awake()
         {
             Dynamics = CompositionRoot.GetDynamicsContainer();
+            ProgressManager = CompositionRoot.GetProgressManager();
         }
 
         private void Update()
@@ -39,6 +41,10 @@ namespace Platformer
                     Dynamics.DeactivateAll();
                     CompositionRoot.LoadStage(Stage);
                     CompositionRoot.SetLocation(LocationIndex, SpawnPointIndex);
+
+                    // saving location data
+                    ProgressManager.SetQuest(EQuest.Stage, (int)Stage);
+                    ProgressManager.SetQuest(EQuest.SpawnPoint, SpawnPointIndex);
                 }
             }
         }

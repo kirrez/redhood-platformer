@@ -9,27 +9,25 @@ namespace Platformer
         Transform PiePosition;
 
         [SerializeField]
-        ETexts Label;
-
-        [SerializeField]
         Text HelpText;
 
         private IResourceManager ResourceManager;
         private IProgressManager ProgressManager;
         private ILocalization Localization;
-
         private IPlayer Player;
+        //private Game Game;
 
         private void Awake()
         {
             ResourceManager = CompositionRoot.GetResourceManager();
             ProgressManager = CompositionRoot.GetProgressManager();
             Localization = CompositionRoot.GetLocalization();
+            //Game = CompositionRoot.GetGame();
         }
 
-        private void Start()
+        private void OnEnable()
         {
-            HelpText.text = Localization.Text(Label);
+            HelpText.text = Localization.Text(ETexts.TalkToMomAgain);
         }
 
         private void OnTriggerEnter2D(Collider2D collision)

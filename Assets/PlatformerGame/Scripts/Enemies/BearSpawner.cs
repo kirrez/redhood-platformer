@@ -50,7 +50,12 @@ namespace Platformer
             float chance;
             Bear Bear;
 
-            if (Timer > 0)
+            if (Timer > 0 && Timer <= RespawnCooldown && !isActive && SpawnCount < MaxSpawnCount)
+            {
+                Timer += Time.fixedDeltaTime;
+            }
+
+            if (Timer > 0 && isActive && SpawnCount < MaxSpawnCount)
             {
                 Timer -= Time.fixedDeltaTime;
             }

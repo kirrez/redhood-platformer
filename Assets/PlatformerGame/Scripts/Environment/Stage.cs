@@ -11,6 +11,7 @@ namespace Platformer
         public List<LocationConfig> LocationTransitions;
 
         private IPlayer Player;
+        
         private CinemachineVirtualCamera VirtualPlayerCamera;
         private CinemachineConfiner Confiner;
 
@@ -44,15 +45,5 @@ namespace Platformer
 
             Confiner.m_BoundingShape2D = confiner;
         }
-
-        //public void LoadStage(EStages newStage, int LocationIndex, int SpawnPointIndex)
-        //{
-        //    Stage stageInstance = ResourceManager.CreatePrefab<Stage, EStages>(newStage);
-        //    // is it safe?
-        //    var game = CompositionRoot.GetGame();
-        //    game.SetStage(stageInstance);
-
-        //    stageInstance.SwitchLocation(LocationIndex, SpawnPointIndex);
-        //}
     }
 }

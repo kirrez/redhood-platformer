@@ -44,7 +44,7 @@ namespace Platformer
         private float AttackTimer;
         private Vector3 LastPosition;
         private bool IsDamaged = false;
-
+        private bool WasSlain = false; 
         private float HorizontalSpeed = 100f;
         private float JumpForce = 350f;
 
@@ -75,7 +75,11 @@ namespace Platformer
 
         private void OnDisable()
         {
-            Killed();
+            if (!WasSlain)
+            {
+                Killed();
+            }
+            WasSlain = false;
         }
 
         private void Update()
@@ -136,6 +140,7 @@ namespace Platformer
             instance.GetComponent<BombBlast>().Initiate(newPosition);
 
             Killed();
+            WasSlain = true;
             gameObject.SetActive(false);
         }
 

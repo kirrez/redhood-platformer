@@ -46,9 +46,18 @@ namespace Platformer
         private void FixedUpdate()
         {
             float direction;
-            Timer -= Time.fixedDeltaTime;
 
-            if (isActive && !FrogSpawned && Timer <= 0)
+            if (Timer > 0 && Timer <= RespawnCooldown && !isActive && !FrogSpawned)
+            {
+                Timer += Time.fixedDeltaTime;
+            }
+
+            if (Timer > 0 && isActive && !FrogSpawned)
+            {
+                Timer -= Time.fixedDeltaTime;
+            }
+
+            if (Timer <= 0 && isActive && !FrogSpawned)
             {
                 FrogSpawned = true;
 
@@ -77,7 +86,10 @@ namespace Platformer
         public void OnFrogKilled()
         {
             FrogSpawned = false;
-            Timer = RespawnCooldown;
+            if (Timer <= 0)
+            {
+                Timer = RespawnCooldown;
+            }
         }
     }
 }

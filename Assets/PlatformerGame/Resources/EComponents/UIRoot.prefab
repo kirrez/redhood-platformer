@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1185165426051719939}
   - component: {fileID: 1722654445291497573}
   m_Layer: 0
-  m_Name: MainCanvas
+  m_Name: HUDCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -147,8 +147,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55ba7219142b0d94196dac577687ff38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OverlayCanvasLink: {fileID: 6159658736968154388}
-  MainCanvasLink: {fileID: 3481893314826432119}
+  ScreenCanvasLink: {fileID: 6159658736968154388}
+  HUDCanvasLink: {fileID: 3481893314826432119}
   MenuCanvasLink: {fileID: 8875836900300786274}
 --- !u!1 &5675401323631790735
 GameObject:
@@ -263,7 +263,7 @@ GameObject:
   - component: {fileID: 4965026652977013370}
   - component: {fileID: 3450725990493067488}
   m_Layer: 0
-  m_Name: OverlayCanvas
+  m_Name: ScreenCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

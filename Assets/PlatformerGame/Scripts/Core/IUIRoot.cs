@@ -4,8 +4,8 @@ namespace Platformer
 {
     public interface IUIRoot
     {
-        Transform OverlayCanvas { get; }
-        Transform MainCanvas { get; }
+        Transform ScreenCanvas { get; }
+        Transform HUDCanvas { get; }
         Transform MenuCanvas { get; }
     }
 }

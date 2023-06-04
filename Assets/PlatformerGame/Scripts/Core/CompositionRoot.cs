@@ -8,7 +8,7 @@ namespace Platformer
 {
     public class CompositionRoot : MonoBehaviour
     {
-        private static IGame Game;
+        private static Game Game;
         private static IUIRoot UIRoot;
         private static GameObject MainCMCamera;
         private static IDynamicsContainer DynamicsContainer;
@@ -35,7 +35,7 @@ namespace Platformer
             CurrentStage = instance;
         }
 
-        public static void SetLocation(int locationIndex, int spawnPointIndex)
+        public static void SetLocation(int locationIndex = 0, int spawnPointIndex = 0)
         {
             CurrentStage.SetLocation(locationIndex, spawnPointIndex);
         }
@@ -51,14 +51,14 @@ namespace Platformer
             return DynamicsContainer;
         }
 
-        public static IGame GetGame()
+        public static Game GetGame()
         {
             if (Game == null)
             {
                 var resourceManager = GetResourceManager();
-                Game = resourceManager.CreatePrefab<IGame, EComponents>(EComponents.Game);
+                Game = resourceManager.CreatePrefab<Game, EComponents>(EComponents.Game);
+                Debug.Log("Game CREATED");
             }
-
             return Game;
         }
 
