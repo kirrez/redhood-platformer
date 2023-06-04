@@ -14,16 +14,16 @@ namespace Platformer
         [SerializeField]
         private Text Tip;
 
-        //private ILocalization Localization;
+        private ILocalization Localization;
 
         private void Awake()
         {
-            //Localization = CompositionRoot.GetLocalization();
+            Localization = CompositionRoot.GetLocalization();
         }
 
         private void OnEnable()
         {
-            //Tip.text = Localization.Text(ETexts.Next);
+            Tip.text = Localization.Text(ETexts.Next);
         }
 
         public void SetDialogueName(string name)

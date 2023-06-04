@@ -89,9 +89,9 @@ namespace Platformer
 
         private void OnLocationEnter()
         {
-            //Stage.SwitchLocation(LocationIndex, SpawnPointIndex);
+            var game = CompositionRoot.GetGame();
             Dynamics.DeactivateAll();
-            CompositionRoot.SetLocation(LocationIndex, SpawnPointIndex);
+            game.SetLocation(LocationIndex, SpawnPointIndex);
         }
 
     }

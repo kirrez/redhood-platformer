@@ -8,7 +8,7 @@ namespace Platformer
 {
     public class CompositionRoot : MonoBehaviour
     {
-        private static Game Game;
+        private static IGame Game;
         private static IUIRoot UIRoot;
         private static GameObject MainCMCamera;
         private static IDynamicsContainer DynamicsContainer;
@@ -21,25 +21,6 @@ namespace Platformer
         private static IProgressManager ProgressManager;
         private static ILocalization Localization;
 
-        private static Stage CurrentStage;
-
-        public static void LoadStage(EStages stage)
-        {
-            if (CurrentStage != null)
-            {
-                Destroy(CurrentStage.gameObject);
-                CurrentStage = null;
-            }
-
-            Stage instance = ResourceManager.CreatePrefab<Stage, EStages>(stage);
-            CurrentStage = instance;
-        }
-
-        public static void SetLocation(int locationIndex = 0, int spawnPointIndex = 0)
-        {
-            CurrentStage.SetLocation(locationIndex, spawnPointIndex);
-        }
-
         public static IDynamicsContainer GetDynamicsContainer()
         {
             if (DynamicsContainer == null)
@@ -51,13 +32,12 @@ namespace Platformer
             return DynamicsContainer;
         }
 
-        public static Game GetGame()
+        public static IGame GetGame()
         {
             if (Game == null)
             {
                 var resourceManager = GetResourceManager();
-                Game = resourceManager.CreatePrefab<Game, EComponents>(EComponents.Game);
-                Debug.Log("Game CREATED");
+                Game = resourceManager.CreatePrefab<IGame, EComponents>(EComponents.Game);
             }
             return Game;
         }
@@ -156,7 +136,6 @@ namespace Platformer
             Player = null;
             UIRoot = null;
             MainCMCamera = null;
-            CurrentStage = null;
             ResourceManager = null;
             VirtualPlayerCamera = null;
             EventSystemContainer = null;

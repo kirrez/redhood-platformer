@@ -38,9 +38,10 @@ namespace Platformer
                 Timer -= Time.deltaTime;
                 if (Timer <= 0)
                 {
+                    var game = CompositionRoot.GetGame();
                     Dynamics.DeactivateAll();
-                    CompositionRoot.LoadStage(Stage);
-                    CompositionRoot.SetLocation(LocationIndex, SpawnPointIndex);
+                    game.LoadStage(Stage);
+                    game.SetLocation(LocationIndex, SpawnPointIndex);
 
                     // saving location data
                     ProgressManager.SetQuest(EQuest.Stage, (int)Stage);

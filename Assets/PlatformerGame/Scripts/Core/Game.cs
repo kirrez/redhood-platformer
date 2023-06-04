@@ -6,18 +6,36 @@ using UnityEngine;
 
 namespace Platformer
 {
-    public class Game : MonoBehaviour
+    public class Game : MonoBehaviour, IGame
     {
         //private IPlayer Player;
         private IResourceManager ResourceManager;
         private IProgressManager ProgressManager;
 
+        public DialogueModel Dialogue => DialogueModel;
+        private DialogueModel DialogueModel;
 
-        public DialogueModel Dialogue;
+        private Stage CurrentStage;
+
+        public void LoadStage(EStages stage)
+        {
+            if (CurrentStage != null)
+            {
+                Destroy(CurrentStage.gameObject);
+                CurrentStage = null;
+            }
+
+            Stage instance = ResourceManager.CreatePrefab<Stage, EStages>(stage);
+            CurrentStage = instance;
+        }
+
+        public void SetLocation(int locationIndex = 0, int spawnPointIndex = 0)
+        {
+            CurrentStage.SetLocation(locationIndex, spawnPointIndex);
+        }
 
         private void Awake()
         {
-            Debug.Log("Game Constructor");
             ResourceManager = CompositionRoot.GetResourceManager();
             var eventSystem = CompositionRoot.GetEventSystem();
             var mainCMCamera = CompositionRoot.GetMainCMCamera();
@@ -29,11 +47,11 @@ namespace Platformer
             ProgressManager.SetQuest(EQuest.Stage, (int)EStages.TheVillage);
             ProgressManager.SetQuest(EQuest.SpawnPoint, 0);
 
-            Dialogue = new DialogueModel();
-            Dialogue.Hide();
+            DialogueModel = new DialogueModel();
+            DialogueModel.Hide();
 
-            CompositionRoot.LoadStage(EStages.TheVillage);
-            CompositionRoot.SetLocation(0, 0);
+            LoadStage(EStages.TheVillage);
+            SetLocation(0, 0);
 
             //Player = CompositionRoot.GetPlayer();
         }

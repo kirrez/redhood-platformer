@@ -10,7 +10,6 @@ namespace Platformer
 
         public DialogueModel()
         {
-            Debug.Log("DialogueModel Constructor!");
             var resourceManager = CompositionRoot.GetResourceManager();
             var uiRoot = CompositionRoot.GetUIRoot();
 
