@@ -2,9 +2,9 @@ using Platformer.ScriptedAnimator;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Platformer
+namespace Platformer.ScriptedAnimator
 {
-    public class DoorRedAnimator : MonoBehaviour
+    public class DoorRedAnimator : MonoBehaviour, IDoorAnimator
     {
         [SerializeField]
         private SpriteRenderer Renderer;

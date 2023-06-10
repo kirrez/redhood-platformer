@@ -120,7 +120,7 @@ namespace Platformer
                 HelpText.gameObject.SetActive(false);
                 Player.Interaction -= OnQuestCompleted;
 
-                var instance = ResourceManager.CreatePrefab<KeyRed, ECollectibles>(ECollectibles.KeyRed);
+                var instance = ResourceManager.CreatePrefab<Key, ECollectibles>(ECollectibles.KeyRed);
                 instance.transform.SetParent(transform, false);
                 instance.transform.position = KeyPosition.position;
             }

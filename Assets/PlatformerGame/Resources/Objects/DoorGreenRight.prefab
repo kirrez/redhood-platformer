@@ -122,8 +122,8 @@ GameObject:
   - component: {fileID: 649840843230844662}
   - component: {fileID: 649840843230844663}
   - component: {fileID: 649840843230844656}
-  - component: {fileID: 649840843230844660}
-  - component: {fileID: 649840843230844661}
+  - component: {fileID: 3760720406622149580}
+  - component: {fileID: 8323434101073413236}
   m_Layer: 0
   m_Name: DoorGreenRight
   m_TagString: Untagged
@@ -194,7 +194,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 5, y: 4}
   m_EdgeRadius: 0
---- !u!114 &649840843230844660
+--- !u!114 &3760720406622149580
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -203,11 +203,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 649840843230844657}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 198e9847b509abe438b1f820304503da, type: 3}
+  m_Script: {fileID: 11500000, guid: ae818bf0f7dc2f840abe72fe11adffb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Block: {fileID: 649840842627039522}
---- !u!114 &649840843230844661
+  ItemIndex: 3
+--- !u!114 &8323434101073413236
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
