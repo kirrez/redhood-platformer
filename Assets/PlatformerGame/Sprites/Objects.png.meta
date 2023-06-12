@@ -1241,6 +1241,195 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: SuspensionHolder_Left
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 392
+        width: 16
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df6c9d92557bee045981021ba08a793d
+      internalID: 133505279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ropes_1
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 392
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdb2c02e10b196b46b6fe50a5e3c86c4
+      internalID: 2084056853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ropes_2
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 392
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c026cae15d2b0a458868bb98d37b462
+      internalID: 2037492357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ropes_3
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 392
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb11d44888a587d4e8940228ba302923
+      internalID: 860458067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RopeSlopeLeft
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 408
+        width: 32
+        height: 16
+      alignment: 9
+      pivot: {x: 0.25, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10c46b768736e324295c9eef0c876f49
+      internalID: 1691112775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RopeCenter
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 408
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 818e9fca4e93e6843ae075584d82715b
+      internalID: -1307795433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RopeSlopeRight
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 408
+        width: 32
+        height: 16
+      alignment: 9
+      pivot: {x: 0.25, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82a983ac41f353844a919960fba475f8
+      internalID: -151934057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SuspensionHolder_Right
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 392
+        width: 16
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d54d4550cccea8f43b94b89b9e517094
+      internalID: 834547123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rope_4
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 392
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cc8eebf097bf1d44a173e50da67c9aa
+      internalID: -866954109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -1252,88 +1441,97 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      DoorGrey_1: -16567571
-      DoorRed_0: 1550466903
-      SwitchOn: -1816534046
-      DarkCloudsL1_6: -1426506302
       DarkCloudsL4: 2110242026
-      DarkCloudsL1: -1662598905
-      BridgeRight: 27038073
       DarkCloudsL1_1: 1993751466
-      DoorGrey_0: 1360749912
       DarkCloudsL2_5: -426296842
       DarkCloudsL3_1: 1253647553
+      Ropes_2: 2037492357
       Candle_0: -387247735
       Firebowl_2: 456338429
-      LightCloud_1: 1968002318
-      Mother_1: 759018448
       LightCloud_4: -268048731
       DarkCloudsL2_2: 567104749
       DarkCloudsL2_8: 74150674
-      DoorGrey_2: -604756203
       Fireplace_2: 1631699850
-      DarkCloudsL1_4: -566693553
+      RopeCenter: -1307795433
       ButtonOff: 1654182457
-      DoorGreen_1: -227913323
-      DoorRed_2: -1579968724
+      RopeSlopeRight: -151934057
       DarkCloudsL1_2: -1559139224
       Bubble: -631682307
-      Candle_1: 1892384369
-      DarkCloudsL1_0: 1666325539
       DarkCloudsL1_7: -419847979
-      LightCloud_3: 1974901377
-      BridgeLeft: -479444781
-      Platform_2: 17101485
-      MotherPie: -1015853895
-      DarkCloudsL3_0: -1479163918
-      WaterBlueTransparent: 1422703808
+      DarkCloudsL1_12: -1543764027
       Mother_0: 1539828992
       DoorGreen_0: -425144864
       Fall_1: 2073561585
       BridgeCenter: 1616014153
       DarkCloudsL1_10: 233604434
+      Stream_1: 855704516
+      DarkCloudsL2_7: -729258153
+      DarkCloudsL1_8: 1879142511
+      DarkCloudsL3_2: 1985532748
+      DarkCloudsL3_3: 2090795456
+      RopeSlopeLeft: 1691112775
+      Spikes_grey: -1018720058
+      DarkCloudsL2_4: 109478668
+      DarkCloudsL2_3: 945260194
+      Fall_2: 1255714272
+      Fall_0: -628325260
+      Firebowl_0: 267164088
+      Firebowl_1: -388648844
+      Fireplace_1: -1024916941
+      Key_Red: 1805074571
+      Stream_3: -1190808691
+      DarkCloudsL1_11: -739747816
+      SuspensionHolder_Left: 133505279
+      DoorGrey_1: -16567571
+      Mother_2: 996843073
+      DarkCloudsL2_1: 1230439699
+      DoorRed_0: 1550466903
+      SuspensionHolder_Right: 834547123
+      DarkCloudsL1: -1662598905
+      BridgeRight: 27038073
+      Ropes_3: 860458067
+      DoorGrey_0: 1360749912
+      LightCloud_1: 1968002318
+      Mother_1: 759018448
+      DoorGrey_2: -604756203
+      DarkCloudsL1_4: -566693553
+      DoorGreen_1: -227913323
+      DoorRed_2: -1579968724
+      Ropes_1: 2084056853
+      Candle_1: 1892384369
+      LightCloud_3: 1974901377
+      DarkCloudsL1_0: 1666325539
+      BridgeLeft: -479444781
+      Platform_2: 17101485
+      MotherPie: -1015853895
+      DarkCloudsL3_0: -1479163918
+      WaterBlueTransparent: 1422703808
+      ButtonOn: 876549026
       LightCloud_5: -203564046
       SwitchOff: 1425627654
-      DarkCloudsL1_12: -1543764027
       DarkCloudsL2_6: -153351782
-      Stream_1: 855704516
       DoorGreen_2: 1295310118
-      ButtonOn: 876549026
-      DarkCloudsL2_7: -729258153
       MaxHealthUp: 2022743721
       DarkCloudsL1_5: -1699626249
       Stream_2: -309486281
-      DarkCloudsL1_8: 1879142511
       Mushroom: 1425082455
-      DarkCloudsL3_2: 1985532748
-      DarkCloudsL3_3: 2090795456
       Key_Grey: -6393119
-      Spikes_grey: -1018720058
       Platform_4: 933978366
-      DarkCloudsL2_4: 109478668
-      DarkCloudsL1_11: -739747816
       Key_Green: 2089127135
-      Fall_2: 1255714272
+      DarkCloudsL1_6: -1426506302
       Platform_1: -1624028744
-      Fall_0: -628325260
       Platform_3: 880925628
-      DarkCloudsL2_3: 945260194
-      DarkCloudsLVL2: -431119207
-      Blackberry: 961531519
-      Firebowl_0: 267164088
-      Key_Red: 1805074571
-      Stream_3: -1190808691
-      DoorRed_1: 729713761
+      Rope_4: -866954109
       DarkCloudsL1_3: 1355649025
+      Blackberry: 961531519
+      DarkCloudsLVL2: -431119207
+      DoorRed_1: 729713761
+      SwitchOn: -1816534046
       Fireplace_0: -630716480
       DarkCloudsL1_9: -583554590
-      Fireplace_1: -1024916941
-      DarkCloudsL2_0: -1209619850
-      Firebowl_1: -388648844
-      LightCloud_2: -1223994109
       Stream_0: 1860220395
-      Mother_2: 996843073
-      DarkCloudsL2_1: 1230439699
+      DarkCloudsL2_0: -1209619850
+      LightCloud_2: -1223994109
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
