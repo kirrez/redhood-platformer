@@ -1,20 +1,18 @@
-using UnityEngine.UI;
-using Platformer.UI;
+using System.Collections;
+using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
 
 namespace Platformer
 {
-    public class MotherQuest1 : MonoBehaviour
+    public class FamilyMonologue : MonoBehaviour
     {
         [SerializeField]
-        Transform KeyPosition;
+        Transform TargetTransform;
 
-        [SerializeField]
-        Text HelpText;
-
-        private IResourceManager ResourceManager;
         private IProgressManager ProgressManager;
         private ILocalization Localization;
+        private CinemachineVirtualCamera PlayerCamera;
         private IPlayer Player;
 
         private Collider2D AreaTrigger;
@@ -23,35 +21,29 @@ namespace Platformer
 
         private void Awake()
         {
-            ResourceManager = CompositionRoot.GetResourceManager();
             ProgressManager = CompositionRoot.GetProgressManager();
             Localization = CompositionRoot.GetLocalization();
+            PlayerCamera = CompositionRoot.GetVirtualPlayerCamera();
             Player = CompositionRoot.GetPlayer();
 
             AreaTrigger = GetComponent<Collider2D>();
         }
 
-        private void OnEnable()
-        {
-            HelpText.text = Localization.Text(ETexts.TalkToMom);
-        }
-
         private void Update()
         {
-            if (ProgressManager.GetQuest(EQuest.MotherPie) != 0) return;
+            if (ProgressManager.GetQuest(EQuest.MotherPie) != 1) return;
 
             if (AreaTrigger.bounds.Contains(Player.Position) && !Inside)
             {
                 Inside = true;
                 Player.Interaction += OnInteraction;
-                HelpText.gameObject.SetActive(true);
+                OnInteraction();
             }
 
             if (!AreaTrigger.bounds.Contains(Player.Position) && Inside)
             {
                 Inside = false;
                 Player.Interaction -= OnInteraction;
-                HelpText.gameObject.SetActive(false);
             }
         }
 
@@ -64,43 +56,32 @@ namespace Platformer
                 case 0:
                     Player.HoldByInteraction();
                     Game.Dialogue.Show();
-                    Game.Dialogue.SetDialogueName(Localization.Text(ETexts.PieDialogue1));
-                    Game.Dialogue.ChangeContent(Localization.Text(ETexts.DialoguePie1_1));
+                    Game.Dialogue.SetDialogueName(Localization.Text(ETexts.FamilyMonologue));
+                    Game.Dialogue.ChangeContent(Localization.Text(ETexts.Family_1));
                     DialoguePhase++;
                     break;
                 case 1:
-                    Game.Dialogue.AddContent(Localization.Text(ETexts.DialoguePie1_2));
+                    PlayerCamera.Follow = TargetTransform;
+                    Game.Dialogue.ChangeContent(Localization.Text(ETexts.Family_2));
                     DialoguePhase++;
                     break;
                 case 2:
-                    Game.Dialogue.AddContent(Localization.Text(ETexts.DialoguePie1_3));
+                    
+                    Game.Dialogue.AddContent(Localization.Text(ETexts.Family_3));
                     DialoguePhase++;
                     break;
                 case 3:
-                    Game.Dialogue.AddContent(Localization.Text(ETexts.DialoguePie1_4));
+                    PlayerCamera.Follow = Player.Transform;
+                    Game.Dialogue.ChangeContent(Localization.Text(ETexts.Family_4));
                     DialoguePhase++;
                     break;
                 case 4:
-                    Game.Dialogue.ChangeContent(Localization.Text(ETexts.DialoguePie1_5));
-                    DialoguePhase++;
-                    break;
-                case 5:
-                    Game.Dialogue.AddContent(Localization.Text(ETexts.DialoguePie1_6));
-                    DialoguePhase++;
-                    break;
-                case 6:
                     Player.ReleasedByInteraction();
                     Game.Dialogue.Hide();
-                    ProgressManager.SetQuest(EQuest.MotherPie, 1);
-                    HelpText.gameObject.SetActive(false);
+                    ProgressManager.SetQuest(EQuest.MotherPie, 2);
                     Player.Interaction -= OnInteraction;
-
-                    var instance = ResourceManager.CreatePrefab<Key, ECollectibles>(ECollectibles.KeyRed);
-                    instance.transform.SetParent(transform, false);
-                    instance.transform.position = KeyPosition.position;
                     break;
             }
-
         }
     }
 }
