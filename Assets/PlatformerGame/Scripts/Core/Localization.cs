@@ -41,7 +41,7 @@ namespace Platformer
         {
             Texts[ETexts.Enter] = "ENTER 'C'";
             Texts[ETexts.Exit] = "EXIT 'C'";
-            Texts[ETexts.Next] = "Next - 'C'";
+            Texts[ETexts.Next] = "Next 'C'";
             Texts[ETexts.TalkToMom] = "Talk to Mom 'C'";
             Texts[ETexts.TalkToMomAgain] = "Talk to Mom again";
             Texts[ETexts.PullLever] = "PULL LEVER 'C'";
@@ -59,7 +59,7 @@ namespace Platformer
         {
             Texts[ETexts.Enter] = "ÂÍÓÒÐÜ 'C'";
             Texts[ETexts.Exit] = "ÍÀÐÓÆÓ 'C'";
-            Texts[ETexts.Next] = "Äאכüרו - 'C'";
+            Texts[ETexts.Next] = "Äאכüרו 'C'";
             Texts[ETexts.TalkToMom] = "Îעגועטעü לאלו 'C''";
             Texts[ETexts.TalkToMomAgain] = "Ñםמגא מעגועטעü לאלו";
             Texts[ETexts.PullLever] = "ÄÅÐÍÓÒÜ ÐÛ×ÀÃ 'C'";

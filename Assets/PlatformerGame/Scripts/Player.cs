@@ -460,9 +460,17 @@ namespace Platformer
             //}
         }
 
-        public void InactivateCollider()
+        public void InactivateCollider(bool flag)
         {
-            this.gameObject.layer = (int)Layers.InactivePlayer;
+            if (flag)
+            {
+                this.gameObject.layer = (int)Layers.InactivePlayer;
+            }
+
+            if (!flag)
+            {
+                this.gameObject.layer = (int)Layers.FeetCollider;
+            }
         }
 
         public void UpdateStateName(string name)
@@ -496,10 +504,25 @@ namespace Platformer
                 HitAttack = true;
             }
 
+            GetInteractionInput();
+        }
+
+        public void GetInteractionInput()
+        {
             if (Input.GetButtonDown("Fire2"))
             {
                 Interaction();
             }
+        }
+
+        public void HoldByInteraction()
+        {
+
+        }
+
+        public void ReleasedByInteraction()
+        {
+
         }
 
         private void ShootWeaponKnife()

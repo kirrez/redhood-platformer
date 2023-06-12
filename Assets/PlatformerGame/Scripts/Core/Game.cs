@@ -15,6 +15,7 @@ namespace Platformer
         public DialogueModel Dialogue => DialogueModel;
         private DialogueModel DialogueModel;
 
+        //should be moved into "Navigation" service
         private Stage CurrentStage;
 
         public void LoadStage(EStages stage)
@@ -33,6 +34,7 @@ namespace Platformer
         {
             CurrentStage.SetLocation(locationIndex, spawnPointIndex);
         }
+        //
 
         private void Awake()
         {

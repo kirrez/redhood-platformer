@@ -47,6 +47,7 @@ namespace Platformer
         private StateRollDown StateRollDown;
         private StateDamageTaken StateDamageTaken;
         private StateSitDamageTaken StateSitDamageTaken;
+        private StateInteraction StateInteraction;
 
         private BaseState CurrentState;
 
@@ -147,6 +148,7 @@ namespace Platformer
             StateRollDown = new StateRollDown(this);
             StateDamageTaken = new StateDamageTaken(this);
             StateSitDamageTaken = new StateSitDamageTaken(this);
+            StateInteraction = new StateInteraction(this);
 
             Config = new PlayerConfig();
         }
@@ -237,6 +239,9 @@ namespace Platformer
                     break;
                 case EPlayerStates.Dying:
                     CurrentState = StateDying;
+                    break;
+                case EPlayerStates.Interaction:
+                    CurrentState = StateInteraction;
                     break;
             }
             CurrentState.Activate(time);
@@ -478,24 +483,23 @@ namespace Platformer
 
         public void JumpDown()
         {
-            //if (state)
-            //{
-            //    this.gameObject.layer = (int)Layers.JumpDown;
-            //}
-            //if (!state)
-            //{
-            //    this.gameObject.layer = (int)Layers.FeetCollider;
-            //}
-            
             if (PlatformInstance != null)
             {
                 PlatformInstance.ComeThrough();
             }
         }
 
-        public void InactivateCollider()
+        public void InactivateCollider(bool flag)
         {
-            this.gameObject.layer = (int)Layers.InactivePlayer;
+            if (flag)
+            {
+                this.gameObject.layer = (int)Layers.InactivePlayer;
+            }
+            
+            if (!flag)
+            {
+                this.gameObject.layer = (int)Layers.FeetCollider;
+            }
         }
 
         public void UpdateStateName(string name)
@@ -529,10 +533,27 @@ namespace Platformer
                 HitAttack = true;
             }
 
+            GetInteractionInput();
+        }
+
+        public void GetInteractionInput()
+        {
             if (Input.GetButtonDown("Fire2"))
             {
                 Interaction();
             }
+        }
+
+        public void HoldByInteraction()
+        {
+            SetState(EPlayerStates.Interaction);
+        }
+
+        public void ReleasedByInteraction()
+        {
+            SetState(EPlayerStates.Idle);
+            Animations.Idle();
+            InactivateCollider(false);
         }
 
         private void ShootWeaponKnife()

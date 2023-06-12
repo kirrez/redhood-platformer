@@ -17,6 +17,7 @@ namespace Platformer
         SitAttack,
         SitDamageTaken,
         DamageTaken,
-        Dying
+        Dying,
+        Interaction
     }
 }

@@ -15,14 +15,12 @@ namespace Platformer
         private IProgressManager ProgressManager;
         private ILocalization Localization;
         private IPlayer Player;
-        //private Game Game;
 
         private void Awake()
         {
             ResourceManager = CompositionRoot.GetResourceManager();
             ProgressManager = CompositionRoot.GetProgressManager();
             Localization = CompositionRoot.GetLocalization();
-            //Game = CompositionRoot.GetGame();
         }
 
         private void OnEnable()

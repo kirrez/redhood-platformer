@@ -17,6 +17,8 @@ namespace Platformer
         private ILocalization Localization;
         private IPlayer Player;
 
+        private Collider2D AreaTrigger;
+        private bool Inside = false;
         private int DialoguePhase = 0;
 
         private void Awake()
@@ -24,6 +26,9 @@ namespace Platformer
             ResourceManager = CompositionRoot.GetResourceManager();
             ProgressManager = CompositionRoot.GetProgressManager();
             Localization = CompositionRoot.GetLocalization();
+            Player = CompositionRoot.GetPlayer();
+
+            AreaTrigger = GetComponent<Collider2D>();
         }
 
         private void OnEnable()
@@ -31,28 +36,21 @@ namespace Platformer
             HelpText.text = Localization.Text(ETexts.TalkToMom);
         }
 
-        private void OnTriggerEnter2D(Collider2D collision)
+        private void Update()
         {
             if (ProgressManager.GetQuest(EQuest.MotherPie) != 0) return;
 
-            if (collision.gameObject.CompareTag("Player"))
+            if (AreaTrigger.bounds.Contains(Player.Position) && !Inside)
             {
-                Player = collision.gameObject.GetComponent<IPlayer>();
+                Inside = true;
                 Player.Interaction += OnQuestCompleted;
                 HelpText.gameObject.SetActive(true);
             }
-        }
 
-        private void OnTriggerExit2D(Collider2D collision)
-        {
-            if (ProgressManager.GetQuest(EQuest.MotherPie) != 0) return;
-
-            if (collision.gameObject.CompareTag("Player"))
+            if (!AreaTrigger.bounds.Contains(Player.Position) && Inside)
             {
-                if (Player != null)
-                {
-                    Player.Interaction -= OnQuestCompleted;
-                }
+                Inside = false;
+                Player.Interaction -= OnQuestCompleted;
                 HelpText.gameObject.SetActive(false);
             }
         }
@@ -61,69 +59,48 @@ namespace Platformer
         {
             var Game = CompositionRoot.GetGame();
 
-            if (DialoguePhase == 0)
+            switch (DialoguePhase)
             {
-                Game.Dialogue.Show();
-                Game.Dialogue.SetDialogueName(Localization.Text(ETexts.PieDialogue1));
-                Game.Dialogue.ChangeContent(Localization.Text(ETexts.DialoguePie1_1));
+                case 0:
+                    Player.HoldByInteraction();
+                    Game.Dialogue.Show();
+                    Game.Dialogue.SetDialogueName(Localization.Text(ETexts.PieDialogue1));
+                    Game.Dialogue.ChangeContent(Localization.Text(ETexts.DialoguePie1_1));
+                    DialoguePhase++;
+                    break;
+                case 1:
+                    Game.Dialogue.AddContent(Localization.Text(ETexts.DialoguePie1_2));
+                    DialoguePhase++;
+                    break;
+                case 2:
+                    Game.Dialogue.AddContent(Localization.Text(ETexts.DialoguePie1_3));
+                    DialoguePhase++;
+                    break;
+                case 3:
+                    Game.Dialogue.AddContent(Localization.Text(ETexts.DialoguePie1_4));
+                    DialoguePhase++;
+                    break;
+                case 4:
+                    Game.Dialogue.ChangeContent(Localization.Text(ETexts.DialoguePie1_5));
+                    DialoguePhase++;
+                    break;
+                case 5:
+                    Game.Dialogue.AddContent(Localization.Text(ETexts.DialoguePie1_6));
+                    DialoguePhase++;
+                    break;
+                case 6:
+                    Player.ReleasedByInteraction();
+                    Game.Dialogue.Hide();
+                    ProgressManager.SetQuest(EQuest.MotherPie, 1);
+                    HelpText.gameObject.SetActive(false);
+                    Player.Interaction -= OnQuestCompleted;
 
-                DialoguePhase++;
-                return;
+                    var instance = ResourceManager.CreatePrefab<Key, ECollectibles>(ECollectibles.KeyRed);
+                    instance.transform.SetParent(transform, false);
+                    instance.transform.position = KeyPosition.position;
+                    break;
             }
 
-            if (DialoguePhase == 1)
-            {
-                //Debug.Log("DPhase = 1");
-                Game.Dialogue.AddContent(Localization.Text(ETexts.DialoguePie1_2));
-
-                DialoguePhase++;
-                return;
-            }
-
-            if (DialoguePhase == 2)
-            {
-                Game.Dialogue.AddContent(Localization.Text(ETexts.DialoguePie1_3));
-
-                DialoguePhase++;
-                return;
-            }
-
-            if (DialoguePhase == 3)
-            {
-                Game.Dialogue.AddContent(Localization.Text(ETexts.DialoguePie1_4));
-
-                DialoguePhase++;
-                return;
-            }
-
-            if (DialoguePhase == 4)
-            {
-                //Debug.Log("DPhase = 4");
-                Game.Dialogue.ChangeContent(Localization.Text(ETexts.DialoguePie1_5));
-
-                DialoguePhase++;
-                return;
-            }
-
-            if (DialoguePhase == 5)
-            {
-                Game.Dialogue.AddContent(Localization.Text(ETexts.DialoguePie1_6));
-
-                DialoguePhase++;
-                return;
-            }
-
-            if (DialoguePhase == 6)
-            {
-                Game.Dialogue.Hide();
-                ProgressManager.SetQuest(EQuest.MotherPie, 1);
-                HelpText.gameObject.SetActive(false);
-                Player.Interaction -= OnQuestCompleted;
-
-                var instance = ResourceManager.CreatePrefab<Key, ECollectibles>(ECollectibles.KeyRed);
-                instance.transform.SetParent(transform, false);
-                instance.transform.position = KeyPosition.position;
-            }
         }
     }
 }

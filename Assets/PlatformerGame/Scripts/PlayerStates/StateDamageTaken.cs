@@ -54,7 +54,7 @@ namespace Platformer.PlayerStates
                     if (HitPoints <= 0)
                     {
                         Model.Animations.Dying();
-                        Model.InactivateCollider();
+                        Model.InactivateCollider(true);
                         Model.SetState(EPlayerStates.Dying, Model.Animations.Dying() + Model.DeathShockTime);
                     }
                     else

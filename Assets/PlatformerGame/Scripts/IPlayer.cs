@@ -29,7 +29,6 @@ namespace Platformer
         bool Grounded(LayerMask mask);
         bool Ceiled(LayerMask mask);
         bool StandingCeiled(LayerMask mask);
-        void ReleasePlatform();
         float DirectionCheck();
         void AttackCheck();
 
@@ -43,15 +42,19 @@ namespace Platformer
         void PushDown();
         void Jump();
         void JumpDown();
-        void InactivateCollider();
+        void ReleasePlatform();
+        void InactivateCollider(bool flag);
         void DamagePushBack();
         void RollDown();
         void StandUp();
         void SitDown();
+        void HoldByInteraction();
+        void ReleasedByInteraction();
 
 
         void ChangeHealthUI();
         void GetInput();
+        void GetInteractionInput();
         void UpdateStateName(string name);
         void EnableGameOver();
     }
