@@ -126,6 +126,13 @@ namespace Platformer.ScriptedAnimator
             LoadNextAnimation(index);
             return NextAnimationDelay * NextAnimations.Count;
         }
+
+        public float Stunned()
+        {
+            var index = (int)EPlayerAnimations.Stunned;
+            LoadNextAnimation(index);
+            return NextAnimationDelay * NextAnimations.Count;
+        }
     }
 }
 

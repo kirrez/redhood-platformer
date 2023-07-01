@@ -16,11 +16,12 @@ namespace Platformer.PlayerStates
         {
             Timer = time;
             Model.UpdateStateName("Dying");
+            Model.Health.HealthChanged = null;
         }
 
         public override void OnUpdate()
         {
-            // no input!
+            // nothing
         }
 
         public override void OnFixedUpdate()
@@ -33,9 +34,9 @@ namespace Platformer.PlayerStates
             }
         }
 
-        protected override void OnHealthChanged()
-        {
-            // doing just nothing )
-        }
+        //protected override void OnHealthChanged()
+        //{
+        //    // doing just nothing )
+        //}
     }
 }

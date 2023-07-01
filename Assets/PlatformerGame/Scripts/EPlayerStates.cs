@@ -18,6 +18,7 @@ namespace Platformer
         SitDamageTaken,
         DamageTaken,
         Dying,
-        Interaction
+        Interaction,
+        Stunned
     }
 }

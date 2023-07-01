@@ -6,7 +6,8 @@ namespace Platformer
 {
     public interface IProgressManager
     {
-        void ResetProgress();
+        void LoadNewGame();
+        void LoadTestConfig();
         int GetQuest(EQuest key);
         void SetQuest(EQuest key, int value);
 

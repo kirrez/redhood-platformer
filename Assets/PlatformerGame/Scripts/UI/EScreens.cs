@@ -6,6 +6,9 @@ namespace Platformer
 {
     public enum EScreens
     {
-        DialogueView
+        FadeScreenView,
+        DialogueView,
+        GameOverView,
+        HUDView
     }
 }

@@ -15,6 +15,7 @@ namespace Platformer
         RollDown,
         Crouch,
         DamageTaken,
-        SitDamageTaken
+        SitDamageTaken,
+        Stunned
     }
 }

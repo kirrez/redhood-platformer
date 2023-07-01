@@ -34,6 +34,8 @@ namespace Platformer
 
         //Commands
 
+        void Initiate(IGame game);
+        void Revive();
         void SetState(EPlayerStates state, float time = 0f);
         void Walk();
         void Crouch();
@@ -50,6 +52,7 @@ namespace Platformer
         void SitDown();
         void HoldByInteraction();
         void ReleasedByInteraction();
+        void GetStunned(float time);
 
 
         void ChangeHealthUI();

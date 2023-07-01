@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.Collections;
 using Cinemachine;
-using Platformer.UI;
 using UnityEngine;
 
 namespace Platformer
@@ -11,51 +10,85 @@ namespace Platformer
         //private IPlayer Player;
         private IResourceManager ResourceManager;
         private IProgressManager ProgressManager;
+        private IDynamicsContainer DynamicsContainer;
+        private INavigation Navigation;
+        private IPlayer Player;
 
         public DialogueModel Dialogue => DialogueModel;
         private DialogueModel DialogueModel;
 
-        //should be moved into "Navigation" service
-        private Stage CurrentStage;
+        public FadeScreenModel FadeScreen => FadeScreenModel;
+        private FadeScreenModel FadeScreenModel;
 
-        public void LoadStage(EStages stage)
-        {
-            if (CurrentStage != null)
-            {
-                Destroy(CurrentStage.gameObject);
-                CurrentStage = null;
-            }
+        public GameOverModel GameOver => GameOverModel;
+        private GameOverModel GameOverModel;
 
-            Stage instance = ResourceManager.CreatePrefab<Stage, EStages>(stage);
-            CurrentStage = instance;
-        }
-
-        public void SetLocation(int locationIndex = 0, int spawnPointIndex = 0)
-        {
-            CurrentStage.SetLocation(locationIndex, spawnPointIndex);
-        }
-        //
+        public HUDModel HUD => HUDModel;
+        private HUDModel HUDModel;
 
         private void Awake()
         {
             ResourceManager = CompositionRoot.GetResourceManager();
+            ProgressManager = CompositionRoot.GetProgressManager();
+            Navigation = CompositionRoot.GetNavigation();
+            DynamicsContainer = CompositionRoot.GetDynamicsContainer();
+
             var eventSystem = CompositionRoot.GetEventSystem();
             var mainCMCamera = CompositionRoot.GetMainCMCamera();
-            var dynamicsContainer = CompositionRoot.GetDynamicsContainer();
-            ProgressManager = CompositionRoot.GetProgressManager();
-            ProgressManager.ResetProgress();
 
-            //initial location data saving
-            ProgressManager.SetQuest(EQuest.Stage, (int)EStages.TheVillage);
-            ProgressManager.SetQuest(EQuest.SpawnPoint, 0);
+            ProgressManager.LoadTestConfig();
+            //ProgressManager.LoadNewGame();
+
+            GameOverModel = new GameOverModel();
+            GameOverModel.TryingAgain += TryAgain;
+            GameOverModel.Hide();
 
             DialogueModel = new DialogueModel();
             DialogueModel.Hide();
+            
+            // as the last screen on MenuCanvas it can be used for fading menues too
+            FadeScreenModel = new FadeScreenModel();
+            FadeScreenModel.Show();
 
-            LoadStage(EStages.TheVillage);
-            SetLocation(0, 0);
+            HUDModel = new HUDModel();
+            HUDModel.Show();//in StartGame
+            HUDModel.SetMaxLives(ProgressManager.GetQuest(EQuest.MaxLives));
 
-            //Player = CompositionRoot.GetPlayer();
+            Player = CompositionRoot.GetPlayer();
+            Player.Initiate(this);
+            Player.Revive();
+
+            //should be in "StartGame" and "ContinueGame"
+            LoadPlayerLocation();
+        }
+
+        public void GameOverMenu()
+        {
+            HUDModel.Hide();
+            GameOverModel.Show();
+        }
+
+        private void LoadPlayerLocation()
+        {
+            var stage = (EStages)ProgressManager.GetQuest(EQuest.Stage);
+            var location = ProgressManager.GetQuest(EQuest.Location);
+            var spawnPoint = ProgressManager.GetQuest(EQuest.SpawnPoint);
+
+            Navigation.LoadStage(stage);
+            Navigation.SetLocation(location, spawnPoint);
+        }
+
+        private void TryAgain()
+        {
+            DynamicsContainer.DeactivateAll();
+            LoadPlayerLocation();
+
+            GameOverModel.Hide();
+            HUDModel.Show();
+            Player.Revive();
+
+            FadeScreenModel.DelayBefore(Color.black, 1f);
+            FadeScreenModel.FadeOut(Color.black, 1f);
         }
     }
 }

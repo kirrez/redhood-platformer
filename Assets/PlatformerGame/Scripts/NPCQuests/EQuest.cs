@@ -3,9 +3,8 @@ namespace Platformer
     public enum EQuest
     {
         Stage,
+        Location,
         SpawnPoint,
-
-        SubWeaponEnabled,
 
         RedKey,
         GreyKey,
@@ -30,7 +29,21 @@ namespace Platformer
         Drawbridge,
         WFElevator,
         WFPlatform,
-        WFSecondElevator
+        WFSecondElevator,
+
+        KnifeLevel, // 0-none, 1-normal
+        AxeLevel, // 0-none, 1-normal
+        HolyWaterLevel, // 0-none, 1-normal
+
+        //Player's max lives (3-8)
+        MaxLives,
+        MaxLivesCap,
+
+        LifeUpgradeCost,
+        FoodCollected,
+
+
+        OreCollected
     }
 }
 

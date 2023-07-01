@@ -1418,7 +1418,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1426,6 +1426,48 @@ TextureImporter:
       bones: []
       spriteID: 2cc8eebf097bf1d44a173e50da67c9aa
       internalID: -866954109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heart_full
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 448
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d534113d32527c4d995abaf3e53d646
+      internalID: -1332053382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Heart_Empty
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 448
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0f78dce5295b5a4e91863bef025a4e6
+      internalID: -1194434640
       vertices: []
       indices: 
       edges: []
@@ -1442,6 +1484,7 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       DarkCloudsL4: 2110242026
+      Heart_Empty: -1194434640
       DarkCloudsL1_1: 1993751466
       DarkCloudsL2_5: -426296842
       DarkCloudsL3_1: 1253647553
@@ -1458,8 +1501,8 @@ TextureImporter:
       DarkCloudsL1_2: -1559139224
       Bubble: -631682307
       DarkCloudsL1_7: -419847979
-      DarkCloudsL1_12: -1543764027
       Mother_0: 1539828992
+      DarkCloudsL1_12: -1543764027
       DoorGreen_0: -425144864
       Fall_1: 2073561585
       BridgeCenter: 1616014153
@@ -1515,13 +1558,14 @@ TextureImporter:
       DarkCloudsL1_5: -1699626249
       Stream_2: -309486281
       Mushroom: 1425082455
+      Heart_full: -1332053382
       Key_Grey: -6393119
       Platform_4: 933978366
       Key_Green: 2089127135
       DarkCloudsL1_6: -1426506302
       Platform_1: -1624028744
-      Platform_3: 880925628
       Rope_4: -866954109
+      Platform_3: 880925628
       DarkCloudsL1_3: 1355649025
       Blackberry: 961531519
       DarkCloudsLVL2: -431119207

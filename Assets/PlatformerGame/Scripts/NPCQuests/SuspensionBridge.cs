@@ -45,14 +45,13 @@ namespace Platformer
 
         private void Update()
         {
+            //works when Father's monologue is done and SuspensionBridge became 2
             if (ProgressManager.GetQuest(EQuest.SuspensionBridge) == 2)
             {
                 ProgressManager.SetQuest(EQuest.SuspensionBridge, 3);
                 Bridge.SetActive(true);
                 LooseRopes.SetActive(false);
             }
-
-
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
@@ -61,16 +60,19 @@ namespace Platformer
 
             if (collision.gameObject.CompareTag("Player"))
             {
+                var game = CompositionRoot.GetGame();
+
                 ProgressManager.SetQuest(EQuest.SuspensionBridge, 1);
                 Bridge.SetActive(false);
                 LooseRopes.SetActive(true);
                 Shatters.SetActive(true);
+                game.FadeScreen.FadeOut(new Color(1f, 1f, 1f, 1f), 1f);
 
                 //In-quest SpawnPoint update!
+                ProgressManager.SetQuest(EQuest.Location, 0);
                 ProgressManager.SetQuest(EQuest.SpawnPoint, 1);
 
-
-                //Player.HoldByInteraction();
+                Player.GetStunned(1.5f);
             }
         }
     }

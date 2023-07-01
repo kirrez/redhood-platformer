@@ -89,9 +89,12 @@ namespace Platformer
 
         private void OnLocationEnter()
         {
-            var game = CompositionRoot.GetGame();
+            var navigation = CompositionRoot.GetNavigation();
             Dynamics.DeactivateAll();
-            game.SetLocation(LocationIndex, SpawnPointIndex);
+            navigation.SetLocation(LocationIndex, SpawnPointIndex);
+            var game = CompositionRoot.GetGame();
+            game.FadeScreen.DelayBefore(Color.black, 0.5f);
+            game.FadeScreen.FadeOut(Color.black, 1f);
         }
 
     }

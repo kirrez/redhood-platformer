@@ -1,5 +1,4 @@
 using UnityEngine.UI;
-using Platformer.UI;
 using UnityEngine;
 
 namespace Platformer

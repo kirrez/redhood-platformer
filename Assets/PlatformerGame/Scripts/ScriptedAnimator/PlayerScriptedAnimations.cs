@@ -179,7 +179,6 @@ namespace Platformer.ScriptedAnimator
 
         public float Attack()
         {
-            
             var index = (int)EPlayerAnimations.Attack;
             NextAnimations = AnimationDataList[index].Animations;
             NextAnimationDelay = 1 / AnimationDataList[index].FramesPerSecond;
@@ -191,7 +190,6 @@ namespace Platformer.ScriptedAnimator
 
         public float AirAttack()
         {
-            
             var index = (int)EPlayerAnimations.AirAttack;
             NextAnimations = AnimationDataList[index].Animations;
             NextAnimationDelay = 1 / AnimationDataList[index].FramesPerSecond;
@@ -203,7 +201,6 @@ namespace Platformer.ScriptedAnimator
 
         public float Sit()
         {
-            
             var index = (int)EPlayerAnimations.Sit;
             NextAnimations = AnimationDataList[index].Animations;
             NextAnimationDelay = 1 / AnimationDataList[index].FramesPerSecond;
@@ -215,7 +212,6 @@ namespace Platformer.ScriptedAnimator
 
         public float SitAttack()
         {
-            
             var index = (int)EPlayerAnimations.SitAttack;
             NextAnimations = AnimationDataList[index].Animations;
             NextAnimationDelay = 1 / AnimationDataList[index].FramesPerSecond;
@@ -227,7 +223,6 @@ namespace Platformer.ScriptedAnimator
 
         public float RollDown()
         {
-            
             var index = (int)EPlayerAnimations.RollDown;
             NextAnimations = AnimationDataList[index].Animations;
             NextAnimationDelay = 1 / AnimationDataList[index].FramesPerSecond;
@@ -239,7 +234,6 @@ namespace Platformer.ScriptedAnimator
 
         public float Crouch()
         {
-            
             var index = (int)EPlayerAnimations.Crouch;
             NextAnimations = AnimationDataList[index].Animations;
             NextAnimationDelay = 1 / AnimationDataList[index].FramesPerSecond;
@@ -251,7 +245,6 @@ namespace Platformer.ScriptedAnimator
 
         public float DamageTaken()
         {
-            
             var index = (int)EPlayerAnimations.DamageTaken;
             NextAnimations = AnimationDataList[index].Animations;
             NextAnimationDelay = 1 / AnimationDataList[index].FramesPerSecond;
@@ -263,8 +256,18 @@ namespace Platformer.ScriptedAnimator
 
         public float SitDamageTaken()
         {
-            
             var index = (int)EPlayerAnimations.SitDamageTaken;
+            NextAnimations = AnimationDataList[index].Animations;
+            NextAnimationDelay = 1 / AnimationDataList[index].FramesPerSecond;
+            NextLoop = AnimationDataList[index].Loop;
+            NextFull = AnimationDataList[index].Full;
+            NextAnimationSwitched = true;
+            return NextAnimationDelay * NextAnimations.Count;
+        }
+
+        public float Stunned()
+        {
+            var index = (int)EPlayerAnimations.Stunned;
             NextAnimations = AnimationDataList[index].Animations;
             NextAnimationDelay = 1 / AnimationDataList[index].FramesPerSecond;
             NextLoop = AnimationDataList[index].Loop;

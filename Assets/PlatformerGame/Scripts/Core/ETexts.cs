@@ -14,6 +14,10 @@ namespace Platformer
         English,
         Russian,
 
+        //Buttons
+        TryAgain,
+        ToMenu,
+
         //Quest Dialogues
         PieDialogue1,
         DialoguePie1_1,

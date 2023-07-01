@@ -11,6 +11,7 @@ namespace Platformer
         private static IGame Game;
         private static IUIRoot UIRoot;
         private static GameObject MainCMCamera;
+        private static INavigation Navigation;
         private static IDynamicsContainer DynamicsContainer;
         private static CinemachineVirtualCamera VirtualPlayerCamera;
         private static GameObject EventSystemContainer;
@@ -47,9 +48,7 @@ namespace Platformer
             if (Player == null)
             {
                 var resourceManager = GetResourceManager();
-                //under development
-                //Player = resourceManager.CreatePrefab<IPlayer, EComponents>(EComponents.Player);
-                Player = resourceManager.CreatePrefab<IPlayer, EComponents>(EComponents.Player2);
+                Player = resourceManager.CreatePrefab<IPlayer, EComponents>(EComponents.Player);
             }
             return Player;
         }
@@ -100,6 +99,16 @@ namespace Platformer
             return VirtualPlayerCamera;
         }
 
+        public static INavigation GetNavigation()
+        {
+            if (Navigation == null)
+            {
+                Navigation = new Navigation();
+            }
+
+            return Navigation;
+        }
+
         public static IResourceManager GetResourceManager()
         {
             if (ResourceManager == null)
@@ -135,6 +144,7 @@ namespace Platformer
             Game = null;
             Player = null;
             UIRoot = null;
+            Navigation = null;
             MainCMCamera = null;
             ResourceManager = null;
             VirtualPlayerCamera = null;

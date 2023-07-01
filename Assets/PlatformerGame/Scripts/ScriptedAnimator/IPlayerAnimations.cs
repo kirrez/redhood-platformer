@@ -16,5 +16,6 @@ namespace Platformer
         float Crouch();
         float DamageTaken();
         float SitDamageTaken();
+        float Stunned();
     }
 }

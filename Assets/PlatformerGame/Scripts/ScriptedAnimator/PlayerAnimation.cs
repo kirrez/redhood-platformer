@@ -76,5 +76,10 @@ namespace Platformer.ScriptedAnimator
         {
             return Animator.SitDamageTaken();
         }
+
+        public float Stunned()
+        {
+            return Animator.Stunned();
+        }
     }
 }

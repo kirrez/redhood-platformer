@@ -38,13 +38,18 @@ namespace Platformer
                 Timer -= Time.deltaTime;
                 if (Timer <= 0)
                 {
-                    var game = CompositionRoot.GetGame();
+                    var navigation = CompositionRoot.GetNavigation();
                     Dynamics.DeactivateAll();
-                    game.LoadStage(Stage);
-                    game.SetLocation(LocationIndex, SpawnPointIndex);
+                    navigation.LoadStage(Stage);
+                    navigation.SetLocation(LocationIndex, SpawnPointIndex);
+
+                    var game = CompositionRoot.GetGame();
+                    game.FadeScreen.DelayBefore(Color.black, 1f);
+                    game.FadeScreen.FadeOut(Color.black, 1f);
 
                     // saving location data
                     ProgressManager.SetQuest(EQuest.Stage, (int)Stage);
+                    ProgressManager.SetQuest(EQuest.Location, LocationIndex);
                     ProgressManager.SetQuest(EQuest.SpawnPoint, SpawnPointIndex);
                 }
             }
@@ -57,6 +62,9 @@ namespace Platformer
                 //Player = collision.gameObject.GetComponent<IPlayer>();
                 Inside = true;
                 Timer = TransitionTime;
+                var game = CompositionRoot.GetGame();
+                game.FadeScreen.FadeIn(Color.black, 1f);
+                game.FadeScreen.DelayAfter(1f);
             }
         }
 
@@ -66,6 +74,8 @@ namespace Platformer
             {
                 Inside = false;
                 Timer = 0f;
+                var game = CompositionRoot.GetGame();
+                game.FadeScreen.FadeOut(Color.black, 1f);
             }
         }
     }

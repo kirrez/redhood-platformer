@@ -50,6 +50,12 @@ namespace Platformer
         [SerializeField]
         private int Type; // 0-Player, 1-Enemy, etc
 
+        //for Player
+        public void SetMaxLives(int lives)
+        {
+            MaxHitPoints = lives;
+        }
+
 
         public int GetCharacterType()
         {
@@ -59,6 +65,7 @@ namespace Platformer
         public void RefillHealth()
         {
             CurrentHitPoints = MaxHitPoints;
+            IsDamageable = true;
         }
 
         public void ResetDamageCooldown()
@@ -83,6 +90,7 @@ namespace Platformer
                 else if (CurrentHitPoints <= 0)
                 {
                     //now i need only HealthChanged in Player's states ))
+                    CurrentHitPoints = 0;
                     HealthChanged();
                     IsDamageable = false;
                     Killed();

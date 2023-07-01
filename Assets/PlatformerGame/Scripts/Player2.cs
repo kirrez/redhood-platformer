@@ -48,6 +48,7 @@ namespace Platformer
         private StateDamageTaken StateDamageTaken;
         private StateSitDamageTaken StateSitDamageTaken;
         private StateInteraction StateInteraction;
+        private StateStunned StateStunned;
 
         private BaseState CurrentState;
 
@@ -68,12 +69,6 @@ namespace Platformer
         private float RollDownForce;
         private float PrimaryAttackCooldown;
 
-        //[SerializeField]
-        //private Collider2D StandingCollider;
-        //[SerializeField]
-        //private Collider2D SittingCollider;
-        // current collider
-
         //Two paths for collider to switch between while change StandUp and SitDown ))
         [SerializeField]
         private Vector2[] StandingPath;
@@ -88,8 +83,6 @@ namespace Platformer
         private Rigidbody2D PlatformRigidbody = null;
         private BasePlatform PlatformInstance = null;
 
-
-
         //Weapons
         [SerializeField]
         private Transform StandingFirePoint;
@@ -102,36 +95,23 @@ namespace Platformer
 
         private float AttackTimer;
 
-        // UI, have to fix their inspector-only fill !
-        //[SerializeField]
-        //private HUD Hud;
-
-        //[SerializeField]
-        //private GameOverScreen GameOver;
-
-        //[SerializeField]
-        //private StartScreen StartScreen;
-
         private IResourceManager ResourceManager;
+        private IProgressManager ProgressManager;
+        private IGame Game;
 
         private void Awake()
         {
             ResourceManager = CompositionRoot.GetResourceManager();
+            ProgressManager = CompositionRoot.GetProgressManager();
 
             Rigidbody = GetComponent<Rigidbody2D>();
             Renderer = GetComponent<SpriteRenderer>();
             Health = GetComponent<Health>();
 
-            //New Collider reference
             Collider = GetComponent<PolygonCollider2D>();
 
             PlayerAnimator = new PlayerAnimator(Renderer);
             Animations = new PlayerAnimation(PlayerAnimator);
-
-            // commands for Game model, which I don't have yet
-            //GameOver.Hide();
-            //StartScreen.Show();
-            //Hud.Show();
 
             StateIdle = new StateIdle(this);
             StateWalk = new StateWalk(this);
@@ -149,26 +129,19 @@ namespace Platformer
             StateDamageTaken = new StateDamageTaken(this);
             StateSitDamageTaken = new StateSitDamageTaken(this);
             StateInteraction = new StateInteraction(this);
+            StateStunned = new StateStunned(this);
 
             Config = new PlayerConfig();
+        }
+
+        public void Initiate(IGame game)
+        {
+            Game = game;
         }
 
         private void OnEnable()
         {
             LoadConfigData();
-
-            Health.RefillHealth();
-
-            //now won't work
-            //int lives = Health.GetHitPoints;
-            //Hud.ChangeLivesAmount(lives);
-
-            CurrentState = StateIdle;
-            Animations.Idle();
-            StandUp();
-
-            StandingFirePointX = StandingFirePoint.transform.localPosition.x;
-            SittingFirePointX = SittingFirePoint.transform.localPosition.x;
         }
 
         private void Update()
@@ -189,6 +162,24 @@ namespace Platformer
             {
                 AttackTimer -= Time.fixedDeltaTime;
             }
+        }
+
+        public void Revive()
+        {
+            var progressManager = CompositionRoot.GetProgressManager();
+            var maxLives = progressManager.GetQuest(EQuest.MaxLives);
+
+            Health.SetMaxLives(maxLives);
+            Health.RefillHealth();
+            Game.HUD.SetCurrentLives(maxLives);
+            InactivateCollider(false);
+
+            SetState(EPlayerStates.Idle, 0f);
+            Animations.Idle();
+            StandUp();
+
+            StandingFirePointX = StandingFirePoint.transform.localPosition.x;
+            SittingFirePointX = SittingFirePoint.transform.localPosition.x;
         }
 
         public void SetState(EPlayerStates state, float time = 0f)
@@ -242,6 +233,9 @@ namespace Platformer
                     break;
                 case EPlayerStates.Interaction:
                     CurrentState = StateInteraction;
+                    break;
+                case EPlayerStates.Stunned:
+                    CurrentState = StateStunned;
                     break;
             }
             CurrentState.Activate(time);
@@ -367,17 +361,20 @@ namespace Platformer
 
         public void AttackCheck()
         {
+            // !!!! I wanna check transition to attack states in other states....
+            // not like it works now..
+
             //Both types of attack with single cooldown
             if (AttackTimer <= 0)
             {
                 AttackTimer = PrimaryAttackCooldown;
                 HitAttack = false;
                 // Up + X - secondary
-                if (Vertical == 1)
+                if ((Vertical == 1) && ProgressManager.GetQuest(EQuest.AxeLevel) == 1)
                 {
                     ShootWeaponAxe();
                 }
-                else if (Vertical <= 0) // attacks from idle and sitting
+                else if ((Vertical <= 0) && ProgressManager.GetQuest(EQuest.KnifeLevel) == 1) // attacks from idle and sitting
                 {
                     ShootWeaponKnife();
                 }
@@ -474,11 +471,7 @@ namespace Platformer
 
         public void EnableGameOver()
         {
-            // have to change adressing to higher level model, e.g. "Game"
-            // should be event )
-
-            // doing nothing right now
-            //GameOver.Show();
+            Game.GameOverMenu();
         }
 
         public void JumpDown()
@@ -510,7 +503,7 @@ namespace Platformer
         public void ChangeHealthUI()
         {
             int lives = Health.GetHitPoints;
-            //Hud.ChangeLivesAmount(lives);
+            Game.HUD.SetCurrentLives(lives);
         }
 
         public void GetInput()
@@ -554,6 +547,11 @@ namespace Platformer
             SetState(EPlayerStates.Idle);
             Animations.Idle();
             InactivateCollider(false);
+        }
+
+        public void GetStunned(float time)
+        {
+            SetState(EPlayerStates.Stunned, time);
         }
 
         private void ShootWeaponKnife()

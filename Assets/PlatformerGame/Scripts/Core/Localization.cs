@@ -47,7 +47,11 @@ namespace Platformer
             Texts[ETexts.PullLever] = "PULL LEVER 'C'";
 
             Texts[ETexts.English] = "English";
-            Texts[ETexts.Russian] = "Russian";
+            Texts[ETexts.Russian] = "Русский";
+
+            Texts[ETexts.TryAgain] = "Try Again";
+            Texts[ETexts.ToMenu] = "Menu";
+
 
             Texts[ETexts.PieDialogue1] = "* A Pie for a Grandma *";
             Texts[ETexts.DialoguePie1_1] = "- Hello, mom!";
@@ -59,9 +63,9 @@ namespace Platformer
 
             Texts[ETexts.FamilyMonologue] = "* My Wonderful Family *";
             Texts[ETexts.Family_1] = "It's about my mom.";
-            Texts[ETexts.Family_2] = "She's come from far away, and still doesn't got used to local customs. Even couldn't get rid of her foreign accent.";
-            Texts[ETexts.Family_3] = "Though she sometimes behave weird, and doesn't even distinguish her own husband from a mere bear in the forest (I love you, dad!), she is a nice person!";
-            Texts[ETexts.Family_4] = "Today I'm going to collect some stuff for my mother to make a treat for Granny! Hope to meet daddy soon ))";
+            Texts[ETexts.Family_2] = "She came from far away, and still didn't get used to local customs. Even couldn't get rid of her foreign accent.";
+            Texts[ETexts.Family_3] = "Though sometimes she behave weird, and doesn't even distinguish her own husband from a mere bear in the forest (I love you, dad!), she is a nice person!";
+            Texts[ETexts.Family_4] = "Today I'm going to collect some stuff for my mother to make a treat for Granny! Hope to meet there daddy too ))";
         }
 
         private void LoadRussian()
@@ -73,8 +77,11 @@ namespace Platformer
             Texts[ETexts.TalkToMomAgain] = "Снова ответить маме";
             Texts[ETexts.PullLever] = "ДЕРНУТЬ РЫЧАГ 'C'";
 
-            Texts[ETexts.English] = "Английский";
+            Texts[ETexts.English] = "English";
             Texts[ETexts.Russian] = "Русский";
+
+            Texts[ETexts.TryAgain] = "Еще разок";
+            Texts[ETexts.ToMenu] = "В меню";
 
             Texts[ETexts.PieDialogue1] = "* Пирог для Бабули *";
             Texts[ETexts.DialoguePie1_1] = "- Привет, мама!";
@@ -88,7 +95,7 @@ namespace Platformer
             Texts[ETexts.Family_1] = "О моей маме..";
             Texts[ETexts.Family_2] = "Она - иностранка, пришла в эти края откуда-то издалека и до сих пор не может привыкнуть. Даже говорит до сих пор с акцентом. ";
             Texts[ETexts.Family_3] = "Хоть она и ведет себя странно иногда, и даже не может отличить своего мужа от медведя в лесу (люблю тебя, папуля!), она замечательная женщина! ";
-            Texts[ETexts.Family_4] = "Сегодня мне нужно собрать кое-что для угощения, которое мама будет печь для бабушки. Надеюсь встретить папочку в лесу ))";
+            Texts[ETexts.Family_4] = "Сегодня мне нужно собрать кое-что для пирога, который мама будет печь для бабушки. Надеюсь встретить там и папочку тоже ))";
         }
     }
 }
