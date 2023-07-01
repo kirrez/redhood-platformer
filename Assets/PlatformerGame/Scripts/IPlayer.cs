@@ -19,6 +19,8 @@ namespace Platformer
         float Vertical { get; set; }
         bool HitJump { get; set; }
         bool HitAttack { get; set; }
+
+        bool HitInteraction { get; set; }
         float DeltaY { get; }
 
         float JumpDownTime { get; }
@@ -53,6 +55,9 @@ namespace Platformer
         void HoldByInteraction();
         void ReleasedByInteraction();
         void GetStunned(float time);
+        float GetAttackTimer();
+        float GetAttackCooldown();
+        AttackTypes GetAttackType();
 
 
         void ChangeHealthUI();

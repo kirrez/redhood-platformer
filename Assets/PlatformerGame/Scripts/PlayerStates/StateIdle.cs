@@ -11,7 +11,7 @@ namespace Platformer.PlayerStates
             Model = model;
         }
 
-        public override void Activate(float time = 0)
+        public override void Activate(float time = 0f)
         {
             base.Activate(time);
             Model.UpdateStateName("Idle");
@@ -71,7 +71,9 @@ namespace Platformer.PlayerStates
                 Model.SetState(EPlayerStates.JumpFalling);
             }
 
-            // State Attack
+            var attack = Model.GetAttackType();
+
+            // State Attack (old version)
             if (Model.HitAttack)
             {
                 Model.HitAttack = false;

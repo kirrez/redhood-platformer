@@ -25,6 +25,8 @@ namespace Platformer
         public float Vertical { get; set; }
         public bool HitJump { get; set; }
         public bool HitAttack { get; set; }
+
+        public bool HitInteraction { get; set; }
         public float DeltaY { get; private set; }
         //public bool InAir { get; set; }
 
@@ -162,6 +164,16 @@ namespace Platformer
             {
                 AttackTimer -= Time.fixedDeltaTime;
             }
+        }
+
+        public float GetAttackTimer()
+        {
+            return AttackTimer;
+        }
+
+        public float GetAttackCooldown()
+        {
+            return PrimaryAttackCooldown;
         }
 
         public void Revive()
@@ -359,6 +371,31 @@ namespace Platformer
             FirePoint = SittingFirePoint;
         }
 
+        public AttackTypes GetAttackType()
+        {
+            var knife = ProgressManager.GetQuest(EQuest.KnifeLevel);
+            var axe = ProgressManager.GetQuest(EQuest.AxeLevel);
+            var holyWater = ProgressManager.GetQuest(EQuest.HolyWaterLevel);
+
+
+            if (HitAttack && Vertical < 1f && knife > 0)
+            {
+                return AttackTypes.Knife;
+            }
+
+            if (HitAttack && Vertical == 1 && axe > 0)
+            {
+                return AttackTypes.Axe;
+            }
+
+            if (HitInteraction && Vertical == 1 && holyWater > 0)
+            {
+                return AttackTypes.HolyWater;
+            }
+
+            return AttackTypes.None;
+        }
+
         public void AttackCheck()
         {
             // !!!! I wanna check transition to attack states in other states....
@@ -531,9 +568,21 @@ namespace Platformer
 
         public void GetInteractionInput()
         {
+            //for interaction with objects and dialogues
             if (Input.GetButtonDown("Fire2"))
             {
                 Interaction();
+            }
+
+            //for weapons
+            //if (HitInteraction && Input.GetButtonUp("Fire2"))
+            //{
+            //    HitInteraction = false;
+            //}
+
+            if (!HitInteraction && Input.GetButtonDown("Fire2"))
+            {
+                HitInteraction = true;
             }
         }
 
