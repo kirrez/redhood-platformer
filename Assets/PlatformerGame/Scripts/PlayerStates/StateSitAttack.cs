@@ -9,17 +9,16 @@ namespace Platformer.PlayerStates
             Model = model;
         }
 
-        public override void Activate(float time = 0)
+        public override void OnEnable(float time = 0)
         {
-            base.Activate(time);
+            base.OnEnable(time);
             Model.UpdateStateName("Sit Attack");
             Model.SitDown();
         }
 
-        public override void OnFixedUpdate()
+        public override void FixedUpdate()
         {
-
-            Model.AttackCheck();
+            base.FixedUpdate();
 
             Timer -= Time.fixedDeltaTime;
 
@@ -62,6 +61,9 @@ namespace Platformer.PlayerStates
                 Model.Animations.JumpFalling();
                 Model.SetState(EPlayerStates.JumpFalling);
             }
+
+            // we can shoot weapon if it's timer = 0 (but not axe and HW)
+            if (Model.IsKnifeAttack()) Model.ShootKnife();
         }
     }
 }

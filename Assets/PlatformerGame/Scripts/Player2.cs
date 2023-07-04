@@ -69,7 +69,6 @@ namespace Platformer
         private float PushDownForce;
         private float JumpForce;
         private float RollDownForce;
-        private float PrimaryAttackCooldown;
 
         //Two paths for collider to switch between while change StandUp and SitDown ))
         [SerializeField]
@@ -95,7 +94,13 @@ namespace Platformer
         private float StandingFirePointX;
         private float SittingFirePointX;
 
-        private float AttackTimer;
+        private float KnifeTimer;
+        private float AxeTimer;
+        private float HolyWaterTimer;
+
+        private float KnifeCooldown;
+        private float AxeCooldown;
+        private float HolyWaterCooldown;
 
         private IResourceManager ResourceManager;
         private IProgressManager ProgressManager;
@@ -148,32 +153,39 @@ namespace Platformer
 
         private void Update()
         {
-            CurrentState.OnUpdate(); //GetInput inside
+            CurrentState.Update(); //GetInput inside
 
             PlayerAnimator.Update(); //Time.deltaTime on timer inside 
         }
 
+
         private void FixedUpdate()
+        {
+            // has to be removed to states !!
+            //SetDeltaY();
+
+            // remove to states !!
+            //if (AttackTimer > 0)
+            //{
+            //    AttackTimer -= Time.fixedDeltaTime;
+            //}
+
+            CurrentState.FixedUpdate();
+        }
+
+        public void SetDeltaY()
         {
             DeltaY = transform.position.y - LastPosition.y;
             LastPosition = transform.position;
-
-            CurrentState.OnFixedUpdate();
-
-            if (AttackTimer > 0)
-            {
-                AttackTimer -= Time.fixedDeltaTime;
-            }
         }
 
-        public float GetAttackTimer()
+        public void UpdateAttackTimers()
         {
-            return AttackTimer;
-        }
+            var delta = Time.fixedDeltaTime;
 
-        public float GetAttackCooldown()
-        {
-            return PrimaryAttackCooldown;
+            if (KnifeTimer > 0) KnifeTimer -= delta;
+            if (AxeTimer > 0) AxeTimer -= delta;
+            if (HolyWaterTimer > 0) HolyWaterTimer -= delta;
         }
 
         public void Revive()
@@ -250,7 +262,7 @@ namespace Platformer
                     CurrentState = StateStunned;
                     break;
             }
-            CurrentState.Activate(time);
+            CurrentState.OnEnable(time);
         }
 
 
@@ -371,52 +383,127 @@ namespace Platformer
             FirePoint = SittingFirePoint;
         }
 
-        public AttackTypes GetAttackType()
+        public bool IsKnifeAttack()
         {
-            var knife = ProgressManager.GetQuest(EQuest.KnifeLevel);
-            var axe = ProgressManager.GetQuest(EQuest.AxeLevel);
-            var holyWater = ProgressManager.GetQuest(EQuest.HolyWaterLevel);
-
-
-            if (HitAttack && Vertical < 1f && knife > 0)
+            if (KnifeTimer <= 0)
             {
-                return AttackTypes.Knife;
+                var knife = ProgressManager.GetQuest(EQuest.KnifeLevel);
+                KnifeTimer = KnifeCooldown;
+
+                if (HitAttack && Vertical < 1f)
+                {
+                    HitAttack = false;
+                    if (knife > 0)
+                    {
+                        return true;
+                    }
+                }
             }
 
-            if (HitAttack && Vertical == 1 && axe > 0)
-            {
-                return AttackTypes.Axe;
-            }
-
-            if (HitInteraction && Vertical == 1 && holyWater > 0)
-            {
-                return AttackTypes.HolyWater;
-            }
-
-            return AttackTypes.None;
+            return false;
         }
 
-        public void AttackCheck()
+        public bool IsAxeAttack()
         {
-            // !!!! I wanna check transition to attack states in other states....
-            // not like it works now..
-
-            //Both types of attack with single cooldown
-            if (AttackTimer <= 0)
+            if (AxeTimer <= 0)
             {
-                AttackTimer = PrimaryAttackCooldown;
-                HitAttack = false;
-                // Up + X - secondary
-                if ((Vertical == 1) && ProgressManager.GetQuest(EQuest.AxeLevel) == 1)
+                var axe = ProgressManager.GetQuest(EQuest.AxeLevel);
+                AxeTimer = AxeCooldown;
+
+                if (HitAttack && Vertical == 1f)
                 {
-                    ShootWeaponAxe();
-                }
-                else if ((Vertical <= 0) && ProgressManager.GetQuest(EQuest.KnifeLevel) == 1) // attacks from idle and sitting
-                {
-                    ShootWeaponKnife();
+                    HitAttack = false;
+                    if (axe > 0)
+                    {
+                        return true;
+                    }
                 }
             }
 
+            return false;
+        }
+
+        public bool IsHolyWaterAttack()
+        {
+            if (HolyWaterTimer <= 0)
+            {
+                var holyWater = ProgressManager.GetQuest(EQuest.HolyWaterLevel);
+                HolyWaterTimer = HolyWaterCooldown;
+
+                if (HitInteraction && Vertical == 1)
+                {
+                    HitInteraction = false;
+                    if (holyWater > 0)
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            return false;
+        }
+
+        public void ShootKnife()
+        {
+            // here we decide, what exact weapon, based on it's level, appears
+            var knife = ProgressManager.GetQuest(EQuest.KnifeLevel);
+            var dynamics = CompositionRoot.GetDynamicsContainer();
+            GameObject instance = null;
+
+            // basic knife
+            if (knife == 1)
+            {
+                instance = ResourceManager.GetFromPool(Weapons.PlayerKnife);
+                instance.transform.SetParent(dynamics.Transform, false);
+                dynamics.AddItem(instance);
+
+                var weaponVelocity = instance.GetComponent<DamageDealer>().Velocity;
+                weaponVelocity.x *= DirectionX;
+                instance.GetComponent<Rigidbody2D>().velocity = weaponVelocity;
+
+                instance.GetComponent<PlayerKnife>().Initiate(FirePoint.position, DirectionX);
+            }
+        }
+
+        public void ShootAxe()
+        {
+            var axe = ProgressManager.GetQuest(EQuest.AxeLevel);
+            var dynamics = CompositionRoot.GetDynamicsContainer();
+            GameObject instance = null;
+
+            if (axe == 1)
+            {
+                instance = ResourceManager.GetFromPool(Weapons.PlayerAxe);
+                instance.transform.SetParent(dynamics.Transform, false);
+                dynamics.AddItem(instance);
+
+                var weaponVelocity = instance.GetComponent<DamageDealer>().Velocity;
+                weaponVelocity.x *= DirectionX;
+                instance.GetComponent<Rigidbody2D>().velocity = weaponVelocity;
+
+                instance.GetComponent<PlayerAxe>().Initiate(FirePoint.position, DirectionX);
+            }
+        }
+
+        public void ShootHolyWater()
+        {
+            var holyWater = ProgressManager.GetQuest(EQuest.HolyWaterLevel);
+            var dynamics = CompositionRoot.GetDynamicsContainer();
+            GameObject instance = null;
+
+            if (holyWater == 1)
+            {
+                // right now AXE PREFAB !
+                instance = ResourceManager.GetFromPool(Weapons.PlayerAxe);
+                instance.transform.SetParent(dynamics.Transform, false);
+                dynamics.AddItem(instance);
+
+                var weaponVelocity = instance.GetComponent<DamageDealer>().Velocity;
+                weaponVelocity.x *= DirectionX;
+                instance.GetComponent<Rigidbody2D>().velocity = weaponVelocity;
+
+                instance.GetComponent<PlayerAxe>().Initiate(FirePoint.position, DirectionX);
+            }
         }
 
         // used in all Sit-states to prevent standing up while in low-heighted tunnel
@@ -574,12 +661,6 @@ namespace Platformer
                 Interaction();
             }
 
-            //for weapons
-            //if (HitInteraction && Input.GetButtonUp("Fire2"))
-            //{
-            //    HitInteraction = false;
-            //}
-
             if (!HitInteraction && Input.GetButtonDown("Fire2"))
             {
                 HitInteraction = true;
@@ -603,33 +684,6 @@ namespace Platformer
             SetState(EPlayerStates.Stunned, time);
         }
 
-        private void ShootWeaponKnife()
-        {
-            var instance = ResourceManager.GetFromPool(Weapons.PlayerKnife);
-            var dynamics = CompositionRoot.GetDynamicsContainer();
-            instance.transform.SetParent(dynamics.Transform, false);
-            dynamics.AddItem(instance);
-
-            var weaponVelocity = instance.GetComponent<DamageDealer>().Velocity;
-            weaponVelocity.x *= DirectionX;
-            instance.GetComponent<Rigidbody2D>().velocity = weaponVelocity;
-
-            instance.GetComponent<PlayerKnife>().Initiate(FirePoint.position, DirectionX);
-        }
-
-        private void ShootWeaponAxe()
-        {
-            var instance = ResourceManager.GetFromPool(Weapons.PlayerAxe);
-            var dynamics = CompositionRoot.GetDynamicsContainer();
-            instance.transform.SetParent(dynamics.Transform, false);
-            dynamics.AddItem(instance);
-
-            var weaponVelocity = instance.GetComponent<DamageDealer>().Velocity;
-            weaponVelocity.x *= DirectionX;
-            instance.GetComponent<Rigidbody2D>().velocity = weaponVelocity;
-
-            instance.GetComponent<PlayerAxe>().Initiate(FirePoint.position, DirectionX);
-        }
 
         private void LoadConfigData()
         {
@@ -638,13 +692,14 @@ namespace Platformer
             PushDownForce = Config.PushDownForce;
             JumpForce = Config.JumpForce;
             RollDownForce = Config.RollDownForce;
-
-            PrimaryAttackCooldown = Config.PrimaryAttackCooldown;
             DeathShockTime = Config.DeathShockTime;
-
             RollDownTime = Config.RollDownTime;
             JumpDownTime = Config.JumpDownTime;
-        }
+
+            KnifeCooldown = Config.KnifeCooldown;
+            AxeCooldown = Config.AxeCooldown;
+            HolyWaterCooldown = Config.HolyWaterCooldown;
+    }
 
     }
 }

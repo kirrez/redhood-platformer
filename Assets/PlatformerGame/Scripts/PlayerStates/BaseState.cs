@@ -10,7 +10,7 @@ namespace Platformer.PlayerStates
 
         protected float Timer;
 
-        public virtual void Activate(float time = 0f)
+        public virtual void OnEnable(float time = 0f)
         {
             Timer = time;
             Model.Health.HealthChanged = null;
@@ -23,12 +23,16 @@ namespace Platformer.PlayerStates
             Model.SetState(EPlayerStates.DamageTaken);
         }
 
-        public virtual void OnUpdate()
+        public virtual void Update()
         {
             Model.GetInput();
         }
 
-        public abstract void OnFixedUpdate();
+        public virtual void FixedUpdate()
+        {
+            Model.SetDeltaY();
+            Model.UpdateAttackTimers();
+        }
 
     }
 }

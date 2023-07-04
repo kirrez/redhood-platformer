@@ -11,15 +11,17 @@ namespace Platformer.PlayerStates
             Model = model;
         }
 
-        public override void Activate(float time = 0f)
+        public override void OnEnable(float time = 0f)
         {
-            base.Activate(time);
+            base.OnEnable(time);
             Model.UpdateStateName("Idle");
             Model.StandUp();
         }
 
-        public override void OnFixedUpdate()
+        public override void FixedUpdate()
         {
+            base.FixedUpdate();
+
             // Steep slope
             if (Model.Grounded(LayerMasks.Slope))
             {
@@ -71,12 +73,22 @@ namespace Platformer.PlayerStates
                 Model.SetState(EPlayerStates.JumpFalling);
             }
 
-            var attack = Model.GetAttackType();
-
-            // State Attack (old version)
-            if (Model.HitAttack)
+            // Attack Checks. Animations could be different, but they are not ))
+            if (Model.IsKnifeAttack())
             {
-                Model.HitAttack = false;
+                Model.ShootKnife();
+                Model.SetState(EPlayerStates.Attack, Model.Animations.Attack());
+            }
+
+            if (Model.IsAxeAttack())
+            {
+                Model.ShootAxe();
+                Model.SetState(EPlayerStates.Attack, Model.Animations.Attack());
+            }
+
+            if (Model.IsHolyWaterAttack())
+            {
+                Model.ShootHolyWater();
                 Model.SetState(EPlayerStates.Attack, Model.Animations.Attack());
             }
         }

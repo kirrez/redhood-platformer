@@ -12,14 +12,15 @@ namespace Platformer.PlayerStates
             Model = model;
         }
 
-        public override void Activate(float time = 0)
+        public override void OnEnable(float time = 0)
         {
-            base.Activate(time);
+            base.OnEnable(time);
             Model.UpdateStateName("Jump Falling");
         }
 
-        public override void OnFixedUpdate()
+        public override void FixedUpdate()
         {
+            base.FixedUpdate();
 
             Model.DirectionCheck();
 
@@ -46,12 +47,6 @@ namespace Platformer.PlayerStates
                 Model.StickToPlatform();
             }
 
-            // State JumpFallingAttack
-            if (Model.HitAttack)
-            {
-                Model.HitAttack = false;
-                Model.SetState(EPlayerStates.JumpFallingAttack, Model.Animations.AirAttack());
-            }
 
             // State Idle
             if (Model.Horizontal == 0 && Model.Grounded(LayerMasks.Walkable))
@@ -70,6 +65,24 @@ namespace Platformer.PlayerStates
                 Model.SetState(EPlayerStates.Walk);
             }
 
+            // Attack Checks. Animations could be different, but they are not ))
+            if (Model.IsKnifeAttack())
+            {
+                Model.ShootKnife();
+                Model.SetState(EPlayerStates.JumpFallingAttack, Model.Animations.AirAttack());
+            }
+
+            if (Model.IsAxeAttack())
+            {
+                Model.ShootAxe();
+                Model.SetState(EPlayerStates.JumpFallingAttack, Model.Animations.AirAttack());
+            }
+
+            if (Model.IsHolyWaterAttack())
+            {
+                Model.ShootHolyWater();
+                Model.SetState(EPlayerStates.JumpFallingAttack, Model.Animations.AirAttack());
+            }
         }
     }
 }

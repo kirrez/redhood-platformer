@@ -11,15 +11,17 @@ namespace Platformer.PlayerStates
             Model = model;
         }
 
-        public override void Activate(float time = 0)
+        public override void OnEnable(float time = 0)
         {
-            base.Activate(time);
+            base.OnEnable(time);
             Model.UpdateStateName("Sit");
             Model.SitDown();
         }
 
-        public override void OnFixedUpdate()
+        public override void FixedUpdate()
         {
+            base.FixedUpdate();
+
             // Carried by MovingPlatform
             if (Model.Grounded(LayerMasks.Platforms))
             {
@@ -41,12 +43,6 @@ namespace Platformer.PlayerStates
                 Model.SetState(EPlayerStates.Idle);
             }
 
-            // State SitAttack
-            if (Model.HitAttack)
-            {
-                Model.HitAttack = false;
-                Model.SetState(EPlayerStates.SitAttack, Model.Animations.SitAttack());
-            }
 
             // Jump down from OneWay
             if (Model.HitJump && Model.Grounded(LayerMasks.OneWay))
@@ -87,6 +83,25 @@ namespace Platformer.PlayerStates
             {
                 Model.Animations.JumpFalling();
                 Model.SetState(EPlayerStates.JumpFalling, 0.75f);
+            }
+
+            // Attack Checks. Animations could be different, but they are not ))
+            if (Model.IsKnifeAttack())
+            {
+                Model.ShootKnife();
+                Model.SetState(EPlayerStates.SitAttack, Model.Animations.SitAttack());
+            }
+
+            if (Model.IsAxeAttack())
+            {
+                Model.ShootAxe();
+                Model.SetState(EPlayerStates.SitAttack, Model.Animations.SitAttack());
+            }
+
+            if (Model.IsHolyWaterAttack())
+            {
+                Model.ShootHolyWater();
+                Model.SetState(EPlayerStates.SitAttack, Model.Animations.SitAttack());
             }
         }
     }

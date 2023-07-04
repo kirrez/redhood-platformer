@@ -12,9 +12,9 @@ namespace Platformer.PlayerStates
             Model = model;
         }
 
-        public override void Activate(float time = 0f)
+        public override void OnEnable(float time = 0f)
         {
-            base.Activate(time);
+            base.OnEnable(time);
 
             Model.JumpDown();
         }
@@ -26,8 +26,10 @@ namespace Platformer.PlayerStates
             Model.SetState(EPlayerStates.DamageTaken);
         }
 
-        public override void OnFixedUpdate()
+        public override void FixedUpdate()
         {
+            // no base
+
             Model.UpdateStateName("Jump Down");
 
             Model.DirectionCheck();

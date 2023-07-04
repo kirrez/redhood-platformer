@@ -11,18 +11,20 @@ namespace Platformer.PlayerStates
             Model = model;
         }
 
-        public override void Activate(float time = 0)
+        public override void OnEnable(float time = 0)
         {
-            base.Activate(time);
+            base.OnEnable(time);
             Model.UpdateStateName("Jump Rising");
             Model.StandUp();
         }
 
-        public override void OnFixedUpdate()
+        public override void FixedUpdate()
         {
-            Timer -= Time.fixedDeltaTime;
+            base.FixedUpdate();
 
             Model.DirectionCheck();
+
+            Timer -= Time.fixedDeltaTime;
 
             // Push Down
             if (Model.Vertical < 0)
@@ -56,13 +58,24 @@ namespace Platformer.PlayerStates
                 Model.SetState(EPlayerStates.JumpFalling);
             }
 
-            // State JumpRising Attack
-            if (Model.HitAttack)
+            // Attack Checks. Animations could be different, but they are not ))
+            if (Model.IsKnifeAttack())
             {
-                Model.HitAttack = false;
+                Model.ShootKnife();
                 Model.SetState(EPlayerStates.JumpRisingAttack, Model.Animations.AirAttack());
             }
 
+            if (Model.IsAxeAttack())
+            {
+                Model.ShootAxe();
+                Model.SetState(EPlayerStates.JumpRisingAttack, Model.Animations.AirAttack());
+            }
+
+            if (Model.IsHolyWaterAttack())
+            {
+                Model.ShootHolyWater();
+                Model.SetState(EPlayerStates.JumpRisingAttack, Model.Animations.AirAttack());
+            }
         }
     }
 }

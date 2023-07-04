@@ -9,9 +9,9 @@ namespace Platformer.PlayerStates
             Model = model;
         }
 
-        public override void Activate(float time = 0f)
+        public override void OnEnable(float time = 0f)
         {
-            base.Activate(time);
+            base.OnEnable(time);
             Model.UpdateStateName("Roll Down");
             Model.SitDown();
 
@@ -19,16 +19,18 @@ namespace Platformer.PlayerStates
             Model.RollDown();
         }
 
-        public override void OnUpdate()
+        public override void Update()
         {
-            if (Timer <= 0)
-            {
-                Model.GetInput();
-            }
+            //if (Timer <= 0)
+            //{
+            //    Model.GetInput();
+            //}
         }
 
-        public override void OnFixedUpdate()
+        public override void FixedUpdate()
         {
+            base.FixedUpdate();
+
             Timer -= Time.fixedDeltaTime;
 
             if (Timer <= 0)

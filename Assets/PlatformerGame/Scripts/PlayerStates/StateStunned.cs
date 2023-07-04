@@ -11,7 +11,7 @@ namespace Platformer.PlayerStates
             Model = model;
         }
 
-        public override void Activate(float time = 0)
+        public override void OnEnable(float time = 0)
         {
             Timer = time;
             Model.UpdateStateName("Stunned");
@@ -22,14 +22,16 @@ namespace Platformer.PlayerStates
             Model.Health.HealthChanged = null;
         }
 
-        public override void OnUpdate()
+        public override void Update()
         {
             // only input without attack and movement
             // Model.GetInteractionInput();
         }
 
-        public override void OnFixedUpdate()
+        public override void FixedUpdate()
         {
+            // no base
+
             Timer -= Time.fixedDeltaTime;
 
             if (Timer <= 0)

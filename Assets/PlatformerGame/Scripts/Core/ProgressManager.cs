@@ -24,7 +24,7 @@ namespace Platformer
             SetQuest(EQuest.LifeUpgradeCost, 10);
 
             SetQuest(EQuest.KnifeLevel, 1);
-            SetQuest(EQuest.AxeLevel, 0);
+            SetQuest(EQuest.AxeLevel, 1);
             SetQuest(EQuest.HolyWaterLevel, 1);
 
             //Start Player's location

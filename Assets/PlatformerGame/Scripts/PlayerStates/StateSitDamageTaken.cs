@@ -12,7 +12,7 @@ namespace Platformer.PlayerStates
             Model = model;
         }
 
-        public override void Activate(float time = 0f)
+        public override void OnEnable(float time = 0f)
         {
             Timer = time;
             Model.UpdateStateName("Sit Damage Taken");
@@ -21,13 +21,15 @@ namespace Platformer.PlayerStates
             HitPoints = Model.Health.GetHitPoints;
         }
 
-        public override void OnUpdate()
+        public override void Update()
         {
-            // no input!
+            // no player control input!
         }
 
-        public override void OnFixedUpdate()
+        public override void FixedUpdate()
         {
+            // no base
+
             Timer -= Time.fixedDeltaTime;
 
             if (Timer <= 0)

@@ -11,7 +11,7 @@ namespace Platformer.PlayerStates
             Model = model;
         }
 
-        public override void Activate(float time = 0f)
+        public override void OnEnable(float time = 0f)
         {
             Timer = time;
             Model.UpdateStateName("Interaction");
@@ -20,15 +20,15 @@ namespace Platformer.PlayerStates
             Model.InactivateCollider(true);
             Model.Health.HealthChanged = null; //cleaning previous handler
         }
-        public override void OnUpdate()
+        public override void Update()
         {
-            // only input without attack and movement
+            // no player control input
             Model.GetInteractionInput();
         }
 
-        public override void OnFixedUpdate()
+        public override void FixedUpdate()
         {
-            // doing nothing
+            // doing nothing, no base
         }
     }
 }

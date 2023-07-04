@@ -32,13 +32,13 @@ namespace Platformer
         bool Ceiled(LayerMask mask);
         bool StandingCeiled(LayerMask mask);
         float DirectionCheck();
-        void AttackCheck();
 
         //Commands
 
         void Initiate(IGame game);
         void Revive();
         void SetState(EPlayerStates state, float time = 0f);
+        void SetDeltaY();
         void Walk();
         void Crouch();
         void StickToPlatform();
@@ -55,9 +55,13 @@ namespace Platformer
         void HoldByInteraction();
         void ReleasedByInteraction();
         void GetStunned(float time);
-        float GetAttackTimer();
-        float GetAttackCooldown();
-        AttackTypes GetAttackType();
+        void UpdateAttackTimers();
+        bool IsKnifeAttack();
+        bool IsAxeAttack();
+        bool IsHolyWaterAttack();
+        void ShootKnife();
+        void ShootAxe();
+        void ShootHolyWater();
 
 
         void ChangeHealthUI();
