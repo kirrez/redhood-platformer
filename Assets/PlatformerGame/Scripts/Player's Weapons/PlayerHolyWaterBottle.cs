@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Platformer
 {
-    public class PlayerKnife : MonoBehaviour
+    public class PlayerHolyWaterBottle : MonoBehaviour
     {
         public delegate void DisappearDelegate(Transform transf);
         public event DisappearDelegate Disappear;

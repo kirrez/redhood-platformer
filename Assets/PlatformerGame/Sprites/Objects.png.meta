@@ -889,9 +889,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 280
-        y: 488
+        y: 487
         width: 16
-        height: 16
+        height: 17
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -910,9 +910,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 304
-        y: 488
+        y: 487
         width: 17
-        height: 16
+        height: 17
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -931,9 +931,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 304
-        y: 464
+        y: 463
         width: 17
-        height: 17
+        height: 18
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -952,9 +952,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 280
-        y: 464
+        y: 463
         width: 22
-        height: 17
+        height: 18
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1434,12 +1434,12 @@ TextureImporter:
       name: Heart_full
       rect:
         serializedVersion: 2
-        x: 392
+        x: 400
         y: 448
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1455,8 +1455,218 @@ TextureImporter:
       name: Heart_Empty
       rect:
         serializedVersion: 2
-        x: 408
+        x: 416
         y: 448
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0f78dce5295b5a4e91863bef025a4e6
+      internalID: -1194434640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HolyWaterIcon_1
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 488
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b83b20dd7de43244baf85044951c3096
+      internalID: 818119534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HolyWaterIcon_2
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 472
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c03de0372974d948987fc1bbb64342c
+      internalID: -111287172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AxeIcon_1
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 488
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: beca13dd826a960408f396c1d8799288
+      internalID: 1986779346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AxeIcon_2
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 472
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2b264e78596e70409b9470e2e750666
+      internalID: -1346496552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnifeIcon_1
+      rect:
+        serializedVersion: 2
+        x: 488
+        y: 488
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 428728ddae0de364b8e8b37024f47045
+      internalID: -1823561205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnifeIcon_2
+      rect:
+        serializedVersion: 2
+        x: 488
+        y: 472
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 138c6a7b8abbaa04e918fc3201fd683d
+      internalID: -250723437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnifeIcon_3
+      rect:
+        serializedVersion: 2
+        x: 488
+        y: 456
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b38a87546220aa4f86896e0a85c857d
+      internalID: -1734167671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AxeIcon_3
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 456
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a182c022f563a945944729589c3ad07
+      internalID: -562969194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WeaponFrame
+      rect:
+        serializedVersion: 2
+        x: 467
+        y: 355
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db2f5eca9610db145a9bb3599a1d6d7b
+      internalID: 1830880056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WeaponEmpty
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 456
         width: 16
         height: 16
       alignment: 0
@@ -1466,8 +1676,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c0f78dce5295b5a4e91863bef025a4e6
-      internalID: -1194434640
+      spriteID: d1146d6a37c0b7243bdbc8d7c0c3aca9
+      internalID: 1594718321
       vertices: []
       indices: 
       edges: []
@@ -1486,12 +1696,15 @@ TextureImporter:
       DarkCloudsL4: 2110242026
       Heart_Empty: -1194434640
       DarkCloudsL1_1: 1993751466
+      HolyWaterIcon_1: 818119534
       DarkCloudsL2_5: -426296842
       DarkCloudsL3_1: 1253647553
       Ropes_2: 2037492357
       Candle_0: -387247735
+      KnifeIcon_1: -1823561205
       Firebowl_2: 456338429
       LightCloud_4: -268048731
+      KnifeIcon_2: -250723437
       DarkCloudsL2_2: 567104749
       DarkCloudsL2_8: 74150674
       Fireplace_2: 1631699850
@@ -1520,6 +1733,7 @@ TextureImporter:
       Fall_0: -628325260
       Firebowl_0: 267164088
       Firebowl_1: -388648844
+      AxeIcon_2: -1346496552
       Fireplace_1: -1024916941
       Key_Red: 1805074571
       Stream_3: -1190808691
@@ -1529,18 +1743,22 @@ TextureImporter:
       Mother_2: 996843073
       DarkCloudsL2_1: 1230439699
       DoorRed_0: 1550466903
+      WeaponEmpty: 1594718321
       SuspensionHolder_Right: 834547123
       DarkCloudsL1: -1662598905
       BridgeRight: 27038073
       Ropes_3: 860458067
+      HolyWaterIcon_2: -111287172
       DoorGrey_0: 1360749912
       LightCloud_1: 1968002318
       Mother_1: 759018448
+      AxeIcon_3: -562969194
       DoorGrey_2: -604756203
       DarkCloudsL1_4: -566693553
       DoorGreen_1: -227913323
       DoorRed_2: -1579968724
       Ropes_1: 2084056853
+      AxeIcon_1: 1986779346
       Candle_1: 1892384369
       LightCloud_3: 1974901377
       DarkCloudsL1_0: 1666325539
@@ -1550,8 +1768,10 @@ TextureImporter:
       DarkCloudsL3_0: -1479163918
       WaterBlueTransparent: 1422703808
       ButtonOn: 876549026
+      KnifeIcon_3: -1734167671
       LightCloud_5: -203564046
       SwitchOff: 1425627654
+      WeaponFrame: 1830880056
       DarkCloudsL2_6: -153351782
       DoorGreen_2: 1295310118
       MaxHealthUp: 2022743721
@@ -1564,8 +1784,8 @@ TextureImporter:
       Key_Green: 2089127135
       DarkCloudsL1_6: -1426506302
       Platform_1: -1624028744
-      Rope_4: -866954109
       Platform_3: 880925628
+      Rope_4: -866954109
       DarkCloudsL1_3: 1355649025
       Blackberry: 961531519
       DarkCloudsLVL2: -431119207

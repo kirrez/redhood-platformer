@@ -37,7 +37,7 @@ namespace Platformer
 
             KnifeCooldown = 0.5f;
             AxeCooldown = 0.5f;
-            HolyWaterCooldown = 1f;
+            HolyWaterCooldown = 1.5f;
         }
     }
 }

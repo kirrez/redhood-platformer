@@ -86,15 +86,15 @@ namespace Platformer.PlayerStates
             }
 
             // Attack Checks. Animations could be different, but they are not ))
-            if (Model.IsKnifeAttack())
-            {
-                Model.ShootKnife();
-                Model.SetState(EPlayerStates.SitAttack, Model.Animations.SitAttack());
-            }
-
             if (Model.IsAxeAttack())
             {
                 Model.ShootAxe();
+                Model.SetState(EPlayerStates.SitAttack, Model.Animations.SitAttack());
+            }
+
+            if (Model.IsKnifeAttack())
+            {
+                Model.ShootKnife();
                 Model.SetState(EPlayerStates.SitAttack, Model.Animations.SitAttack());
             }
 

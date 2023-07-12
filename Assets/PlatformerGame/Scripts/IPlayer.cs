@@ -55,6 +55,8 @@ namespace Platformer
         void HoldByInteraction();
         void ReleasedByInteraction();
         void GetStunned(float time);
+
+        //Weapons
         void UpdateAttackTimers();
         bool IsKnifeAttack();
         bool IsAxeAttack();

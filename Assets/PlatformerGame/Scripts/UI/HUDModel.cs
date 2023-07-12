@@ -32,6 +32,11 @@ namespace Platformer
             View.SetCurrentLives(value);
         }
 
+        public void UpdateWeaponIcons()
+        {
+            View.UpdateWeaponIcons();
+        }
+
         public void Show()
         {
             View.Show();

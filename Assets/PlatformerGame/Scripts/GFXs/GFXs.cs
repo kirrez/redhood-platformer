@@ -6,6 +6,7 @@ namespace Platformer
     {
         BloodBlast,
         BombBlast,
-        BlueSplash
+        BlueSplash,
+        HolyWaterDisappear
     }
 }

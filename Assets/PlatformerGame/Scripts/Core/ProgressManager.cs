@@ -24,8 +24,8 @@ namespace Platformer
             SetQuest(EQuest.LifeUpgradeCost, 10);
 
             SetQuest(EQuest.KnifeLevel, 1);
-            SetQuest(EQuest.AxeLevel, 1);
-            SetQuest(EQuest.HolyWaterLevel, 1);
+            SetQuest(EQuest.AxeLevel, 0);
+            SetQuest(EQuest.HolyWaterLevel, 0);
 
             //Start Player's location
             SetQuest(EQuest.Stage, (int)EStages.TheVillage);
@@ -51,7 +51,11 @@ namespace Platformer
             SetQuest(EQuest.Location, 0);
             SetQuest(EQuest.SpawnPoint, 0);
 
-            SetQuest(EQuest.MaxLives, 2);
+            SetQuest(EQuest.KnifeLevel, 2);
+            SetQuest(EQuest.AxeLevel, 1);
+            SetQuest(EQuest.HolyWaterLevel, 1);
+
+            SetQuest(EQuest.MaxLives, 4);
             //Alternative costs
             //SetQuest(EQuest.LifeUpgradeCost, 1);
 

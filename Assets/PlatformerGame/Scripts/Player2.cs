@@ -102,6 +102,10 @@ namespace Platformer
         private float AxeCooldown;
         private float HolyWaterCooldown;
 
+        private int KnifeLevel;
+        private int AxeLevel;
+        private int HolyWaterLevel;
+
         private IResourceManager ResourceManager;
         private IProgressManager ProgressManager;
         private IGame Game;
@@ -161,15 +165,6 @@ namespace Platformer
 
         private void FixedUpdate()
         {
-            // has to be removed to states !!
-            //SetDeltaY();
-
-            // remove to states !!
-            //if (AttackTimer > 0)
-            //{
-            //    AttackTimer -= Time.fixedDeltaTime;
-            //}
-
             CurrentState.FixedUpdate();
         }
 
@@ -192,10 +187,13 @@ namespace Platformer
         {
             var progressManager = CompositionRoot.GetProgressManager();
             var maxLives = progressManager.GetQuest(EQuest.MaxLives);
+            UpdateAllWeaponLevel();
 
             Health.SetMaxLives(maxLives);
             Health.RefillHealth();
             Game.HUD.SetCurrentLives(maxLives);
+            Game.HUD.UpdateWeaponIcons();
+
             InactivateCollider(false);
 
             SetState(EPlayerStates.Idle, 0f);
@@ -387,13 +385,13 @@ namespace Platformer
         {
             if (KnifeTimer <= 0)
             {
-                var knife = ProgressManager.GetQuest(EQuest.KnifeLevel);
-                KnifeTimer = KnifeCooldown;
+                //KnifeTimer = KnifeCooldown;
 
                 if (HitAttack && Vertical < 1f)
                 {
+                    KnifeTimer = KnifeCooldown;
                     HitAttack = false;
-                    if (knife > 0)
+                    if (KnifeLevel > 0)
                     {
                         return true;
                     }
@@ -407,13 +405,13 @@ namespace Platformer
         {
             if (AxeTimer <= 0)
             {
-                var axe = ProgressManager.GetQuest(EQuest.AxeLevel);
-                AxeTimer = AxeCooldown;
+                //AxeTimer = AxeCooldown;
 
                 if (HitAttack && Vertical == 1f)
                 {
+                    AxeTimer = AxeCooldown;
                     HitAttack = false;
-                    if (axe > 0)
+                    if (AxeLevel > 0)
                     {
                         return true;
                     }
@@ -427,33 +425,45 @@ namespace Platformer
         {
             if (HolyWaterTimer <= 0)
             {
-                var holyWater = ProgressManager.GetQuest(EQuest.HolyWaterLevel);
-                HolyWaterTimer = HolyWaterCooldown;
+                //HolyWaterTimer = HolyWaterCooldown;
 
                 if (HitInteraction && Vertical == 1)
                 {
+                    HolyWaterTimer = HolyWaterCooldown;
                     HitInteraction = false;
-                    if (holyWater > 0)
+                    if (HolyWaterLevel > 0)
                     {
                         return true;
                     }
                 }
             }
+            HitInteraction = false;
 
             return false;
         }
 
         public void ShootKnife()
         {
-            // here we decide, what exact weapon, based on it's level, appears
             var knife = ProgressManager.GetQuest(EQuest.KnifeLevel);
             var dynamics = CompositionRoot.GetDynamicsContainer();
             GameObject instance = null;
 
-            // basic knife
-            if (knife == 1)
+            switch (knife)
             {
-                instance = ResourceManager.GetFromPool(Weapons.PlayerKnife);
+                case 1:
+                    instance = ResourceManager.GetFromPool(EPlayerWeapons.KitchenKnife);
+                    break;
+                case 2:
+                    instance = ResourceManager.GetFromPool(EPlayerWeapons.FarmerKnife);
+                    break;
+                case 3:
+                    instance = ResourceManager.GetFromPool(EPlayerWeapons.HunterKnife);
+                    break;
+            }
+
+            //all cases
+            if (knife > 0)
+            {
                 instance.transform.SetParent(dynamics.Transform, false);
                 dynamics.AddItem(instance);
 
@@ -461,7 +471,8 @@ namespace Platformer
                 weaponVelocity.x *= DirectionX;
                 instance.GetComponent<Rigidbody2D>().velocity = weaponVelocity;
 
-                instance.GetComponent<PlayerKnife>().Initiate(FirePoint.position, DirectionX);
+                var weapon = instance.GetComponent<PlayerKnife>();
+                weapon.Initiate(FirePoint.position, DirectionX);
             }
         }
 
@@ -471,9 +482,22 @@ namespace Platformer
             var dynamics = CompositionRoot.GetDynamicsContainer();
             GameObject instance = null;
 
-            if (axe == 1)
+            switch (axe)
             {
-                instance = ResourceManager.GetFromPool(Weapons.PlayerAxe);
+                case 1:
+                    instance = ResourceManager.GetFromPool(EPlayerWeapons.CrippledAxe);
+                    break;
+                case 2:
+                    instance = ResourceManager.GetFromPool(EPlayerWeapons.SharpenedAxe);
+                    break;
+                case 3:
+                    instance = ResourceManager.GetFromPool(EPlayerWeapons.SturdyAxe);
+                    break;
+            }
+
+            //all cases
+            if (axe > 0)
+            {
                 instance.transform.SetParent(dynamics.Transform, false);
                 dynamics.AddItem(instance);
 
@@ -481,8 +505,10 @@ namespace Platformer
                 weaponVelocity.x *= DirectionX;
                 instance.GetComponent<Rigidbody2D>().velocity = weaponVelocity;
 
-                instance.GetComponent<PlayerAxe>().Initiate(FirePoint.position, DirectionX);
+                var weapon = instance.GetComponent<PlayerAxe>();
+                weapon.Initiate(FirePoint.position, DirectionX);
             }
+
         }
 
         public void ShootHolyWater()
@@ -490,11 +516,21 @@ namespace Platformer
             var holyWater = ProgressManager.GetQuest(EQuest.HolyWaterLevel);
             var dynamics = CompositionRoot.GetDynamicsContainer();
             GameObject instance = null;
+            GameObject disappearEffect = null;
 
-            if (holyWater == 1)
+            switch (holyWater)
             {
-                // right now AXE PREFAB !
-                instance = ResourceManager.GetFromPool(Weapons.PlayerAxe);
+                case 1:
+                    instance = ResourceManager.GetFromPool(EPlayerWeapons.WeakHolyWater);
+                    break;
+                case 2:
+                    instance = ResourceManager.GetFromPool(EPlayerWeapons.StrongHolyWater);
+                    break;
+            }
+
+            //all cases
+            if (holyWater > 0)
+            {
                 instance.transform.SetParent(dynamics.Transform, false);
                 dynamics.AddItem(instance);
 
@@ -502,7 +538,17 @@ namespace Platformer
                 weaponVelocity.x *= DirectionX;
                 instance.GetComponent<Rigidbody2D>().velocity = weaponVelocity;
 
-                instance.GetComponent<PlayerAxe>().Initiate(FirePoint.position, DirectionX);
+                var weapon = instance.GetComponent<PlayerHolyWaterBottle>();
+                weapon.Initiate(FirePoint.position, DirectionX);
+
+                weapon.Disappear += delegate (Transform trans)
+                {
+                    disappearEffect = ResourceManager.GetFromPool(GFXs.HolyWaterDisappear);
+                    dynamics.AddItem(disappearEffect);
+                    disappearEffect.transform.SetParent(dynamics.Transform, false);
+                    disappearEffect.transform.position = trans.position;
+                };
+                
             }
         }
 
@@ -699,7 +745,15 @@ namespace Platformer
             KnifeCooldown = Config.KnifeCooldown;
             AxeCooldown = Config.AxeCooldown;
             HolyWaterCooldown = Config.HolyWaterCooldown;
-    }
+        }
+
+        private void UpdateAllWeaponLevel()
+        {
+            var progressManager = CompositionRoot.GetProgressManager();
+            KnifeLevel = ProgressManager.GetQuest(EQuest.KnifeLevel);
+            AxeLevel = ProgressManager.GetQuest(EQuest.AxeLevel);
+            HolyWaterLevel = ProgressManager.GetQuest(EQuest.HolyWaterLevel);
+        }
 
     }
 }

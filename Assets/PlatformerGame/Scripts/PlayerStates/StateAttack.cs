@@ -59,9 +59,9 @@ namespace Platformer.PlayerStates
             }
 
             // we can shoot any weapon if it's timer = 0
-            if (Model.IsKnifeAttack()) Model.ShootKnife();
-
             if (Model.IsAxeAttack()) Model.ShootAxe();
+
+            if (Model.IsKnifeAttack()) Model.ShootKnife();
 
             if (Model.IsHolyWaterAttack()) Model.ShootHolyWater();
         }

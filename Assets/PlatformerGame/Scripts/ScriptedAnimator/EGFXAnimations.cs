@@ -20,6 +20,12 @@ namespace Platformer
         DoorGreyOpen,
         DoorGreyClose,
         DoorGreenOpen,
-        DoorGreenClose
+        DoorGreenClose,
+
+        CrippledAxe,
+        SharpenedAxe,
+        SturdyAxe,
+
+        HolyWaterDisappear
     }
 }
