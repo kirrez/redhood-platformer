@@ -1670,7 +1670,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1678,6 +1678,174 @@ TextureImporter:
       bones: []
       spriteID: d1146d6a37c0b7243bdbc8d7c0c3aca9
       internalID: 1594718321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BreakableWood_1
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 319
+        width: 32
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 856bdce542f37bc48872044eb01e3fea
+      internalID: -731882785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BreakableWood_7
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 295
+        width: 32
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ccb8ef0d50344024fa3e7024b98903f5
+      internalID: 1493924921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BreakableWood_2
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 271
+        width: 32
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f61011f87201f84e96306bccd4ef0ce
+      internalID: 1427516514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BreakableWood_3
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 247
+        width: 32
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e311152c58cb9b24cb206ea12f90730e
+      internalID: -22461363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BreakableWood_4
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 223
+        width: 32
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82cc653849330ca48b149db8d8f12389
+      internalID: -1482915127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BreakableWood_5
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 199
+        width: 32
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71345c307ee0b8545a581e8bf6406e8c
+      internalID: -1160252470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BreakableWood_6
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 175
+        width: 32
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02bfe7d4a0a90d24896f9e149aa98e87
+      internalID: 1379923547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WoodShatter
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 325
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1318b6118aed34f4c87cb43f7470b7a9
+      internalID: -2086196866
       vertices: []
       indices: 
       edges: []
@@ -1693,6 +1861,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      WoodShatter: -2086196866
       DarkCloudsL4: 2110242026
       Heart_Empty: -1194434640
       DarkCloudsL1_1: 1993751466
@@ -1703,10 +1872,13 @@ TextureImporter:
       Candle_0: -387247735
       KnifeIcon_1: -1823561205
       Firebowl_2: 456338429
+      BreakableWood_7: 1493924921
       LightCloud_4: -268048731
       KnifeIcon_2: -250723437
+      BreakableWood_1: -731882785
       DarkCloudsL2_2: 567104749
       DarkCloudsL2_8: 74150674
+      BreakableWood_3: -22461363
       Fireplace_2: 1631699850
       RopeCenter: -1307795433
       ButtonOff: 1654182457
@@ -1714,8 +1886,8 @@ TextureImporter:
       DarkCloudsL1_2: -1559139224
       Bubble: -631682307
       DarkCloudsL1_7: -419847979
-      Mother_0: 1539828992
       DarkCloudsL1_12: -1543764027
+      Mother_0: 1539828992
       DoorGreen_0: -425144864
       Fall_1: 2073561585
       BridgeCenter: 1616014153
@@ -1751,24 +1923,28 @@ TextureImporter:
       HolyWaterIcon_2: -111287172
       DoorGrey_0: 1360749912
       LightCloud_1: 1968002318
+      BreakableWood_5: -1160252470
       Mother_1: 759018448
+      BreakableWood_2: 1427516514
       AxeIcon_3: -562969194
       DoorGrey_2: -604756203
       DarkCloudsL1_4: -566693553
+      BreakableWood_4: -1482915127
       DoorGreen_1: -227913323
       DoorRed_2: -1579968724
       Ropes_1: 2084056853
       AxeIcon_1: 1986779346
       Candle_1: 1892384369
-      LightCloud_3: 1974901377
       DarkCloudsL1_0: 1666325539
+      KnifeIcon_3: -1734167671
+      LightCloud_3: 1974901377
       BridgeLeft: -479444781
       Platform_2: 17101485
       MotherPie: -1015853895
       DarkCloudsL3_0: -1479163918
       WaterBlueTransparent: 1422703808
       ButtonOn: 876549026
-      KnifeIcon_3: -1734167671
+      BreakableWood_6: 1379923547
       LightCloud_5: -203564046
       SwitchOff: 1425627654
       WeaponFrame: 1830880056

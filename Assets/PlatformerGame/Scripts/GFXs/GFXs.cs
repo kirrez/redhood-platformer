@@ -7,6 +7,9 @@ namespace Platformer
         BloodBlast,
         BombBlast,
         BlueSplash,
+
+        WoodShatter,
+
         HolyWaterDisappear
     }
 }

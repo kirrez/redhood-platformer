@@ -52,7 +52,7 @@ namespace Platformer
             SetQuest(EQuest.SpawnPoint, 0);
 
             SetQuest(EQuest.KnifeLevel, 2);
-            SetQuest(EQuest.AxeLevel, 1);
+            SetQuest(EQuest.AxeLevel, 2); // woodBreaker development
             SetQuest(EQuest.HolyWaterLevel, 1);
 
             SetQuest(EQuest.MaxLives, 4);

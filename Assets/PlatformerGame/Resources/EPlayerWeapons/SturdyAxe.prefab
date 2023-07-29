@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 830021847348928800}
   - component: {fileID: 1326028302383811636}
   - component: {fileID: 830021847348928813}
+  - component: {fileID: 4164185749781874874}
   m_Layer: 12
   m_Name: SturdyAxe
   m_TagString: Untagged
@@ -77,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: -1802282183
   m_SortingLayer: 1
   m_SortingOrder: 10
-  m_Sprite: {fileID: 1834572546528341463, guid: 7810966f0f690954c87305933cabf2b0, type: 3}
+  m_Sprite: {fileID: -1440161989, guid: ee4f7ce981b3ec64694e03c56966bb57, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -159,3 +160,15 @@ MonoBehaviour:
   CanPenetrateWalls: 1
   Moving: 1
   HitDirection: 1
+--- !u!114 &4164185749781874874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 830021847348928812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdf3d412661675e4e95646f3aeafa4b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

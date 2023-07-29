@@ -26,6 +26,7 @@ namespace Platformer
         SharpenedAxe,
         SturdyAxe,
 
-        HolyWaterDisappear
+        HolyWaterDisappear,
+        BreakableWoodAssembling
     }
 }
