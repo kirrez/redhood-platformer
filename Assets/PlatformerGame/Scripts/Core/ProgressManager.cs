@@ -80,3 +80,14 @@ namespace Platformer
         }
     }
 }
+
+//Mother's pie :
+//1. Dialogue in MotherQuest1 changes value to 1, spawns key in cellar
+//2. FamilyDialogue changes value from 1 to 2
+//3. StoryCheckPoint in West Forest changes value from 2 to 3 (for single save of respawn point)
+//4. MotherQuest2 
+
+//Suspension Bridge :
+//1. SuspensionBridge changes value from 0 to 1 (Breaking bridge) and saves first CheckPoint
+//2. BearQuest changes value from 1 to 2, that affects SuspensionBridge immediately
+//3. SuspensionBridge canges value from 2 to 3 and repairs the bridge

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using Cinemachine;
 using UnityEngine;
 
+// Changes Mother's pie value from 1 to 2
+
 namespace Platformer
 {
     public class FamilyMonologue : MonoBehaviour
@@ -66,7 +68,6 @@ namespace Platformer
                     DialoguePhase++;
                     break;
                 case 2:
-                    
                     Game.Dialogue.AddContent(Localization.Text(ETexts.Family_3));
                     DialoguePhase++;
                     break;

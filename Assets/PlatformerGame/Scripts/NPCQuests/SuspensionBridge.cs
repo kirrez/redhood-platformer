@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Changes Suspension bridge's value from 0 to 1
+// Changes Suspension bridge's value from 2 to 3
+
 namespace Platformer
 {
     public class SuspensionBridge : MonoBehaviour

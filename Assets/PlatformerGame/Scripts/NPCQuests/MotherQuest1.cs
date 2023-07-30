@@ -1,6 +1,8 @@
 using UnityEngine.UI;
 using UnityEngine;
 
+// Changes Mother's pie value from 0 to 1, spawns Red key in cellar
+
 namespace Platformer
 {
     public class MotherQuest1 : MonoBehaviour

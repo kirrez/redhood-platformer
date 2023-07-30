@@ -31,9 +31,9 @@ namespace Platformer
         WFPlatform,
         WFSecondElevator,
 
-        KnifeLevel, // 0-none, 1-normal
-        AxeLevel, // 0-none, 1-normal
-        HolyWaterLevel, // 0-none, 1-normal
+        KnifeLevel, // 0-none, 1-KitchenKnife, 2-FarmerKnife, 3-HunterKnife
+        AxeLevel, // 0-none, 1-CrippledAxe(no WoodBreaker), 2-SharpenedAxe, 3-SturdyAxe
+        HolyWaterLevel, // 0-none, 1-WeakHolyWater(Undead Stun only), 2-StrongHolyWater(+ normal damage)
 
         //Player's max lives (3-8)
         MaxLives,

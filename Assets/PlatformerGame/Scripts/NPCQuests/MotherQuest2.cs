@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+// changes Mother's pie from 3 to 4
+
 namespace Platformer
 {
     public class MotherQuest2 : MonoBehaviour
@@ -30,7 +32,7 @@ namespace Platformer
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (ProgressManager.GetQuest(EQuest.MotherPie) != 1) return;
+            if (ProgressManager.GetQuest(EQuest.MotherPie) != 3) return;
 
             if (collision.gameObject.CompareTag("Player"))
             {
@@ -49,7 +51,7 @@ namespace Platformer
 
         private void OnTriggerExit2D(Collider2D collision)
         {
-            if (ProgressManager.GetQuest(EQuest.MotherPie) != 1) return;
+            if (ProgressManager.GetQuest(EQuest.MotherPie) != 3) return;
 
             if (collision.gameObject.CompareTag("Player"))
             {
@@ -63,7 +65,9 @@ namespace Platformer
 
         private void OnQuestCompleted()
         {
-            ProgressManager.SetQuest(EQuest.MotherPie, 2);
+            // should be a dialogue and spawn of pie. Also Spawned pie will unlock life upgrade ))
+            // also market elevator becomes enabled from this point
+            ProgressManager.SetQuest(EQuest.MotherPie, 4);
             HelpText.gameObject.SetActive(false);
             Player.Interaction -= OnQuestCompleted;
             

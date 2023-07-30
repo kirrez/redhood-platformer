@@ -31,6 +31,15 @@ namespace Platformer
         Family_1,
         Family_2,
         Family_3,
-        Family_4
+        Family_4,
+
+        FatherDialogue,
+        Father_1,
+        Father_2,
+        Father_3,
+        Father_4,
+        Father_5,
+        Father_6,
+        Father_7
     }
 }

@@ -5,13 +5,6 @@ using UnityEngine;
 
 namespace Platformer
 {
-    //enum WoodState
-    //{
-    //    Unbroken,
-    //    Broken,
-    //    Assembling
-    //}
-
     public class BreakableWood : MonoBehaviour
     {
         private SpriteRenderer Renderer;
@@ -23,10 +16,7 @@ namespace Platformer
 
         private IResourceManager ResourceManager;
 
-        //private WoodState State;
         private bool IsBeignHit;
-
-        private Collider2D TriggerCollider;
 
         [SerializeField]
         private Collider2D SolidCollider;
@@ -43,7 +33,6 @@ namespace Platformer
         private void Awake()
         {
             Renderer = GetComponent<SpriteRenderer>();
-            TriggerCollider = GetComponent<Collider2D>();
             ResourceManager = CompositionRoot.GetResourceManager();
             LoadSprites();
         }
@@ -56,8 +45,6 @@ namespace Platformer
             IsBeignHit = false;
             SolidCollider.enabled = true;
             CurrentState = UnbrokenState;
-
-            //State = WoodState.Unbroken;
         }
 
         private void FixedUpdate()
@@ -72,7 +59,7 @@ namespace Platformer
                 Timer = 3f;
                 Renderer.sprite = BrokenSprite;
                 SolidCollider.enabled = false;
-                // particles..
+                // shatters
                 for (int i = 0; i < 3; i++)
                 {
                     var shatter = ResourceManager.GetFromPool(GFXs.WoodShatter);

@@ -66,6 +66,16 @@ namespace Platformer
             Texts[ETexts.Family_2] = "She came from far away, and still didn't get used to local customs. Even couldn't get rid of her foreign accent.";
             Texts[ETexts.Family_3] = "Though sometimes she behave weird, and doesn't even distinguish her own husband from a mere bear in the forest (I love you, dad!), she is a nice person!";
             Texts[ETexts.Family_4] = "Today I'm going to collect some stuff for my mother to make a treat for Granny! Hope to meet there daddy too ))";
+
+            Texts[ETexts.FatherDialogue] = "* Unexpected Encounter *";
+            Texts[ETexts.Father_1] = "GRRRRRRRrrr !!";
+            Texts[ETexts.Father_2] = "Uwaaa !!";
+            Texts[ETexts.Father_3] = "Helllooo, daddy !";
+            Texts[ETexts.Father_4] = "GRRRrrr.";
+            Texts[ETexts.Father_5] = "I'm fine. Mom is good too. She's been missing you lately. Come back home soon.";
+            Texts[ETexts.Father_6] = "Grwaah, huwaaa.";
+            Texts[ETexts.Father_7] = "Did you fix the bridge? How nice of you! Then I'll better go home, bye!";
+
         }
 
         private void LoadRussian()
@@ -96,6 +106,15 @@ namespace Platformer
             Texts[ETexts.Family_2] = "ќна - иностранка, пришла в эти кра€ откуда-то издалека и до сих пор не может привыкнуть. ƒаже говорит до сих пор с акцентом. ";
             Texts[ETexts.Family_3] = "’оть она и ведет себ€ странно иногда, и даже не может отличить своего мужа от медвед€ в лесу (люблю теб€, папул€!), она замечательна€ женщина! ";
             Texts[ETexts.Family_4] = "—егодн€ мне нужно собрать кое-что дл€ пирога, который мама будет печь дл€ бабушки. Ќадеюсь встретить там и папочку тоже ))";
+
+            Texts[ETexts.FatherDialogue] = "* Unexpected Encounter *";
+            Texts[ETexts.Father_1] = "GRRRRRRRrrr !!";
+            Texts[ETexts.Father_2] = "Uwaaa !!";
+            Texts[ETexts.Father_3] = "Helllooo, daddy !";
+            Texts[ETexts.Father_4] = "GRRRrrr.";
+            Texts[ETexts.Father_5] = "I'm fine. Mom is good too. She's been missing you lately. Come back home soon.";
+            Texts[ETexts.Father_6] = "Grwaah, huwaaa.";
+            Texts[ETexts.Father_7] = "Did you fix the bridge? How nice of you! Then I'll better go home, bye!";
         }
     }
 }
