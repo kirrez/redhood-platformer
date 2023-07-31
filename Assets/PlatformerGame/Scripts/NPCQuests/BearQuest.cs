@@ -12,9 +12,6 @@ namespace Platformer
         [SerializeField]
         private Transform TargetTransform;
 
-        [SerializeField]
-        private NPCActor Father;
-
         private IProgressManager ProgressManager;
         private ILocalization Localization;
         private CinemachineVirtualCamera PlayerCamera;

@@ -1,5 +1,5 @@
-using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine;
 
 // changes Mother's pie from 3 to 4
 
@@ -18,11 +18,18 @@ namespace Platformer
         private ILocalization Localization;
         private IPlayer Player;
 
+        private Collider2D AreaTrigger;
+        private bool Inside = false;
+        private int DialoguePhase = 0;
+
         private void Awake()
         {
             ResourceManager = CompositionRoot.GetResourceManager();
             ProgressManager = CompositionRoot.GetProgressManager();
             Localization = CompositionRoot.GetLocalization();
+            Player = CompositionRoot.GetPlayer();
+
+            AreaTrigger = GetComponent<Collider2D>();
         }
 
         private void OnEnable()
@@ -30,47 +37,77 @@ namespace Platformer
             HelpText.text = Localization.Text(ETexts.TalkToMomAgain);
         }
 
-        private void OnTriggerEnter2D(Collider2D collision)
+        private void Update()
         {
             if (ProgressManager.GetQuest(EQuest.MotherPie) != 3) return;
 
-            if (collision.gameObject.CompareTag("Player"))
+            if (AreaTrigger.bounds.Contains(Player.Position) && !Inside)
             {
-                Player = collision.gameObject.GetComponent<IPlayer>();
+                Inside = true;
                 HelpText.gameObject.SetActive(true);
 
                 var BerriesEnough = ProgressManager.GetQuest(EQuest.BerriesCurrent) >= ProgressManager.GetQuest(EQuest.BerriesRequired);
                 var MushroomsEnough = ProgressManager.GetQuest(EQuest.MushroomsCurrent) >= ProgressManager.GetQuest(EQuest.MushroomsRequired);
-                
+
                 if (BerriesEnough && MushroomsEnough)
                 {
-                    Player.Interaction += OnQuestCompleted;
+                    Player.Interaction += OnInteraction;
                 }
             }
-        }
 
-        private void OnTriggerExit2D(Collider2D collision)
-        {
-            if (ProgressManager.GetQuest(EQuest.MotherPie) != 3) return;
-
-            if (collision.gameObject.CompareTag("Player"))
+            if (!AreaTrigger.bounds.Contains(Player.Position) && Inside)
             {
-                if (Player != null)
-                {
-                    Player.Interaction -= OnQuestCompleted;
-                }
+                Inside = false;
+                Player.Interaction -= OnInteraction;
                 HelpText.gameObject.SetActive(false);
             }
         }
 
-        private void OnQuestCompleted()
+        private void OnInteraction()
         {
-            // should be a dialogue and spawn of pie. Also Spawned pie will unlock life upgrade ))
-            // also market elevator becomes enabled from this point
-            ProgressManager.SetQuest(EQuest.MotherPie, 4);
-            HelpText.gameObject.SetActive(false);
-            Player.Interaction -= OnQuestCompleted;
-            
+            var Game = CompositionRoot.GetGame();
+
+            switch (DialoguePhase)
+            {
+                case 0:
+                    Player.HoldByInteraction();
+                    Game.Dialogue.Show();
+                    Game.Dialogue.SetDialogueName(Localization.Text(ETexts.PieDialogue2));
+                    Game.Dialogue.ChangeContent(Localization.Text(ETexts.DialoguePie2_1));
+                    DialoguePhase++;
+                    break;
+                case 1:
+                    Game.Dialogue.ChangeContent(Localization.Text(ETexts.DialoguePie2_2));
+                    DialoguePhase++;
+                    break;
+                case 2:
+                    Game.Dialogue.AddContent(Localization.Text(ETexts.DialoguePie2_3));
+                    DialoguePhase++;
+                    break;
+                case 3:
+                    Game.Dialogue.ChangeContent(Localization.Text(ETexts.DialoguePie2_4));
+                    DialoguePhase++;
+                    break;
+                case 4:
+                    Game.Dialogue.ChangeContent(Localization.Text(ETexts.DialoguePie2_5));
+                    DialoguePhase++;
+                    break;
+                case 5:
+                    Game.Dialogue.ChangeContent(Localization.Text(ETexts.DialoguePie2_6));
+                    DialoguePhase++;
+                    break;
+                case 6:
+                    Player.ReleasedByInteraction();
+                    Game.Dialogue.Hide();
+                    ProgressManager.SetQuest(EQuest.MotherPie, 4);
+                    HelpText.gameObject.SetActive(false);
+                    Player.Interaction -= OnInteraction;
+
+                    var instance = ResourceManager.CreatePrefab<MotherPie, ECollectibles>(ECollectibles.MotherPie);
+                    instance.transform.SetParent(transform, false);
+                    instance.transform.position = PiePosition.position;
+                    break;
+            }
         }
     }
 }

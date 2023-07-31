@@ -40,6 +40,14 @@ namespace Platformer
         Father_4,
         Father_5,
         Father_6,
-        Father_7
+        Father_7,
+
+        PieDialogue2,
+        DialoguePie2_1,
+        DialoguePie2_2,
+        DialoguePie2_3,
+        DialoguePie2_4,
+        DialoguePie2_5,
+        DialoguePie2_6
     }
 }

@@ -24,7 +24,7 @@ namespace Platformer
             SetQuest(EQuest.LifeUpgradeCost, 10);
 
             SetQuest(EQuest.KnifeLevel, 1);
-            SetQuest(EQuest.AxeLevel, 0);
+            SetQuest(EQuest.AxeLevel, 1);
             SetQuest(EQuest.HolyWaterLevel, 0);
 
             //Start Player's location
@@ -41,27 +41,29 @@ namespace Platformer
         {
             LoadNewGame();
 
-            //Talked to mom first time, Family monologue
-            SetQuest(EQuest.MotherPie, 2);
+            //Visited WF
+            SetQuest(EQuest.MotherPie, 3);
             //Got red key
             SetQuest(EQuest.RedKey, 1);
+            //Repaired bridge (BearQuest, Suspension bridge)
+            SetQuest(EQuest.SuspensionBridge, 3);
 
             //new Player's location
-            SetQuest(EQuest.Stage, (int)EStages.WestForest);
+            SetQuest(EQuest.Stage, (int)EStages.TheVillage);
             SetQuest(EQuest.Location, 0);
             SetQuest(EQuest.SpawnPoint, 0);
 
-            SetQuest(EQuest.KnifeLevel, 2);
-            SetQuest(EQuest.AxeLevel, 2); // woodBreaker development
-            SetQuest(EQuest.HolyWaterLevel, 1);
+            SetQuest(EQuest.KnifeLevel, 1);
+            SetQuest(EQuest.AxeLevel, 1);
+            SetQuest(EQuest.HolyWaterLevel, 0);
 
             SetQuest(EQuest.MaxLives, 4);
             //Alternative costs
             //SetQuest(EQuest.LifeUpgradeCost, 1);
 
             //Finished Mother's Pie quest will be with mushrooms 3 and berries 4
-            //SetQuest(EQuest.MushroomsCurrent, 0);
-            //SetQuest(EQuest.BerriesCurrent, 0);
+            SetQuest(EQuest.MushroomsCurrent, 3);
+            SetQuest(EQuest.BerriesCurrent, 4);
         }
 
         public int GetQuest(EQuest key)
@@ -85,9 +87,14 @@ namespace Platformer
 //1. Dialogue in MotherQuest1 changes value to 1, spawns key in cellar
 //2. FamilyDialogue changes value from 1 to 2
 //3. StoryCheckPoint in West Forest changes value from 2 to 3 (for single save of respawn point)
-//4. MotherQuest2 
+//4. MotherQuest2 gives you a pie, if value is 3, and change it to 4
+//5. PieItem changes value from 4 to 5. This opens LifeUpgrade quest and turns on Market elevator (when you enter MarketElevator's trigger)
 
-//Suspension Bridge :
+//Suspension bridge :
 //1. SuspensionBridge changes value from 0 to 1 (Breaking bridge) and saves first CheckPoint
 //2. BearQuest changes value from 1 to 2, that affects SuspensionBridge immediately
-//3. SuspensionBridge canges value from 2 to 3 and repairs the bridge
+//3. SuspensionBridge changes value from 2 to 3 and repairs the bridge
+
+//Blacksmith's errand :
+//1. BlacksmithQuest1 changes value from 0 to 1, now blacksmith is waiting for 3 pieces of iron ore.
+//2. BlacksmithQuest2 takes 3 iron ore from inventory and gives you a grey key. Value changes from 1 to 2.

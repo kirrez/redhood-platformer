@@ -55,15 +55,15 @@ namespace Platformer
 
             Texts[ETexts.PieDialogue1] = "* A Pie for a Grandma *";
             Texts[ETexts.DialoguePie1_1] = "- Hello, mom!";
-            Texts[ETexts.DialoguePie1_2] = "- Guten Tag, mein Dear.";
+            Texts[ETexts.DialoguePie1_2] = "- Guten Tag, meine Dear.";
             Texts[ETexts.DialoguePie1_3] = "- You.. called me? ))";
             Texts[ETexts.DialoguePie1_4] = "- Oh ja, Ich hasse ein Request fur dich. Could you bringst mich Schrooms und Berries for a Pie?";
             Texts[ETexts.DialoguePie1_5] = "- Sure, I'll do it! See ya )";
-            Texts[ETexts.DialoguePie1_6] = "- Be careful, mein Hertz.";
+            Texts[ETexts.DialoguePie1_6] = "- Be careful, meine Hertz.";
 
             Texts[ETexts.FamilyMonologue] = "* My Wonderful Family *";
             Texts[ETexts.Family_1] = "It's about my mom.";
-            Texts[ETexts.Family_2] = "She came from far away, and still didn't get used to local customs. Even couldn't get rid of her foreign accent.";
+            Texts[ETexts.Family_2] = "She came from far away country called Stiria, and still didn't get used to local customs. Even couldn't get rid of her foreign accent.";
             Texts[ETexts.Family_3] = "Though sometimes she behave weird, and doesn't even distinguish her own husband from a mere bear in the forest (I love you, dad!), she is a nice person!";
             Texts[ETexts.Family_4] = "Today I'm going to collect some stuff for my mother to make a treat for Granny! Hope to meet there daddy too ))";
 
@@ -76,6 +76,13 @@ namespace Platformer
             Texts[ETexts.Father_6] = "Grwaah, huwaaa.";
             Texts[ETexts.Father_7] = "Did you fix the bridge? How nice of you! Then I'll better go home, bye!";
 
+            Texts[ETexts.PieDialogue2] = "* Ingredients collected *";
+            Texts[ETexts.DialoguePie2_1] = "- I've brought you everything you asked for, let's cook (- o -)/";
+            Texts[ETexts.DialoguePie2_2] = "- Ah, danke, meine Dear! Hast du some Rest wilst I bake a Pie..";
+            Texts[ETexts.DialoguePie2_3] = "(You'll sure be liking it, old Berta, just wait a little bit more)";
+            Texts[ETexts.DialoguePie2_4] = "- Did you say something, mother?";
+            Texts[ETexts.DialoguePie2_5] = "- What? Oh, das ist nicht, der Pie ist ready. Go, take it.";
+            Texts[ETexts.DialoguePie2_6] = "- Yay!";
         }
 
         private void LoadRussian()
@@ -103,18 +110,26 @@ namespace Platformer
 
             Texts[ETexts.FamilyMonologue] = "* Моя прекрасная семья *";
             Texts[ETexts.Family_1] = "О моей маме..";
-            Texts[ETexts.Family_2] = "Она - иностранка, пришла в эти края откуда-то издалека и до сих пор не может привыкнуть. Даже говорит до сих пор с акцентом. ";
+            Texts[ETexts.Family_2] = "Она - иностранка, пришла в эти края из далекой Штирии и до сих пор не может привыкнуть. Даже говорит до сих пор с акцентом. ";
             Texts[ETexts.Family_3] = "Хоть она и ведет себя странно иногда, и даже не может отличить своего мужа от медведя в лесу (люблю тебя, папуля!), она замечательная женщина! ";
             Texts[ETexts.Family_4] = "Сегодня мне нужно собрать кое-что для пирога, который мама будет печь для бабушки. Надеюсь встретить там и папочку тоже ))";
 
-            Texts[ETexts.FatherDialogue] = "* Unexpected Encounter *";
-            Texts[ETexts.Father_1] = "GRRRRRRRrrr !!";
-            Texts[ETexts.Father_2] = "Uwaaa !!";
-            Texts[ETexts.Father_3] = "Helllooo, daddy !";
-            Texts[ETexts.Father_4] = "GRRRrrr.";
-            Texts[ETexts.Father_5] = "I'm fine. Mom is good too. She's been missing you lately. Come back home soon.";
-            Texts[ETexts.Father_6] = "Grwaah, huwaaa.";
-            Texts[ETexts.Father_7] = "Did you fix the bridge? How nice of you! Then I'll better go home, bye!";
+            Texts[ETexts.FatherDialogue] = "* Неожиданная встреча *";
+            Texts[ETexts.Father_1] = "ГРРРРРррр !!";
+            Texts[ETexts.Father_2] = "Уваа !!";
+            Texts[ETexts.Father_3] = "Привееет, пап!";
+            Texts[ETexts.Father_4] = "ГРРРррр.";
+            Texts[ETexts.Father_5] = "Я в порядке, мама тоже. Она по тебе соскучалась, возвращайся скорее доиой!";
+            Texts[ETexts.Father_6] = "Грввах, уваах.";
+            Texts[ETexts.Father_7] = "Ты починил мост? Как здорово! Тогда я побегу домой, до встречи!";
+
+            Texts[ETexts.PieDialogue2] = "* Собранные ингредиенты *";
+            Texts[ETexts.DialoguePie2_1] = "- I've brought you everything you asked for, let's cook (- o -)/";
+            Texts[ETexts.DialoguePie2_2] = "- Ah, danke, meine Dear! Hast du some Rest wilst I bake a Pie..";
+            Texts[ETexts.DialoguePie2_3] = "(You'll sure be liking it, old Berta, just wait a little bit more)";
+            Texts[ETexts.DialoguePie2_4] = "- Did you say something, mother?";
+            Texts[ETexts.DialoguePie2_5] = "- What? Oh, das ist nicht, der Pie ist ready. Go, take it.";
+            Texts[ETexts.DialoguePie2_6] = "- Yay!";
         }
     }
 }
