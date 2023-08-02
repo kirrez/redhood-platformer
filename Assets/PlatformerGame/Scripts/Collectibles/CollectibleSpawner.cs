@@ -6,9 +6,13 @@ namespace Platformer
     {
         private IProgressManager ProgressManager;
         private bool IsSpawned;
+        private EQuest Item;
 
         [SerializeField]
-        private EQuest Item;
+        private int ItemIndex;
+
+        [SerializeField]
+        private int ConditionValue = 0;
 
         [SerializeField]
         private GameObject ItemPrefab;
@@ -22,7 +26,9 @@ namespace Platformer
         {
             if (IsSpawned) return;
 
-            if (ProgressManager.GetQuest(Item) == 0)
+            Item = (EQuest)ItemIndex;
+
+            if (ProgressManager.GetQuest(Item) == ConditionValue)
             {
                 var instance = GameObject.Instantiate(ItemPrefab, transform.parent, false);
                 instance.transform.position = transform.position;

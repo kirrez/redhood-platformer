@@ -6,22 +6,19 @@ namespace Platformer
     {
         private IProgressManager ProgressManager;
 
-        private EQuest Item;
-
         private void OnEnable()
         {
             ProgressManager = CompositionRoot.GetProgressManager();
-
-            Item = EQuest.MotherPie;
         }
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
             if (collision.gameObject.CompareTag("Player"))
             {
-                if (ProgressManager.GetQuest(Item) == 4)
+                if (ProgressManager.GetQuest(EQuest.MotherPie) == 4)
                 {
-                    ProgressManager.SetQuest(Item, 5);
+                    ProgressManager.SetQuest(EQuest.MotherPie, 5); // Finishing MotherPie quest
+                    ProgressManager.SetQuest(EQuest.MarketElevator, 1); // Unlocking elevator
                 }
 
                 gameObject.SetActive(false);

@@ -6,9 +6,11 @@ namespace Platformer
         Enter,
         Exit,
         Next,
+        Talk,
         TalkToMom,
         TalkToMomAgain,
         PullLever,
+        VillageCommoner,
 
         //Menu items
         English,
@@ -48,6 +50,8 @@ namespace Platformer
         DialoguePie2_3,
         DialoguePie2_4,
         DialoguePie2_5,
-        DialoguePie2_6
+        DialoguePie2_6,
+
+        Commoner1_1
     }
 }

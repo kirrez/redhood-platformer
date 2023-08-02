@@ -80,6 +80,7 @@ namespace Platformer
             if (IsVisible)
             {
                 Body.SetActive(true);
+                Inside = true; //permanent transition to Idle
                 Body.transform.position = SpawnPoint.position;
             }
 

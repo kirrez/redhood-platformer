@@ -64,6 +64,8 @@ namespace Platformer
             //Finished Mother's Pie quest will be with mushrooms 3 and berries 4
             SetQuest(EQuest.MushroomsCurrent, 3);
             SetQuest(EQuest.BerriesCurrent, 4);
+
+            SetQuest(EQuest.MarketElevator, 0);
         }
 
         public int GetQuest(EQuest key)

@@ -42,9 +42,11 @@ namespace Platformer
             Texts[ETexts.Enter] = "ENTER 'C'";
             Texts[ETexts.Exit] = "EXIT 'C'";
             Texts[ETexts.Next] = "Next  'C'";
-            Texts[ETexts.TalkToMom] = "Talk to Mom 'C'";
-            Texts[ETexts.TalkToMomAgain] = "Talk to Mom again";
+            Texts[ETexts.Talk] = "TALK  'C'";
+            Texts[ETexts.TalkToMom] = "TALK TO MOM  'C'";
+            Texts[ETexts.TalkToMomAgain] = "TALK TO MOM AGAIN";
             Texts[ETexts.PullLever] = "PULL LEVER 'C'";
+            Texts[ETexts.VillageCommoner] = "* Village Commoner *";
 
             Texts[ETexts.English] = "English";
             Texts[ETexts.Russian] = "Русский";
@@ -83,6 +85,8 @@ namespace Platformer
             Texts[ETexts.DialoguePie2_4] = "- Did you say something, mother?";
             Texts[ETexts.DialoguePie2_5] = "- What? Oh, das ist nicht, der Pie ist ready. Go, take it.";
             Texts[ETexts.DialoguePie2_6] = "- Yay!";
+
+            Texts[ETexts.Commoner1_1] = "Market elevator is not working now, come back later.";
         }
 
         private void LoadRussian()
@@ -90,9 +94,11 @@ namespace Platformer
             Texts[ETexts.Enter] = "ВНУТРЬ 'C'";
             Texts[ETexts.Exit] = "НАРУЖУ 'C'";
             Texts[ETexts.Next] = "Дальше  'C'";
-            Texts[ETexts.TalkToMom] = "Ответить маме 'C''";
-            Texts[ETexts.TalkToMomAgain] = "Снова ответить маме";
+            Texts[ETexts.Talk] = "ГОВОРИТЬ  'C'";
+            Texts[ETexts.TalkToMom] = "ОТВЕТИТЬ МАМЕ 'C''";
+            Texts[ETexts.TalkToMomAgain] = "СНОВА ПОГОВОРИТЬ С МАМОЙ";
             Texts[ETexts.PullLever] = "ДЕРНУТЬ РЫЧАГ 'C'";
+            Texts[ETexts.VillageCommoner] = "* Деревенский житель *";
 
             Texts[ETexts.English] = "English";
             Texts[ETexts.Russian] = "Русский";

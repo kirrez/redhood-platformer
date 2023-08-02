@@ -654,11 +654,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mother_0
+      name: WomanBlue_0
       rect:
         serializedVersion: 2
-        x: 8
-        y: 272
+        x: 168
+        y: 304
         width: 16
         height: 32
       alignment: 7
@@ -675,11 +675,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mother_1
+      name: WomanBlue_1
       rect:
         serializedVersion: 2
-        x: 24
-        y: 272
+        x: 184
+        y: 304
         width: 16
         height: 32
       alignment: 7
@@ -691,27 +691,6 @@ TextureImporter:
       bones: []
       spriteID: 6b59e6b52e9997042952de9667bea8c6
       internalID: 759018448
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Mother_2
-      rect:
-        serializedVersion: 2
-        x: 40
-        y: 272
-        width: 16
-        height: 32
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 86199b2b8247f4e4187d2bc9c2d7c16f
-      internalID: 996843073
       vertices: []
       indices: 
       edges: []
@@ -1892,6 +1871,426 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: WomanGreen_0
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 304
+        width: 16
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af1ac2fd93176514aafe65ab7f6f5f77
+      internalID: -1914863978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WomanGreen_1
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 304
+        width: 16
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4d1845a2ed475d4cb2082e1a64e5cea
+      internalID: -569639555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WomanRed_0
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 304
+        width: 16
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7330f33a16c46ae40b43792d45099475
+      internalID: -1234947266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WomanRed_1
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 304
+        width: 16
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7be221d7e53ddcc4cba60f8807bb2067
+      internalID: 1779097657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Soldier_0
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 272
+        width: 16
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c91947215f5656f4f86645e0b30be6de
+      internalID: 390478329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Soldier_1
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 272
+        width: 16
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7bc373e05a3e8a4387bcdbe64b04397
+      internalID: -1451179720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ManBlack_1
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 272
+        width: 16
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f67f0582ea946c9499c0615a2b845a72
+      internalID: -772477246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ManBlack_0
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 272
+        width: 16
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca897b9077780dc4583cdf71e0cf36e3
+      internalID: -135203124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OldMan_0
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 304
+        width: 16
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c2e06c4fbb85cb4ea4197069737bde7
+      internalID: -832100550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OldMan_1
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 304
+        width: 16
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f14d7b2add44f5d49bba4925d2612743
+      internalID: -1148329170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ManBlond_0
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 272
+        width: 16
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f2b80f01aa147b46b0389a4d5fffdf4
+      internalID: 667314759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ManBlond_1
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 272
+        width: 16
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c59c4fb65db80dd439e6172b2d1b5acd
+      internalID: 113528172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ManBrown_0
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 272
+        width: 16
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f45c5ebc4309b040a5a413a16c3d770
+      internalID: 2005081732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ManBrown_1
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 272
+        width: 16
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88c91e496a4eca3428e1753fef7ce331
+      internalID: 964522010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Priest_0
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 240
+        width: 16
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b11892bae023b44b9db0c1f9cd3898d
+      internalID: 703090300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Priest_1
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 240
+        width: 16
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53355999bff7bde4a95b4b3f46e943a9
+      internalID: -654608740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cloacked_0
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 240
+        width: 16
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e79a4793429eea46a85476dc3c15dfd
+      internalID: -1755142945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cloacked_1
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 240
+        width: 16
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a0534c24cb7f69409b005176a05173b
+      internalID: 1650267948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OldWoman_0
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 240
+        width: 16
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e601dfa7a996424f881ea8c62005928
+      internalID: -1508033894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OldWoman_1
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 240
+        width: 16
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c4db6293d02fc24e92c5855df1fb28c
+      internalID: -98292667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -1903,11 +2302,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      ManBrown_1: 964522010
       WoodShatter: -2086196866
       DarkCloudsL4: 2110242026
+      OldWoman_0: -1508033894
       Heart_Empty: -1194434640
+      WomanRed_1: 1779097657
       DarkCloudsL1_1: 1993751466
       HolyWaterIcon_1: 818119534
+      Cloacked_0: -1755142945
       DarkCloudsL2_5: -426296842
       DarkCloudsL3_1: 1253647553
       Ropes_2: 2037492357
@@ -1925,20 +2328,26 @@ TextureImporter:
       RopeCenter: -1307795433
       ButtonOff: 1654182457
       RopeSlopeRight: -151934057
+      OldMan_1: -1148329170
       DarkCloudsL1_2: -1559139224
       Bubble: -631682307
       DarkCloudsL1_7: -419847979
-      Mother_0: 1539828992
+      ManBlack_0: -135203124
       DarkCloudsL1_12: -1543764027
+      WomanBlue_1: 759018448
       DoorGreen_0: -425144864
       Fall_1: 2073561585
       BridgeCenter: 1616014153
       DarkCloudsL1_10: 233604434
+      Soldier_0: 390478329
+      Priest_0: 703090300
       Stream_1: 855704516
       DarkCloudsL2_7: -729258153
       DarkCloudsL1_8: 1879142511
       DarkCloudsL3_2: 1985532748
+      Cloacked_1: 1650267948
       DarkCloudsL3_3: 2090795456
+      ManBlond_1: 113528172
       RopeSlopeLeft: 1691112775
       Spikes_grey: -1018720058
       DarkCloudsL2_4: 109478668
@@ -1959,6 +2368,7 @@ TextureImporter:
       DoorRed_0: 1550466903
       Father_1: 1381507882
       WeaponEmpty: 1594718321
+      OldWoman_1: -98292667
       SuspensionHolder_Right: 834547123
       DarkCloudsL1: -1662598905
       BridgeRight: 27038073
@@ -1967,13 +2377,13 @@ TextureImporter:
       DoorGrey_0: 1360749912
       LightCloud_1: 1968002318
       BreakableWood_5: -1160252470
-      Mother_1: 759018448
       BreakableWood_2: 1427516514
       AxeIcon_3: -562969194
       DoorGrey_2: -604756203
       DarkCloudsL1_4: -566693553
       BreakableWood_4: -1482915127
       DoorGreen_1: -227913323
+      WomanBlue_0: 1539828992
       DoorRed_2: -1579968724
       Ropes_1: 2084056853
       AxeIcon_1: 1986779346
@@ -1990,16 +2400,22 @@ TextureImporter:
       ButtonOn: 876549026
       BreakableWood_6: 1379923547
       LightCloud_5: -203564046
+      ManBlond_0: 667314759
       SwitchOff: 1425627654
       WeaponFrame: 1830880056
+      Priest_1: -654608740
       DarkCloudsL2_6: -153351782
       DoorGreen_2: 1295310118
       MaxHealthUp: 2022743721
+      OldMan_0: -832100550
       DarkCloudsL1_5: -1699626249
       Stream_2: -309486281
       Mushroom: 1425082455
+      Soldier_1: -1451179720
       Heart_full: -1332053382
+      WomanGreen_0: -1914863978
       Key_Grey: -6393119
+      ManBrown_0: 2005081732
       Platform_4: 933978366
       Key_Green: 2089127135
       DarkCloudsL1_6: -1426506302
@@ -2015,7 +2431,10 @@ TextureImporter:
       DarkCloudsL1_9: -583554590
       Stream_0: 1860220395
       DarkCloudsL2_0: -1209619850
+      WomanGreen_1: -569639555
       LightCloud_2: -1223994109
+      WomanRed_0: -1234947266
+      ManBlack_1: -772477246
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -17,19 +17,20 @@ namespace Platformer
         BerriesCurrent,
         BerriesRequired,
 
-        Mushroom1,
-        Mushroom2,
-        Mushroom3,
-        Blackberry1,
-        Blackberry2,
-        Blackberry3,
-        Blackberry4,
+        Mushroom1 = 11,
+        Mushroom2 = 12,
+        Mushroom3 = 13,
+        Blackberry1 = 14,
+        Blackberry2 = 15,
+        Blackberry3 = 16,
+        Blackberry4 = 17,
 
         SuspensionBridge,
         Drawbridge,
-        WFElevator,
-        WFPlatform,
-        WFSecondElevator,
+        WFFirstElevator = 20,
+        WFSkeletonPlatform = 21,
+        WFSecondElevator = 22,
+        MarketElevator = 23,
 
         KnifeLevel, // 0-none, 1-KitchenKnife, 2-FarmerKnife, 3-HunterKnife
         AxeLevel, // 0-none, 1-CrippledAxe(no WoodBreaker), 2-SharpenedAxe, 3-SturdyAxe
@@ -41,7 +42,6 @@ namespace Platformer
 
         LifeUpgradeCost,
         FoodCollected,
-
 
         OreCollected
     }
