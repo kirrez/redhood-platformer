@@ -99,4 +99,5 @@ namespace Platformer
 
 //Blacksmith's errand :
 //1. BlacksmithQuest1 changes value from 0 to 1, now blacksmith is waiting for 3 pieces of iron ore.
+//1.1 Soldier near Eastern gates tells you to get your own key from blaksmith, if value if 0. 
 //2. BlacksmithQuest2 takes 3 iron ore from inventory and gives you a grey key. Value changes from 1 to 2.
