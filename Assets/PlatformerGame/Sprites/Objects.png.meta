@@ -2291,6 +2291,174 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Blacksmith
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 304
+        width: 24
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4089043812a48c547bcd2bba48c7b10e
+      internalID: 2072301162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anvil
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 304
+        width: 24
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8f4e6c2027ffae47b5dc89853844c4a
+      internalID: 1114881007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FountainBasin
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 336
+        width: 40
+        height: 17
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 472ac68c7318f05469d43ee653720c75
+      internalID: 1340344472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fountain_1
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 336
+        width: 40
+        height: 40
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8cbba4984e100034a9b2d045f00c2cf8
+      internalID: 1542308353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fountain_2
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 336
+        width: 40
+        height: 40
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9eec23f472921b34d8ab2940888debb5
+      internalID: 1039542931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fountain_3
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 336
+        width: 40
+        height: 40
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f61ccdac8e3ca64daa0e0b27266318b
+      internalID: 1603490098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fountain_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 336
+        width: 40
+        height: 40
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70801526d2695c443b2a794337601915
+      internalID: -1372597606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fountain_5
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 336
+        width: 40
+        height: 40
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1dd11eb7f1d53914fb4b0dbd17df1efb
+      internalID: -912124016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -2320,6 +2488,7 @@ TextureImporter:
       BreakableWood_7: 1493924921
       LightCloud_4: -268048731
       KnifeIcon_2: -250723437
+      FountainBasin: 1340344472
       BreakableWood_1: -731882785
       DarkCloudsL2_2: 567104749
       DarkCloudsL2_8: 74150674
@@ -2332,6 +2501,7 @@ TextureImporter:
       DarkCloudsL1_2: -1559139224
       Bubble: -631682307
       DarkCloudsL1_7: -419847979
+      FountainBasinC: -1309141152
       ManBlack_0: -135203124
       DarkCloudsL1_12: -1543764027
       WomanBlue_1: 759018448
@@ -2343,8 +2513,10 @@ TextureImporter:
       Priest_0: 703090300
       Stream_1: 855704516
       DarkCloudsL2_7: -729258153
+      Anvil: 1114881007
       DarkCloudsL1_8: 1879142511
       DarkCloudsL3_2: 1985532748
+      Fountain_1: 1542308353
       Cloacked_1: 1650267948
       DarkCloudsL3_3: 2090795456
       ManBlond_1: 113528172
@@ -2365,6 +2537,7 @@ TextureImporter:
       DoorGrey_1: -16567571
       Mother_2: 996843073
       DarkCloudsL2_1: 1230439699
+      Blacksmith: 2072301162
       DoorRed_0: 1550466903
       Father_1: 1381507882
       WeaponEmpty: 1594718321
@@ -2373,12 +2546,15 @@ TextureImporter:
       DarkCloudsL1: -1662598905
       BridgeRight: 27038073
       Ropes_3: 860458067
+      Fountain_3: -287360247
       HolyWaterIcon_2: -111287172
       DoorGrey_0: 1360749912
       LightCloud_1: 1968002318
       BreakableWood_5: -1160252470
+      Fountain_4: -1372597606
       BreakableWood_2: 1427516514
       AxeIcon_3: -562969194
+      Fountain_2: 1039542931
       DoorGrey_2: -604756203
       DarkCloudsL1_4: -566693553
       BreakableWood_4: -1482915127
@@ -2424,6 +2600,7 @@ TextureImporter:
       Rope_4: -866954109
       DarkCloudsL1_3: 1355649025
       Blackberry: 961531519
+      Fountain_5: -912124016
       DarkCloudsLVL2: -431119207
       DoorRed_1: 729713761
       SwitchOn: -1816534046
