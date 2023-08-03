@@ -46,8 +46,8 @@ namespace Platformer
                 Inside = true;
                 HelpText.gameObject.SetActive(true);
 
-                var BerriesEnough = ProgressManager.GetQuest(EQuest.BerriesCurrent) >= ProgressManager.GetQuest(EQuest.BerriesRequired);
-                var MushroomsEnough = ProgressManager.GetQuest(EQuest.MushroomsCurrent) >= ProgressManager.GetQuest(EQuest.MushroomsRequired);
+                var BerriesEnough = ProgressManager.GetQuest(EQuest.BlackberriesCollected) >= ProgressManager.GetQuest(EQuest.BlackberriesRequired);
+                var MushroomsEnough = ProgressManager.GetQuest(EQuest.MushroomsCollected) >= ProgressManager.GetQuest(EQuest.MushroomsRequired);
 
                 if (BerriesEnough && MushroomsEnough)
                 {

@@ -34,7 +34,7 @@ namespace Platformer
 
             //Mother's Pie quest
             SetQuest(EQuest.MushroomsRequired, 3);
-            SetQuest(EQuest.BerriesRequired, 4);
+            SetQuest(EQuest.BlackberriesRequired, 4);
         }
 
         public void LoadTestConfig()
@@ -44,7 +44,7 @@ namespace Platformer
             //Visited WF
             SetQuest(EQuest.MotherPie, 3);
             //Got red key
-            SetQuest(EQuest.RedKey, 1);
+            SetQuest(EQuest.KeyRed, 1);
             //Repaired bridge (BearQuest, Suspension bridge)
             SetQuest(EQuest.SuspensionBridge, 3);
 
@@ -62,8 +62,8 @@ namespace Platformer
             //SetQuest(EQuest.LifeUpgradeCost, 1);
 
             //Finished Mother's Pie quest will be with mushrooms 3 and berries 4
-            SetQuest(EQuest.MushroomsCurrent, 3);
-            SetQuest(EQuest.BerriesCurrent, 4);
+            SetQuest(EQuest.MushroomsCollected, 3);
+            SetQuest(EQuest.BlackberriesCollected, 4);
 
             SetQuest(EQuest.MarketElevator, 0);
         }

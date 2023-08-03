@@ -207,7 +207,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Block: {fileID: 7716946605485425175}
-  ItemIndex: 1
+  ItemIndex: 0
 --- !u!114 &5996081789907340080
 MonoBehaviour:
   m_ObjectHideFlags: 0

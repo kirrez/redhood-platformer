@@ -6,31 +6,17 @@ namespace Platformer
         Location,
         SpawnPoint,
 
-        RedKey,
-        GreyKey,
-        GreenKey,
-
+        //Mother's Pie quest
         MotherPie,
-
-        MushroomsCurrent,
+        MushroomsCollected,
         MushroomsRequired,
-        BerriesCurrent,
-        BerriesRequired,
+        BlackberriesCollected,
+        BlackberriesRequired,
 
-        Mushroom1 = 11,
-        Mushroom2 = 12,
-        Mushroom3 = 13,
-        Blackberry1 = 14,
-        Blackberry2 = 15,
-        Blackberry3 = 16,
-        Blackberry4 = 17,
-
+        //Suspension bridge quest
         SuspensionBridge,
+
         Drawbridge,
-        WFFirstElevator = 20,
-        WFSkeletonPlatform = 21,
-        WFSecondElevator = 22,
-        MarketElevator = 23,
 
         KnifeLevel, // 0-none, 1-KitchenKnife, 2-FarmerKnife, 3-HunterKnife
         AxeLevel, // 0-none, 1-CrippledAxe(no WoodBreaker), 2-SharpenedAxe, 3-SturdyAxe
@@ -42,8 +28,41 @@ namespace Platformer
 
         LifeUpgradeCost,
         FoodCollected,
+        OreCollected,
 
-        OreCollected
+        //Collectibles, set of each type must go one after another ))
+        KeyRed,
+        KeyGray,
+        KeyGreen,
+
+        //Items for PlatformActivation
+        WFFirstElevator,
+        WFSkeletonPlatform,
+        WFSecondElevator,
+        MarketElevator,
+
+        Mushroom0,
+        Mushroom1,
+        Mushroom2,
+
+        Blackberry0,
+        Blackberry1,
+        Blackberry2,
+        Blackberry3,
+
+        Food00,
+        Food01,
+        Food02,
+        Food03,
+        Food04,
+        Food05,
+
+        Ore00,
+        Ore01,
+        Ore02,
+        Ore03,
+        Ore04,
+        Ore05
     }
 }
 

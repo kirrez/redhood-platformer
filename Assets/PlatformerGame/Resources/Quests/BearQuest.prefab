@@ -45,7 +45,7 @@ GameObject:
   m_Layer: 0
   m_Name: BearQuest
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -105,7 +105,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TargetTransform: {fileID: 7791362106517319859}
-  Father: {fileID: 5794317183382146369}
 --- !u!1001 &4992280631676704477
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -168,14 +167,3 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1522682933843352477, guid: 261ea92bb2be5254e84e5c2f513967ed, type: 3}
   m_PrefabInstance: {fileID: 4992280631676704477}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5794317183382146369 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1522682933843352476, guid: 261ea92bb2be5254e84e5c2f513967ed, type: 3}
-  m_PrefabInstance: {fileID: 4992280631676704477}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0c9fade0d1a21040a3a8c51bbfbcc5e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

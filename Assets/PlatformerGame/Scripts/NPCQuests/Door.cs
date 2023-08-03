@@ -9,9 +9,10 @@ namespace Platformer
         private Collider2D Block;
 
         [SerializeField]
-        [Range(1, 3)]
-        private int ItemIndex = 1;
+        [Range(0, 2)]
+        private int ItemIndex;
 
+        private int TargetValue;
         private EQuest KeyItem;
 
         //advanced player's presence detection
@@ -27,7 +28,9 @@ namespace Platformer
             Collider = GetComponent<Collider2D>();
             DoorAnimator = GetComponent<IDoorAnimator>();
             ProgressManager = CompositionRoot.GetProgressManager();
-            DefineItem();
+
+            TargetValue = (int)EQuest.KeyRed + ItemIndex;
+            KeyItem = (EQuest)TargetValue;
         }
 
 
@@ -69,22 +72,6 @@ namespace Platformer
             if (collision.gameObject.CompareTag("Player"))
             {
                 Player = null;
-            }
-        }
-
-        private void DefineItem()
-        {
-            switch (ItemIndex)
-            {
-                case 1:
-                    KeyItem = EQuest.RedKey;
-                    break;
-                case 2:
-                    KeyItem = EQuest.GreyKey;
-                    break;
-                case 3:
-                    KeyItem = EQuest.GreenKey;
-                    break;
             }
         }
     }

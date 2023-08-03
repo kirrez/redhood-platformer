@@ -6,10 +6,10 @@ namespace Platformer
     {
         private IProgressManager ProgressManager;
         private bool IsSpawned;
-        private EQuest Item;
 
+        //It's not very safe, but a mistake would be quiet obvious
         [SerializeField]
-        private int ItemIndex;
+        private EQuest Item;
 
         [SerializeField]
         private int ConditionValue = 0;
@@ -25,8 +25,6 @@ namespace Platformer
         private void OnEnable()
         {
             if (IsSpawned) return;
-
-            Item = (EQuest)ItemIndex;
 
             if (ProgressManager.GetQuest(Item) == ConditionValue)
             {

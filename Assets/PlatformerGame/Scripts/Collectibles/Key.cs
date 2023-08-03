@@ -5,17 +5,20 @@ namespace Platformer
     public class Key : MonoBehaviour
     {
         [SerializeField]
-        [Range(1, 3)]
-        private int ItemIndex = 1;
+        [Range(0, 2)]
+        private int ItemIndex;
 
+        private int TargetValue;
         private EQuest Item;
 
         private IProgressManager ProgressManager;
 
-        private void OnEnable()
+        private void Awake()
         {
             ProgressManager = CompositionRoot.GetProgressManager();
-            DefineItem();
+
+            TargetValue = (int)EQuest.KeyRed + ItemIndex;
+            Item = (EQuest)TargetValue;
         }
 
         private void OnCollisionEnter2D(Collision2D collision)
@@ -26,24 +29,7 @@ namespace Platformer
                 {
                     ProgressManager.SetQuest(Item, 1);
                 }
-
                 gameObject.SetActive(false);
-            }
-        }
-
-        private void DefineItem()
-        {
-            switch (ItemIndex)
-            {
-                case 1:
-                    Item = EQuest.RedKey;
-                    break;
-                case 2:
-                    Item = EQuest.GreyKey;
-                    break;
-                case 3:
-                    Item = EQuest.GreenKey;
-                    break;
             }
         }
     }
