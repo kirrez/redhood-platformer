@@ -2,9 +2,14 @@ using UnityEngine;
 
 namespace Platformer
 {
-    public class Collectible : MonoBehaviour
+    public class Ore : MonoBehaviour
     {
+        // base - Ore00
         [SerializeField]
+        [Range(0, 5)]
+        private int ItemIndex;
+
+        private int TargetValue;
         private EQuest Item;
 
         private IProgressManager ProgressManager;
@@ -12,6 +17,9 @@ namespace Platformer
         private void Awake()
         {
             ProgressManager = CompositionRoot.GetProgressManager();
+
+            TargetValue = (int)EQuest.Ore00 + ItemIndex;
+            Item = (EQuest)TargetValue;
         }
 
         private void OnCollisionEnter2D(Collision2D collision)
@@ -21,6 +29,8 @@ namespace Platformer
                 if (ProgressManager.GetQuest(Item) == 0)
                 {
                     ProgressManager.SetQuest(Item, 1);
+                    //increment food collected
+                    ProgressManager.AddValue(EQuest.OreCollected, 1);
                 }
                 gameObject.SetActive(false);
             }

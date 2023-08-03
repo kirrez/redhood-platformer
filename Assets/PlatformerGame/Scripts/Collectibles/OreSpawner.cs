@@ -2,10 +2,10 @@ using UnityEngine;
 
 namespace Platformer
 {
-    public class BlackberrySpawner : MonoBehaviour
+    public class OreSpawner : MonoBehaviour
     {
         [SerializeField]
-        [Range(0, 3)]
+        [Range(0, 5)]
         private int ItemIndex;
 
         private int TargetValue;
@@ -20,7 +20,7 @@ namespace Platformer
             ProgressManager = CompositionRoot.GetProgressManager();
             ResourceManager = CompositionRoot.GetResourceManager();
 
-            TargetValue = (int)EQuest.Blackberry0 + ItemIndex;
+            TargetValue = (int)EQuest.Ore00 + ItemIndex;
             Item = (EQuest)TargetValue;
         }
 
@@ -28,7 +28,7 @@ namespace Platformer
         {
             if (ProgressManager.GetQuest(Item) == 0 && !IsSpawned)
             {
-                var instance = ResourceManager.CreatePrefab<Blackberry, EQuest>(Item);
+                var instance = ResourceManager.CreatePrefab<Ore, EQuest>(Item);
                 instance.transform.position = transform.position;
                 IsSpawned = true;
             }

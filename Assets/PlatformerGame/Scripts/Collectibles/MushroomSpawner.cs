@@ -28,7 +28,7 @@ namespace Platformer
         {
             if (ProgressManager.GetQuest(Item) == 0 && !IsSpawned)
             {
-                var instance = ResourceManager.CreatePrefab<Food, EQuest>(Item);
+                var instance = ResourceManager.CreatePrefab<Mushroom, EQuest>(Item);
                 instance.transform.position = transform.position;
                 IsSpawned = true;
             }
