@@ -183,16 +183,22 @@ namespace Platformer
             if (HolyWaterTimer > 0) HolyWaterTimer -= delta;
         }
 
-        public void Revive()
+        public void UpdateMaxLives()
         {
-            var progressManager = CompositionRoot.GetProgressManager();
-            var maxLives = progressManager.GetQuest(EQuest.MaxLives);
-            UpdateAllWeaponLevel();
-
+            var maxLives = ProgressManager.GetQuest(EQuest.MaxLives);
             Health.SetMaxLives(maxLives);
             Health.RefillHealth();
+
+            Game.HUD.SetMaxLives(maxLives);
             Game.HUD.SetCurrentLives(maxLives);
+        }
+
+        public void Revive()
+        {
+            UpdateAllWeaponLevel();
             Game.HUD.UpdateWeaponIcons();
+
+            UpdateMaxLives();
 
             InactivateCollider(false);
 

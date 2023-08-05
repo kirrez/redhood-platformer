@@ -15,8 +15,8 @@ namespace Platformer
 
         //Suspension bridge quest
         SuspensionBridge,
-
         Drawbridge,
+        UpgradeHealth, // repeating quest, giving health upgrades infinitely
 
         KnifeLevel, // 0-none, 1-KitchenKnife, 2-FarmerKnife, 3-HunterKnife
         AxeLevel, // 0-none, 1-CrippledAxe(no WoodBreaker), 2-OldAxe(+WoodBreaker), 3-SharpenedAxe, 4-SturdyAxe

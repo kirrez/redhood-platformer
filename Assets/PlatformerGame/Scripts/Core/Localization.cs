@@ -47,6 +47,8 @@ namespace Platformer
             Texts[ETexts.TalkToMomAgain] = "TALK TO MOM AGAIN";
             Texts[ETexts.PullLever] = "PULL LEVER 'C'";
             Texts[ETexts.VillageCommoner] = "* Village Commoner *";
+            Texts[ETexts.UpgradeHealthTip] = "STRENGTHEN HEALTH";
+            Texts[ETexts.UpgradeHealthTitle] = "* Strengthen Health *";
 
             Texts[ETexts.English] = "English";
             Texts[ETexts.Russian] = "Русский";
@@ -86,6 +88,15 @@ namespace Platformer
             Texts[ETexts.DialoguePie2_5] = "- What? Oh, das ist nicht, der Pie ist ready. Go, take it.";
             Texts[ETexts.DialoguePie2_6] = "- Yay!";
 
+            Texts[ETexts.UpgradeHealth1_1] = "- Ich weise how you liebst sweet, but if you findest any Candies, eat them nicht! Das ist definitively a Witch's Bait fur Kinder.";
+            Texts[ETexts.UpgradeHealth1_2] = "Besser du bringst them to me und ich cooke something gut fur strengthening deinе Health.";
+            Texts[ETexts.UpgradeHealth1_3] = "- Haaa? (my poor candies!) What for on Earth I have to strenghten my health?! I'm healthy enough!";
+            Texts[ETexts.UpgradeHealth1_4] = "- Don't be capricious, meine Kinder.";
+            Texts[ETexts.UpgradeHealth1_5] = "- Ok, I get it... (T__T)";
+            Texts[ETexts.UpgradeHealth2_1] = "If you hast at least 10 Candies, I'll make it fur dich!";
+            Texts[ETexts.UpgradeHealth2_2] = "Sehr gut! Here you are!";
+            Texts[ETexts.UpgradeHealth2_3] = "Ohh, du hast nicht genug! Bringst mich more )";
+
             Texts[ETexts.Commoner1_1] = "Market elevator is not working now, come back later.";
         }
 
@@ -99,11 +110,13 @@ namespace Platformer
             Texts[ETexts.TalkToMomAgain] = "СНОВА ПОГОВОРИТЬ С МАМОЙ";
             Texts[ETexts.PullLever] = "ДЕРНУТЬ РЫЧАГ 'C'";
             Texts[ETexts.VillageCommoner] = "* Деревенский житель *";
+            Texts[ETexts.UpgradeHealthTip] = "УКРЕПИТЬ ЗДОРОВЬЕ";
+            Texts[ETexts.UpgradeHealthTitle] = "* Укрепить здоровье *";
 
             Texts[ETexts.English] = "English";
             Texts[ETexts.Russian] = "Русский";
 
-            Texts[ETexts.TryAgain] = "Еще разок";
+            Texts[ETexts.TryAgain] = "Ещё разок";
             Texts[ETexts.ToMenu] = "В меню";
 
             Texts[ETexts.PieDialogue1] = "* Пирог для Бабули *";
@@ -116,8 +129,8 @@ namespace Platformer
 
             Texts[ETexts.FamilyMonologue] = "* Моя прекрасная семья *";
             Texts[ETexts.Family_1] = "О моей маме..";
-            Texts[ETexts.Family_2] = "Она - иностранка, пришла в эти края из далекой Штирии и до сих пор не может привыкнуть. Даже говорит до сих пор с акцентом. ";
-            Texts[ETexts.Family_3] = "Хоть она и ведет себя странно иногда, и даже не может отличить своего мужа от медведя в лесу (люблю тебя, папуля!), она замечательная женщина! ";
+            Texts[ETexts.Family_2] = "Она - иностранка, пришла в эти края из далёкой Штирии и всё ещё не может привыкнуть. Даже говорит до сих пор с акцентом. ";
+            Texts[ETexts.Family_3] = "Хоть она и ведёт себя странно иногда, и порой не может отличить своего мужа от медведя в лесу (люблю тебя, папуля!), она замечательная женщина! ";
             Texts[ETexts.Family_4] = "Сегодня мне нужно собрать кое-что для пирога, который мама будет печь для бабушки. Надеюсь встретить там и папочку тоже ))";
 
             Texts[ETexts.FatherDialogue] = "* Неожиданная встреча *";
@@ -130,12 +143,12 @@ namespace Platformer
             Texts[ETexts.Father_7] = "Ты починил мост? Как здорово! Тогда я побегу домой, до встречи!";
 
             Texts[ETexts.PieDialogue2] = "* Собранные ингредиенты *";
-            Texts[ETexts.DialoguePie2_1] = "- I've brought you everything you asked for, let's cook (- o -)/";
-            Texts[ETexts.DialoguePie2_2] = "- Ah, danke, meine Dear! Hast du some Rest wilst I bake a Pie..";
-            Texts[ETexts.DialoguePie2_3] = "(You'll sure be liking it, old Berta, just wait a little bit more)";
-            Texts[ETexts.DialoguePie2_4] = "- Did you say something, mother?";
-            Texts[ETexts.DialoguePie2_5] = "- What? Oh, das ist nicht, der Pie ist ready. Go, take it.";
-            Texts[ETexts.DialoguePie2_6] = "- Yay!";
+            Texts[ETexts.DialoguePie2_1] = "- Я принесла всё, что ты просила. Давай скорее готовить! (- о -)/";
+            Texts[ETexts.DialoguePie2_2] = "- Ох, спасьибо, радост мойа! Отдохнуть ньемного, пока я готовит пирог.";
+            Texts[ETexts.DialoguePie2_3] = "(Тебье точшно понравится, старущка Берта, просто подожди ещо ньемного)";
+            Texts[ETexts.DialoguePie2_4] = "- Мам, ты что-то сказала?";
+            Texts[ETexts.DialoguePie2_5] = "- Ой, это ничьего, просто бормочу. Пирог уше готов, можеш его сабрать.";
+            Texts[ETexts.DialoguePie2_6] = "- Ураа!";
         }
     }
 }

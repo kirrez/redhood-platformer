@@ -7,6 +7,7 @@ namespace Platformer
             KeyRed,
             KeyGrey,
             KeyGreen,
-            MotherPie
+            MotherPie,
+            HealthUpgrade
         }
 }

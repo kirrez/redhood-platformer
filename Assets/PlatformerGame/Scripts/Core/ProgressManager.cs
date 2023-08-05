@@ -59,7 +59,7 @@ namespace Platformer
 
             SetQuest(EQuest.MaxLives, 4);
             //Alternative costs
-            //SetQuest(EQuest.LifeUpgradeCost, 1);
+            SetQuest(EQuest.LifeUpgradeCost, 2);
 
             //Finished Mother's Pie quest will be with mushrooms 3 and berries 4
             SetQuest(EQuest.MushroomsCollected, 3);

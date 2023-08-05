@@ -2481,7 +2481,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LifeReplenish
+      name: HealthReplenish
       rect:
         serializedVersion: 2
         x: 448
@@ -2502,7 +2502,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MaxLifeUp
+      name: HealthUpgrade
       rect:
         serializedVersion: 2
         x: 432
@@ -2618,7 +2618,6 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       Food: -656141367
-      LifeReplenish: -986860588
       ManBrown_1: 964522010
       WoodShatter: -2086196866
       DarkCloudsL4: 2110242026
@@ -2638,6 +2637,7 @@ TextureImporter:
       LightCloud_4: -268048731
       KnifeIcon_2: -250723437
       FountainBasin: 1340344472
+      HealthReplenish: -986860588
       BreakableWood_1: -731882785
       DarkCloudsL2_2: 567104749
       DarkCloudsL2_8: 74150674
@@ -2657,10 +2657,11 @@ TextureImporter:
       WomanBlue_1: 759018448
       DoorGreen_0: -425144864
       Fall_1: 2073561585
-      BridgeCenter: 1616014153
       DarkCloudsL1_10: 233604434
-      Soldier_0: 390478329
       Priest_0: 703090300
+      BridgeCenter: 1616014153
+      Soldier_0: 390478329
+      HealthUpgrade: 136882220
       Stream_1: 855704516
       DarkCloudsL2_7: -729258153
       Anvil: 1114881007
@@ -2747,7 +2748,6 @@ TextureImporter:
       Key_Grey: -6393119
       ManBrown_0: 2005081732
       Platform_4: 933978366
-      MaxLifeUp: 136882220
       Key_Green: 2089127135
       DarkCloudsL1_6: -1426506302
       Platform_1: -1624028744

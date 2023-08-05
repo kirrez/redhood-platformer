@@ -11,6 +11,8 @@ namespace Platformer
         TalkToMomAgain,
         PullLever,
         VillageCommoner,
+        UpgradeHealthTip,
+        UpgradeHealthTitle,
 
         //Menu items
         English,
@@ -51,6 +53,15 @@ namespace Platformer
         DialoguePie2_4,
         DialoguePie2_5,
         DialoguePie2_6,
+
+        UpgradeHealth1_1,
+        UpgradeHealth1_2,
+        UpgradeHealth1_3,
+        UpgradeHealth1_4,
+        UpgradeHealth1_5,
+        UpgradeHealth2_1,
+        UpgradeHealth2_2,
+        UpgradeHealth2_3,
 
         Commoner1_1
     }
