@@ -30,13 +30,13 @@ namespace Platformer
 
         private void OnEnable()
         {
-            if (ProgressManager.GetQuest(Item) == 0)
+            if (ProgressManager.GetQuest(Item) == 1)
             {
                 Dummy.SetActive(false);
                 Platform.SetActive(true);
             }
 
-            if (ProgressManager.GetQuest(Item) != 0)
+            if (ProgressManager.GetQuest(Item) == 0)
             {
                 Dummy.SetActive(true);
                 Platform.SetActive(false);

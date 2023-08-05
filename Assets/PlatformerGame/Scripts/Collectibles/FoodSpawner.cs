@@ -29,7 +29,7 @@ namespace Platformer
             if (ProgressManager.GetQuest(Item) == 0 && !IsSpawned)
             {
                 var instance = ResourceManager.CreatePrefab<Food, EQuest>(Item);
-                instance.transform.position = transform.position;
+                instance.transform.SetParent(gameObject.transform, false);
                 IsSpawned = true;
             }
         }

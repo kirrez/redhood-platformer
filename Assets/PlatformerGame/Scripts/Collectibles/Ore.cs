@@ -31,6 +31,9 @@ namespace Platformer
                     ProgressManager.SetQuest(Item, 1);
                     //increment food collected
                     ProgressManager.AddValue(EQuest.OreCollected, 1);
+
+                    var Game = CompositionRoot.GetGame();
+                    Game.HUD.UpdateResourceAmount();
                 }
                 gameObject.SetActive(false);
             }

@@ -37,6 +37,11 @@ namespace Platformer
             View.UpdateWeaponIcons();
         }
 
+        public void UpdateResourceAmount()
+        {
+            View.UpdateResourceAmount();
+        }
+
         public void Show()
         {
             View.Show();

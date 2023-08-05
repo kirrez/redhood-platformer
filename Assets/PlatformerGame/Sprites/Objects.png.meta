@@ -1644,8 +1644,8 @@ TextureImporter:
       name: WeaponEmpty
       rect:
         serializedVersion: 2
-        x: 456
-        y: 456
+        x: 488
+        y: 440
         width: 16
         height: 16
       alignment: 0
@@ -1960,7 +1960,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 168
-        y: 272
+        y: 264
         width: 16
         height: 32
       alignment: 7
@@ -1981,7 +1981,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 184
-        y: 272
+        y: 264
         width: 16
         height: 32
       alignment: 7
@@ -2002,7 +2002,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 152
-        y: 272
+        y: 264
         width: 16
         height: 32
       alignment: 7
@@ -2023,7 +2023,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 136
-        y: 272
+        y: 264
         width: 16
         height: 32
       alignment: 7
@@ -2086,7 +2086,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 216
-        y: 272
+        y: 264
         width: 16
         height: 32
       alignment: 7
@@ -2107,7 +2107,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 232
-        y: 272
+        y: 264
         width: 16
         height: 32
       alignment: 7
@@ -2128,7 +2128,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 248
-        y: 272
+        y: 264
         width: 16
         height: 32
       alignment: 7
@@ -2149,7 +2149,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 264
-        y: 272
+        y: 264
         width: 16
         height: 32
       alignment: 7
@@ -2170,7 +2170,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 136
-        y: 240
+        y: 224
         width: 16
         height: 32
       alignment: 7
@@ -2191,7 +2191,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 152
-        y: 240
+        y: 224
         width: 16
         height: 32
       alignment: 7
@@ -2212,7 +2212,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 168
-        y: 240
+        y: 224
         width: 16
         height: 32
       alignment: 7
@@ -2233,7 +2233,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 184
-        y: 240
+        y: 224
         width: 16
         height: 32
       alignment: 7
@@ -2254,7 +2254,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 216
-        y: 240
+        y: 224
         width: 16
         height: 32
       alignment: 7
@@ -2275,7 +2275,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 232
-        y: 240
+        y: 224
         width: 16
         height: 32
       alignment: 7
@@ -2292,7 +2292,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blacksmith
+      name: Blacksmith_1
       rect:
         serializedVersion: 2
         x: 280
@@ -2459,6 +2459,153 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Food
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 432
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2403f1103e80944ab14ae4b9d84abb2
+      internalID: -656141367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LifeReplenish
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 432
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6a517687195edf4585a0b746b7ff4c0
+      internalID: -986860588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MaxLifeUp
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 448
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 832af3cd53ef0a64cac1f21ed4657a24
+      internalID: 136882220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ore
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 448
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f82da0e060775174fbaa3b983f8f3c89
+      internalID: 1752684501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Objects_0
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 440
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9560893811ab635428993062d87a0c19
+      internalID: 1160243267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blacksmith_2
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 264
+        width: 24
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3705694497e9ad644a4714338e932fbd
+      internalID: -773330014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Backpack
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 352
+        width: 88
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 832a28fdf4fb17640971fc225d598af3
+      internalID: -392845782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -2470,6 +2617,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      Food: -656141367
+      LifeReplenish: -986860588
       ManBrown_1: 964522010
       WoodShatter: -2086196866
       DarkCloudsL4: 2110242026
@@ -2494,6 +2643,7 @@ TextureImporter:
       DarkCloudsL2_8: 74150674
       BreakableWood_3: -22461363
       Fireplace_2: 1631699850
+      Blacksmith_2: -1075378831
       RopeCenter: -1307795433
       ButtonOff: 1654182457
       RopeSlopeRight: -151934057
@@ -2520,6 +2670,7 @@ TextureImporter:
       Cloacked_1: 1650267948
       DarkCloudsL3_3: 2090795456
       ManBlond_1: 113528172
+      Objects_0: 1160243267
       RopeSlopeLeft: 1691112775
       Spikes_grey: -1018720058
       DarkCloudsL2_4: 109478668
@@ -2537,7 +2688,6 @@ TextureImporter:
       DoorGrey_1: -16567571
       Mother_2: 996843073
       DarkCloudsL2_1: 1230439699
-      Blacksmith: 2072301162
       DoorRed_0: 1550466903
       Father_1: 1381507882
       WeaponEmpty: 1594718321
@@ -2577,6 +2727,7 @@ TextureImporter:
       BreakableWood_6: 1379923547
       LightCloud_5: -203564046
       ManBlond_0: 667314759
+      Blacksmith_1: 2072301162
       SwitchOff: 1425627654
       WeaponFrame: 1830880056
       Priest_1: -654608740
@@ -2585,14 +2736,18 @@ TextureImporter:
       MaxHealthUp: 2022743721
       OldMan_0: -832100550
       DarkCloudsL1_5: -1699626249
+      Ore: 1752684501
       Stream_2: -309486281
       Mushroom: 1425082455
       Soldier_1: -1451179720
+      Backpack: -392845782
+      Blacksmith_3: 1102150372
       Heart_full: -1332053382
       WomanGreen_0: -1914863978
       Key_Grey: -6393119
       ManBrown_0: 2005081732
       Platform_4: 933978366
+      MaxLifeUp: 136882220
       Key_Green: 2089127135
       DarkCloudsL1_6: -1426506302
       Platform_1: -1624028744

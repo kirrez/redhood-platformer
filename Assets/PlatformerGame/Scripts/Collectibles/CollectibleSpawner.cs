@@ -29,7 +29,7 @@ namespace Platformer
             if (ProgressManager.GetQuest(Item) == ConditionValue)
             {
                 var instance = GameObject.Instantiate(ItemPrefab, transform.parent, false);
-                instance.transform.position = transform.position;
+                instance.transform.SetParent(gameObject.transform, false);
                 IsSpawned = true;
             }
         }

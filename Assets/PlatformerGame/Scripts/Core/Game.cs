@@ -53,6 +53,7 @@ namespace Platformer
             HUDModel = new HUDModel();
             HUDModel.Show();//in StartGame
             HUDModel.SetMaxLives(ProgressManager.GetQuest(EQuest.MaxLives));
+            HUDModel.UpdateResourceAmount();
 
             Player = CompositionRoot.GetPlayer();
             Player.Initiate(this);

@@ -31,6 +31,12 @@ namespace Platformer
         [SerializeField]
         private List<Sprite> HolyWaterSprites;
 
+        [SerializeField]
+        private Text FoodAmount;
+
+        [SerializeField]
+        private Text OreAmount;
+
         private IProgressManager ProgressManager;
 
         private void Awake()
@@ -47,6 +53,15 @@ namespace Platformer
             KnifeImage.sprite = KnifeSprites[knife];
             AxeImage.sprite = AxeSprites[axe];
             HolyWaterImage.sprite = HolyWaterSprites[holyWater];
+        }
+
+        public void UpdateResourceAmount()
+        {
+            var ore = ProgressManager.GetQuest(EQuest.OreCollected);
+            var food = ProgressManager.GetQuest(EQuest.FoodCollected);
+
+            OreAmount.text = ore.ToString("00");
+            FoodAmount.text = food.ToString("00");
         }
 
         public void SetMaxLives(int amount)
