@@ -2606,6 +2606,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: BelnadesStatue
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 264
+        width: 24
+        height: 40
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7aef7089193ca1b4e9bb302585db7e97
+      internalID: 478016404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -2733,6 +2754,7 @@ TextureImporter:
       WeaponFrame: 1830880056
       Priest_1: -654608740
       DarkCloudsL2_6: -153351782
+      BelnadesStatue: 478016404
       DoorGreen_2: 1295310118
       MaxHealthUp: 2022743721
       OldMan_0: -832100550

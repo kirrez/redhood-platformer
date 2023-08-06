@@ -56,7 +56,6 @@ namespace Platformer
             Texts[ETexts.TryAgain] = "Try Again";
             Texts[ETexts.ToMenu] = "Menu";
 
-
             Texts[ETexts.PieDialogue1] = "* A Pie for a Grandma *";
             Texts[ETexts.DialoguePie1_1] = "- Hello, mom!";
             Texts[ETexts.DialoguePie1_2] = "- Guten Tag, meine Dear.";
@@ -149,6 +148,17 @@ namespace Platformer
             Texts[ETexts.DialoguePie2_4] = "- Мам, ты что-то сказала?";
             Texts[ETexts.DialoguePie2_5] = "- Ой, это ничьего, просто бормочу. Пирог уше готов, можеш его сабрать.";
             Texts[ETexts.DialoguePie2_6] = "- Ураа!";
+
+            Texts[ETexts.UpgradeHealth1_1] = "- Ich weise how you liebst sweet, but if you findest any Candies, eat them nicht! Das ist definitively a Witch's Bait fur Kinder.";
+            Texts[ETexts.UpgradeHealth1_2] = "Besser du bringst them to me und ich cooke something gut fur strengthening deinе Health.";
+            Texts[ETexts.UpgradeHealth1_3] = "- Haaa? (my poor candies!) What for on Earth I have to strenghten my health?! I'm healthy enough!";
+            Texts[ETexts.UpgradeHealth1_4] = "- Don't be capricious, meine Kinder.";
+            Texts[ETexts.UpgradeHealth1_5] = "- Ok, I get it... (T__T)";
+            Texts[ETexts.UpgradeHealth2_1] = "If you hast at least 10 Candies, I'll make it fur dich!";
+            Texts[ETexts.UpgradeHealth2_2] = "Sehr gut! Here you are!";
+            Texts[ETexts.UpgradeHealth2_3] = "Ohh, du hast nicht genug! Bringst mich more )";
+
+            Texts[ETexts.Commoner1_1] = "Market elevator is not working now, come back later.";
         }
     }
 }
