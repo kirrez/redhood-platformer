@@ -96,7 +96,21 @@ namespace Platformer
             Texts[ETexts.UpgradeHealth2_2] = "Sehr gut! Here you are!";
             Texts[ETexts.UpgradeHealth2_3] = "Ohh, du hast nicht genug! Bringst mich more )";
 
+            Texts[ETexts.BlacksmithTitle1] = "* Blacksmith's Errand *";
+            Texts[ETexts.Blacksmith1_1] = "- Meister Schmied! Please, craft a new shiny grey key for me!";
+            Texts[ETexts.Blacksmith1_2] = "- Don't you rush, young lady. I'm pretty busy right now, have to polish my anvil...";
+            Texts[ETexts.Blacksmith1_3] = "- Please, please, pleasepleasepleasee!";
+            Texts[ETexts.Blacksmith1_4] = "- Okay, okay, why so loud? Well, I can make the key, but I need you to bring me, let's say, 3 pieces of iron ore. That should be enough for a deal.";
+            Texts[ETexts.Blacksmith1_5] = "- Fine, I'll bring it to you then!";
+
+            Texts[ETexts.Blacksmith2_1] = "- So you brought me what I want?";
+            Texts[ETexts.Blacksmith2_2] = "- Sure, take it! (stupid rocks!)";
+            Texts[ETexts.Blacksmith2_3] = "- Ok, here is your key, i just finished it.";
+            Texts[ETexts.Blacksmith2_4] = "- Emm.. still working on it!";
+
             Texts[ETexts.Commoner1_1] = "Market elevator is not working now, come back later.";
+            Texts[ETexts.GatekeeperTitle] = "* Gatekeeper *";
+            Texts[ETexts.Gatekeeper1_1] = "If you want to pass freely through this gate, go ask the smith to make you a new grey key, since I've lost a spare one.";
         }
 
         private void LoadRussian()
@@ -137,7 +151,7 @@ namespace Platformer
             Texts[ETexts.Father_2] = "Уваа !!";
             Texts[ETexts.Father_3] = "Привееет, пап!";
             Texts[ETexts.Father_4] = "ГРРРррр.";
-            Texts[ETexts.Father_5] = "Я в порядке, мама тоже. Она по тебе соскучалась, возвращайся скорее доиой!";
+            Texts[ETexts.Father_5] = "Я в порядке, мама тоже. Она по тебе соскучилась, возвращайся скорее!";
             Texts[ETexts.Father_6] = "Грввах, уваах.";
             Texts[ETexts.Father_7] = "Ты починил мост? Как здорово! Тогда я побегу домой, до встречи!";
 
@@ -158,7 +172,21 @@ namespace Platformer
             Texts[ETexts.UpgradeHealth2_2] = "Sehr gut! Here you are!";
             Texts[ETexts.UpgradeHealth2_3] = "Ohh, du hast nicht genug! Bringst mich more )";
 
-            Texts[ETexts.Commoner1_1] = "Market elevator is not working now, come back later.";
+            Texts[ETexts.BlacksmithTitle1] = "* Blacksmith's Errand *";
+            Texts[ETexts.Blacksmith1_1] = "- Meister Schmied! Please, craft a new shiny grey key for me!";
+            Texts[ETexts.Blacksmith1_2] = "- Don't you rush, young lady. I'm pretty busy right now, have to polish my anvil...";
+            Texts[ETexts.Blacksmith1_3] = "- Please, please, pleasepleasepleasee!";
+            Texts[ETexts.Blacksmith1_4] = "- Okay, okay, why so loud? Well, I can make the key, but I need you to bring me, let's say, 3 pieces of iron ore. That should be enough for a deal.";
+            Texts[ETexts.Blacksmith1_5] = "- Fine, I'll bring it to you then!";
+
+            Texts[ETexts.Blacksmith2_1] = "- So you brought me what I want?";
+            Texts[ETexts.Blacksmith2_2] = "- Sure, take it! (stupid rocks!)";
+            Texts[ETexts.Blacksmith2_3] = "- Ok, here is your key, i just finished it.";
+            Texts[ETexts.Blacksmith2_4] = "- Emm.. still working on it!";
+
+            Texts[ETexts.Commoner1_1] = "Лифт на рынке сейчас не работает, приходи позже.";
+            Texts[ETexts.GatekeeperTitle] = "* Привратник *";
+            Texts[ETexts.Gatekeeper1_1] = "Если хочешь свободно пройти через эти ворота, иди попроси кузнеца сделать тебе новый серый ключ, а то я потерял запасной.";
         }
     }
 }

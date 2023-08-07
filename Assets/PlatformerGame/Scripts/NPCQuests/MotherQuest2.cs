@@ -8,7 +8,7 @@ namespace Platformer
     public class MotherQuest2 : MonoBehaviour
     {
         [SerializeField]
-        Transform PiePosition;
+        CollectibleSpawner Spawner;
 
         [SerializeField]
         Text HelpText;
@@ -102,10 +102,10 @@ namespace Platformer
                     ProgressManager.SetQuest(EQuest.MotherPie, 4);
                     HelpText.gameObject.SetActive(false);
                     Player.Interaction -= OnInteraction;
-
-                    var instance = ResourceManager.CreatePrefab<MotherPie, ECollectibles>(ECollectibles.MotherPie);
-                    instance.transform.SetParent(transform, false);
-                    instance.transform.position = PiePosition.position;
+                    Spawner.SpawnItem();
+                    //var instance = ResourceManager.CreatePrefab<MotherPie, ECollectibles>(ECollectibles.MotherPie);
+                    //instance.transform.SetParent(transform, false);
+                    //instance.transform.position = PiePosition.position;
                     break;
             }
         }

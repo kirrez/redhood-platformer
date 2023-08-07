@@ -2,17 +2,23 @@ using UnityEngine;
 
 namespace Platformer
 {
-    public class CollectibleSpawner : MonoBehaviour
+    public class CollectibleSpawner2Conditions : MonoBehaviour
     {
         private IProgressManager ProgressManager;
         private bool IsSpawned;
 
         //It's not very safe, but a mistake would be quiet obvious
         [SerializeField]
-        private EQuest Item;
+        private EQuest Quest1;
 
         [SerializeField]
-        private int ConditionValue = 0;
+        private int ConditionValue1 = 0;
+
+        [SerializeField]
+        private EQuest Quest2;
+
+        [SerializeField]
+        private int ConditionValue2 = 0;
 
         [SerializeField]
         private GameObject ItemPrefab;
@@ -26,7 +32,7 @@ namespace Platformer
         {
             if (IsSpawned) return;
 
-            if (ProgressManager.GetQuest(Item) == ConditionValue)
+            if (ProgressManager.GetQuest(Quest1) == ConditionValue1 && ProgressManager.GetQuest(Quest2) == ConditionValue2)
             {
                 SpawnItem();
             }

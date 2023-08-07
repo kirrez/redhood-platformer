@@ -63,6 +63,19 @@ namespace Platformer
         UpgradeHealth2_2,
         UpgradeHealth2_3,
 
-        Commoner1_1
+        BlacksmithTitle1,
+        Blacksmith1_1,
+        Blacksmith1_2,
+        Blacksmith1_3,
+        Blacksmith1_4,
+        Blacksmith1_5,
+        Blacksmith2_1,
+        Blacksmith2_2,
+        Blacksmith2_3,
+        Blacksmith2_4,
+
+        Commoner1_1,
+        GatekeeperTitle,
+        Gatekeeper1_1
     }
 }

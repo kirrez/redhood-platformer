@@ -1,19 +1,15 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 
-// Changes Mother's pie value from 0 to 1, spawns Red key in cellar
-
 namespace Platformer
 {
-    public class MotherQuest1 : MonoBehaviour
+    public class GatekeeperTip : MonoBehaviour
     {
-        [SerializeField]
-        Transform KeyPosition;
-
         [SerializeField]
         Text HelpText;
 
-        private IResourceManager ResourceManager;
         private IProgressManager ProgressManager;
         private ILocalization Localization;
         private IPlayer Player;
@@ -24,19 +20,18 @@ namespace Platformer
 
         private void Awake()
         {
-            ResourceManager = CompositionRoot.GetResourceManager();
             ProgressManager = CompositionRoot.GetProgressManager();
             Localization = CompositionRoot.GetLocalization();
             Player = CompositionRoot.GetPlayer();
             
-            HelpText.text = Localization.Text(ETexts.TalkToMom);
+            HelpText.text = Localization.Text(ETexts.Talk);
 
             AreaTrigger = GetComponent<Collider2D>();
         }
 
         private void Update()
         {
-            if (ProgressManager.GetQuest(EQuest.MotherPie) != 0) return;
+            if (ProgressManager.GetQuest(EQuest.KeyGrey) == 1) return;
 
             if (AreaTrigger.bounds.Contains(Player.Position) && !Inside)
             {
@@ -62,43 +57,18 @@ namespace Platformer
                 case 0:
                     Player.HoldByInteraction();
                     Game.Dialogue.Show();
-                    Game.Dialogue.SetDialogueName(Localization.Text(ETexts.PieDialogue1));
-                    Game.Dialogue.ChangeContent(Localization.Text(ETexts.DialoguePie1_1));
+                    Game.Dialogue.SetDialogueName(Localization.Text(ETexts.GatekeeperTitle));
+                    Game.Dialogue.ChangeContent(Localization.Text(ETexts.Gatekeeper1_1));
                     DialoguePhase++;
                     break;
                 case 1:
-                    Game.Dialogue.AddContent(Localization.Text(ETexts.DialoguePie1_2));
-                    DialoguePhase++;
-                    break;
-                case 2:
-                    Game.Dialogue.AddContent(Localization.Text(ETexts.DialoguePie1_3));
-                    DialoguePhase++;
-                    break;
-                case 3:
-                    Game.Dialogue.AddContent(Localization.Text(ETexts.DialoguePie1_4));
-                    DialoguePhase++;
-                    break;
-                case 4:
-                    Game.Dialogue.ChangeContent(Localization.Text(ETexts.DialoguePie1_5));
-                    DialoguePhase++;
-                    break;
-                case 5:
-                    Game.Dialogue.AddContent(Localization.Text(ETexts.DialoguePie1_6));
-                    DialoguePhase++;
-                    break;
-                case 6:
                     Player.ReleasedByInteraction();
                     Game.Dialogue.Hide();
-                    ProgressManager.SetQuest(EQuest.MotherPie, 1);
+                    DialoguePhase = 0;
                     HelpText.gameObject.SetActive(false);
                     Player.Interaction -= OnInteraction;
-
-                    var instance = ResourceManager.CreatePrefab<Key, ECollectibles>(ECollectibles.KeyRed);
-                    instance.transform.SetParent(transform, false);
-                    instance.transform.position = KeyPosition.position;
                     break;
             }
-
         }
     }
 }

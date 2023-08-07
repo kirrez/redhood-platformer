@@ -39,7 +39,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3427448471291961282}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -129,6 +129,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebf2e3da774a22d40aeedd2c165dbe29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Item: 0
-  ConditionValue: 0
-  ItemPrefab: {fileID: 0}
+  Item: 3
+  ConditionValue: 4
+  ItemPrefab: {fileID: 7282381125096218631, guid: 11ed61bd0f1713942bd92411db8119a9, type: 3}

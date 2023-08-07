@@ -17,6 +17,7 @@ namespace Platformer
         SuspensionBridge,
         Drawbridge,
         UpgradeHealth, // repeating quest, giving health upgrades infinitely
+        Blacksmith, // giving GREY key for 3 ore
 
         KnifeLevel, // 0-none, 1-KitchenKnife, 2-FarmerKnife, 3-HunterKnife
         AxeLevel, // 0-none, 1-CrippledAxe(no WoodBreaker), 2-OldAxe(+WoodBreaker), 3-SharpenedAxe, 4-SturdyAxe
@@ -38,7 +39,7 @@ namespace Platformer
 
         //Collectibles, set of each type must go one after another ))
         KeyRed,
-        KeyGray,
+        KeyGrey,
         KeyGreen,
 
         //Items for PlatformActivation
