@@ -5,6 +5,7 @@ namespace Platformer
     {
         TestStage,
         TheVillage,
-        WestForest
+        WestForest,
+        Mountains
     }
 }

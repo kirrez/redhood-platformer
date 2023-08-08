@@ -41,15 +41,15 @@ namespace Platformer
         {
             LoadNewGame();
 
-            //Visited WF
-            SetQuest(EQuest.MotherPie, 3);
+            //Visited WF, took the pie
+            SetQuest(EQuest.MotherPie, 5);
             //Got red key
             SetQuest(EQuest.KeyRed, 1);
             //Repaired bridge (BearQuest, Suspension bridge)
             SetQuest(EQuest.SuspensionBridge, 3);
 
             //new Player's location
-            SetQuest(EQuest.Stage, (int)EStages.TheVillage);
+            SetQuest(EQuest.Stage, (int)EStages.Mountains);
             SetQuest(EQuest.Location, 0);
             SetQuest(EQuest.SpawnPoint, 0);
 
@@ -59,7 +59,7 @@ namespace Platformer
 
             SetQuest(EQuest.MaxLives, 4);
             //Alternative costs
-            SetQuest(EQuest.LifeUpgradeCost, 2);
+            //SetQuest(EQuest.LifeUpgradeCost, 2);
 
             //Finished Mother's Pie quest will be with mushrooms 3 and berries 4
             SetQuest(EQuest.MushroomsCollected, 3);

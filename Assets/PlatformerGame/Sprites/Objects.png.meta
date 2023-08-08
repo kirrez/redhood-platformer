@@ -2627,6 +2627,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: SpikesRed
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 440
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e35fa10740a61943a57bce11bc88f06
+      internalID: 1164528437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -2763,6 +2784,7 @@ TextureImporter:
       Stream_2: -309486281
       Mushroom: 1425082455
       Soldier_1: -1451179720
+      SpikesRed: 1164528437
       Backpack: -392845782
       Blacksmith_3: 1102150372
       Heart_full: -1332053382
