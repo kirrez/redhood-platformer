@@ -5,7 +5,7 @@ namespace Platformer
     public class FoodSpawner : MonoBehaviour
     {
         [SerializeField]
-        [Range(0, 5)]
+        [Range(0, 19)]
         private int ItemIndex;
 
         private int TargetValue;

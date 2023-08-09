@@ -63,13 +63,33 @@ namespace Platformer
         Food03,
         Food04,
         Food05,
+        Food06,
+        Food07,
+        Food08,
+        Food09,
+        Food10,
+        Food11,
+        Food12,
+        Food13,
+        Food14,
+        Food15,
+        Food16,
+        Food17,
+        Food18,
+        Food19,
 
         Ore00,
         Ore01,
         Ore02,
         Ore03,
         Ore04,
-        Ore05
+        Ore05,
+        Ore06,
+        Ore07,
+        Ore08,
+        Ore09,
+        Ore10,
+        Ore11
     }
 }
 
