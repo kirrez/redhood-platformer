@@ -7,101 +7,157 @@ namespace Platformer
     public class NPCWanderer : MonoBehaviour
     {
         [SerializeField]
-        private GameObject Body;
+        private Rigidbody2D Rigidbody;
 
         [SerializeField]
         private SpriteRenderer Renderer;
 
         [SerializeField]
-        private List<Sprite> IdleSprites;
+        private List<Sprite> Sprites;
 
         [SerializeField]
-        private float IdleAnimationDelay = 0.5f;
+        private float AnimationDelay = 0.5f;
 
         [SerializeField]
-        private List<Sprite> WanderSprites;
+        private List<Transform> Waypoints;
 
         [SerializeField]
-        private float WanderAnimationDelay = 0.5f;
+        private float Speed = 70f;
 
-        [SerializeField]
-        private List<Transform> WayPoints;
-
-        [SerializeField]
-        private float Speed = 100f;
-
-        [SerializeField]
-        private bool AlterDirection;
-
+        private int WaypointsIndex;
         private int SpriteIndex;
-        //private IPlayer Player;
-        private float Direction = 1f;
+        //private float Direction = 1f;
+        private float AnimationTimer;
         private float Timer;
+        private Vector2 Velocity;
+        private bool DirectionChanged;
+        private bool IdleDecision;
 
         delegate void StateMethod();
         StateMethod CurrentState = () => { };
 
+        private void Awake()
+        {
+            
+        }
+
         private void OnEnable()
         {
             Timer = 0f;
+            WaypointsIndex = 0;
             SpriteIndex = 0;
-            Renderer.sprite = IdleSprites[0];
-            if (AlterDirection)
-            {
-                Direction *= -1f;
-            }
-            SetDirection();
-            CurrentState = WanderState;
+            Renderer.sprite = Sprites[0];
+            CurrentState = Decide;
         }
 
         private void FixedUpdate()
         {
             CurrentState();
+            PlayAnimation();
         }
 
-        private void SetDirection()
+        private void PlayAnimation()
         {
-            if (Direction == 1)
+            AnimationTimer += Time.fixedDeltaTime;
+
+            if (AnimationTimer >= AnimationDelay)
             {
-                Renderer.flipX = false;
-            }
+                AnimationTimer -= AnimationDelay;
 
-            if (Direction == -1)
-            {
-                Renderer.flipX = true;
-            }
-        }
-
-        private void PlayAnimation(List<Sprite> sprites, float delay)
-        {
-            Timer += Time.fixedDeltaTime;
-
-            if (Timer >= delay)
-            {
-                Timer -= delay;
-
-                if (SpriteIndex == sprites.Count - 1)
+                if (SpriteIndex == Sprites.Count - 1)
                 {
                     SpriteIndex = 0;
                 }
-                else if (SpriteIndex < sprites.Count - 1)
+                else if (SpriteIndex < Sprites.Count - 1)
                 {
                     SpriteIndex++;
                 }
 
-                Renderer.sprite = sprites[SpriteIndex];
+                Renderer.sprite = Sprites[SpriteIndex];
             }
         }
 
-        private void WanderState()
+        private void Decide()
         {
-            PlayAnimation(WanderSprites, WanderAnimationDelay);
+            var chance = UnityEngine.Random.Range(0f, 1f);
 
+            if (chance < 0.25f)
+            {
+                Rigidbody.velocity = Vector2.zero;
+                Timer = UnityEngine.Random.Range(1f, 4f);
+                IdleDecision = false;
+                CurrentState = Idle;
+            }
+
+            if (chance >= 0.25f)
+            {
+                Velocity = (Waypoints[WaypointsIndex].position - Rigidbody.gameObject.transform.position).normalized * Speed;
+                if (Velocity.x > 0)
+                {
+                    Renderer.flipX = false;
+                }
+                if (Velocity.x < 0)
+                {
+                    Renderer.flipX = true;
+                }
+
+                Timer = UnityEngine.Random.Range(3f, 7f);
+                DirectionChanged = false;
+                CurrentState = Walk;
+            }
         }
 
-        private void IdleState()
+        private void Walk()
         {
+            var distance = Vector2.Distance(Waypoints[WaypointsIndex].position, Rigidbody.gameObject.transform.position);
+            
+            if (distance > 0.15f)
+            {
+                Rigidbody.velocity = Velocity * Time.fixedDeltaTime;
+            }
 
+            if (distance <= 0.15f && !DirectionChanged)
+            {
+                Velocity = Vector2.zero;
+                WaypointsIndex++;
+                if (WaypointsIndex >= Waypoints.Count)
+                {
+                    WaypointsIndex = 0;
+                }
+                DirectionChanged = true;
+            }
+
+
+            Timer -= Time.fixedDeltaTime;
+
+            if (Timer <= 0)
+            {
+                CurrentState = Decide;
+            }
+        }
+
+        private void Idle()
+        {
+            if (!IdleDecision)
+            {
+                IdleDecision = true;
+                var chance = UnityEngine.Random.Range(0f, 1f);
+                if (chance <= 0.25f)
+                {
+                    WaypointsIndex++;
+                    if (WaypointsIndex >= Waypoints.Count)
+                    {
+                        WaypointsIndex = 0;
+                    }
+                }
+            }
+
+            Timer -= Time.fixedDeltaTime;
+
+            if (Timer <= 0)
+            {
+                CurrentState = Decide;
+            }
         }
     }
 }

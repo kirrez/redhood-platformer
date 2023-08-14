@@ -19,6 +19,9 @@ namespace Platformer
         private int CurrentHitPoints;
 
         [SerializeField]
+        private int Type; // 0-Player, 1-Enemy, etc
+
+        [SerializeField]
         private float DamageCooldown;
         private float DamageTimer;
         private bool IsDamageable;
@@ -47,8 +50,6 @@ namespace Platformer
             get { return CurrentHitPoints; }
         }
 
-        [SerializeField]
-        private int Type; // 0-Player, 1-Enemy, etc
 
         //for Player
         public void SetMaxLives(int lives)

@@ -54,6 +54,7 @@ namespace Platformer
         private float HorizontalSpeed = 100f;
         //private float FastHorizontalSpeed = 275f;
         private float JumpForce = 370f;
+        private float StairTimer;
 
         delegate void State();
         State CurrentState = () => { };
@@ -165,23 +166,47 @@ namespace Platformer
         {
             Rigidbody.velocity = new Vector2(DirectionX * Time.fixedDeltaTime * HorizontalSpeed, Rigidbody.velocity.y);
 
+            //delay between stair rises
+            StairTimer -= Time.fixedDeltaTime;
+
             if (CheckWall(LayerMasks.Ground))
             {
                 DirectionX *= -1;
                 CheckDirection();
             }
+
+            if (CheckStair(LayerMasks.Ground) && StairTimer <= 0)
+            {
+                Rigidbody.velocity = new Vector2(Rigidbody.velocity.x, Rigidbody.velocity.y + 6.5f);
+                StairTimer = 0.5f;
+            }
+
         }
 
+        // insurmauntable obstacle
         private bool CheckWall(LayerMask mask)
         {
-            var origin = new Vector2(Collider.bounds.center.x + Collider.bounds.extents.x * DirectionX, Collider.bounds.center.y);
-            var boxSize = new Vector2(0.1f, Collider.bounds.size.y - 0.2f);
+            var origin = new Vector2(Collider.bounds.center.x + Collider.bounds.extents.x * DirectionX, Collider.bounds.center.y - Collider.bounds.extents.y + 1.5f);//
+            var boxSize = new Vector2(0.2f, 0.8f);
 
             float distance = 0.1f; // Magic number, empirical
 
             RaycastHit2D WallHit = Physics2D.BoxCast(origin, boxSize, 0f, new Vector2(1f * DirectionX, 0f), distance, mask);
 
             return WallHit.collider != null;
+        }
+
+        // surmountable obstacle
+        private bool CheckStair(LayerMask mask)
+        {
+            var origin = new Vector2(Collider.bounds.center.x + Collider.bounds.extents.x * DirectionX, Collider.bounds.center.y - Collider.bounds.extents.y + 0.5f);
+            var boxSize = new Vector2(0.2f, 0.8f);
+
+            float distance = 0.1f; // Magic number, empirical
+
+            RaycastHit2D StairHit = Physics2D.BoxCast(origin, boxSize, 0f, new Vector2(1f * DirectionX, 0f), distance, mask);
+
+            return StairHit.collider != null;
         }
 
         private void CheckDirection()

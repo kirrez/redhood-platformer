@@ -47,12 +47,7 @@ namespace Platformer
         {
             float direction;
 
-            if (Timer > 0 && Timer <= RespawnCooldown && !isActive && !FrogSpawned)
-            {
-                Timer += Time.fixedDeltaTime;
-            }
-
-            if (Timer > 0 && isActive && !FrogSpawned)
+            if (Timer > 0 && !FrogSpawned)
             {
                 Timer -= Time.fixedDeltaTime;
             }
@@ -86,10 +81,7 @@ namespace Platformer
         public void OnFrogKilled()
         {
             FrogSpawned = false;
-            if (Timer <= 0)
-            {
-                Timer = RespawnCooldown;
-            }
+            Timer = RespawnCooldown;
         }
     }
 }

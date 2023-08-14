@@ -173,5 +173,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DamageDirection: 0
   MaxHitPoints: 1
-  DamageCooldown: 0.5
   Type: 1
+  DamageCooldown: 0.5

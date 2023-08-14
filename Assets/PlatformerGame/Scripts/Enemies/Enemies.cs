@@ -11,6 +11,8 @@ namespace Platformer
         Bear,
         EvilBear,
         BubbleBullet,
-        BearSlash
+        BearSlash,
+        Killerfish,
+        GreenFrog
     }
 }

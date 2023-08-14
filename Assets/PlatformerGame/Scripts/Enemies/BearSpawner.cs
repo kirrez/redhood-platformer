@@ -47,15 +47,20 @@ namespace Platformer
         private void FixedUpdate()
         {
             float direction = 1f;
-            float chance;
+            float chance;// initial direction
             Bear Bear;
 
-            if (Timer > 0 && Timer <= RespawnCooldown && !isActive && SpawnCount < MaxSpawnCount)
-            {
-                Timer += Time.fixedDeltaTime;
-            }
+            //if (Timer > 0 && Timer <= RespawnCooldown && !isActive && SpawnCount < MaxSpawnCount)
+            //{
+            //    Timer += Time.fixedDeltaTime;
+            //}
 
-            if (Timer > 0 && isActive && SpawnCount < MaxSpawnCount)
+            //if (Timer > 0 && isActive && SpawnCount < MaxSpawnCount)
+            //{
+            //    Timer -= Time.fixedDeltaTime;
+            //}
+
+            if (Timer >0 && SpawnCount < MaxSpawnCount)
             {
                 Timer -= Time.fixedDeltaTime;
             }
@@ -90,10 +95,12 @@ namespace Platformer
         public void OnBearKilled()
         {
             SpawnCount--;
-            if (Timer <= 0)
-            {
-                Timer = RespawnCooldown;
-            }
+            Timer = RespawnCooldown;
+
+            //if (Timer <= 0)
+            //{
+            //    Timer = RespawnCooldown;
+            //}
         }
     }
 }
