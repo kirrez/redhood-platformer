@@ -49,6 +49,8 @@ namespace Platformer
             Texts[ETexts.VillageCommoner] = "* Village Commoner *";
             Texts[ETexts.UpgradeHealthTip] = "STRENGTHEN HEALTH";
             Texts[ETexts.UpgradeHealthTitle] = "* Strengthen Health *";
+            Texts[ETexts.KindleFire] = "KINDLE A CAMPFIRE";
+            Texts[ETexts.RemoveObstacle] = "REMOVE OBSTACLE";
 
             Texts[ETexts.English] = "English";
             Texts[ETexts.Russian] = "Русский";
@@ -125,6 +127,8 @@ namespace Platformer
             Texts[ETexts.VillageCommoner] = "* Деревенский житель *";
             Texts[ETexts.UpgradeHealthTip] = "УКРЕПИТЬ ЗДОРОВЬЕ";
             Texts[ETexts.UpgradeHealthTitle] = "* Укрепить здоровье *";
+            Texts[ETexts.KindleFire] = "РАЗЖЕЧЬ КОСТЁР";
+            Texts[ETexts.RemoveObstacle] = "УБРАТЬ ПРЕГРАДУ";
 
             Texts[ETexts.English] = "English";
             Texts[ETexts.Russian] = "Русский";

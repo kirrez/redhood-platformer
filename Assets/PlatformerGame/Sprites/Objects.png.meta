@@ -638,7 +638,7 @@ TextureImporter:
         serializedVersion: 2
         x: 200
         y: 494
-        width: 33
+        width: 32
         height: 10
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -659,7 +659,7 @@ TextureImporter:
         serializedVersion: 2
         x: 200
         y: 478
-        width: 33
+        width: 32
         height: 10
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -680,7 +680,7 @@ TextureImporter:
         serializedVersion: 2
         x: 240
         y: 494
-        width: 33
+        width: 32
         height: 10
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -701,7 +701,7 @@ TextureImporter:
         serializedVersion: 2
         x: 240
         y: 478
-        width: 33
+        width: 32
         height: 10
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -3110,6 +3110,90 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Camp_Off
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 8
+        width: 64
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6dfac9e81912dde49bf1dc8cc633896f
+      internalID: 601563294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Camp_On
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 32
+        width: 64
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16479e7a63c146d4a8ec556228819442
+      internalID: -2025242477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chain2
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 448
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2e4fe4e94b4f4e46ba39a21942a1bc8
+      internalID: 149674829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Holder
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 104
+        width: 24
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12d95898e90f4bb49939d5ff479342c6
+      internalID: 479004354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -3121,6 +3205,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      Holder: 479004354
       ManBrown_1: 964522010
       WoodShatter: -2086196866
       Ropes_2: 2037492357
@@ -3150,6 +3235,7 @@ TextureImporter:
       DarkCloudsL3_2: 1985532748
       Fountain_1: 1542308353
       Fish_4: -495157367
+      Chain2: 149674829
       DarkCloudsL3_3: 2090795456
       ManBlond_1: 113528172
       RopeSlopeLeft: 1691112775
@@ -3160,6 +3246,7 @@ TextureImporter:
       Fireplace_1: -1024916941
       DarkCloudsL1_11: -739747816
       Fish_3: 1361706878
+      Camp_Off: 601563294
       DoorGrey_1: -16567571
       Mother_2: 996843073
       DarkCloudsL2_1: 1230439699
@@ -3171,6 +3258,7 @@ TextureImporter:
       DarkCloudsL1: -1662598905
       BridgeRight: 27038073
       Ropes_3: 860458067
+      Chain: -1271331200
       DoorGrey_2: -604756203
       DarkCloudsL1_4: -566693553
       BreakableWood_4: -1482915127
@@ -3226,6 +3314,7 @@ TextureImporter:
       Firebowl_2: 456338429
       BreakableWood_1: -731882785
       FountainBasin: 1340344472
+      Camp_On: -2025242477
       Fireplace_2: 1631699850
       RopeCenter: -1307795433
       OldMan_1: -1148329170

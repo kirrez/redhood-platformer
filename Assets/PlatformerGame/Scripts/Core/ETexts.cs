@@ -13,6 +13,8 @@ namespace Platformer
         VillageCommoner,
         UpgradeHealthTip,
         UpgradeHealthTitle,
+        KindleFire,
+        RemoveObstacle,
 
         //Menu items
         English,

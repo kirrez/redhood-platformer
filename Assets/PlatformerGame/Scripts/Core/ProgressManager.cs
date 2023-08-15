@@ -43,6 +43,7 @@ namespace Platformer
 
             //Visited WF, took the pie
             SetQuest(EQuest.MotherPie, 5);
+            SetQuest(EQuest.MarketElevator, 1);
             //Got red key
             SetQuest(EQuest.KeyRed, 1);
             //Repaired bridge (BearQuest, Suspension bridge)
