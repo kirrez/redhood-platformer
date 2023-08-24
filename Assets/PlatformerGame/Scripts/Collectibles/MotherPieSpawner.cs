@@ -2,17 +2,10 @@ using UnityEngine;
 
 namespace Platformer
 {
-    public class KeySpawner : MonoBehaviour
+    public class MotherPieSpawner : MonoBehaviour
     {
-        // base KeyRed
-
-        [SerializeField]
-        [Range(0, 2)]
-        private int ItemIndex;
-
         public bool ItemPhysics;
 
-        private int TargetValue;
         private bool IsSpawned;
         private EQuest Item;
 
@@ -24,8 +17,7 @@ namespace Platformer
             ProgressManager = CompositionRoot.GetProgressManager();
             ResourceManager = CompositionRoot.GetResourceManager();
 
-            TargetValue = (int)EQuest.KeyRed + ItemIndex;
-            Item = (EQuest)TargetValue;
+            Item = EQuest.MotherPie;
         }
 
         private void OnEnable()
@@ -35,9 +27,9 @@ namespace Platformer
 
         public void SpawnItem()
         {
-            if (ProgressManager.GetQuest(Item) == 0 && !IsSpawned)
+            if (ProgressManager.GetQuest(EQuest.MotherPie) == 4 && !IsSpawned)
             {
-                var instance = ResourceManager.CreatePrefab<Key, EQuest>(Item);
+                var instance = ResourceManager.CreatePrefab<MotherPie, EQuest>(Item);
                 instance.transform.SetParent(gameObject.transform, false);
                 instance.PhysicsOn(ItemPhysics);
                 IsSpawned = true;

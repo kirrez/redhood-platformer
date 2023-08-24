@@ -6,12 +6,11 @@ namespace Platformer
     public class HealthUpgradeQuest : MonoBehaviour
     {
         [SerializeField]
-        Transform ItemPosition;
+        private UpgradeHealthSpawner Spawner;
 
         [SerializeField]
-        Text HelpText;
+        private Text HelpText;
 
-        private IResourceManager ResourceManager;
         private IProgressManager ProgressManager;
         private ILocalization Localization;
         private IPlayer Player;
@@ -22,7 +21,6 @@ namespace Platformer
 
         private void Awake()
         {
-            ResourceManager = CompositionRoot.GetResourceManager();
             ProgressManager = CompositionRoot.GetProgressManager();
             Localization = CompositionRoot.GetLocalization();
             Player = CompositionRoot.GetPlayer();
@@ -30,11 +28,6 @@ namespace Platformer
             AreaTrigger = GetComponent<Collider2D>();
             HelpText.text = Localization.Text(ETexts.UpgradeHealthTip);
         }
-
-        //private void OnEnable()
-        //{
-
-        //}
 
         private void Update()
         {
@@ -51,7 +44,7 @@ namespace Platformer
                     Player.Interaction += OnFirstInteraction;
                 }
 
-                if (pieQuest >= 5 && healthQuest == 1)
+                if (pieQuest >= 5 && healthQuest > 0)
                 {
                     Player.Interaction += OnInteraction;
                 }
@@ -67,7 +60,7 @@ namespace Platformer
                     Player.Interaction -= OnFirstInteraction;
                 }
 
-                if (pieQuest >= 5 && healthQuest == 1)
+                if (pieQuest >= 5 && healthQuest > 0)
                 {
                     Player.Interaction -= OnInteraction;
                 }
@@ -110,7 +103,6 @@ namespace Platformer
                     DialoguePhase = 0;
                     Game.Dialogue.Hide();
                     ProgressManager.SetQuest(EQuest.UpgradeHealth, 1);
-                    //HelpText.gameObject.SetActive(false);
                     Player.Interaction -= OnFirstInteraction;
                     Player.Interaction += OnInteraction;
                     break;
@@ -157,9 +149,8 @@ namespace Platformer
                     ProgressManager.SetQuest(EQuest.FoodCollected, foodRest);
                     Game.HUD.UpdateResourceAmount();
 
-                    var instance = ResourceManager.CreatePrefab<HealthUpgrade, ECollectibles>(ECollectibles.HealthUpgrade);
-                    instance.transform.SetParent(transform, false);
-                    instance.transform.position = ItemPosition.position;
+                    ProgressManager.SetQuest(EQuest.UpgradeHealth, 1); //reset value to 1 for spawner
+                    Spawner.SpawnItem();
                     break;
                 
                 // Insufficient amount :

@@ -9,10 +9,13 @@ namespace Platformer
     public class BlacksmithQuest1 : MonoBehaviour
     {
         [SerializeField]
-        Text HelpText;
-
+        private KeySpawner Spawner;
+        
         [SerializeField]
-        private CollectibleSpawner2Conditions Spawner;
+        private Text HelpText;
+
+        //[SerializeField]
+        //private CollectibleSpawner2Conditions Spawner;
 
         private IProgressManager ProgressManager;
         private ILocalization Localization;
@@ -155,6 +158,7 @@ namespace Platformer
                     ProgressManager.SetQuest(EQuest.OreCollected, oreRest);
                     Game.HUD.UpdateResourceAmount();
 
+                    ProgressManager.SetQuest(EQuest.KeyGrey, 0);
                     Spawner.SpawnItem();
                     DialoguePhase = 0;
                     break;

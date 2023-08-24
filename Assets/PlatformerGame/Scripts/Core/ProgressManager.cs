@@ -33,6 +33,7 @@ namespace Platformer
             SetQuest(EQuest.SpawnPoint, 0);
 
             SetQuest(EQuest.KeyRed, -1);
+            SetQuest(EQuest.KeyGrey, -1);
 
             //Mother's Pie quest
             SetQuest(EQuest.MushroomsRequired, 3);
@@ -44,7 +45,7 @@ namespace Platformer
             LoadNewGame();
 
             //Visited WF, took the pie
-            SetQuest(EQuest.MotherPie, 5);
+            SetQuest(EQuest.MotherPie, 3);
             SetQuest(EQuest.MarketElevator, 1);
             //Got red key
             SetQuest(EQuest.KeyRed, 1);
@@ -52,7 +53,7 @@ namespace Platformer
             SetQuest(EQuest.SuspensionBridge, 3);
 
             //new Player's location
-            SetQuest(EQuest.Stage, (int)EStages.Mountains);
+            SetQuest(EQuest.Stage, (int)EStages.TheVillage);
             SetQuest(EQuest.Location, 0);
             SetQuest(EQuest.SpawnPoint, 0);
 
@@ -61,8 +62,7 @@ namespace Platformer
             SetQuest(EQuest.HolyWaterLevel, 0);
 
             SetQuest(EQuest.MaxLives, 4);
-            //Alternative costs
-            //SetQuest(EQuest.LifeUpgradeCost, 2);
+            SetQuest(EQuest.FoodCollected, 15);
 
             //Finished Mother's Pie quest will be with mushrooms 3 and berries 4
             SetQuest(EQuest.MushroomsCollected, 3);

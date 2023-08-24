@@ -2,18 +2,10 @@ using UnityEngine;
 
 namespace Platformer
 {
-    public class KeySpawner : MonoBehaviour
+    public class UpgradeHealthSpawner : MonoBehaviour
     {
-        // base KeyRed
-
-        [SerializeField]
-        [Range(0, 2)]
-        private int ItemIndex;
-
         public bool ItemPhysics;
 
-        private int TargetValue;
-        private bool IsSpawned;
         private EQuest Item;
 
         private IProgressManager ProgressManager;
@@ -24,8 +16,7 @@ namespace Platformer
             ProgressManager = CompositionRoot.GetProgressManager();
             ResourceManager = CompositionRoot.GetResourceManager();
 
-            TargetValue = (int)EQuest.KeyRed + ItemIndex;
-            Item = (EQuest)TargetValue;
+            Item = EQuest.UpgradeHealth;
         }
 
         private void OnEnable()
@@ -35,12 +26,11 @@ namespace Platformer
 
         public void SpawnItem()
         {
-            if (ProgressManager.GetQuest(Item) == 0 && !IsSpawned)
+            if (ProgressManager.GetQuest(Item) == 1)
             {
-                var instance = ResourceManager.CreatePrefab<Key, EQuest>(Item);
+                var instance = ResourceManager.CreatePrefab<UpgradeHealth, EQuest>(Item);
                 instance.transform.SetParent(gameObject.transform, false);
                 instance.PhysicsOn(ItemPhysics);
-                IsSpawned = true;
             }
         }
     }

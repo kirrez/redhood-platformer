@@ -5,13 +5,16 @@ namespace Platformer
     public class MotherPie : MonoBehaviour
     {
         private IProgressManager ProgressManager;
+        private Rigidbody2D Rigidbody;
 
         private void OnEnable()
         {
             ProgressManager = CompositionRoot.GetProgressManager();
+            Rigidbody = GetComponent<Rigidbody2D>();
+            PhysicsOn(false);
         }
 
-        private void OnCollisionEnter2D(Collision2D collision)
+        private void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.gameObject.CompareTag("Player"))
             {
@@ -23,6 +26,11 @@ namespace Platformer
 
                 gameObject.SetActive(false);
             }
+        }
+
+        public void PhysicsOn(bool physics)
+        {
+            Rigidbody.isKinematic = !physics;
         }
     }
 }

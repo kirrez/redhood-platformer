@@ -8,12 +8,11 @@ namespace Platformer
     public class MotherQuest2 : MonoBehaviour
     {
         [SerializeField]
-        CollectibleSpawner Spawner;
+        MotherPieSpawner Spawner;
 
         [SerializeField]
         Text HelpText;
 
-        private IResourceManager ResourceManager;
         private IProgressManager ProgressManager;
         private ILocalization Localization;
         private IPlayer Player;
@@ -24,7 +23,6 @@ namespace Platformer
 
         private void Awake()
         {
-            ResourceManager = CompositionRoot.GetResourceManager();
             ProgressManager = CompositionRoot.GetProgressManager();
             Localization = CompositionRoot.GetLocalization();
             Player = CompositionRoot.GetPlayer();
@@ -99,13 +97,11 @@ namespace Platformer
                 case 6:
                     Player.ReleasedByInteraction();
                     Game.Dialogue.Hide();
-                    ProgressManager.SetQuest(EQuest.MotherPie, 4);
                     HelpText.gameObject.SetActive(false);
                     Player.Interaction -= OnInteraction;
+
+                    ProgressManager.SetQuest(EQuest.MotherPie, 4);
                     Spawner.SpawnItem();
-                    //var instance = ResourceManager.CreatePrefab<MotherPie, ECollectibles>(ECollectibles.MotherPie);
-                    //instance.transform.SetParent(transform, false);
-                    //instance.transform.position = PiePosition.position;
                     break;
             }
         }

@@ -8,12 +8,11 @@ namespace Platformer
     public class MotherQuest1 : MonoBehaviour
     {
         [SerializeField]
-        Transform KeyPosition;
+        private KeySpawner Spawner;
 
         [SerializeField]
         Text HelpText;
 
-        private IResourceManager ResourceManager;
         private IProgressManager ProgressManager;
         private ILocalization Localization;
         private IPlayer Player;
@@ -24,7 +23,6 @@ namespace Platformer
 
         private void Awake()
         {
-            ResourceManager = CompositionRoot.GetResourceManager();
             ProgressManager = CompositionRoot.GetProgressManager();
             Localization = CompositionRoot.GetLocalization();
             Player = CompositionRoot.GetPlayer();
@@ -93,9 +91,8 @@ namespace Platformer
                     HelpText.gameObject.SetActive(false);
                     Player.Interaction -= OnInteraction;
 
-                    var instance = ResourceManager.CreatePrefab<Key, ECollectibles>(ECollectibles.KeyRed);
-                    instance.transform.SetParent(transform, false);
-                    instance.transform.position = KeyPosition.position;
+                    ProgressManager.SetQuest(EQuest.KeyRed, 0);
+                    Spawner.SpawnItem();
                     break;
             }
 
