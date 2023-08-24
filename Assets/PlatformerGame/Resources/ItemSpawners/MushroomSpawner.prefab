@@ -130,3 +130,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemIndex: 0
+  ItemPhysics: 1

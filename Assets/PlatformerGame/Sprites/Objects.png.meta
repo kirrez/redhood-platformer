@@ -1581,7 +1581,7 @@ TextureImporter:
       name: WeaponEmpty
       rect:
         serializedVersion: 2
-        x: 488
+        x: 494
         y: 440
         width: 16
         height: 16
@@ -2486,7 +2486,7 @@ TextureImporter:
         serializedVersion: 2
         x: 472
         y: 440
-        width: 16
+        width: 17
         height: 16
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -3156,10 +3156,10 @@ TextureImporter:
       name: Chain2
       rect:
         serializedVersion: 2
-        x: 384
-        y: 448
-        width: 8
-        height: 8
+        x: 383
+        y: 447
+        width: 10
+        height: 10
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3194,6 +3194,90 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Coin
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 200
+        width: 15
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5c8c363b7059794eb121c38be79f8eb
+      internalID: -1532539009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bag600
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 199
+        width: 17
+        height: 17
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52516fef3ba409a4daf122c0831e8a8a
+      internalID: 655228387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bag1500
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 199
+        width: 17
+        height: 17
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94516bb255f1cee4681c309803ef616e
+      internalID: -1140358114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bag250
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 199
+        width: 17
+        height: 17
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07779e8f5a1a86b46b115c6a0d4b163e
+      internalID: -1046768469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -3208,6 +3292,7 @@ TextureImporter:
       Holder: 479004354
       ManBrown_1: 964522010
       WoodShatter: -2086196866
+      Bag1500: -1140358114
       Ropes_2: 2037492357
       Candle_0: -387247735
       KnifeIcon_1: -1823561205
@@ -3274,6 +3359,7 @@ TextureImporter:
       Platform_2: 17101485
       WaterBlueTransparent: 1422703808
       ButtonOn: 876549026
+      Bag600: 655228387
       DarkCloudsL2_6: -153351782
       Block_red: 297420487
       SpikesRed: 1164528437
@@ -3314,6 +3400,7 @@ TextureImporter:
       Firebowl_2: 456338429
       BreakableWood_1: -731882785
       FountainBasin: 1340344472
+      Coin: -1532539009
       Camp_On: -2025242477
       Fireplace_2: 1631699850
       RopeCenter: -1307795433
@@ -3381,6 +3468,7 @@ TextureImporter:
       ManBlack_1: -772477246
       Platform_3: 880925628
       Rope_4: -866954109
+      Bag250: -1046768469
       DarkCloudsLVL2: -431119207
       Stream_0: 1860220395
       SwitchOn: -1816534046

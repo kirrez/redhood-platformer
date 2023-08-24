@@ -8,6 +8,8 @@ namespace Platformer
     {
         void LoadNewGame();
         void LoadTestConfig();
+
+        void RefillRenewables();
         int GetQuest(EQuest key);
         void SetQuest(EQuest key, int value);
 

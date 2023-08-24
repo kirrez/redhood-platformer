@@ -24,13 +24,15 @@ namespace Platformer
             SetQuest(EQuest.LifeUpgradeCost, 10);
 
             SetQuest(EQuest.KnifeLevel, 1);
-            SetQuest(EQuest.AxeLevel, 1);
+            SetQuest(EQuest.AxeLevel, 0);
             SetQuest(EQuest.HolyWaterLevel, 0);
 
             //Start Player's location
             SetQuest(EQuest.Stage, (int)EStages.TheVillage);
             SetQuest(EQuest.Location, 0);
             SetQuest(EQuest.SpawnPoint, 0);
+
+            SetQuest(EQuest.KeyRed, -1);
 
             //Mother's Pie quest
             SetQuest(EQuest.MushroomsRequired, 3);
@@ -67,6 +69,21 @@ namespace Platformer
             SetQuest(EQuest.BlackberriesCollected, 4);
         }
 
+        public void RefillRenewables()
+        {
+            int targetValue;
+            EQuest item;
+
+            int replenisherAmount = 9; // MAGIC NUMBER from HealthReplenisher script
+
+            for (int i = 0; i < replenisherAmount + 1; i++)
+            {
+                targetValue = (int)EQuest.Replenish00 + i;
+                item = (EQuest)targetValue;
+                SetQuest(item, 0);
+            }
+        }
+
         public int GetQuest(EQuest key)
         {
             return Quests[key];
@@ -98,5 +115,5 @@ namespace Platformer
 
 //Blacksmith's errand :
 //1. BlacksmithQuest1 changes value from 0 to 1, now blacksmith is waiting for 3 pieces of iron ore.
-//1.1 Soldier near Eastern gates tells you to get your own key from blaksmith, if value if 0. 
+//1.1 Soldier near Eastern gates tells you to get your own key from blaksmith, if value is 0. 
 //2. BlacksmithQuest2 takes 3 iron ore from inventory and gives you a grey key. Value changes from 1 to 2.

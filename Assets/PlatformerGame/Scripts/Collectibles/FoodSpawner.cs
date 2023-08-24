@@ -4,9 +4,13 @@ namespace Platformer
 {
     public class FoodSpawner : MonoBehaviour
     {
+        // base Food00
+
         [SerializeField]
         [Range(0, 19)]
         private int ItemIndex;
+
+        public bool ItemPhysics;
 
         private int TargetValue;
         private bool IsSpawned;
@@ -30,6 +34,7 @@ namespace Platformer
             {
                 var instance = ResourceManager.CreatePrefab<Food, EQuest>(Item);
                 instance.transform.SetParent(gameObject.transform, false);
+                instance.PhysicsOn(ItemPhysics);
                 IsSpawned = true;
             }
         }

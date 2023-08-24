@@ -33,6 +33,7 @@ namespace Platformer
         //Player's max lives (3-8)
         MaxLives,
         MaxLivesCap,
+        Money,
 
         LifeUpgradeCost,
         FoodCollected,
@@ -92,7 +93,53 @@ namespace Platformer
         Ore08,
         Ore09,
         Ore10,
-        Ore11
+        Ore11,
+
+        Replenish00,
+        Replenish01,
+        Replenish02,
+        Replenish03,
+        Replenish04,
+        Replenish05,
+        Replenish06,
+        Replenish07,
+        Replenish08,
+        Replenish09,
+
+        //Money Items
+        Coin50_00,
+        Coin50_01,
+        Coin50_02,
+        Coin50_03,
+        Coin50_04,
+        Coin50_05,
+        Coin50_06,
+        Coin50_07,
+        Coin50_08,
+        Coin50_09,
+
+        Bag250_00,
+        Bag250_01,
+        Bag250_02,
+        Bag250_03,
+        Bag250_04,
+        Bag250_05,
+        Bag250_06,
+        Bag250_07,
+        Bag250_08,
+        Bag250_09,
+
+        Bag600_00,
+        Bag600_01,
+        Bag600_02,
+        Bag600_03,
+        Bag600_04,
+
+        Bag1500_00,
+        Bag1500_01,
+        Bag1500_02,
+        Bag1500_03,
+        Bag1500_04,
     }
 }
 

@@ -4,9 +4,13 @@ namespace Platformer
 {
     public class OreSpawner : MonoBehaviour
     {
+        // base Ore00
+
         [SerializeField]
         [Range(0, 11)]
         private int ItemIndex;
+
+        public bool ItemPhysics;
 
         private int TargetValue;
         private bool IsSpawned;
@@ -30,6 +34,7 @@ namespace Platformer
             {
                 var instance = ResourceManager.CreatePrefab<Ore, EQuest>(Item);
                 instance.transform.SetParent(gameObject.transform, false);
+                instance.PhysicsOn(ItemPhysics);
                 IsSpawned = true;
             }
         }

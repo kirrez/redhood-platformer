@@ -8,6 +8,8 @@ namespace Platformer
         [Range(0, 2)]
         private int ItemIndex;
 
+        public bool ItemPhysics;
+
         private int TargetValue;
         private bool IsSpawned;
         private EQuest Item;
@@ -30,6 +32,7 @@ namespace Platformer
             {
                 var instance = ResourceManager.CreatePrefab<Mushroom, EQuest>(Item);
                 instance.transform.SetParent(gameObject.transform, false);
+                instance.PhysicsOn(ItemPhysics);
                 IsSpawned = true;
             }
         }

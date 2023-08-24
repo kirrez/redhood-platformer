@@ -5,6 +5,7 @@ namespace Platformer
     public class Food : MonoBehaviour
     {
         // base - Food00
+
         [SerializeField]
         [Range(0, 19)]
         private int ItemIndex;
@@ -13,16 +14,19 @@ namespace Platformer
         private EQuest Item;
 
         private IProgressManager ProgressManager;
+        private Rigidbody2D Rigidbody;
 
         private void Awake()
         {
             ProgressManager = CompositionRoot.GetProgressManager();
+            Rigidbody = GetComponent<Rigidbody2D>();
+            PhysicsOn(false);
 
             TargetValue = (int)EQuest.Food00 + ItemIndex;
             Item = (EQuest)TargetValue;
         }
 
-        private void OnCollisionEnter2D(Collision2D collision)
+        private void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.gameObject.CompareTag("Player"))
             {
@@ -37,6 +41,11 @@ namespace Platformer
                 }
                 gameObject.SetActive(false);
             }
+        }
+
+        public void PhysicsOn(bool physics)
+        {
+            Rigidbody.isKinematic = !physics;
         }
     }
 }
