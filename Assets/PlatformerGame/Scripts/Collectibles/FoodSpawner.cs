@@ -30,6 +30,11 @@ namespace Platformer
 
         private void OnEnable()
         {
+            SpawnItem();
+        }
+
+        public void SpawnItem()
+        {
             if (ProgressManager.GetQuest(Item) == 0 && !IsSpawned)
             {
                 var instance = ResourceManager.CreatePrefab<Food, EQuest>(Item);

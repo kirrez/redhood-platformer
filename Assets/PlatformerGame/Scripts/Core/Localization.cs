@@ -41,9 +41,9 @@ namespace Platformer
         {
             Texts[ETexts.Enter] = "ENTER 'C'";
             Texts[ETexts.Exit] = "EXIT 'C'";
-            Texts[ETexts.Next] = "Next  'C'";
-            Texts[ETexts.Talk] = "TALK  'C'";
-            Texts[ETexts.TalkToMom] = "TALK TO MOM  'C'";
+            Texts[ETexts.Next] = "Next 'C'";
+            Texts[ETexts.Talk] = "TALK 'C'";
+            Texts[ETexts.TalkToMom] = "TALK TO MOM 'C'";
             Texts[ETexts.TalkToMomAgain] = "TALK TO MOM AGAIN";
             Texts[ETexts.PullLever] = "PULL LEVER 'C'";
             Texts[ETexts.VillageCommoner] = "* Village Commoner *";
@@ -111,16 +111,21 @@ namespace Platformer
             Texts[ETexts.Blacksmith2_4] = "- Emm.. still working on it!";
 
             Texts[ETexts.Commoner1_1] = "Market elevator is not working now, come back later.";
+            Texts[ETexts.Commoner1_2] = "Don't walk around the ruins, it's dangerous!";
             Texts[ETexts.GatekeeperTitle] = "* Gatekeeper *";
             Texts[ETexts.Gatekeeper1_1] = "If you want to pass freely through this gate, go ask the smith to make you a new grey key, since I've lost a spare one.";
+            Texts[ETexts.CommonerSecret] = "Psst! There is a secret place in the village. You can only reach it by crushing the cursed wall. You obviousely need a holy weapon for it...";
+            Texts[ETexts.WomanCandy] = "Here you are, darling, take this!";
+            Texts[ETexts.ShopkeeperTitle] = "* Shopkeeper *";
+            Texts[ETexts.Shopkeeper1] = "Oh, young lady! If you happen to find this shiny circles, don't throw them out. I can give you something really useful in exchange!";
         }
 
         private void LoadRussian()
         {
             Texts[ETexts.Enter] = "ВНУТРЬ 'C'";
             Texts[ETexts.Exit] = "НАРУЖУ 'C'";
-            Texts[ETexts.Next] = "Дальше  'C'";
-            Texts[ETexts.Talk] = "ГОВОРИТЬ  'C'";
+            Texts[ETexts.Next] = "Дальше 'C'";
+            Texts[ETexts.Talk] = "ГОВОРИТЬ 'C'";
             Texts[ETexts.TalkToMom] = "ОТВЕТИТЬ МАМЕ 'C''";
             Texts[ETexts.TalkToMomAgain] = "СНОВА ПОГОВОРИТЬ С МАМОЙ";
             Texts[ETexts.PullLever] = "ДЕРНУТЬ РЫЧАГ 'C'";
@@ -167,30 +172,35 @@ namespace Platformer
             Texts[ETexts.DialoguePie2_5] = "- Ой, это ничьего, просто бормочу. Пирог уше готов, можеш его сабрать.";
             Texts[ETexts.DialoguePie2_6] = "- Ураа!";
 
-            Texts[ETexts.UpgradeHealth1_1] = "- Ich weise how you liebst sweet, but if you findest any Candies, eat them nicht! Das ist definitively a Witch's Bait fur Kinder.";
-            Texts[ETexts.UpgradeHealth1_2] = "Besser du bringst them to me und ich cooke something gut fur strengthening deinе Health.";
-            Texts[ETexts.UpgradeHealth1_3] = "- Haaa? (my poor candies!) What for on Earth I have to strenghten my health?! I'm healthy enough!";
-            Texts[ETexts.UpgradeHealth1_4] = "- Don't be capricious, meine Kinder.";
-            Texts[ETexts.UpgradeHealth1_5] = "- Ok, I get it... (T__T)";
-            Texts[ETexts.UpgradeHealth2_1] = "If you hast at least 10 Candies, I'll make it fur dich!";
-            Texts[ETexts.UpgradeHealth2_2] = "Sehr gut! Here you are!";
-            Texts[ETexts.UpgradeHealth2_3] = "Ohh, du hast nicht genug! Bringst mich more )";
+            Texts[ETexts.UpgradeHealth1_1] = "- Йа знайт, как ты любиш сладкое, но если найдешь Конфекты, кушай их найн! Они тошно ест Федьмина Наживкой для Детей.";
+            Texts[ETexts.UpgradeHealth1_2] = "Лучше приноси их ко мнье, и я приготовлю што-нибуйт полезный тля укреплений тфоего Здоровя.";
+            Texts[ETexts.UpgradeHealth1_3] = "- Штааа? (мои конфетки!) И зачем это мне укреплять здоровье?! Я и так здоровая!";
+            Texts[ETexts.UpgradeHealth1_4] = "- Не капризничайт много, мойо Дитя.";
+            Texts[ETexts.UpgradeHealth1_5] = "- Лаадно, я поняла... (T__T)";
+            Texts[ETexts.UpgradeHealth2_1] = "Еслы найдеш хотья бы 10 Конфекты, йа смогу приготофить тебье!";
+            Texts[ETexts.UpgradeHealth2_2] = "Ошень харашо, фот, возмьи!";
+            Texts[ETexts.UpgradeHealth2_3] = "Этого мало, солнышько! Прынеси больще )";
 
-            Texts[ETexts.BlacksmithTitle1] = "* Blacksmith's Errand *";
-            Texts[ETexts.Blacksmith1_1] = "- Meister Schmied! Please, craft a new shiny grey key for me!";
-            Texts[ETexts.Blacksmith1_2] = "- Don't you rush, young lady. I'm pretty busy right now, have to polish my anvil...";
-            Texts[ETexts.Blacksmith1_3] = "- Please, please, pleasepleasepleasee!";
-            Texts[ETexts.Blacksmith1_4] = "- Okay, okay, why so loud? Well, I can make the key, but I need you to bring me, let's say, 3 pieces of iron ore. That should be enough for a deal.";
-            Texts[ETexts.Blacksmith1_5] = "- Fine, I'll bring it to you then!";
+            Texts[ETexts.BlacksmithTitle1] = "* Просьба Кузнеца *";
+            Texts[ETexts.Blacksmith1_1] = "- Мэтр Кузнец! Пожалуйста, сделайте мне новый блестящий серый ключик!";
+            Texts[ETexts.Blacksmith1_2] = "- Попридержи коней, девочка. Я, знаешь ли, очень занят. Мне еще нужно отполировать наковальню...";
+            Texts[ETexts.Blacksmith1_3] = "- Ну пожалста, пожалстапожалстапазязяяя!";
+            Texts[ETexts.Blacksmith1_4] = "- Хорошо, хорошо! Зачем так шуметь? Я сделаю тебе ключ, но ты должна мне принести, скажем, три куска железной руды, по рукам?";
+            Texts[ETexts.Blacksmith1_5] = "- Я принесу вам руду!";
 
-            Texts[ETexts.Blacksmith2_1] = "- So you brought me what I want?";
-            Texts[ETexts.Blacksmith2_2] = "- Sure, take it! (stupid rocks!)";
-            Texts[ETexts.Blacksmith2_3] = "- Ok, here is your key, i just finished it.";
-            Texts[ETexts.Blacksmith2_4] = "- Emm.. still working on it!";
+            Texts[ETexts.Blacksmith2_1] = "- Итак, ты нашла, что я просил?";
+            Texts[ETexts.Blacksmith2_2] = "- Конечно, возьмите! (дурацкие булыжники!)";
+            Texts[ETexts.Blacksmith2_3] = "- Хорошо, вот твой ключ, я как раз его закончил.";
+            Texts[ETexts.Blacksmith2_4] = "- Эмм... нет, но я стараюсь!";
 
             Texts[ETexts.Commoner1_1] = "Лифт на рынке сейчас не работает, приходи позже.";
+            Texts[ETexts.Commoner1_2] = "Не играй на развалинах, девочка, там опасно!";
             Texts[ETexts.GatekeeperTitle] = "* Привратник *";
             Texts[ETexts.Gatekeeper1_1] = "Если хочешь свободно пройти через эти ворота, иди попроси кузнеца сделать тебе новый серый ключ, а то я потерял запасной.";
+            Texts[ETexts.CommonerSecret] = "Эй! В деревне есть тайное место, но добраться до него можно, только разрушив проклятую стену. Для этого тебе понадобится освященное оружие...";
+            Texts[ETexts.WomanCandy] = "Вот, возьми конфетку, девочка!";
+            Texts[ETexts.ShopkeeperTitle] = "* Продавец *";
+            Texts[ETexts.Shopkeeper1] = "О, юная леди! Если вам случится найти эти блестящие кружочки, не выбрасывайте их. Взамен я могу дать вам что-то действительно полезное!";
         }
     }
 }

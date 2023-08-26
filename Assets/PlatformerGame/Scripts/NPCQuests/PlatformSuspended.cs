@@ -27,13 +27,13 @@ namespace Platformer
             Player = CompositionRoot.GetPlayer();
 
             HelpText.text = Localization.Text(ETexts.RemoveObstacle);
+            HelpText.gameObject.SetActive(false);
 
             AreaTrigger = GetComponent<Collider2D>();
         }
 
         private void OnEnable()
         {
-            HelpText.gameObject.SetActive(false);
             SwitchObstacle();
         }
 

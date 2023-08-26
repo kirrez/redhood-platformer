@@ -19,6 +19,7 @@ namespace Platformer
         UpgradeHealth, // repeating quest, giving health upgrades infinitely
         Blacksmith, // giving GREY key for 3 ore
         PlatformSuspended, //quest in mountains
+        WomanCandy, // secret candy in village
 
         KnifeLevel, // 0-none, 1-KitchenKnife, 2-FarmerKnife, 3-HunterKnife
         AxeLevel, // 0-none, 1-CrippledAxe(no WoodBreaker), 2-OldAxe(+WoodBreaker), 3-SharpenedAxe, 4-SturdyAxe
@@ -31,9 +32,11 @@ namespace Platformer
         StrongHolyWaterCost,
 
         //Player's max lives (3-8)
-        MaxLives,
-        MaxLivesCap,
+        MaxLives,    //Health
+        MaxLivesCap, //Health
         Money,
+        TriesLeft,   //Lives
+        GameMode,    //Determins implementation of Lives concept. Easy mode - infinite lives, Normal mode - limited amount
 
         LifeUpgradeCost,
         FoodCollected,

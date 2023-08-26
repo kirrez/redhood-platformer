@@ -27,6 +27,7 @@ namespace Platformer
 
             AreaTrigger = GetComponent<Collider2D>();
             HelpText.text = Localization.Text(ETexts.UpgradeHealthTip);
+            HelpText.gameObject.SetActive(false);
         }
 
         private void Update()
@@ -102,7 +103,7 @@ namespace Platformer
                     Player.ReleasedByInteraction();
                     DialoguePhase = 0;
                     Game.Dialogue.Hide();
-                    ProgressManager.SetQuest(EQuest.UpgradeHealth, 1);
+                    ProgressManager.SetQuest(EQuest.UpgradeHealth, 2);
                     Player.Interaction -= OnFirstInteraction;
                     Player.Interaction += OnInteraction;
                     break;

@@ -44,11 +44,18 @@ namespace Platformer
         {
             LoadNewGame();
 
+            //Testing game mode
+            SetQuest(EQuest.GameMode, 1);
+            SetQuest(EQuest.TriesLeft, 2);
+
             //Visited WF, took the pie
             SetQuest(EQuest.MotherPie, 3);
             SetQuest(EQuest.MarketElevator, 1);
             //Got red key
             SetQuest(EQuest.KeyRed, 1);
+            //Upper village testing
+            SetQuest(EQuest.KeyGrey, 1);
+            SetQuest(EQuest.KeyGreen, 1);
             //Repaired bridge (BearQuest, Suspension bridge)
             SetQuest(EQuest.SuspensionBridge, 3);
 
@@ -63,6 +70,7 @@ namespace Platformer
 
             SetQuest(EQuest.MaxLives, 4);
             SetQuest(EQuest.FoodCollected, 15);
+            SetQuest(EQuest.OreCollected, 7);
 
             //Finished Mother's Pie quest will be with mushrooms 3 and berries 4
             SetQuest(EQuest.MushroomsCollected, 3);

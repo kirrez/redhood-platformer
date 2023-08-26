@@ -37,6 +37,9 @@ namespace Platformer
         [SerializeField]
         private Text OreAmount;
 
+        [SerializeField]
+        private Text MoneyAmount;
+
         private IProgressManager ProgressManager;
 
         private void Awake()
@@ -59,9 +62,11 @@ namespace Platformer
         {
             var ore = ProgressManager.GetQuest(EQuest.OreCollected);
             var food = ProgressManager.GetQuest(EQuest.FoodCollected);
+            var money = ProgressManager.GetQuest(EQuest.Money);
 
             OreAmount.text = ore.ToString("00");
             FoodAmount.text = food.ToString("00");
+            MoneyAmount.text = money.ToString("00000000");
         }
 
         public void SetMaxLives(int amount)

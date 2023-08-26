@@ -17,11 +17,13 @@ namespace Platformer
         private int SpawnPointIndex;
 
         [SerializeField]
-        ETexts Label;
+        [Range(0, 3)]
+        private int LabelIndex;
 
         [SerializeField]
-        Text HelpText;
+        private Text HelpText;
 
+        private ETexts Label;
         private float Timer;
         private float BlinkTime = 0.5f;
         private bool InsideTrigger;
@@ -34,6 +36,8 @@ namespace Platformer
 
         private void OnEnable()
         {
+            var targetValue = (int)ETexts.Enter + LabelIndex;
+            Label = (ETexts)targetValue;
             HelpText.text = Localization.Text(Label);
             Timer = BlinkTime;
             HelpText.enabled = false;

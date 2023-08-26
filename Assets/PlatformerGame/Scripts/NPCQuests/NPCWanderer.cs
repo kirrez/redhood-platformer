@@ -32,6 +32,7 @@ namespace Platformer
         private Vector2 Velocity;
         private bool DirectionChanged;
         private bool IdleDecision;
+        private bool IsStunned;
 
         delegate void StateMethod();
         StateMethod CurrentState = () => { };
@@ -47,6 +48,7 @@ namespace Platformer
             WaypointsIndex = 0;
             SpriteIndex = 0;
             Renderer.sprite = Sprites[0];
+            IsStunned = false;
             CurrentState = Decide;
         }
 
@@ -111,7 +113,7 @@ namespace Platformer
         {
             var distance = Vector2.Distance(Waypoints[WaypointsIndex].position, Rigidbody.gameObject.transform.position);
             
-            if (distance > 0.15f)
+            if (!IsStunned && distance > 0.15f)
             {
                 Rigidbody.velocity = Velocity * Time.fixedDeltaTime;
             }
@@ -158,6 +160,12 @@ namespace Platformer
             {
                 CurrentState = Decide;
             }
+        }
+
+        public void Stun(bool state)
+        {
+            IsStunned = state;
+            Rigidbody.velocity = Vector2.zero;
         }
     }
 }

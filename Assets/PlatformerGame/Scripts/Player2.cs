@@ -655,6 +655,8 @@ namespace Platformer
             if (PlatformInstance != null)
             {
                 PlatformInstance.ComeThrough();
+                //?release platform
+                ReleasePlatform();
             }
         }
 

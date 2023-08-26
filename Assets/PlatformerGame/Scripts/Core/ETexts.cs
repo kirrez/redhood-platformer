@@ -6,21 +6,22 @@ namespace Platformer
         Enter,
         Exit,
         Next,
+        PullLever,
+        KindleFire,
+        RemoveObstacle,
         Talk,
         TalkToMom,
         TalkToMomAgain,
-        PullLever,
         VillageCommoner,
         UpgradeHealthTip,
         UpgradeHealthTitle,
-        KindleFire,
-        RemoveObstacle,
 
         //Menu items
         English,
         Russian,
 
-        //Buttons
+        LifeSpentMessage,
+        GameOverMessage,
         TryAgain,
         ToMenu,
 
@@ -77,7 +78,12 @@ namespace Platformer
         Blacksmith2_4,
 
         Commoner1_1,
+        Commoner1_2,
+        CommonerSecret,
+        WomanCandy,
         GatekeeperTitle,
-        Gatekeeper1_1
+        Gatekeeper1_1,
+        ShopkeeperTitle,
+        Shopkeeper1
     }
 }

@@ -6,9 +6,6 @@ namespace Platformer
     public class WestForestDrawbridge : MonoBehaviour
     {
         [SerializeField]
-        private ETexts Label;
-
-        [SerializeField]
         private Text HelpText;
 
         [SerializeField]
@@ -31,11 +28,14 @@ namespace Platformer
             ProgressManager = CompositionRoot.GetProgressManager();
             Localization = CompositionRoot.GetLocalization();
             Renderer = GetComponent<SpriteRenderer>();
+
+            HelpText.text = Localization.Text(ETexts.PullLever);
+            HelpText.gameObject.SetActive(false);
         }
 
         private void OnEnable()
         {
-            HelpText.text = Localization.Text(Label);
+            
 
             if (ProgressManager.GetQuest(EQuest.Drawbridge) == 0)
             {

@@ -23,11 +23,9 @@ namespace Platformer
             Player = CompositionRoot.GetPlayer();
 
             AreaTrigger = GetComponent<Collider2D>();
-        }
 
-        private void OnEnable()
-        {
             HelpText.text = Localization.Text(ETexts.Talk);
+            HelpText.gameObject.SetActive(false);
         }
 
         private void Update()

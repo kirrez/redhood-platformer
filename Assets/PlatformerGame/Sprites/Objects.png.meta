@@ -1977,7 +1977,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: OldMan_0
+      name: OldManGreen_0
       rect:
         serializedVersion: 2
         x: 136
@@ -1998,7 +1998,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: OldMan_1
+      name: OldManGreen_1
       rect:
         serializedVersion: 2
         x: 152
@@ -3278,6 +3278,69 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: OldManRed_0
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 304
+        width: 16
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe010b6744990454490c941f48b62304
+      internalID: 1842019303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OldManRed_1
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 304
+        width: 16
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6df7891bd4af023478116f636998e6c0
+      internalID: -1755499994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlockBeige
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 296
+        width: 16
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53dee288797d7bd42914c4467ba6271c
+      internalID: -1438525317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -3314,6 +3377,7 @@ TextureImporter:
       DoorGreen_0: -425144864
       Fall_1: 2073561585
       DarkCloudsL1_10: 233604434
+      OldManRed_0: 1842019303
       DarkCloudsL2_7: -729258153
       Anvil: 1114881007
       DarkCloudsL1_8: 1879142511
@@ -3332,6 +3396,7 @@ TextureImporter:
       DarkCloudsL1_11: -739747816
       Fish_3: 1361706878
       Camp_Off: 601563294
+      OldManGreen_1: -1148329170
       DoorGrey_1: -16567571
       Mother_2: 996843073
       DarkCloudsL2_1: 1230439699
@@ -3363,7 +3428,6 @@ TextureImporter:
       DarkCloudsL2_6: -153351782
       Block_red: 297420487
       SpikesRed: 1164528437
-      OldMan_0: -832100550
       WaterfallDarkSplashR_0: 332695296
       DarkCloudsL1_5: -1699626249
       ExitZone: 1976855063
@@ -3396,15 +3460,16 @@ TextureImporter:
       DarkCloudsL3_1: 1253647553
       WaterfallBody_1: 76578312
       LightCloud_4: -268048731
-      Fish_0: 731272904
+      OldManRed_1: -1755499994
       Firebowl_2: 456338429
+      Fish_0: 731272904
       BreakableWood_1: -731882785
       FountainBasin: 1340344472
       Coin: -1532539009
       Camp_On: -2025242477
+      OldManGreen_0: -832100550
       Fireplace_2: 1631699850
       RopeCenter: -1307795433
-      OldMan_1: -1148329170
       DarkCloudsL1_2: -1559139224
       WaterfallDarkSplashL_2: 1884388840
       WaterfallDarkTop_1: -1978122356
@@ -3460,6 +3525,7 @@ TextureImporter:
       Stream_2: -309486281
       Mushroom: 1425082455
       Soldier_1: -1451179720
+      BlockBeige: -1438525317
       WaterfallDarkSplashR_2: 1189895126
       Blacksmith_3: 1102150372
       Heart_full: -1332053382

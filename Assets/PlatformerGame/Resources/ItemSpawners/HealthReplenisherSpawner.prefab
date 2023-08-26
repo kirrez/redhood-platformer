@@ -39,7 +39,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3157844718330452978}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -70,11 +70,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1802282183
-  m_SortingLayer: 1
-  m_SortingOrder: 7
+  m_SortingLayerID: 514588023
+  m_SortingLayer: -1
+  m_SortingOrder: 5
   m_Sprite: {fileID: -986860588, guid: 2d3029c57dfb86b4a87ff8c7f64ee3cb, type: 3}
-  m_Color: {r: 0.38002843, g: 0.990566, b: 0.53944653, a: 0.54509807}
+  m_Color: {r: 0.7798742, g: 1, b: 0.8377277, a: 0.5882353}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -130,3 +130,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemIndex: 0
+  ItemPhysics: 0

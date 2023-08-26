@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine.UI;
 using UnityEngine;
 
@@ -13,9 +12,6 @@ namespace Platformer
         
         [SerializeField]
         private Text HelpText;
-
-        //[SerializeField]
-        //private CollectibleSpawner2Conditions Spawner;
 
         private IProgressManager ProgressManager;
         private ILocalization Localization;
@@ -32,6 +28,7 @@ namespace Platformer
             Player = CompositionRoot.GetPlayer();
 
             HelpText.text = Localization.Text(ETexts.Talk);
+            HelpText.gameObject.SetActive(false);
 
             AreaTrigger = GetComponent<Collider2D>();
         }

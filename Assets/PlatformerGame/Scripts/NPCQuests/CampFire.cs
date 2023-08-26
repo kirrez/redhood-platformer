@@ -75,6 +75,8 @@ namespace Platformer
                 Player.Interaction -= OnInteraction;
                 HelpText.gameObject.SetActive(false);
             }
+
+            SwitchFire(false); //every frame..
         }
 
         private void OnInteraction()
