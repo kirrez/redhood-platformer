@@ -237,8 +237,8 @@ TextureImporter:
       name: Stream_0
       rect:
         serializedVersion: 2
-        x: 8
-        y: 336
+        x: 136
+        y: 112
         width: 16
         height: 16
       alignment: 1
@@ -258,8 +258,8 @@ TextureImporter:
       name: Stream_1
       rect:
         serializedVersion: 2
-        x: 8
-        y: 312
+        x: 136
+        y: 88
         width: 16
         height: 16
       alignment: 1
@@ -279,8 +279,8 @@ TextureImporter:
       name: Stream_2
       rect:
         serializedVersion: 2
-        x: 32
-        y: 336
+        x: 160
+        y: 112
         width: 16
         height: 16
       alignment: 1
@@ -300,8 +300,8 @@ TextureImporter:
       name: Stream_3
       rect:
         serializedVersion: 2
-        x: 32
-        y: 312
+        x: 160
+        y: 88
         width: 16
         height: 16
       alignment: 1
@@ -321,8 +321,8 @@ TextureImporter:
       name: WaterBlueTransparent
       rect:
         serializedVersion: 2
-        x: 8
-        y: 336
+        x: 136
+        y: 112
         width: 16
         height: 8
       alignment: 1
@@ -2586,69 +2586,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WaterfallBody_1
-      rect:
-        serializedVersion: 2
-        x: 8
-        y: 360
-        width: 32
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3a4011a44f36b674896ce24dbc3ec92a
-      internalID: 76578312
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: WaterfallBody_2
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 360
-        width: 32
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5eb29effdb68efc479574238d9bd4a8d
-      internalID: -35298014
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: WaterfallBody_3
-      rect:
-        serializedVersion: 2
-        x: 88
-        y: 360
-        width: 32
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 44c46d50f9ca23f41aa925dc146c7034
-      internalID: -1630037961
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: ExitZone
       rect:
         serializedVersion: 2
@@ -2917,153 +2854,6 @@ TextureImporter:
       bones: []
       spriteID: ad2ceb23adea3874aa4bf868c468167c
       internalID: 1189895126
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fish_0
-      rect:
-        serializedVersion: 2
-        x: 298
-        y: 221
-        width: 54
-        height: 35
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: de99c15d4bfbc0649ac7b0338b1f8bdc
-      internalID: 731272904
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fish_1
-      rect:
-        serializedVersion: 2
-        x: 298
-        y: 181
-        width: 54
-        height: 35
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c08b0c31e29345a41bd53ef824645bee
-      internalID: -1815086659
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fish_2
-      rect:
-        serializedVersion: 2
-        x: 354
-        y: 221
-        width: 54
-        height: 35
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e9ae83474a768334780ba7c496f1ebb1
-      internalID: -175219856
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fish_3
-      rect:
-        serializedVersion: 2
-        x: 354
-        y: 181
-        width: 54
-        height: 35
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8b53161fb62f30d488039a70dea9d901
-      internalID: 1361706878
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fish_4
-      rect:
-        serializedVersion: 2
-        x: 410
-        y: 221
-        width: 54
-        height: 35
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 90d35d4d71b0e9b499030c9ae84f1579
-      internalID: -495157367
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fish_5
-      rect:
-        serializedVersion: 2
-        x: 410
-        y: 181
-        width: 54
-        height: 35
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 921f8b8f5ebf9504b96137ec257ed637
-      internalID: -1548963843
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fish_6
-      rect:
-        serializedVersion: 2
-        x: 410
-        y: 141
-        width: 54
-        height: 35
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0d6298042ad758c44ab6c36a87527cc9
-      internalID: -65723090
       vertices: []
       indices: 
       edges: []

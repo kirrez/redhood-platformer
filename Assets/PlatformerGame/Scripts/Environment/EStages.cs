@@ -6,6 +6,7 @@ namespace Platformer
         TestStage,
         TheVillage,
         WestForest,
-        Mountains
+        Mountains,
+        Lumbermill
     }
 }
