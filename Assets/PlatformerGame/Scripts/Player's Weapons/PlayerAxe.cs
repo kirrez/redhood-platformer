@@ -50,15 +50,15 @@ namespace Platformer
             }
         }
 
-        public void Initiate(Vector2 newPosition, float direction)
+        public void Initiate(Vector2 newPosition, EFacing direction)
         {
             transform.position = newPosition;
 
-            if (direction == 1f)
+            if (direction == EFacing.Right)
             {
                 Renderer.flipX = false;
             }
-            if (direction == -1f)
+            if (direction == EFacing.Left)
             {
                 Renderer.flipX = true;
             }

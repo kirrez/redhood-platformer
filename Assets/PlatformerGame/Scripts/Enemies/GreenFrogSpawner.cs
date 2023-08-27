@@ -45,8 +45,6 @@ namespace Platformer
 
         private void FixedUpdate()
         {
-            float direction;
-
             if (Timer > 0 && !FrogSpawned)
             {
                 Timer -= Time.fixedDeltaTime;
@@ -58,8 +56,9 @@ namespace Platformer
 
                 StartX = Player.Position.x;
                 // frog jumps from direction, where player is facing
-                direction = Player.DirectionCheck() * -1;
-                StartX += InitialDistance * direction * -1;
+
+                var frogFacing = Player.Facing == EFacing.Right ? EFacing.Left : EFacing.Right;
+                StartX += frogFacing == EFacing.Right ? InitialDistance : -InitialDistance;
                 StartY = transform.position.y - Collider.bounds.extents.y;
 
                 var instance = ResourceManager.GetFromPool(Enemies.GreenFrog);
@@ -68,7 +67,7 @@ namespace Platformer
                 dynamics.AddItem(instance);
                 Frog = instance.GetComponent<GreenFrog>();
 
-                Frog.Initiate(direction, StartY, new Vector2(StartX, StartY));
+                Frog.Initiate(frogFacing, StartY, new Vector2(StartX, StartY));
                 Frog.Killed -= OnFrogKilled;
                 Frog.Killed += OnFrogKilled;
 

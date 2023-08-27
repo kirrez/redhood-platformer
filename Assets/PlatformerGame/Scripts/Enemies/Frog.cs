@@ -19,7 +19,6 @@ namespace Platformer
 
     public class Frog : MonoBehaviour
     {
-
         private FrogAnimator FrogAnimator;
 
         public Action Killed = () => { };
@@ -40,7 +39,7 @@ namespace Platformer
         private float HighJumpForce = 600f;
         private float LowJumpForce = 325f;
         private float HorizontalSpeed = 120f;
-        private float DirectionX = 1f;
+        private EFacing Facing = EFacing.Right;
         private float FirePointX;
 
         private int Behaviour = 0; // a counter for tracking actions, performed in row in a single direction
@@ -137,11 +136,11 @@ namespace Platformer
             instance.transform.SetParent(dynamics.Transform, false);
             dynamics.AddItem(instance);
 
-            if (DirectionX == 1)
+            if (Facing == EFacing.Right)
             {
                 direction = true;
             }
-            if (DirectionX == -1)
+            if (Facing == EFacing.Left)
             {
                 direction = false;
             }
@@ -154,13 +153,14 @@ namespace Platformer
         private void CheckDirection()
         {
             Vector2 newPosition;
-            if (DirectionX == 1f)
+
+            if (Facing == EFacing.Right)
             {
                 Renderer.flipX = false;
                 newPosition = new Vector2(FirePointX, FirePoint.localPosition.y);
                 FirePoint.localPosition = newPosition;
             }
-            if (DirectionX == -1f)
+            if (Facing == EFacing.Left)
             {
                 Renderer.flipX = true;
                 newPosition = new Vector2(-FirePointX, FirePoint.localPosition.y);
@@ -168,9 +168,9 @@ namespace Platformer
             }
         }
 
-        public void Initiate(float direction, float disappearY, Vector2 startPosition)
+        public void Initiate(EFacing direction, float disappearY, Vector2 startPosition)
         {
-            DirectionX = direction;
+            Facing = direction;
             DisappearY = disappearY;
 
             IsDamaged = false;
@@ -209,7 +209,8 @@ namespace Platformer
 
         private void MoveHorizontal()
         {
-            Rigidbody.velocity = new Vector2(DirectionX * Time.fixedDeltaTime * HorizontalSpeed, Rigidbody.velocity.y);
+            var x = Facing == EFacing.Right ? 1f : -1f;
+            Rigidbody.velocity = new Vector2(x * Time.fixedDeltaTime * HorizontalSpeed, Rigidbody.velocity.y);
         }
 
         private void SwitchColliders(bool state)
@@ -352,7 +353,7 @@ namespace Platformer
                 {
                     DisappearTimer = 0f;
                     //face left
-                    if (DirectionX == -1)
+                    if (Facing == EFacing.Left)
                     {
                         //player's at the left side
                         if (distance > 0)
@@ -388,7 +389,7 @@ namespace Platformer
                         if (distance <= 0)
                         {
                             Behaviour = 0;
-                            DirectionX = 1f;
+                            Facing = EFacing.Right;
                             //Renderer.flipX = false;
                             CheckDirection();
 
@@ -398,7 +399,7 @@ namespace Platformer
                     }
 
                     //face right
-                    if (DirectionX == 1)
+                    if (Facing == EFacing.Right)
                     {
                         //player's at the right side
                         if (distance < 0)
@@ -434,7 +435,7 @@ namespace Platformer
                         if (distance >= 0)
                         {
                             Behaviour = 0;
-                            DirectionX = -1f;
+                            Facing = EFacing.Left;
                             //Renderer.flipX = true;
                             CheckDirection();
 
@@ -524,7 +525,8 @@ namespace Platformer
                 instance.transform.position = FirePoint.position;
 
                 var weaponVelocity = instance.GetComponent<DamageDealer>().Velocity;
-                weaponVelocity.x *= DirectionX;
+                var x = Facing == EFacing.Right ? 1f : -1f;
+                weaponVelocity.x *= x;
                 instance.GetComponent<Rigidbody2D>().velocity = weaponVelocity;
 
                 //switch to Rest

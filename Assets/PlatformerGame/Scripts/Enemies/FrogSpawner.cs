@@ -58,8 +58,8 @@ namespace Platformer
 
                 StartX = Player.Position.x;
                 // frog jumps from direction, where player is facing
-                direction = Player.DirectionCheck() * -1;
-                StartX += InitialDistance * direction * -1;
+                var frogFacing = Player.Facing == EFacing.Right ? EFacing.Left : EFacing.Right;
+                StartX += frogFacing == EFacing.Right ? InitialDistance : -InitialDistance;
                 StartY = transform.position.y - Collider.bounds.extents.y;
 
                 var instance = ResourceManager.GetFromPool(Enemies.Frog);
@@ -68,7 +68,7 @@ namespace Platformer
                 dynamics.AddItem(instance);
                 Frog = instance.GetComponent<Frog>();
 
-                Frog.Initiate(direction, StartY, new Vector2(StartX, StartY));
+                Frog.Initiate(frogFacing, StartY, new Vector2(StartX, StartY));
                 Frog.Killed -= OnFrogKilled;
                 Frog.Killed += OnFrogKilled;
 

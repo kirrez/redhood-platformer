@@ -7,8 +7,7 @@ namespace Platformer
 {
     public class Player : MonoBehaviour, IPlayer
     {
-        public Health Health { get; private set; }
-        public IPlayerAnimations Animations { get; private set; }
+        public EFacing Facing { get; private set; } = EFacing.Right;
 
         public event Action Interaction = () => { };
 
@@ -19,6 +18,9 @@ namespace Platformer
             get { return transform.position; }
             set { transform.position = value; }
         }
+
+        public Health Health;
+        public IPlayerAnimations Animations;
 
         //Input
         public float Horizontal;
@@ -55,8 +57,6 @@ namespace Platformer
         public Rigidbody2D Rigidbody;
         public SpriteRenderer Renderer;
         public PlayerAnimator PlayerAnimator;
-
-        public float DirectionX = 1f;
 
         public Vector3 LastPosition;
 
@@ -118,7 +118,6 @@ namespace Platformer
             Rigidbody = GetComponent<Rigidbody2D>();
             Renderer = GetComponent<SpriteRenderer>();
             Health = GetComponent<Health>();
-
             Collider = GetComponent<PolygonCollider2D>();
 
             PlayerAnimator = new PlayerAnimator(Renderer);
@@ -268,37 +267,33 @@ namespace Platformer
             CurrentState.OnEnable(time);
         }
 
-
         // also returns "1" if player faces right and "-1" if left )) for external checks in spawners etc.
-        public float DirectionCheck()
+        public void DirectionCheck()
         {
             Vector2 newPosition;
             // Changes Renderer and weapon's directions
             if (Horizontal > 0)
             {
                 Renderer.flipX = false;
-                DirectionX = 1f;
+                Facing = EFacing.Right;
 
                 newPosition = new Vector2(StandingFirePointX, StandingFirePoint.localPosition.y);
                 StandingFirePoint.localPosition = newPosition;
 
                 newPosition = new Vector2(SittingFirePointX, SittingFirePoint.localPosition.y);
                 SittingFirePoint.localPosition = newPosition;
-                return 1f;
             }
             if (Horizontal < 0)
             {
                 Renderer.flipX = true;
-                DirectionX = -1f;
+                Facing = EFacing.Left;
 
                 newPosition = new Vector2(-StandingFirePointX, StandingFirePoint.localPosition.y);
                 StandingFirePoint.localPosition = newPosition;
 
                 newPosition = new Vector2(-SittingFirePointX, SittingFirePoint.localPosition.y);
                 SittingFirePoint.localPosition = newPosition;
-                return -1f;
             }
-            return DirectionX;
         }
 
         public void Walk()
@@ -363,7 +358,8 @@ namespace Platformer
 
         public void RollDown()
         {
-            Rigidbody.AddForce(new Vector2(DirectionX * RollDownForce, 0f));
+            var x = Facing == EFacing.Right ? 1 : -1;
+            Rigidbody.AddForce(new Vector2(x * RollDownForce, 0f));
         }
 
         public void StandUp()
@@ -466,12 +462,13 @@ namespace Platformer
                 instance.transform.SetParent(dynamics.Transform, false);
                 dynamics.AddItem(instance);
 
+                var x = Facing == EFacing.Right ? 1 : -1;
                 var weaponVelocity = instance.GetComponent<DamageDealer>().Velocity;
-                weaponVelocity.x *= DirectionX;
+                weaponVelocity.x *= x;
                 instance.GetComponent<Rigidbody2D>().velocity = weaponVelocity;
 
                 var weapon = instance.GetComponent<PlayerKnife>();
-                weapon.Initiate(FirePoint.position, DirectionX);
+                weapon.Initiate(FirePoint.position, Facing);
             }
         }
 
@@ -500,14 +497,14 @@ namespace Platformer
                 instance.transform.SetParent(dynamics.Transform, false);
                 dynamics.AddItem(instance);
 
+                var x = Facing == EFacing.Right ? 1 : -1;
                 var weaponVelocity = instance.GetComponent<DamageDealer>().Velocity;
-                weaponVelocity.x *= DirectionX;
+                weaponVelocity.x *= x;
                 instance.GetComponent<Rigidbody2D>().velocity = weaponVelocity;
 
                 var weapon = instance.GetComponent<PlayerAxe>();
-                weapon.Initiate(FirePoint.position, DirectionX);
+                weapon.Initiate(FirePoint.position, Facing);
             }
-
         }
 
         public void ShootHolyWater()
@@ -533,12 +530,13 @@ namespace Platformer
                 instance.transform.SetParent(dynamics.Transform, false);
                 dynamics.AddItem(instance);
 
+                var x = Facing == EFacing.Right ? 1 : -1;
                 var weaponVelocity = instance.GetComponent<DamageDealer>().Velocity;
-                weaponVelocity.x *= DirectionX;
+                weaponVelocity.x *= x;
                 instance.GetComponent<Rigidbody2D>().velocity = weaponVelocity;
 
                 var weapon = instance.GetComponent<PlayerHolyWaterBottle>();
-                weapon.Initiate(FirePoint.position, DirectionX);
+                weapon.Initiate(FirePoint.position, Facing);
 
                 weapon.Disappear += delegate (Transform trans)
                 {

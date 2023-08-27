@@ -7,10 +7,10 @@ namespace Platformer
     {
         event Action Interaction;
 
+        EFacing Facing { get; }
+
         Transform Transform { get; }
         Vector3 Position { get; set; }
-
-        float DirectionCheck(); //Input
 
         void Initiate(IGame game);
         void UpdateMaxLives();
