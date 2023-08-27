@@ -19,7 +19,7 @@ namespace Platformer.PlayerStates
         public void HealthChanged()
         {
             Model.ChangeHealthUI();
-            Model.SetState(EPlayerStates.DamageTaken);
+            Model.SetState(Model.StateDamageTaken);
         }
 
         public void OnEnable(float time = 0)
@@ -50,7 +50,7 @@ namespace Platformer.PlayerStates
             if (Model.Timer <= 0 && Model.Grounded(LayerMasks.Walkable))
             {
                 Model.Animations.Idle();
-                Model.SetState(EPlayerStates.Idle);
+                Model.SetState(Model.StateIdle);
             }
 
             // Jump Rising without hitting "Jump", interrupted animation
@@ -58,7 +58,7 @@ namespace Platformer.PlayerStates
             {
                 //Model.UpdateInAir(true);
                 Model.Animations.JumpRising();
-                Model.SetState(EPlayerStates.JumpRising);
+                Model.SetState(Model.StateJumpRising);
             }
 
             // jump Falling, interrupted animation
@@ -66,7 +66,7 @@ namespace Platformer.PlayerStates
             {
                 //Model.UpdateInAir(true);
                 Model.Animations.JumpFalling();
-                Model.SetState(EPlayerStates.JumpFalling);
+                Model.SetState(Model.StateJumpFalling);
             }
 
             // we can shoot any weapon if it's timer = 0

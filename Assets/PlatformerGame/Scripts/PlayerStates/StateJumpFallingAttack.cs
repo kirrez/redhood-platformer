@@ -19,7 +19,7 @@ namespace Platformer.PlayerStates
         public void HealthChanged()
         {
             Model.ChangeHealthUI();
-            Model.SetState(EPlayerStates.DamageTaken);
+            Model.SetState(Model.StateDamageTaken);
         }
 
         public void OnEnable(float time = 0)
@@ -46,7 +46,7 @@ namespace Platformer.PlayerStates
             if (Model.DeltaY < 0 && Model.Timer <= 0)
             {
                 Model.Animations.JumpFalling();
-                Model.SetState(EPlayerStates.JumpFalling);
+                Model.SetState(Model.StateJumpFalling);
             }
 
             // State Idle, animation interrupted?? yes..
@@ -55,7 +55,7 @@ namespace Platformer.PlayerStates
                 Model.ResetVelocity();
                 //Model.UpdateInAir(false);
                 Model.Animations.Idle();
-                Model.SetState(EPlayerStates.Idle);
+                Model.SetState(Model.StateIdle);
             }
 
             // State Walk, animation interrupted
@@ -63,7 +63,7 @@ namespace Platformer.PlayerStates
             {
                 //Model.UpdateInAir(false);
                 Model.Animations.Walk();
-                Model.SetState(EPlayerStates.Walk);
+                Model.SetState(Model.StateWalk);
             }
 
             // we can shoot any weapon if it's timer = 0

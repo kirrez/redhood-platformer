@@ -14,7 +14,7 @@ namespace Platformer.PlayerStates
         public void HealthChanged()
         {
             Model.ChangeHealthUI();
-            Model.SetState(EPlayerStates.DamageTaken);
+            Model.SetState(Model.StateDamageTaken);
         }
 
         public void OnEnable(float time = 0)
@@ -55,33 +55,33 @@ namespace Platformer.PlayerStates
             if (Model.Horizontal != 0 && Model.Grounded(LayerMasks.Slope))
             {
                 Model.Animations.Walk();
-                Model.SetState(EPlayerStates.Walk);
+                Model.SetState(Model.StateWalk);
             }
 
             // State Jump Falling
             if (Model.DeltaY < 0)
             {
                 Model.Animations.JumpFalling();
-                Model.SetState(EPlayerStates.JumpFalling);
+                Model.SetState(Model.StateJumpFalling);
             }
 
             // Attack Checks. Animations could be different, but they are not ))
             if (Model.IsAxeAttack())
             {
                 Model.ShootAxe();
-                Model.SetState(EPlayerStates.JumpRisingAttack, Model.Animations.AirAttack());
+                Model.SetState(Model.StateJumpRisingAttack, Model.Animations.AirAttack());
             }
 
             if (Model.IsKnifeAttack())
             {
                 Model.ShootKnife();
-                Model.SetState(EPlayerStates.JumpRisingAttack, Model.Animations.AirAttack());
+                Model.SetState(Model.StateJumpRisingAttack, Model.Animations.AirAttack());
             }
 
             if (Model.IsHolyWaterAttack())
             {
                 Model.ShootHolyWater();
-                Model.SetState(EPlayerStates.JumpRisingAttack, Model.Animations.AirAttack());
+                Model.SetState(Model.StateJumpRisingAttack, Model.Animations.AirAttack());
             }
         }
 

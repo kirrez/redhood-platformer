@@ -23,7 +23,7 @@ namespace Platformer.PlayerStates
         public void HealthChanged()
         {
             Model.ChangeHealthUI();
-            Model.SetState(EPlayerStates.DamageTaken);
+            Model.SetState(Model.StateDamageTaken);
         }
 
         public void OnEnable(float time = 0f)
@@ -31,7 +31,7 @@ namespace Platformer.PlayerStates
             //sitDamageCheck
             if (Model.Ceiled(LayerMasks.Solid) && Model.Grounded(LayerMasks.Solid))
             {
-                Model.SetState(EPlayerStates.SitDamageTaken, Model.Animations.SitDamageTaken());
+                Model.SetState(Model.StateSitDamageTaken, Model.Animations.SitDamageTaken());
             }
             else
             {
@@ -63,12 +63,12 @@ namespace Platformer.PlayerStates
                     {
                         Model.Animations.Dying();
                         Model.InactivateCollider(true);
-                        Model.SetState(EPlayerStates.Dying, Model.Animations.Dying() + Model.DeathShockTime);
+                        Model.SetState(Model.StateDying, Model.Animations.Dying() + Model.DeathShockTime);
                     }
                     else
                     {
                         Model.Animations.Idle();
-                        Model.SetState(EPlayerStates.Idle);
+                        Model.SetState(Model.StateIdle);
                     }
                 }
             }

@@ -17,7 +17,7 @@ namespace Platformer.PlayerStates
         public void HealthChanged()
         {
             Model.ChangeHealthUI();
-            Model.SetState(EPlayerStates.DamageTaken);
+            Model.SetState(Model.StateDamageTaken);
         }
 
         public void OnEnable(float time = 0f)
@@ -48,14 +48,14 @@ namespace Platformer.PlayerStates
             if (Model.Horizontal != 0 && Model.Grounded(LayerMasks.Walkable))
             {
                 Model.Animations.Walk();
-                Model.SetState(EPlayerStates.Walk);
+                Model.SetState(Model.StateWalk);
             }
 
             // State Sit
             if (Model.Vertical == -1)
             {
                 Model.Animations.Sit();
-                Model.SetState(EPlayerStates.Sit);
+                Model.SetState(Model.StateSit);
             }
 
             // State Jump Rising, from ground
@@ -66,40 +66,40 @@ namespace Platformer.PlayerStates
                 Model.ReleasePlatform();
                 Model.ResetVelocity();//test
                 Model.Jump();
-                Model.SetState(EPlayerStates.JumpRising, 0.75f);
+                Model.SetState(Model.StateJumpRising, 0.75f);
             }
 
             // State Jump Rising without hitting "Jump" button ))
             if (Model.DeltaY > 0 && !Model.Grounded(LayerMasks.Walkable) && !Model.StandingCeiled(LayerMasks.Solid))
             {
                 Model.Animations.JumpRising();
-                Model.SetState(EPlayerStates.JumpRising);
+                Model.SetState(Model.StateJumpRising);
             }
 
             // State Jump Falling, something disappeared right beneath your feet!
             if (Model.DeltaY < 0 && !Model.Grounded(LayerMasks.Walkable))
             {
                 Model.Animations.JumpFalling();
-                Model.SetState(EPlayerStates.JumpFalling);
+                Model.SetState(Model.StateJumpFalling);
             }
 
             // Attack Checks. Animations could be different, but they are not ))
             if (Model.IsAxeAttack())
             {
                 Model.ShootAxe();
-                Model.SetState(EPlayerStates.Attack, Model.Animations.Attack());
+                Model.SetState(Model.StateAttack, Model.Animations.Attack());
             }
 
             if (Model.IsKnifeAttack())
             {
                 Model.ShootKnife();
-                Model.SetState(EPlayerStates.Attack, Model.Animations.Attack());
+                Model.SetState(Model.StateAttack, Model.Animations.Attack());
             }
 
             if (Model.IsHolyWaterAttack())
             {
                 Model.ShootHolyWater();
-                Model.SetState(EPlayerStates.Attack, Model.Animations.Attack());
+                Model.SetState(Model.StateAttack, Model.Animations.Attack());
             }
         }
 

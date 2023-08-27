@@ -17,7 +17,7 @@ namespace Platformer.PlayerStates
         public void HealthChanged()
         {
             Model.ChangeHealthUI();
-            Model.SetState(EPlayerStates.DamageTaken);
+            Model.SetState(Model.StateDamageTaken);
         }
 
         public void OnEnable(float time = 0)
@@ -43,14 +43,14 @@ namespace Platformer.PlayerStates
             if (Model.Horizontal != 0)
             {
                 Model.Animations.Crouch();
-                Model.SetState(EPlayerStates.SitCrouch);
+                Model.SetState(Model.StateSitCrouch);
             }
 
             // Idle
             if (Model.Vertical == 0 && !Model.Ceiled(LayerMasks.Solid))
             {
                 Model.Animations.Idle();
-                Model.SetState(EPlayerStates.Idle);
+                Model.SetState(Model.StateIdle);
             }
 
 
@@ -60,8 +60,8 @@ namespace Platformer.PlayerStates
                 Model.HitJump = false;
                 Model.JumpDown();
                 Model.Animations.JumpFalling();
-                //Model.SetState(EPlayerStates.JumpDown, Model.JumpDownTime);
-                Model.SetState(EPlayerStates.JumpFalling, 0.75f);
+                //Model.SetState(Model.StateJumpDown, Model.JumpDownTime);
+                Model.SetState(Model.StateJumpFalling, 0.75f);
             }
 
             // Jump down from OneWay
@@ -70,7 +70,7 @@ namespace Platformer.PlayerStates
                 Model.HitJump = false;
                 Model.JumpDown();
                 Model.Animations.JumpFalling();
-                Model.SetState(EPlayerStates.JumpFalling, 0.75f);
+                Model.SetState(Model.StateJumpFalling, 0.75f);
             }
 
             // Roll Down while on ground !! not Solid (esp. Slope)
@@ -78,40 +78,40 @@ namespace Platformer.PlayerStates
             {
                 Model.HitJump = false;
                 Model.Animations.RollDown();
-                Model.SetState(EPlayerStates.RollDown, Model.RollDownTime);
+                Model.SetState(Model.StateRollDown, Model.RollDownTime);
             }
 
             // State Jump Rising without hitting "Jump" button ))
             if (Model.DeltaY > 0 && !Model.Grounded(LayerMasks.Walkable))
             {
                 Model.Animations.JumpRising();
-                Model.SetState(EPlayerStates.JumpRising);
+                Model.SetState(Model.StateJumpRising);
             }
 
             // State Jump Falling, something disappeared right beneath your feet!
             if (Model.DeltaY < 0 && !Model.Grounded(LayerMasks.Walkable))
             {
                 Model.Animations.JumpFalling();
-                Model.SetState(EPlayerStates.JumpFalling, 0.75f);
+                Model.SetState(Model.StateJumpFalling, 0.75f);
             }
 
             // Attack Checks. Animations could be different, but they are not ))
             if (Model.IsAxeAttack())
             {
                 Model.ShootAxe();
-                Model.SetState(EPlayerStates.SitAttack, Model.Animations.SitAttack());
+                Model.SetState(Model.StateSitAttack, Model.Animations.SitAttack());
             }
 
             if (Model.IsKnifeAttack())
             {
                 Model.ShootKnife();
-                Model.SetState(EPlayerStates.SitAttack, Model.Animations.SitAttack());
+                Model.SetState(Model.StateSitAttack, Model.Animations.SitAttack());
             }
 
             if (Model.IsHolyWaterAttack())
             {
                 Model.ShootHolyWater();
-                Model.SetState(EPlayerStates.SitAttack, Model.Animations.SitAttack());
+                Model.SetState(Model.StateSitAttack, Model.Animations.SitAttack());
             }
         }
     }

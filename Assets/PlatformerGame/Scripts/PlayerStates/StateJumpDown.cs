@@ -19,7 +19,7 @@ namespace Platformer.PlayerStates
         public void HealthChanged()
         {
             Model.ChangeHealthUI();
-            Model.SetState(EPlayerStates.DamageTaken);
+            Model.SetState(Model.StateDamageTaken);
         }
 
         public void OnEnable(float time = 0f)
@@ -33,7 +33,7 @@ namespace Platformer.PlayerStates
         {
             Model.ChangeHealthUI();
             Model.JumpDown();
-            Model.SetState(EPlayerStates.DamageTaken);
+            Model.SetState(Model.StateDamageTaken);
         }
 
         public void FixedUpdate()
@@ -55,7 +55,7 @@ namespace Platformer.PlayerStates
                 {
                     Model.StandUp();
                     Model.JumpDown();
-                    Model.SetState(EPlayerStates.JumpFalling);
+                    Model.SetState(Model.StateJumpFalling);
                 }
             }
 
@@ -66,7 +66,7 @@ namespace Platformer.PlayerStates
                 Model.StandUp();
                 Model.JumpDown();
                 Model.Animations.Idle();
-                Model.SetState(EPlayerStates.Idle);
+                Model.SetState(Model.StateIdle);
             }
         }
     }

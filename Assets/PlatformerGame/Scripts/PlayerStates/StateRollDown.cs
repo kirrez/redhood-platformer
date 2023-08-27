@@ -22,7 +22,7 @@ namespace Platformer.PlayerStates
         public void HealthChanged()
         {
             Model.ChangeHealthUI();
-            Model.SetState(EPlayerStates.DamageTaken);
+            Model.SetState(Model.StateDamageTaken);
         }
 
         public void OnEnable(float time = 0f)
@@ -50,12 +50,12 @@ namespace Platformer.PlayerStates
                     if (Model.Horizontal == 0)
                     {
                         Model.Animations.Idle();
-                        Model.SetState(EPlayerStates.Idle);
+                        Model.SetState(Model.StateIdle);
                     }
                     else if (Model.Horizontal != 0)
                     {
                         Model.Animations.Walk();
-                        Model.SetState(EPlayerStates.Walk);
+                        Model.SetState(Model.StateWalk);
                     }
                 }
 
@@ -65,12 +65,12 @@ namespace Platformer.PlayerStates
                     if (Model.Horizontal == 0)
                     {
                         Model.Animations.Sit();
-                        Model.SetState(EPlayerStates.Sit);
+                        Model.SetState(Model.StateSit);
                     }
                     else if (Model.Horizontal != 0)
                     {
                         Model.Animations.Crouch();
-                        Model.SetState(EPlayerStates.SitCrouch);
+                        Model.SetState(Model.StateSitCrouch);
                     }
                 }
             }
@@ -81,7 +81,7 @@ namespace Platformer.PlayerStates
                 Model.Timer = 0f;
                 //Model.UpdateInAir(true);
                 Model.Animations.JumpRising();
-                Model.SetState(EPlayerStates.JumpRising);
+                Model.SetState(Model.StateJumpRising);
             }
 
             // State Jump Falling, something disappeared right beneath your feet or you slided down from a solid surface
@@ -90,7 +90,7 @@ namespace Platformer.PlayerStates
                 Model.Timer = 0f;
                 //Model.UpdateInAir(true);
                 Model.Animations.JumpFalling();
-                Model.SetState(EPlayerStates.JumpFalling, 0.75f);
+                Model.SetState(Model.StateJumpFalling, 0.75f);
             }
         }
     }

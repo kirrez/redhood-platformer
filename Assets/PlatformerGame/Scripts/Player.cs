@@ -200,7 +200,7 @@ namespace Platformer
 
             InactivateCollider(false);
 
-            SetState(EPlayerStates.Idle, 0f);
+            SetState(StateIdle, 0f);
             Animations.Idle();
             StandUp();
 
@@ -208,62 +208,10 @@ namespace Platformer
             SittingFirePointX = SittingFirePoint.transform.localPosition.x;
         }
 
-        public void SetState(EPlayerStates state, float time = 0f)
+        public void SetState(IState state, float time = 0f)
         {
-            switch (state)
-            {
-                case EPlayerStates.Idle:
-                    CurrentState = StateIdle;
-                    break;
-                case EPlayerStates.Walk:
-                    CurrentState = StateWalk;
-                    break;
-                case EPlayerStates.Attack:
-                    CurrentState = StateAttack;
-                    break;
-                case EPlayerStates.JumpRising:
-                    CurrentState = StateJumpRising;
-                    break;
-                case EPlayerStates.JumpRisingAttack:
-                    CurrentState = StateJumpRisingAttack;
-                    break;
-                case EPlayerStates.JumpFalling:
-                    CurrentState = StateJumpFalling;
-                    break;
-                case EPlayerStates.JumpFallingAttack:
-                    CurrentState = StateJumpFallingAttack;
-                    break;
-                case EPlayerStates.JumpDown:
-                    CurrentState = StateJumpDown;
-                    break;
-                case EPlayerStates.RollDown:
-                    CurrentState = StateRollDown;
-                    break;
-                case EPlayerStates.Sit:
-                    CurrentState = StateSit;
-                    break;
-                case EPlayerStates.SitCrouch:
-                    CurrentState = StateSitCrouch;
-                    break;
-                case EPlayerStates.SitAttack:
-                    CurrentState = StateSitAttack;
-                    break;
-                case EPlayerStates.SitDamageTaken:
-                    CurrentState = StateSitDamageTaken;
-                    break;
-                case EPlayerStates.DamageTaken:
-                    CurrentState = StateDamageTaken;
-                    break;
-                case EPlayerStates.Dying:
-                    CurrentState = StateDying;
-                    break;
-                case EPlayerStates.Interaction:
-                    CurrentState = StateInteraction;
-                    break;
-                case EPlayerStates.Stunned:
-                    CurrentState = StateStunned;
-                    break;
-            }
+            CurrentState = state;
+
             CurrentState.OnEnable(time);
         }
 
@@ -709,19 +657,19 @@ namespace Platformer
 
         public void HoldByInteraction()
         {
-            SetState(EPlayerStates.Interaction);
+            SetState(StateInteraction);
         }
 
         public void ReleasedByInteraction()
         {
-            SetState(EPlayerStates.Idle);
+            SetState(StateIdle);
             Animations.Idle();
             InactivateCollider(false);
         }
 
         public void Stun(float time)
         {
-            SetState(EPlayerStates.Stunned, time);
+            SetState(StateStunned, time);
         }
 
         private void LoadConfigData()

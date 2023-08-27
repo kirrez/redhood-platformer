@@ -17,7 +17,7 @@ namespace Platformer.PlayerStates
         public void HealthChanged()
         {
             Model.ChangeHealthUI();
-            Model.SetState(EPlayerStates.DamageTaken);
+            Model.SetState(Model.StateDamageTaken);
         }
 
         public void OnEnable(float time = 0)
@@ -41,7 +41,7 @@ namespace Platformer.PlayerStates
             if (Model.Horizontal == 0)
             {
                 Model.Animations.Sit();
-                Model.SetState(EPlayerStates.Sit);
+                Model.SetState(Model.StateSit);
             }
 
             // Idle and Walk
@@ -51,13 +51,13 @@ namespace Platformer.PlayerStates
                 {
                     //Model.StandUp();
                     Model.Animations.Idle();
-                    Model.SetState(EPlayerStates.Idle);
+                    Model.SetState(Model.StateIdle);
                 }
                 else if (Model.Horizontal != 0)
                 {
                     //Model.StandUp();
                     Model.Animations.Walk();
-                    Model.SetState(EPlayerStates.Walk);
+                    Model.SetState(Model.StateWalk);
                 }
             }
 
@@ -66,7 +66,7 @@ namespace Platformer.PlayerStates
             {
                 Model.HitJump = false;
                 Model.Animations.RollDown();
-                Model.SetState(EPlayerStates.RollDown, Model.RollDownTime);
+                Model.SetState(Model.StateRollDown, Model.RollDownTime);
             }
 
             // State Jump Rising without hitting "Jump" button ))
@@ -74,7 +74,7 @@ namespace Platformer.PlayerStates
             {
                 //Model.UpdateInAir(true);
                 Model.Animations.JumpRising();
-                Model.SetState(EPlayerStates.JumpRising);
+                Model.SetState(Model.StateJumpRising);
             }
 
             // State Jump Falling, something disappeared right beneath your feet!
@@ -82,26 +82,26 @@ namespace Platformer.PlayerStates
             {
                 //Model.UpdateInAir(true);
                 Model.Animations.JumpFalling();
-                Model.SetState(EPlayerStates.JumpFalling, 0.75f);
+                Model.SetState(Model.StateJumpFalling, 0.75f);
             }
 
             // Attack Checks. Animations could be different, but they are not ))
             if (Model.IsAxeAttack())
             {
                 Model.ShootAxe();
-                Model.SetState(EPlayerStates.SitAttack, Model.Animations.SitAttack());
+                Model.SetState(Model.StateSitAttack, Model.Animations.SitAttack());
             }
 
             if (Model.IsKnifeAttack())
             {
                 Model.ShootKnife();
-                Model.SetState(EPlayerStates.SitAttack, Model.Animations.SitAttack());
+                Model.SetState(Model.StateSitAttack, Model.Animations.SitAttack());
             }
 
             if (Model.IsHolyWaterAttack())
             {
                 Model.ShootHolyWater();
-                Model.SetState(EPlayerStates.SitAttack, Model.Animations.SitAttack());
+                Model.SetState(Model.StateSitAttack, Model.Animations.SitAttack());
             }
         }
     }
