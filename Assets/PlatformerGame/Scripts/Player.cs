@@ -21,15 +21,13 @@ namespace Platformer
         }
 
         //Input
-        public float Horizontal { get; set; }
-        public float Vertical { get; set; }
-        public bool HitJump { get; set; }
-        public bool HitAttack { get; set; }
+        public float Horizontal;
+        public float Vertical;
+        public bool HitJump;
+        public bool HitAttack;
+        public bool HitInteraction;
 
-        public bool HitInteraction { get; set; }
         public float DeltaY { get; private set; }
-        //public bool InAir { get; set; }
-
         public float JumpDownTime { get; private set; }
         public float RollDownTime { get; private set; }
         public float DeathShockTime { get; private set; }
@@ -302,12 +300,6 @@ namespace Platformer
             }
             return DirectionX;
         }
-
-        // for Double Jump??
-        //public void UpdateInAir(bool state)
-        //{
-        //    InAir = state;
-        //}
 
         public void Walk()
         {
