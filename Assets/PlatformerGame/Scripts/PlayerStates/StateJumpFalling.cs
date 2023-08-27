@@ -1,35 +1,45 @@
-
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Platformer.PlayerStates
 {
-    public class StateJumpFalling : BaseState
+    public class StateJumpFalling : IState
     {
-        public StateJumpFalling(IPlayer model)
+        private Player Model;
+
+        public StateJumpFalling(Player model)
         {
             Model = model;
         }
 
-        public override void OnEnable(float time = 0)
+        public void Update()
         {
-            base.OnEnable(time);
-            Model.UpdateStateName("Jump Falling");
+            Model.GetInput();
         }
 
-        public override void FixedUpdate()
+        public void HealthChanged()
         {
-            base.FixedUpdate();
+            Model.ChangeHealthUI();
+            Model.SetState(EPlayerStates.DamageTaken);
+        }
+
+        public void OnEnable(float time = 0)
+        {
+            Model.Timer = time;
+        }
+
+        public void FixedUpdate()
+        {
+            Model.SetDeltaY();
+            Model.UpdateAttackTimers();
 
             Model.DirectionCheck();
 
             //StandUp happens immediately or after a delay, if something is passed in Activate()
-            if (Timer >= 0)
+            if (Model.Timer >= 0)
             {
-                Timer -= Time.fixedDeltaTime;
+                Model.Timer -= Time.fixedDeltaTime;
 
-                if (Timer < 0)
+                if (Model.Timer < 0)
                 {
                     Model.StandUp();
                 }

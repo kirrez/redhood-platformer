@@ -1,40 +1,43 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Platformer.PlayerStates
 {
-    public class StateDying : BaseState
+    public class StateDying : IState
     {
+        private Player Model;
 
-        public StateDying(IPlayer model)
+        public StateDying(Player model)
         {
             Model = model;
         }
 
-        public override void OnEnable(float time = 0f)
-        {
-            Timer = time;
-            Model.UpdateStateName("Dying");
-            Model.Health.HealthChanged = null;
-        }
-
-        public override void Update()
+        public void Update()
         {
             // no player control input
+            //Model.GetInput();
         }
 
-        public override void FixedUpdate()
+        public void HealthChanged()
+        {
+            Model.ChangeHealthUI();
+            Model.SetState(EPlayerStates.DamageTaken);
+        }
+
+        public void OnEnable(float time = 0f)
+        {
+            Model.Timer = time;
+        }
+
+        public void FixedUpdate()
         {
             // no base
 
-            Timer -= Time.fixedDeltaTime;
+            Model.Timer -= Time.fixedDeltaTime;
 
-            if (Timer <= 0)
+            if (Model.Timer <= 0)
             {
                 Model.EnableGameOver();
             }
         }
-
     }
 }

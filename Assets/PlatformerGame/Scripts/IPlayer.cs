@@ -38,39 +38,39 @@ namespace Platformer
         void Initiate(IGame game);
         void UpdateMaxLives();
         void Revive();
-        void SetState(EPlayerStates state, float time = 0f);
-        void SetDeltaY();
-        void Walk();
-        void Crouch();
-        void StickToPlatform();
-        void ResetVelocity();
-        void PushDown();
-        void Jump();
-        void JumpDown();
-        void ReleasePlatform();
-        void InactivateCollider(bool flag);
-        void DamagePushBack();
-        void RollDown();
-        void StandUp();
-        void SitDown();
+
         void HoldByInteraction();
         void ReleasedByInteraction();
-        void GetStunned(float time);
+        void Stun(float time);
+
+        //void SetState(EPlayerStates state, float time = 0f);
+        //void SetDeltaY();
+        //void Walk();
+        //void Crouch();
+        //void StickToPlatform();
+        //void ResetVelocity();
+        //void PushDown();
+        //void Jump();
+        //void JumpDown();
+        //void ReleasePlatform();
+        //void InactivateCollider(bool flag);
+        //void DamagePushBack();
+        //void RollDown();
+        //void StandUp();
+        //void SitDown();
 
         //Weapons
-        void UpdateAttackTimers();
-        bool IsKnifeAttack();
-        bool IsAxeAttack();
-        bool IsHolyWaterAttack();
-        void ShootKnife();
-        void ShootAxe();
-        void ShootHolyWater();
+        //void UpdateAttackTimers();
+        //bool IsKnifeAttack();
+        //bool IsAxeAttack();
+        //bool IsHolyWaterAttack();
+        //void ShootKnife();
+        //void ShootAxe();
+        //void ShootHolyWater();
 
-
-        void ChangeHealthUI();
-        void GetInput();
-        void GetInteractionInput();
-        void UpdateStateName(string name);
-        void EnableGameOver();
+        //void ChangeHealthUI();
+        //void GetInput();
+        //void GetInteractionInput();
+        //void EnableGameOver();
     }
 }

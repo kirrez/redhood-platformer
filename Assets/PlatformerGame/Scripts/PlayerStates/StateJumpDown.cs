@@ -1,36 +1,44 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Platformer.PlayerStates
 {
-    public class StateJumpDown : BaseState
+    public class StateJumpDown : IState
     {
+        private Player Model;
 
-        public StateJumpDown(IPlayer model)
+        public StateJumpDown(Player model)
         {
             Model = model;
         }
 
-        public override void OnEnable(float time = 0f)
+        public void Update()
         {
-            base.OnEnable(time);
+            Model.GetInput();
+        }
+
+        public void HealthChanged()
+        {
+            Model.ChangeHealthUI();
+            Model.SetState(EPlayerStates.DamageTaken);
+        }
+
+        public void OnEnable(float time = 0f)
+        {
+            Model.Timer = time;
 
             Model.JumpDown();
         }
 
-        protected override void OnHealthChanged()
+        public void OnHealthChanged()
         {
             Model.ChangeHealthUI();
             Model.JumpDown();
             Model.SetState(EPlayerStates.DamageTaken);
         }
 
-        public override void FixedUpdate()
+        public void FixedUpdate()
         {
             // no base
-
-            Model.UpdateStateName("Jump Down");
 
             Model.DirectionCheck();
 
@@ -40,10 +48,10 @@ namespace Platformer.PlayerStates
             }
 
             // State Jump Falling, Timer finished in air
-            if (Timer > 0)
+            if (Model.Timer > 0)
             {
-                Timer -= Time.fixedDeltaTime;
-                if (Timer <= 0)
+                Model.Timer -= Time.fixedDeltaTime;
+                if (Model.Timer <= 0)
                 {
                     Model.StandUp();
                     Model.JumpDown();

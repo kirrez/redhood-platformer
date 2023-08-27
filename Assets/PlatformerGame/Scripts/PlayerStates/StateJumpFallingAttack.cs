@@ -1,29 +1,40 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Platformer.PlayerStates
 {
-    public class StateJumpFallingAttack : BaseState
+    public class StateJumpFallingAttack : IState
     {
-        public StateJumpFallingAttack(IPlayer model)
+        private Player Model;
+
+        public StateJumpFallingAttack(Player model)
         {
             Model = model;
         }
 
-        public override void OnEnable(float time = 0)
+        public void Update()
         {
-            base.OnEnable(time);
-            Model.UpdateStateName("Jump Falling Attack");
+            Model.GetInput();
         }
 
-        public override void FixedUpdate()
+        public void HealthChanged()
         {
-            base.FixedUpdate();
+            Model.ChangeHealthUI();
+            Model.SetState(EPlayerStates.DamageTaken);
+        }
+
+        public void OnEnable(float time = 0)
+        {
+            Model.Timer = time;
+        }
+
+        public void FixedUpdate()
+        {
+            Model.SetDeltaY();
+            Model.UpdateAttackTimers();
 
             Model.DirectionCheck();
 
-            Timer -= Time.fixedDeltaTime;
+            Model.Timer -= Time.fixedDeltaTime;
 
             // controllable horizontal
             if (Model.Horizontal != 0)
@@ -32,7 +43,7 @@ namespace Platformer.PlayerStates
             }
 
             // State JumpFalling
-            if (Model.DeltaY < 0 && Timer <= 0)
+            if (Model.DeltaY < 0 && Model.Timer <= 0)
             {
                 Model.Animations.JumpFalling();
                 Model.SetState(EPlayerStates.JumpFalling);

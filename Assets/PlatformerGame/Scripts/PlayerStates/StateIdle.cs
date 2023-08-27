@@ -1,26 +1,36 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 namespace Platformer.PlayerStates
 {
-    public class StateIdle : BaseState
+    public class StateIdle : IState
     {
-        public StateIdle(IPlayer model)
+        private Player Model;
+
+        public StateIdle(Player model)
         {
             Model = model;
         }
 
-        public override void OnEnable(float time = 0f)
+        public void Update()
         {
-            base.OnEnable(time);
-            Model.UpdateStateName("Idle");
+            Model.GetInput();
+        }
+
+        public void HealthChanged()
+        {
+            Model.ChangeHealthUI();
+            Model.SetState(EPlayerStates.DamageTaken);
+        }
+
+        public void OnEnable(float time = 0f)
+        {
+            Model.Timer = time;
+
             Model.StandUp();
         }
 
-        public override void FixedUpdate()
+        public void FixedUpdate()
         {
-            base.FixedUpdate();
+            Model.SetDeltaY();
+            Model.UpdateAttackTimers();
 
             // Steep slope
             if (Model.Grounded(LayerMasks.Slope))

@@ -1,23 +1,37 @@
 
 namespace Platformer.PlayerStates
 {
-    public class StateWalk : BaseState
+    public class StateWalk : IState
     {
-        public StateWalk(IPlayer model)
+        private Player Model;
+
+        public StateWalk(Player model)
         {
             Model = model;
         }
 
-        public override void OnEnable(float time = 0)
+        public void Update()
         {
-            base.OnEnable(time);
-            Model.UpdateStateName("Walk");
+            Model.GetInput();
+        }
+
+        public void HealthChanged()
+        {
+            Model.ChangeHealthUI();
+            Model.SetState(EPlayerStates.DamageTaken);
+        }
+
+        public void OnEnable(float time = 0)
+        {
+            Model.Timer = time;
+
             Model.StandUp();
         }
 
-        public override void FixedUpdate()
+        public void FixedUpdate()
         {
-            base.FixedUpdate();
+            Model.SetDeltaY();
+            Model.UpdateAttackTimers();
 
             Model.DirectionCheck();
 

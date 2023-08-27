@@ -2,24 +2,16 @@ using UnityEngine;
 
 namespace Platformer.PlayerStates
 {
-    public class StateRollDown : BaseState
+    public class StateRollDown : IState
     {
-        public StateRollDown(IPlayer model)
+        private Player Model;
+
+        public StateRollDown(Player model)
         {
             Model = model;
         }
 
-        public override void OnEnable(float time = 0f)
-        {
-            base.OnEnable(time);
-            Model.UpdateStateName("Roll Down");
-            Model.SitDown();
-
-            Model.ResetVelocity();
-            Model.RollDown();
-        }
-
-        public override void Update()
+        public void Update()
         {
             //if (Timer <= 0)
             //{
@@ -27,13 +19,30 @@ namespace Platformer.PlayerStates
             //}
         }
 
-        public override void FixedUpdate()
+        public void HealthChanged()
         {
-            base.FixedUpdate();
+            Model.ChangeHealthUI();
+            Model.SetState(EPlayerStates.DamageTaken);
+        }
 
-            Timer -= Time.fixedDeltaTime;
+        public void OnEnable(float time = 0f)
+        {
+            Model.Timer = time;
 
-            if (Timer <= 0)
+            Model.SitDown();
+
+            Model.ResetVelocity();
+            Model.RollDown();
+        }
+
+        public void FixedUpdate()
+        {
+            Model.SetDeltaY();
+            Model.UpdateAttackTimers();
+
+            Model.Timer -= Time.fixedDeltaTime;
+
+            if (Model.Timer <= 0)
             {
                 // Idle and Walk
                 if (!Model.Ceiled(LayerMasks.Solid) && Model.Vertical > -1)
@@ -69,7 +78,7 @@ namespace Platformer.PlayerStates
             // State Jump Rising without hitting "Jump" button ))
             if (Model.DeltaY > 0 && !Model.Grounded(LayerMasks.Walkable))
             {
-                Timer = 0f;
+                Model.Timer = 0f;
                 //Model.UpdateInAir(true);
                 Model.Animations.JumpRising();
                 Model.SetState(EPlayerStates.JumpRising);
@@ -78,7 +87,7 @@ namespace Platformer.PlayerStates
             // State Jump Falling, something disappeared right beneath your feet or you slided down from a solid surface
             if (Model.DeltaY < 0 && !Model.Grounded(LayerMasks.Walkable))
             {
-                Timer = 0f;
+                Model.Timer = 0f;
                 //Model.UpdateInAir(true);
                 Model.Animations.JumpFalling();
                 Model.SetState(EPlayerStates.JumpFalling, 0.75f);

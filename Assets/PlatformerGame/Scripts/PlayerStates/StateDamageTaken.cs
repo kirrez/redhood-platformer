@@ -1,22 +1,33 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Platformer.PlayerStates
 {
-    public class StateDamageTaken : BaseState
+    public class StateDamageTaken : IState
     {
         private int HitPoints;
-        public StateDamageTaken(IPlayer model)
+
+        private Player Model;
+
+        public StateDamageTaken(Player model)
         {
             Model = model;
         }
 
-        public override void OnEnable(float time = 0f)
+        public void Update()
         {
-            Model.UpdateStateName("Damage Taken");
-            Model.Health.HealthChanged = null; //cleaning previous handler
+            //no player control
 
+            //Model.GetInput();
+        }
+
+        public void HealthChanged()
+        {
+            Model.ChangeHealthUI();
+            Model.SetState(EPlayerStates.DamageTaken);
+        }
+
+        public void OnEnable(float time = 0f)
+        {
             //sitDamageCheck
             if (Model.Ceiled(LayerMasks.Solid) && Model.Grounded(LayerMasks.Solid))
             {
@@ -24,7 +35,7 @@ namespace Platformer.PlayerStates
             }
             else
             {
-                Timer = Model.Animations.DamageTaken();
+                Model.Timer = Model.Animations.DamageTaken();
                 HitPoints = Model.Health.GetHitPoints;
 
                 Model.StandUp();
@@ -33,18 +44,13 @@ namespace Platformer.PlayerStates
             }
         }
 
-        public override void Update()
-        {
-            // no player control input!
-        }
-
-        public override void FixedUpdate()
+        public void FixedUpdate()
         {
             // no base
 
-            Timer -= Time.fixedDeltaTime;
+            Model.Timer -= Time.fixedDeltaTime;
 
-            if (Timer <= 0)
+            if (Model.Timer <= 0)
             {
                 // Idle
                 if (Model.Grounded(LayerMasks.Walkable))
@@ -68,7 +74,7 @@ namespace Platformer.PlayerStates
             }
         }
 
-        protected override void OnHealthChanged()
+        public void OnHealthChanged()
         {
             // doing just nothing )
         }

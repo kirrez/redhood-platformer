@@ -1,30 +1,37 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Platformer.PlayerStates
 {
-    public class StateJumpRising : BaseState
+    public class StateJumpRising : IState
     {
-        public StateJumpRising(IPlayer model)
+        private Player Model;
+
+        public StateJumpRising(Player model)
         {
             Model = model;
         }
 
-        public override void OnEnable(float time = 0)
+        public void HealthChanged()
         {
-            base.OnEnable(time);
-            Model.UpdateStateName("Jump Rising");
+            Model.ChangeHealthUI();
+            Model.SetState(EPlayerStates.DamageTaken);
+        }
+
+        public void OnEnable(float time = 0)
+        {
+            Model.Timer = time;
+
             Model.StandUp();
         }
 
-        public override void FixedUpdate()
+        public void FixedUpdate()
         {
-            base.FixedUpdate();
+            Model.SetDeltaY();
+            Model.UpdateAttackTimers();
 
             Model.DirectionCheck();
 
-            Timer -= Time.fixedDeltaTime;
+            Model.Timer -= Time.fixedDeltaTime;
 
             // Push Down
             if (Model.Vertical < 0)
@@ -39,7 +46,7 @@ namespace Platformer.PlayerStates
             }
 
             // Check MovingPlatform again after cooldown
-            if (Timer <= 0)
+            if (Model.Timer <= 0)
             {
                 Model.Grounded(LayerMasks.Platforms);
             }
@@ -76,6 +83,11 @@ namespace Platformer.PlayerStates
                 Model.ShootHolyWater();
                 Model.SetState(EPlayerStates.JumpRisingAttack, Model.Animations.AirAttack());
             }
+        }
+
+        public void Update()
+        {
+            Model.GetInput();
         }
     }
 }

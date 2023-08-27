@@ -1,26 +1,36 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 namespace Platformer.PlayerStates
 {
-    public class StateSit : BaseState
+    public class StateSit : IState
     {
-        public StateSit(IPlayer model)
+        private Player Model;
+
+        public StateSit(Player model)
         {
             Model = model;
         }
 
-        public override void OnEnable(float time = 0)
+        public void Update()
         {
-            base.OnEnable(time);
-            Model.UpdateStateName("Sit");
+            Model.GetInput();
+        }
+
+        public void HealthChanged()
+        {
+            Model.ChangeHealthUI();
+            Model.SetState(EPlayerStates.DamageTaken);
+        }
+
+        public void OnEnable(float time = 0)
+        {
+            Model.Timer = time;
+
             Model.SitDown();
         }
 
-        public override void FixedUpdate()
+        public void FixedUpdate()
         {
-            base.FixedUpdate();
+            Model.SetDeltaY();
+            Model.UpdateAttackTimers();
 
             // Carried by MovingPlatform
             if (Model.Grounded(LayerMasks.Platforms))

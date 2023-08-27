@@ -1,40 +1,44 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Platformer.PlayerStates
 {
-    public class StateStunned : BaseState
+    public class StateStunned : IState
     {
-        public StateStunned(IPlayer model)
+        private Player Model;
+
+        public StateStunned(Player model)
         {
             Model = model;
         }
 
-        public override void OnEnable(float time = 0)
-        {
-            Timer = time;
-            Model.UpdateStateName("Stunned");
-
-            Model.Animations.Stunned();
-            Model.ResetVelocity();
-            Model.InactivateCollider(true);
-            Model.Health.HealthChanged = null;
-        }
-
-        public override void Update()
+        public void Update()
         {
             // only input without attack and movement
             // Model.GetInteractionInput();
         }
 
-        public override void FixedUpdate()
+        public void HealthChanged()
+        {
+            Model.ChangeHealthUI();
+            Model.SetState(EPlayerStates.DamageTaken);
+        }
+
+        public void OnEnable(float time = 0)
+        {
+            Model.Timer = time;
+
+            Model.Animations.Stunned();
+            Model.ResetVelocity();
+            Model.InactivateCollider(true);
+        }
+
+        public void FixedUpdate()
         {
             // no base
 
-            Timer -= Time.fixedDeltaTime;
+            Model.Timer -= Time.fixedDeltaTime;
 
-            if (Timer <= 0)
+            if (Model.Timer <= 0)
             {
                 //Idle
                 if (Model.Grounded(LayerMasks.Walkable))

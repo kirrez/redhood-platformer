@@ -1,38 +1,44 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Platformer.PlayerStates
 {
-    public class StateSitDamageTaken : BaseState
+    public class StateSitDamageTaken : IState
     {
         private int HitPoints;
-        public StateSitDamageTaken(IPlayer model)
+
+        private Player Model;
+
+        public StateSitDamageTaken(Player model)
         {
             Model = model;
         }
 
-        public override void OnEnable(float time = 0f)
+        public void Update()
         {
-            Timer = time;
-            Model.UpdateStateName("Sit Damage Taken");
+            // no player control input!
+        }
+
+        public void HealthChanged()
+        {
+            Model.ChangeHealthUI();
+            Model.SetState(EPlayerStates.DamageTaken);
+        }
+
+        public void OnEnable(float time = 0f)
+        {
+            Model.Timer = time;
             Model.ResetVelocity();
 
             HitPoints = Model.Health.GetHitPoints;
         }
 
-        public override void Update()
-        {
-            // no player control input!
-        }
-
-        public override void FixedUpdate()
+        public void FixedUpdate()
         {
             // no base
 
-            Timer -= Time.fixedDeltaTime;
+            Model.Timer -= Time.fixedDeltaTime;
 
-            if (Timer <= 0)
+            if (Model.Timer <= 0)
             {
                 // Dying, if HP <= 0
                 if (HitPoints <= 0)
@@ -49,7 +55,7 @@ namespace Platformer.PlayerStates
             }
         }
 
-        protected override void OnHealthChanged()
+        public void OnHealthChanged()
         {
             // doing just nothing )
         }

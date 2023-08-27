@@ -75,7 +75,7 @@ namespace Platformer
                 ProgressManager.SetQuest(EQuest.Location, 0);
                 ProgressManager.SetQuest(EQuest.SpawnPoint, 1);
 
-                Player.GetStunned(1.5f);
+                Player.Stun(1.5f);
             }
         }
     }

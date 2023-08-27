@@ -1,27 +1,38 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Platformer.PlayerStates
 {
-    public class StateAttack : BaseState
+    public class StateAttack : IState
     {
-        public StateAttack(IPlayer model)
+        private Player Model;
+
+        public StateAttack(Player model)
         {
             Model = model;
         }
 
-        public override void OnEnable(float time = 0)
+        public void Update()
         {
-            base.OnEnable(time);
-            Model.UpdateStateName("Attack");
+            Model.GetInput();
         }
 
-        public override void FixedUpdate()
+        public void HealthChanged()
         {
-            base.FixedUpdate();
+            Model.ChangeHealthUI();
+            Model.SetState(EPlayerStates.DamageTaken);
+        }
 
-            Timer -= Time.fixedDeltaTime;
+        public void OnEnable(float time = 0)
+        {
+            Model.Timer = time;
+        }
+
+        public void FixedUpdate()
+        {
+            Model.SetDeltaY();
+            Model.UpdateAttackTimers();
+
+            Model.Timer -= Time.fixedDeltaTime;
 
             // Carried by platform
             if (Model.Grounded(LayerMasks.PlatformOneWay))
@@ -36,7 +47,7 @@ namespace Platformer.PlayerStates
             }
 
             // State Idle, animation fully played
-            if (Timer <=0 && Model.Grounded(LayerMasks.Walkable))
+            if (Model.Timer <= 0 && Model.Grounded(LayerMasks.Walkable))
             {
                 Model.Animations.Idle();
                 Model.SetState(EPlayerStates.Idle);

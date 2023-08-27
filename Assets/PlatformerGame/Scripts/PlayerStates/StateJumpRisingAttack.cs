@@ -2,26 +2,39 @@ using UnityEngine;
 
 namespace Platformer.PlayerStates
 {
-    public class StateJumpRisingAttack : BaseState
+    public class StateJumpRisingAttack : IState
     {
-        public StateJumpRisingAttack(IPlayer model)
+        private Player Model;
+
+        public StateJumpRisingAttack(Player model)
         {
             Model = model;
         }
 
-        public override void OnEnable(float time = 0)
+        public void Update()
         {
-            base.OnEnable(time);
-            Model.UpdateStateName("Jump Rising Attack");
+            Model.GetInput();
         }
 
-        public override void FixedUpdate()
+        public void HealthChanged()
         {
-            base.FixedUpdate();
+            Model.ChangeHealthUI();
+            Model.SetState(EPlayerStates.DamageTaken);
+        }
+
+        public void OnEnable(float time = 0)
+        {
+            Model.Timer = time;
+        }
+
+        public void FixedUpdate()
+        {
+            Model.SetDeltaY();
+            Model.UpdateAttackTimers();
 
             Model.DirectionCheck();
 
-            Timer -= Time.fixedDeltaTime;
+            Model.Timer -= Time.fixedDeltaTime;
 
             // Push Down
             if (Model.Vertical < 0)
@@ -52,14 +65,14 @@ namespace Platformer.PlayerStates
             }
 
             // State Jump Rising, long jump
-            if (Model.DeltaY > 0 && Timer <= 0)
+            if (Model.DeltaY > 0 && Model.Timer <= 0)
             {
                 Model.Animations.JumpRising();
                 Model.SetState(EPlayerStates.JumpRising);
             }
 
             // State JumpFalling
-            if (Model.DeltaY < 0 && Timer <= 0)
+            if (Model.DeltaY < 0 && Model.Timer <= 0)
             {
                 Model.Animations.JumpFalling();
                 Model.SetState(EPlayerStates.JumpFalling);

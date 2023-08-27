@@ -5,7 +5,7 @@ using System;
 
 namespace Platformer
 {
-    public class Player2 : MonoBehaviour, IPlayer
+    public class Player : MonoBehaviour, IPlayer
     {
         public Health Health { get; private set; }
         public IPlayerAnimations Animations { get; private set; }
@@ -34,41 +34,43 @@ namespace Platformer
         public float RollDownTime { get; private set; }
         public float DeathShockTime { get; private set; }
 
-        private StateIdle StateIdle;
-        private StateWalk StateWalk;
-        private StateDying StateDying;
-        private StateAttack StateAttack;
-        private StateJumpRising StateJumpRising;
-        private StateJumpFalling StateJumpFalling;
-        private StateJumpRisingAttack StateJumpRisingAttack;
-        private StateJumpFallingAttack StateJumpFallingAttack;
-        private StateJumpDown StateJumpDown;
-        private StateSit StateSit;
-        private StateSitAttack StateSitAttack;
-        private StateSitCrouch StateSitCrouch;
-        private StateRollDown StateRollDown;
-        private StateDamageTaken StateDamageTaken;
-        private StateSitDamageTaken StateSitDamageTaken;
-        private StateInteraction StateInteraction;
-        private StateStunned StateStunned;
+        public StateIdle StateIdle;
+        public StateWalk StateWalk;
+        public StateDying StateDying;
+        public StateAttack StateAttack;
+        public StateJumpRising StateJumpRising;
+        public StateJumpFalling StateJumpFalling;
+        public StateJumpRisingAttack StateJumpRisingAttack;
+        public StateJumpFallingAttack StateJumpFallingAttack;
+        public StateJumpDown StateJumpDown;
+        public StateSit StateSit;
+        public StateSitAttack StateSitAttack;
+        public StateSitCrouch StateSitCrouch;
+        public StateRollDown StateRollDown;
+        public StateDamageTaken StateDamageTaken;
+        public StateSitDamageTaken StateSitDamageTaken;
+        public StateInteraction StateInteraction;
+        public StateStunned StateStunned;
 
-        private BaseState CurrentState;
+        private IState CurrentState;
 
-        private Rigidbody2D Rigidbody;
-        private SpriteRenderer Renderer;
-        private PlayerAnimator PlayerAnimator;
+        public Rigidbody2D Rigidbody;
+        public SpriteRenderer Renderer;
+        public PlayerAnimator PlayerAnimator;
 
-        private float DirectionX = 1f;
+        public float DirectionX = 1f;
 
-        private Vector3 LastPosition;
+        public Vector3 LastPosition;
 
-        private PlayerConfig Config;
+        public PlayerConfig Config;
 
-        private float HorizontalSpeed;
-        private float CrouchSpeed;
-        private float PushDownForce;
-        private float JumpForce;
-        private float RollDownForce;
+        public float HorizontalSpeed;
+        public float CrouchSpeed;
+        public float PushDownForce;
+        public float JumpForce;
+        public float RollDownForce;
+
+        public float Timer;
 
         //Two paths for collider to switch between while change StandUp and SitDown ))
         [SerializeField]
@@ -161,7 +163,6 @@ namespace Platformer
 
             PlayerAnimator.Update(); //Time.deltaTime on timer inside 
         }
-
 
         private void FixedUpdate()
         {
@@ -673,11 +674,6 @@ namespace Platformer
             }
         }
 
-        public void UpdateStateName(string name)
-        {
-            //Hud.ChangeStateName(name);
-        }
-
         public void ChangeHealthUI()
         {
             int lives = Health.GetHitPoints;
@@ -733,11 +729,10 @@ namespace Platformer
             InactivateCollider(false);
         }
 
-        public void GetStunned(float time)
+        public void Stun(float time)
         {
             SetState(EPlayerStates.Stunned, time);
         }
-
 
         private void LoadConfigData()
         {

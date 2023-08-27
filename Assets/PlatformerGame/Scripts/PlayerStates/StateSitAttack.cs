@@ -2,25 +2,39 @@ using UnityEngine;
 
 namespace Platformer.PlayerStates
 {
-    public class StateSitAttack : BaseState
+    public class StateSitAttack : IState
     {
-        public StateSitAttack(IPlayer model)
+        private Player Model;
+
+        public StateSitAttack(Player model)
         {
             Model = model;
         }
 
-        public override void OnEnable(float time = 0)
+        public void Update()
         {
-            base.OnEnable(time);
-            Model.UpdateStateName("Sit Attack");
+            Model.GetInput();
+        }
+
+        public void HealthChanged()
+        {
+            Model.ChangeHealthUI();
+            Model.SetState(EPlayerStates.DamageTaken);
+        }
+
+        public void OnEnable(float time = 0)
+        {
+            Model.Timer = time;
+
             Model.SitDown();
         }
 
-        public override void FixedUpdate()
+        public void FixedUpdate()
         {
-            base.FixedUpdate();
+            Model.SetDeltaY();
+            Model.UpdateAttackTimers();
 
-            Timer -= Time.fixedDeltaTime;
+            Model.Timer -= Time.fixedDeltaTime;
 
             // Push Down
             if (Model.Vertical < 0)
@@ -35,14 +49,14 @@ namespace Platformer.PlayerStates
             }
 
             // State Idle (instead of Attack), animation fully played
-            if (Timer <= 0 && Model.Vertical > -1 && !Model.Ceiled(LayerMasks.Ground + LayerMasks.Slope))
+            if (Model.Timer <= 0 && Model.Vertical > -1 && !Model.Ceiled(LayerMasks.Ground + LayerMasks.Slope))
             {
                 Model.Animations.Idle();
                 Model.SetState(EPlayerStates.Idle);
             }
 
             // State Sit, animation fully played
-            if (Timer <= 0)
+            if (Model.Timer <= 0)
             {
                 Model.Animations.Sit();
                 Model.SetState(EPlayerStates.Sit);

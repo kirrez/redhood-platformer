@@ -1,23 +1,36 @@
-
 namespace Platformer.PlayerStates
 {
-    public class StateSitCrouch : BaseState
+    public class StateSitCrouch : IState
     {
-        public StateSitCrouch(IPlayer model)
+        private Player Model;
+
+        public StateSitCrouch(Player model)
         {
             Model = model;
         }
 
-        public override void OnEnable(float time = 0)
+        public void Update()
         {
-            base.OnEnable(time);
-            Model.UpdateStateName("Crouch");
+            Model.GetInput();
+        }
+
+        public void HealthChanged()
+        {
+            Model.ChangeHealthUI();
+            Model.SetState(EPlayerStates.DamageTaken);
+        }
+
+        public void OnEnable(float time = 0)
+        {
+            Model.Timer = time;
+
             Model.SitDown();
         }
 
-        public override void FixedUpdate()
+        public void FixedUpdate()
         {
-            base.FixedUpdate();
+            Model.SetDeltaY();
+            Model.UpdateAttackTimers();
 
             Model.DirectionCheck();
 
@@ -47,7 +60,6 @@ namespace Platformer.PlayerStates
                     Model.SetState(EPlayerStates.Walk);
                 }
             }
-
 
             // Roll Down
             if (Model.HitJump && Model.Grounded(LayerMasks.Ground))
