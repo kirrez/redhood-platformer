@@ -39,13 +39,16 @@ namespace Platformer.PlayerStates
             // Push Down
             if (Model.Vertical < 0)
             {
-                Model.PushDown();
+                Model.Rigidbody.velocity = new Vector2(Model.Rigidbody.velocity.x, Model.Rigidbody.velocity.y + Model.PushDownForce * Time.fixedDeltaTime * (-1));
             }
 
             // Carried by platform
             if (Model.Grounded(LayerMasks.PlatformOneWay))
             {
-                Model.StickToPlatform();
+                if (Model.PlatformRigidbody != null)
+                {
+                    Model.Rigidbody.velocity = Model.PlatformRigidbody.velocity;
+                }
             }
 
             // State Idle (instead of Attack), animation fully played

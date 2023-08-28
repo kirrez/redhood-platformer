@@ -59,7 +59,6 @@ namespace Platformer
         public PlayerAnimator PlayerAnimator;
 
         public Vector3 LastPosition;
-
         public PlayerConfig Config;
 
         public float HorizontalSpeed;
@@ -73,15 +72,12 @@ namespace Platformer
         //Two paths for collider to switch between while change StandUp and SitDown ))
         [SerializeField]
         private Vector2[] StandingPath;
-
         [SerializeField]
         private Vector2[] SittingPath;
-
         private PolygonCollider2D Collider;
         private bool IsSitting;
-
         // link to a moving platform under player's feet
-        private Rigidbody2D PlatformRigidbody = null;
+        public Rigidbody2D PlatformRigidbody = null;
         private BasePlatform PlatformInstance = null;
 
         //Weapons
@@ -106,9 +102,9 @@ namespace Platformer
         private int AxeLevel;
         private int HolyWaterLevel;
 
+        private IGame Game;
         private IResourceManager ResourceManager;
         private IProgressManager ProgressManager;
-        private IGame Game;
 
         private void Awake()
         {
@@ -241,72 +237,6 @@ namespace Platformer
                 newPosition = new Vector2(-SittingFirePointX, SittingFirePoint.localPosition.y);
                 SittingFirePoint.localPosition = newPosition;
             }
-        }
-
-        public void Walk()
-        {
-            if (PlatformRigidbody != null)
-            {
-                Rigidbody.velocity = new Vector2(Horizontal * Time.fixedDeltaTime * HorizontalSpeed, 0f) + PlatformRigidbody.velocity;
-            }
-
-            if (PlatformRigidbody == null)
-            {
-                Rigidbody.velocity = new Vector2(Horizontal * Time.fixedDeltaTime * HorizontalSpeed, Rigidbody.velocity.y);
-            }
-        }
-
-        public void Crouch()
-        {
-            if (PlatformRigidbody != null)
-            {
-                Rigidbody.velocity = new Vector2(Horizontal * Time.fixedDeltaTime * CrouchSpeed, 0f) + PlatformRigidbody.velocity;
-            }
-
-            if (PlatformRigidbody == null)
-            {
-                Rigidbody.velocity = new Vector2(Horizontal * Time.fixedDeltaTime * CrouchSpeed, Rigidbody.velocity.y);
-            }
-        }
-
-        // For Idle and Sit States while riding a platform
-        public void StickToPlatform()
-        {
-            if (PlatformRigidbody == null) return;
-            Rigidbody.velocity = PlatformRigidbody.velocity;
-        }
-
-        // For Idle state on steep slopes, to prevent slip
-        public void ResetVelocity()
-        {
-            Rigidbody.velocity = Vector2.zero; // slips anyway, but quite slowly
-        }
-
-        // vertical movement for correcting height in JumpRising state
-        public void PushDown()
-        {
-            Rigidbody.velocity = new Vector2(Rigidbody.velocity.x, Rigidbody.velocity.y + PushDownForce * Time.fixedDeltaTime * (-1));
-        }
-
-        public void Jump()
-        {
-            Rigidbody.AddForce(new Vector2(0f, JumpForce));
-        }
-
-        public void DamagePushBack()
-        {
-            // direction from Health ))
-            Horizontal = Health.DamageDirection;
-            UpdateFacing();
-
-            // magic numbers, no need to take out into config.. 2.3f / 1.75f
-            Rigidbody.AddForce(new Vector2(HorizontalSpeed / 2.3f * Horizontal, JumpForce / 1.75f));
-        }
-
-        public void RollDown()
-        {
-            var x = Facing == EFacing.Right ? 1 : -1;
-            Rigidbody.AddForce(new Vector2(x * RollDownForce, 0f));
         }
 
         public void StandUp()

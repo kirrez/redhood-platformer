@@ -1,4 +1,5 @@
 using UnityEngine;
+using static UnityEditor.Searcher.SearcherWindow.Alignment;
 
 namespace Platformer.PlayerStates
 {
@@ -39,8 +40,14 @@ namespace Platformer.PlayerStates
                 HitPoints = Model.Health.GetHitPoints;
 
                 Model.StandUp();
-                Model.ResetVelocity();
-                Model.DamagePushBack();
+                Model.Rigidbody.velocity = Vector2.zero; // slips anyway, but quite slowly
+
+                // direction from Health ))
+                Model.Horizontal = Model.Health.DamageDirection;
+                Model.UpdateFacing();
+
+                // magic numbers, no need to take out into config.. 2.3f / 1.75f
+                Model.Rigidbody.AddForce(new Vector2(Model.HorizontalSpeed / 2.3f * Model.Horizontal, Model.JumpForce / 1.75f));
             }
         }
 

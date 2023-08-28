@@ -31,8 +31,10 @@ namespace Platformer.PlayerStates
 
             Model.SitDown();
 
-            Model.ResetVelocity();
-            Model.RollDown();
+            Model.Rigidbody.velocity = Vector2.zero; // slips anyway, but quite slowly
+
+            var x = Model.Facing == EFacing.Right ? 1 : -1;
+            Model.Rigidbody.AddForce(new Vector2(x * Model.RollDownForce, 0f));
         }
 
         public void FixedUpdate()

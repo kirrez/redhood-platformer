@@ -32,12 +32,20 @@ namespace Platformer.PlayerStates
             Model.SetDeltaY();
             Model.UpdateAttackTimers();
 
-            // Carried by MovingPlatform
-            if (Model.Grounded(LayerMasks.Platforms))
+            //TODO: Dubbing?
+            //// Carried by MovingPlatform
+            //if (Model.Grounded(LayerMasks.Platforms))
+            //{
+            //    if (Model.PlatformRigidbody != null)
+            //    {
+            //        Model.Rigidbody.velocity = Model.PlatformRigidbody.velocity;
+            //    }
+            //}
+
+            if (Model.PlatformRigidbody != null)
             {
-                Model.StickToPlatform();
+                Model.Rigidbody.velocity = Model.PlatformRigidbody.velocity;
             }
-            Model.StickToPlatform();
 
             // Crouch
             if (Model.Horizontal != 0)

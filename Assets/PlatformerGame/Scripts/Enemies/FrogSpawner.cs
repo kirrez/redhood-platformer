@@ -45,8 +45,6 @@ namespace Platformer
 
         private void FixedUpdate()
         {
-            float direction;
-
             if (Timer > 0 && !FrogSpawned)
             {
                 Timer -= Time.fixedDeltaTime;

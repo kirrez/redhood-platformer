@@ -1,3 +1,6 @@
+using static UnityEditor.Searcher.SearcherWindow.Alignment;
+using UnityEngine;
+
 namespace Platformer.PlayerStates
 {
     public class StateSitCrouch : IState
@@ -35,7 +38,15 @@ namespace Platformer.PlayerStates
             Model.UpdateFacing();
 
             // Horizontal movement with checking platform riding
-            Model.Crouch();
+            if (Model.PlatformRigidbody != null)
+            {
+                Model.Rigidbody.velocity = new Vector2(Model.Horizontal * Time.fixedDeltaTime * Model.CrouchSpeed, 0f) + Model.PlatformRigidbody.velocity;
+            }
+
+            if (Model.PlatformRigidbody == null)
+            {
+                Model.Rigidbody.velocity = new Vector2(Model.Horizontal * Time.fixedDeltaTime * Model.CrouchSpeed, Model.Rigidbody.velocity.y);
+            }
 
             // Sit
             if (Model.Horizontal == 0)

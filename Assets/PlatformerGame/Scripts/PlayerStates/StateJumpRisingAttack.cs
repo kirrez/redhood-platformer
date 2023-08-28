@@ -39,13 +39,21 @@ namespace Platformer.PlayerStates
             // Push Down
             if (Model.Vertical < 0)
             {
-                Model.PushDown();
+                Model.Rigidbody.velocity = new Vector2(Model.Rigidbody.velocity.x, Model.Rigidbody.velocity.y + Model.PushDownForce * Time.fixedDeltaTime * (-1));
             }
 
             // Horizontal movement, controllable jump
             if (Model.Horizontal != 0)
             {
-                Model.Walk();
+                if (Model.PlatformRigidbody != null)
+                {
+                    Model.Rigidbody.velocity = new Vector2(Model.Horizontal * Time.fixedDeltaTime * Model.HorizontalSpeed, 0f) + Model.PlatformRigidbody.velocity;
+                }
+
+                if (Model.PlatformRigidbody == null)
+                {
+                    Model.Rigidbody.velocity = new Vector2(Model.Horizontal * Time.fixedDeltaTime * Model.HorizontalSpeed, Model.Rigidbody.velocity.y);
+                }
             }
 
             // State Idle, animation interrupted

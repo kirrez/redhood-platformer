@@ -37,13 +37,16 @@ namespace Platformer.PlayerStates
             // Carried by platform
             if (Model.Grounded(LayerMasks.PlatformOneWay))
             {
-                Model.StickToPlatform();
+                if (Model.PlatformRigidbody != null)
+                {
+                    Model.Rigidbody.velocity = Model.PlatformRigidbody.velocity;
+                }
             }
 
             // Steep slope
             if (Model.Grounded(LayerMasks.Slope))
             {
-                Model.ResetVelocity();
+                Model.Rigidbody.velocity = Vector2.zero; // slips anyway, but quite slowly
             }
 
             // State Idle, animation fully played

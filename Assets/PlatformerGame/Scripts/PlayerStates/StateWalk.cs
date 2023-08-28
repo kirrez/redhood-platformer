@@ -1,4 +1,6 @@
 
+using UnityEngine;
+
 namespace Platformer.PlayerStates
 {
     public class StateWalk : IState
@@ -36,7 +38,15 @@ namespace Platformer.PlayerStates
             Model.UpdateFacing();
 
             // Horizontal movement
-            Model.Walk();
+            if (Model.PlatformRigidbody != null)
+            {
+                Model.Rigidbody.velocity = new Vector2(Model.Horizontal * Time.fixedDeltaTime * Model.HorizontalSpeed, 0f) + Model.PlatformRigidbody.velocity;
+            }
+
+            if (Model.PlatformRigidbody == null)
+            {
+                Model.Rigidbody.velocity = new Vector2(Model.Horizontal * Time.fixedDeltaTime * Model.HorizontalSpeed, Model.Rigidbody.velocity.y);
+            }
 
             // State Idle
             if (Model.Horizontal == 0)
@@ -59,9 +69,9 @@ namespace Platformer.PlayerStates
                 Model.HitJump = false;
                 Model.Animations.JumpRising();
                 Model.ReleasePlatform();
-                Model.ResetVelocity(); // test
+                Model.Rigidbody.velocity = Vector2.zero; // slips anyway, but quite slowly // Test
                 Model.SetState(Model.StateJumpRising, 0.75f);
-                Model.Jump();
+                Model.Rigidbody.AddForce(new Vector2(0f, Model.JumpForce));
             }
 
             // State Jump Rising without hitting "Jump" button ))

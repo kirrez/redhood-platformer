@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace Platformer.PlayerStates
 {
     public class StateInteraction : IState
@@ -25,7 +27,7 @@ namespace Platformer.PlayerStates
         {
             Model.Timer = time;
             Model.Animations.Idle();
-            Model.ResetVelocity();
+            Model.Rigidbody.velocity = Vector2.zero; // slips anyway, but quite slowly
             Model.InactivateCollider(true);
         }
 

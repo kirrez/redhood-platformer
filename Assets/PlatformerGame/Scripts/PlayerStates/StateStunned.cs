@@ -28,7 +28,7 @@ namespace Platformer.PlayerStates
             Model.Timer = time;
 
             Model.Animations.Stunned();
-            Model.ResetVelocity();
+            Model.Rigidbody.velocity = Vector2.zero; // slips anyway, but quite slowly
             Model.InactivateCollider(true);
         }
 

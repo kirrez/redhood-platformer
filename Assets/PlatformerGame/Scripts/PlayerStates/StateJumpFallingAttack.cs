@@ -39,7 +39,15 @@ namespace Platformer.PlayerStates
             // controllable horizontal
             if (Model.Horizontal != 0)
             {
-                Model.Walk();
+                if (Model.PlatformRigidbody != null)
+                {
+                    Model.Rigidbody.velocity = new Vector2(Model.Horizontal * Time.fixedDeltaTime * Model.HorizontalSpeed, 0f) + Model.PlatformRigidbody.velocity;
+                }
+
+                if (Model.PlatformRigidbody == null)
+                {
+                    Model.Rigidbody.velocity = new Vector2(Model.Horizontal * Time.fixedDeltaTime * Model.HorizontalSpeed, Model.Rigidbody.velocity.y);
+                }
             }
 
             // State JumpFalling
@@ -52,7 +60,7 @@ namespace Platformer.PlayerStates
             // State Idle, animation interrupted?? yes..
             if (Model.Horizontal == 0 && Model.Grounded(LayerMasks.Walkable))
             {
-                Model.ResetVelocity();
+                Model.Rigidbody.velocity = Vector2.zero; // slips anyway, but quite slowly
                 //Model.UpdateInAir(false);
                 Model.Animations.Idle();
                 Model.SetState(Model.StateIdle);

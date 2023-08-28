@@ -27,7 +27,7 @@ namespace Platformer.PlayerStates
         public void OnEnable(float time = 0f)
         {
             Model.Timer = time;
-            Model.ResetVelocity();
+            Model.Rigidbody.velocity = Vector2.zero; // slips anyway, but quite slowly
 
             HitPoints = Model.Health.GetHitPoints;
         }

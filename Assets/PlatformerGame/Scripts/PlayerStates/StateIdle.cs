@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace Platformer.PlayerStates
 {
     public class StateIdle : IState
@@ -35,13 +37,16 @@ namespace Platformer.PlayerStates
             // Steep slope
             if (Model.Grounded(LayerMasks.Slope))
             {
-                Model.ResetVelocity();
+                Model.Rigidbody.velocity = Vector2.zero; // slips anyway, but quite slowly
             }
 
             // Carried by MovingPlatform
             if (Model.Grounded(LayerMasks.Platforms))
             {
-                Model.StickToPlatform();
+                if (Model.PlatformRigidbody != null)
+                {
+                    Model.Rigidbody.velocity = Model.PlatformRigidbody.velocity;
+                }
             }
 
             // State Walk
@@ -64,8 +69,8 @@ namespace Platformer.PlayerStates
                 Model.HitJump = false;
                 Model.Animations.JumpRising();
                 Model.ReleasePlatform();
-                Model.ResetVelocity();//test
-                Model.Jump();
+                Model.Rigidbody.velocity = Vector2.zero; // slips anyway, but quite slowly // test
+                Model.Rigidbody.AddForce(new Vector2(0f, Model.JumpForce));
                 Model.SetState(Model.StateJumpRising, 0.75f);
             }
 

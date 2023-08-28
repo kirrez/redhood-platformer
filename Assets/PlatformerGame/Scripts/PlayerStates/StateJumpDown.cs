@@ -1,4 +1,5 @@
 using UnityEngine;
+using static UnityEditor.Searcher.SearcherWindow.Alignment;
 
 namespace Platformer.PlayerStates
 {
@@ -44,7 +45,15 @@ namespace Platformer.PlayerStates
 
             if (Model.Horizontal != 0)
             {
-                Model.Walk();
+                if (Model.PlatformRigidbody != null)
+                {
+                    Model.Rigidbody.velocity = new Vector2(Model.Horizontal * Time.fixedDeltaTime * Model.HorizontalSpeed, 0f) + Model.PlatformRigidbody.velocity;
+                }
+
+                if (Model.PlatformRigidbody == null)
+                {
+                    Model.Rigidbody.velocity = new Vector2(Model.Horizontal * Time.fixedDeltaTime * Model.HorizontalSpeed, Model.Rigidbody.velocity.y);
+                }
             }
 
             // State Jump Falling, Timer finished in air
