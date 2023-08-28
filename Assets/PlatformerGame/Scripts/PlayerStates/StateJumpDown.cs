@@ -40,7 +40,7 @@ namespace Platformer.PlayerStates
         {
             // no base
 
-            Model.DirectionCheck();
+            Model.UpdateFacing();
 
             if (Model.Horizontal != 0)
             {

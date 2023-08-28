@@ -57,7 +57,7 @@ namespace Platformer.PlayerStates
                 {
                     // Dying, if HP <= 0
                     Model.Horizontal *= -1;
-                    Model.DirectionCheck();
+                    Model.UpdateFacing();
 
                     if (HitPoints <= 0)
                     {

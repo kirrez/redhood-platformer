@@ -215,28 +215,27 @@ namespace Platformer
             CurrentState.OnEnable(time);
         }
 
-        // also returns "1" if player faces right and "-1" if left )) for external checks in spawners etc.
-        public void DirectionCheck()
+        public void UpdateFacing()
         {
-            Vector2 newPosition;
             // Changes Renderer and weapon's directions
             if (Horizontal > 0)
             {
                 Renderer.flipX = false;
                 Facing = EFacing.Right;
 
-                newPosition = new Vector2(StandingFirePointX, StandingFirePoint.localPosition.y);
+                var newPosition = new Vector2(StandingFirePointX, StandingFirePoint.localPosition.y);
                 StandingFirePoint.localPosition = newPosition;
 
                 newPosition = new Vector2(SittingFirePointX, SittingFirePoint.localPosition.y);
                 SittingFirePoint.localPosition = newPosition;
             }
+
             if (Horizontal < 0)
             {
                 Renderer.flipX = true;
                 Facing = EFacing.Left;
 
-                newPosition = new Vector2(-StandingFirePointX, StandingFirePoint.localPosition.y);
+                var newPosition = new Vector2(-StandingFirePointX, StandingFirePoint.localPosition.y);
                 StandingFirePoint.localPosition = newPosition;
 
                 newPosition = new Vector2(-SittingFirePointX, SittingFirePoint.localPosition.y);
@@ -297,11 +296,11 @@ namespace Platformer
         public void DamagePushBack()
         {
             // direction from Health ))
-            float direction = Health.DamageDirection;
-            Horizontal = direction;
-            DirectionCheck();
+            Horizontal = Health.DamageDirection;
+            UpdateFacing();
+
             // magic numbers, no need to take out into config.. 2.3f / 1.75f
-            Rigidbody.AddForce(new Vector2(HorizontalSpeed / 2.3f * direction, JumpForce / 1.75f));
+            Rigidbody.AddForce(new Vector2(HorizontalSpeed / 2.3f * Horizontal, JumpForce / 1.75f));
         }
 
         public void RollDown()
@@ -326,18 +325,19 @@ namespace Platformer
 
         public bool IsKnifeAttack()
         {
-            if (KnifeTimer <= 0)
+            if (KnifeTimer > 0)
             {
-                //KnifeTimer = KnifeCooldown;
+                return false;
+            }
 
-                if (HitAttack && Vertical < 1f)
+            if (HitAttack && Vertical < 1f)
+            {
+                KnifeTimer = KnifeCooldown;
+                HitAttack = false;
+
+                if (KnifeLevel > 0)
                 {
-                    KnifeTimer = KnifeCooldown;
-                    HitAttack = false;
-                    if (KnifeLevel > 0)
-                    {
-                        return true;
-                    }
+                    return true;
                 }
             }
 
@@ -346,18 +346,19 @@ namespace Platformer
 
         public bool IsAxeAttack()
         {
-            if (AxeTimer <= 0)
+            if (AxeTimer > 0)
             {
-                //AxeTimer = AxeCooldown;
+                return false;
+            }
 
-                if (HitAttack && Vertical == 1f)
+            if (HitAttack && Vertical == 1f)
+            {
+                AxeTimer = AxeCooldown;
+                HitAttack = false;
+
+                if (AxeLevel > 0)
                 {
-                    AxeTimer = AxeCooldown;
-                    HitAttack = false;
-                    if (AxeLevel > 0)
-                    {
-                        return true;
-                    }
+                    return true;
                 }
             }
 
@@ -366,22 +367,24 @@ namespace Platformer
 
         public bool IsHolyWaterAttack()
         {
-            if (HolyWaterTimer <= 0)
+            if (HolyWaterTimer > 0)
             {
-                //HolyWaterTimer = HolyWaterCooldown;
+                HitInteraction = false;
+                return false;
+            }
 
-                if (HitInteraction && Vertical == 1)
+            if (HitInteraction && Vertical == 1)
+            {
+                HolyWaterTimer = HolyWaterCooldown;
+                HitInteraction = false;
+
+                if (HolyWaterLevel > 0)
                 {
-                    HolyWaterTimer = HolyWaterCooldown;
-                    HitInteraction = false;
-                    if (HolyWaterLevel > 0)
-                    {
-                        return true;
-                    }
+                    return true;
                 }
             }
-            HitInteraction = false;
 
+            HitInteraction = false;
             return false;
         }
 
@@ -389,6 +392,7 @@ namespace Platformer
         {
             var knife = ProgressManager.GetQuest(EQuest.KnifeLevel);
             var dynamics = CompositionRoot.GetDynamicsContainer();
+
             GameObject instance = null;
 
             switch (knife)
@@ -413,6 +417,7 @@ namespace Platformer
                 var x = Facing == EFacing.Right ? 1 : -1;
                 var weaponVelocity = instance.GetComponent<DamageDealer>().Velocity;
                 weaponVelocity.x *= x;
+
                 instance.GetComponent<Rigidbody2D>().velocity = weaponVelocity;
 
                 var weapon = instance.GetComponent<PlayerKnife>();

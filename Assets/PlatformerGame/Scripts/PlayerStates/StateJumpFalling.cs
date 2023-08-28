@@ -32,7 +32,7 @@ namespace Platformer.PlayerStates
             Model.SetDeltaY();
             Model.UpdateAttackTimers();
 
-            Model.DirectionCheck();
+            Model.UpdateFacing();
 
             //StandUp happens immediately or after a delay, if something is passed in Activate()
             if (Model.Timer >= 0)

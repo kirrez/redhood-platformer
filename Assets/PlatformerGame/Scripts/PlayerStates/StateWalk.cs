@@ -33,7 +33,7 @@ namespace Platformer.PlayerStates
             Model.SetDeltaY();
             Model.UpdateAttackTimers();
 
-            Model.DirectionCheck();
+            Model.UpdateFacing();
 
             // Horizontal movement
             Model.Walk();

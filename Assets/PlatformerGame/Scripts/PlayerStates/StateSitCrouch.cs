@@ -32,7 +32,7 @@ namespace Platformer.PlayerStates
             Model.SetDeltaY();
             Model.UpdateAttackTimers();
 
-            Model.DirectionCheck();
+            Model.UpdateFacing();
 
             // Horizontal movement with checking platform riding
             Model.Crouch();
