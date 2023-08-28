@@ -54,14 +54,14 @@ namespace Platformer
             switch (DialoguePhase)
             {
                 case 0:
-                    Player.HoldByInteraction();
+                    Player.Use();
                     Game.Dialogue.Show();
                     Game.Dialogue.SetDialogueName(Localization.Text(ETexts.VillageCommoner));
                     Game.Dialogue.ChangeContent(Localization.Text(ETexts.Commoner1_1));
                     DialoguePhase++;
                     break;
                 case 1:
-                    Player.ReleasedByInteraction();
+                    Player.Idle();
                     Game.Dialogue.Hide();
                     HelpText.gameObject.SetActive(false);
                     Player.Interaction -= OnInteraction;

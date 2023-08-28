@@ -7,8 +7,6 @@ namespace Platformer
 {
     public class Player : MonoBehaviour, IPlayer
     {
-        public EFacing Facing { get; private set; } = EFacing.Right;
-
         public event Action Interaction = () => { };
 
         public Transform Transform => transform;
@@ -29,17 +27,22 @@ namespace Platformer
         public bool HitAttack;
         public bool HitInteraction;
 
+        public EFacing Facing;
+
         public float DeltaY { get; private set; }
         public float JumpDownTime { get; private set; }
         public float RollDownTime { get; private set; }
         public float DeathShockTime { get; private set; }
 
-        public StateIdle StateIdle;
-        public StateWalk StateWalk;
-        public StateDying StateDying;
-        public StateAttack StateAttack;
-        public StateJumpRising StateJumpRising;
-        public StateJumpFalling StateJumpFalling;
+        public IState StateIdle;
+        public IState StateMoving;
+        public IState StateDying;
+        public IState StateAttack;
+        public IState StateJumpRising;
+        public IState StateJumpFalling;
+        public IState StateSideJumpRising;
+        public IState StateSideJumpFalling;
+
         //public StateJumpRisingAttack StateJumpRisingAttack;
         //public StateJumpFallingAttack StateJumpFallingAttack;
         //public StateJumpDown StateJumpDown;
@@ -81,14 +84,12 @@ namespace Platformer
         private BasePlatform PlatformInstance = null;
 
         //Weapons
-        [SerializeField]
-        private Transform StandingFirePoint;
-        [SerializeField]
-        private Transform SittingFirePoint;
+        public Transform StandingFirePoint;
+        public Transform SittingFirePoint;
 
         private Transform FirePoint;
-        private float StandingFirePointX;
-        private float SittingFirePointX;
+        public float StandingFirePointX;
+        public float SittingFirePointX;
 
         private float KnifeTimer;
         private float AxeTimer;
@@ -120,11 +121,14 @@ namespace Platformer
             Animations = new PlayerAnimation(PlayerAnimator);
 
             StateIdle = new StateIdle(this);
-            StateWalk = new StateWalk(this);
+            StateMoving = new StateMoving(this);
             StateDying = new StateDying(this);
             StateAttack = new StateAttack(this);
             StateJumpRising = new StateJumpRising(this);
             StateJumpFalling = new StateJumpFalling(this);
+            StateSideJumpRising = new StateSideJumpRising(this);
+            StateSideJumpFalling = new StateSideJumpFalling(this);
+
             //StateJumpRisingAttack = new StateJumpRisingAttack(this);
             //StateJumpFallingAttack = new StateJumpFallingAttack(this);
             //StateJumpDown = new StateJumpDown(this);
@@ -160,6 +164,11 @@ namespace Platformer
         private void FixedUpdate()
         {
             CurrentState.FixedUpdate();
+        }
+
+        public EFacing GetFacing()
+        {
+            return Facing;
         }
 
         public void SetDeltaY()
@@ -208,7 +217,7 @@ namespace Platformer
         {
             CurrentState = state;
 
-            CurrentState.OnEnable(time);
+            //CurrentState.OnEnable(time);
         }
 
         public void UpdateFacing()
@@ -481,7 +490,6 @@ namespace Platformer
                 {
                     PlatformInstance = null;
                 }
-
             }
 
             // check moving platform and catching its PlatformInstance
@@ -555,39 +563,39 @@ namespace Platformer
 
         public void GetInput()
         {
-            Horizontal = Input.GetAxisRaw("Horizontal");
-            Vertical = Input.GetAxisRaw("Vertical");
+            //Horizontal = Input.GetAxisRaw("Horizontal");
+            //Vertical = Input.GetAxisRaw("Vertical");
 
-            if (HitJump && Input.GetButtonUp("Jump"))
-            {
-                HitJump = false;
-            }
+            //if (HitJump && Input.GetButtonUp("Jump"))
+            //{
+            //    HitJump = false;
+            //}
 
-            if (!HitJump && Input.GetButtonDown("Jump"))
-            {
-                HitJump = true;
-            }
+            //if (!HitJump && Input.GetButtonDown("Jump"))
+            //{
+            //    HitJump = true;
+            //}
 
-            if (!HitAttack && Input.GetButtonDown("Fire1"))
-            {
-                HitAttack = true;
-            }
+            //if (!HitAttack && Input.GetButtonDown("Fire1"))
+            //{
+            //    HitAttack = true;
+            //}
 
-            GetInteractionInput();
+            //GetInteractionInput();
         }
 
         public void GetInteractionInput()
         {
-            //for interaction with objects and dialogues
-            if (Input.GetButtonDown("Fire2"))
-            {
-                Interaction();
-            }
+            ////for interaction with objects and dialogues
+            //if (Input.GetButtonDown("Fire2"))
+            //{
+            //    Interaction();
+            //}
 
-            if (!HitInteraction && Input.GetButtonDown("Fire2"))
-            {
-                HitInteraction = true;
-            }
+            //if (!HitInteraction && Input.GetButtonDown("Fire2"))
+            //{
+            //    HitInteraction = true;
+            //}
         }
 
         public void HoldByInteraction()
@@ -631,5 +639,44 @@ namespace Platformer
             HolyWaterLevel = ProgressManager.GetQuest(EQuest.HolyWaterLevel);
         }
 
+
+
+
+
+
+        public void Jump()
+        {
+            CurrentState.Jump();
+        }
+
+        public void MoveLeft()
+        {
+            CurrentState.MoveLeft();
+        }
+
+        public void MoveRight()
+        {
+            CurrentState.MoveRight();
+        }
+
+        public void Fire()
+        {
+            CurrentState.Fire();
+        }
+
+        public void ExtraFire()
+        {
+            CurrentState.ExtraFire();
+        }
+
+        public void Use()
+        {
+            CurrentState.Use();
+        }
+
+        public void Idle()
+        {
+            CurrentState.Stop();
+        }
     }
 }

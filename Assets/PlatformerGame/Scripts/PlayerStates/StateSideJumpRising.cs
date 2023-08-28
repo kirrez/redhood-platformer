@@ -2,11 +2,11 @@ using UnityEngine;
 
 namespace Platformer.PlayerStates
 {
-    public class StateJumpRising : IState
+    public class StateSideJumpRising : IState
     {
         private Player Model;
 
-        public StateJumpRising(Player model)
+        public StateSideJumpRising(Player model)
         {
             Model = model;
         }
@@ -77,7 +77,7 @@ namespace Platformer.PlayerStates
             {
                 Model.Animations.JumpFalling();
 
-                Model.SetState(Model.StateJumpFalling);
+                Model.SetState(Model.StateSideJumpFalling);
                 return;
             }
 
@@ -122,8 +122,6 @@ namespace Platformer.PlayerStates
 
             newPosition = new Vector2(-Model.SittingFirePointX, Model.SittingFirePoint.localPosition.y);
             Model.SittingFirePoint.localPosition = newPosition;
-
-            Model.SetState(Model.StateSideJumpRising);
         }
 
         public void MoveRight()
@@ -138,8 +136,6 @@ namespace Platformer.PlayerStates
 
             newPosition = new Vector2(Model.SittingFirePointX, Model.SittingFirePoint.localPosition.y);
             Model.SittingFirePoint.localPosition = newPosition;
-
-            Model.SetState(Model.StateSideJumpRising);
         }
 
         public void Fire()
@@ -159,6 +155,7 @@ namespace Platformer.PlayerStates
 
         public void Stop()
         {
+            Model.SetState(Model.StateJumpRising);
         }
     }
 }

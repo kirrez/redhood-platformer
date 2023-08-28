@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 
@@ -56,14 +54,14 @@ namespace Platformer
             switch (DialoguePhase)
             {
                 case 0:
-                    Player.HoldByInteraction();
+                    Player.Use();
                     Game.Dialogue.Show();
                     Game.Dialogue.SetDialogueName(Localization.Text(ETexts.GatekeeperTitle));
                     Game.Dialogue.ChangeContent(Localization.Text(ETexts.Gatekeeper1_1));
                     DialoguePhase++;
                     break;
                 case 1:
-                    Player.ReleasedByInteraction();
+                    Player.Idle();
                     Game.Dialogue.Hide();
                     DialoguePhase = 0;
                     HelpText.gameObject.SetActive(false);

@@ -44,11 +44,13 @@ namespace Platformer
                 Inside = true;
                 if (quest == 0)
                 {
+                    //Thats bad practice
                     Player.Interaction += OnKeyQuestPhase0;
                 }
 
                 if (quest == 1)
                 {
+                    //Thats bad practice
                     Player.Interaction += OnKeyQuestPhase1;
                 }
                 
@@ -60,11 +62,13 @@ namespace Platformer
                 Inside = false;
                 if (quest == 0)
                 {
+                    //Thats bad practice
                     Player.Interaction -= OnKeyQuestPhase0;
                 }
 
                 if (quest == 1)
                 {
+                    //Thats bad practice
                     Player.Interaction -= OnKeyQuestPhase1;
                 }
 
@@ -79,7 +83,7 @@ namespace Platformer
             switch (DialoguePhase)
             {
                 case 0:
-                    Player.HoldByInteraction();
+                    Player.Use();
                     Game.Dialogue.Show();
                     Game.Dialogue.SetDialogueName(Localization.Text(ETexts.BlacksmithTitle1));
                     Game.Dialogue.ChangeContent(Localization.Text(ETexts.Blacksmith1_1));
@@ -102,7 +106,7 @@ namespace Platformer
                     DialoguePhase++;
                     break;
                 case 5:
-                    Player.ReleasedByInteraction();
+                    Player.Idle();
                     Game.Dialogue.Hide();
                     ProgressManager.SetQuest(EQuest.Blacksmith, 1);
                     HelpText.gameObject.SetActive(false);
@@ -120,7 +124,7 @@ namespace Platformer
             switch (DialoguePhase)
             {
                 case 0:
-                    Player.HoldByInteraction();
+                    Player.Use();
                     Game.Dialogue.Show();
                     Game.Dialogue.SetDialogueName(Localization.Text(ETexts.BlacksmithTitle1));
                     Game.Dialogue.ChangeContent(Localization.Text(ETexts.Blacksmith2_1));
@@ -145,7 +149,7 @@ namespace Platformer
                     DialoguePhase++;
                     break;
                 case 7:
-                    Player.ReleasedByInteraction();
+                    Player.Idle();
                     Game.Dialogue.Hide();
                     ProgressManager.SetQuest(EQuest.Blacksmith, 2);
                     HelpText.gameObject.SetActive(false);
@@ -165,7 +169,7 @@ namespace Platformer
                     DialoguePhase++;
                     break;
                 case 11:
-                    Player.ReleasedByInteraction();
+                    Player.Idle();
                     Game.Dialogue.Hide();
                     HelpText.gameObject.SetActive(false);
                     Player.Interaction -= OnKeyQuestPhase1;

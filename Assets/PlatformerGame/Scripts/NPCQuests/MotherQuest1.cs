@@ -59,7 +59,7 @@ namespace Platformer
             switch (DialoguePhase)
             {
                 case 0:
-                    Player.HoldByInteraction();
+                    Player.Use();
                     Game.Dialogue.Show();
                     Game.Dialogue.SetDialogueName(Localization.Text(ETexts.PieDialogue1));
                     Game.Dialogue.ChangeContent(Localization.Text(ETexts.DialoguePie1_1));
@@ -86,7 +86,7 @@ namespace Platformer
                     DialoguePhase++;
                     break;
                 case 6:
-                    Player.ReleasedByInteraction();
+                    Player.Idle();
                     Game.Dialogue.Hide();
                     ProgressManager.SetQuest(EQuest.MotherPie, 1);
                     HelpText.gameObject.SetActive(false);

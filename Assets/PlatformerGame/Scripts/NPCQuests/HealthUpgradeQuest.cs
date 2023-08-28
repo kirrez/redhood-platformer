@@ -77,7 +77,7 @@ namespace Platformer
             switch (DialoguePhase)
             {
                 case 0:
-                    Player.HoldByInteraction();
+                    Player.Use();
                     Game.Dialogue.Show();
                     Game.Dialogue.SetDialogueName(Localization.Text(ETexts.UpgradeHealthTitle));
                     Game.Dialogue.ChangeContent(Localization.Text(ETexts.UpgradeHealth1_1));
@@ -100,7 +100,7 @@ namespace Platformer
                     DialoguePhase++;
                     break;
                 case 5:
-                    Player.ReleasedByInteraction();
+                    Player.Idle();
                     DialoguePhase = 0;
                     Game.Dialogue.Hide();
                     ProgressManager.SetQuest(EQuest.UpgradeHealth, 2);
@@ -119,7 +119,7 @@ namespace Platformer
             switch (DialoguePhase)
             {
                 case 0:
-                    Player.HoldByInteraction();
+                    Player.Use();
                     Game.Dialogue.Show();
                     Game.Dialogue.SetDialogueName(Localization.Text(ETexts.UpgradeHealthTitle));
                     Game.Dialogue.ChangeContent(Localization.Text(ETexts.UpgradeHealth2_1));
@@ -140,7 +140,7 @@ namespace Platformer
                     DialoguePhase = 6;
                     break;
                 case 6:
-                    Player.ReleasedByInteraction();
+                    Player.Idle();
                     DialoguePhase = 0;
                     Game.Dialogue.Hide();
                     HelpText.gameObject.SetActive(false);
@@ -160,7 +160,7 @@ namespace Platformer
                     DialoguePhase = 11;
                     break;
                 case 11:
-                    Player.ReleasedByInteraction();
+                    Player.Idle();
                     DialoguePhase = 0;
                     Game.Dialogue.Hide();
                     HelpText.gameObject.SetActive(false);

@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine.UI;
 using UnityEngine;
 
 namespace Platformer
@@ -54,7 +51,7 @@ namespace Platformer
             switch (DialoguePhase)
             {
                 case 0:
-                    Player.HoldByInteraction();
+                    Player.Use();
                     Game.Dialogue.Show();
                     Game.Dialogue.SetDialogueName(Localization.Text(ETexts.VillageCommoner));
                     Game.Dialogue.ChangeContent(Localization.Text(ETexts.WomanCandy));
@@ -63,7 +60,7 @@ namespace Platformer
                     DialoguePhase++;
                     break;
                 case 1:
-                    Player.ReleasedByInteraction();
+                    Player.Idle();
                     Game.Dialogue.Hide();
                     DialoguePhase = 0;
                     Player.Interaction -= OnInteraction;

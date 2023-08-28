@@ -1,14 +1,20 @@
 using UnityEngine;
+using UnityEngine.UIElements.Experimental;
 
 namespace Platformer.PlayerStates
 {
-    public class StateJumpRising : IState
+    public class StateSideJumpFalling : IState
     {
         private Player Model;
 
-        public StateJumpRising(Player model)
+        public StateSideJumpFalling(Player model)
         {
             Model = model;
+        }
+
+        public void Update()
+        {
+            //Model.GetInput();
         }
 
         public void HealthChanged()
@@ -20,8 +26,6 @@ namespace Platformer.PlayerStates
         public void OnEnable(float time = 0)
         {
             //Model.Timer = time;
-
-            //Model.StandUp();
         }
 
         public void FixedUpdate()
@@ -31,15 +35,18 @@ namespace Platformer.PlayerStates
 
             //Model.UpdateFacing();
 
-            //Model.Timer -= Time.fixedDeltaTime;
-
-            // Push Down
-            //if (Model.Vertical < 0)
+            //StandUp happens immediately or after a delay, if something is passed in Activate()
+            //if (Model.Timer >= 0)
             //{
-            //    Model.Rigidbody.velocity = new Vector2(Model.Rigidbody.velocity.x, Model.Rigidbody.velocity.y + Model.PushDownForce * Time.fixedDeltaTime * (-1));
+            //    Model.Timer -= Time.fixedDeltaTime;
+
+            //    if (Model.Timer < 0)
+            //    {
+            //        Model.StandUp();
+            //    }
             //}
 
-            // Horizontal movement, controllable jump
+            // Horizontal movement, should change to some more smooth logic for controllable falling
             //if (Model.Horizontal != 0)
             //{
             //    if (Model.PlatformRigidbody != null)
@@ -53,57 +60,55 @@ namespace Platformer.PlayerStates
             //    }
             //}
 
-            // Check MovingPlatform again after cooldown
-            //if (Model.Timer <= 0)
+            // Trying to stick..
+            //if (Model.Grounded(LayerMasks.Platforms) && Model.PlatformRigidbody != null)
             //{
-            //    Model.Grounded(LayerMasks.Platforms);
+            //    Model.Rigidbody.velocity = Model.PlatformRigidbody.velocity;
             //}
 
-            // State Walk, while in jump on a steep slope  "Solid"
-            //if (Model.Horizontal != 0 && Model.Grounded(LayerMasks.Slope))
+            // State Idle
+            //if (Model.Horizontal == 0 && Model.Grounded(LayerMasks.Walkable))
             //{
+            //    Model.Rigidbody.velocity = Vector2.zero; // slips anyway, but quite slowly
+            //    //Model.UpdateInAir(false);
+            //    Model.Animations.Idle();
+            //    Model.SetState(Model.StateIdle);
+            //}
+
+            if (Model.Grounded(LayerMasks.Walkable))
+            {
+                Model.Animations.Walk();
+
+                Model.SetState(Model.StateMoving);
+                return;
+            }
+
+            // State Walk
+            //if (Model.Horizontal != 0 && Model.Grounded(LayerMasks.Walkable))
+            //{
+            //    //Model.UpdateInAir(false);
             //    Model.Animations.Walk();
             //    Model.SetState(Model.StateWalk);
             //}
-
-            // State Jump Falling
-            //if (Model.DeltaY < 0)
-            //{
-            //    Model.Animations.JumpFalling();
-            //    Model.SetState(Model.StateJumpFalling);
-            //}
-
-            if (Model.Rigidbody.velocity.y < 0f)
-            {
-                Model.Animations.JumpFalling();
-
-                Model.SetState(Model.StateJumpFalling);
-                return;
-            }
 
             // Attack Checks. Animations could be different, but they are not ))
             //if (Model.IsAxeAttack())
             //{
             //    Model.ShootAxe();
-            //    Model.SetState(Model.StateJumpRisingAttack, Model.Animations.AirAttack());
+            //    Model.SetState(Model.StateJumpFallingAttack, Model.Animations.AirAttack());
             //}
 
             //if (Model.IsKnifeAttack())
             //{
             //    Model.ShootKnife();
-            //    Model.SetState(Model.StateJumpRisingAttack, Model.Animations.AirAttack());
+            //    Model.SetState(Model.StateJumpFallingAttack, Model.Animations.AirAttack());
             //}
 
             //if (Model.IsHolyWaterAttack())
             //{
             //    Model.ShootHolyWater();
-            //    Model.SetState(Model.StateJumpRisingAttack, Model.Animations.AirAttack());
+            //    Model.SetState(Model.StateJumpFallingAttack, Model.Animations.AirAttack());
             //}
-        }
-
-        public void Update()
-        {
-            //Model.GetInput();
         }
 
         public void Jump()
@@ -122,8 +127,6 @@ namespace Platformer.PlayerStates
 
             newPosition = new Vector2(-Model.SittingFirePointX, Model.SittingFirePoint.localPosition.y);
             Model.SittingFirePoint.localPosition = newPosition;
-
-            Model.SetState(Model.StateSideJumpRising);
         }
 
         public void MoveRight()
@@ -138,8 +141,6 @@ namespace Platformer.PlayerStates
 
             newPosition = new Vector2(Model.SittingFirePointX, Model.SittingFirePoint.localPosition.y);
             Model.SittingFirePoint.localPosition = newPosition;
-
-            Model.SetState(Model.StateSideJumpRising);
         }
 
         public void Fire()
@@ -159,6 +160,7 @@ namespace Platformer.PlayerStates
 
         public void Stop()
         {
+            Model.SetState(Model.StateJumpFalling);
         }
     }
 }

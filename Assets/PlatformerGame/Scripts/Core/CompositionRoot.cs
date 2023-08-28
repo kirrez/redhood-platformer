@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using Cinemachine;
 using UnityEngine;
-
 
 namespace Platformer
 {
@@ -17,10 +14,24 @@ namespace Platformer
         private static GameObject EventSystemContainer;
 
         private static IPlayer Player;
+        private static IPlayerInput PlayerInput;
 
         private static IResourceManager ResourceManager;
         private static IProgressManager ProgressManager;
         private static ILocalization Localization;
+
+        private void OnDestroy()
+        {
+            Game = null;
+            Player = null;
+            UIRoot = null;
+            Navigation = null;
+            MainCMCamera = null;
+            ResourceManager = null;
+            VirtualPlayerCamera = null;
+            EventSystemContainer = null;
+            DynamicsContainer = null;
+        }
 
         public static IDynamicsContainer GetDynamicsContainer()
         {
@@ -40,6 +51,7 @@ namespace Platformer
                 var resourceManager = GetResourceManager();
                 Game = resourceManager.CreatePrefab<IGame, EComponents>(EComponents.Game);
             }
+
             return Game;
         }
 
@@ -50,7 +62,19 @@ namespace Platformer
                 var resourceManager = GetResourceManager();
                 Player = resourceManager.CreatePrefab<IPlayer, EComponents>(EComponents.Player);
             }
+
             return Player;
+        }
+
+        public static IPlayerInput GetPlayerInput()
+        {
+            if (PlayerInput == null)
+            {
+                var resourceManager = GetResourceManager();
+                PlayerInput = resourceManager.CreatePrefab<IPlayerInput, EComponents>(EComponents.PlayerInput);
+            }
+
+            return PlayerInput;
         }
         
         public static IUIRoot GetUIRoot()
@@ -61,6 +85,7 @@ namespace Platformer
 
                 UIRoot = resourceManager.CreatePrefab<IUIRoot, EComponents>(EComponents.UIRoot);
             }
+
             return UIRoot;
         }
 
@@ -72,6 +97,7 @@ namespace Platformer
 
                 EventSystemContainer = resourceManager.CreatePrefab<GameObject, EComponents>(EComponents.EventSystemContainer);
             }
+
             return EventSystemContainer;
         }
 
@@ -137,19 +163,6 @@ namespace Platformer
             }
 
             return Localization;
-        }
-
-        private void OnDestroy()
-        {
-            Game = null;
-            Player = null;
-            UIRoot = null;
-            Navigation = null;
-            MainCMCamera = null;
-            ResourceManager = null;
-            VirtualPlayerCamera = null;
-            EventSystemContainer = null;
-            DynamicsContainer = null;
         }
     }
 }

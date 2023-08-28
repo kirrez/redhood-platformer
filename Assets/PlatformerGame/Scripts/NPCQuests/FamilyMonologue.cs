@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using Cinemachine;
 using UnityEngine;
 
@@ -56,7 +54,7 @@ namespace Platformer
             switch (DialoguePhase)
             {
                 case 0:
-                    Player.HoldByInteraction();
+                    Player.Use();
                     Game.Dialogue.Show();
                     Game.Dialogue.SetDialogueName(Localization.Text(ETexts.FamilyMonologue));
                     Game.Dialogue.ChangeContent(Localization.Text(ETexts.Family_1));
@@ -77,7 +75,7 @@ namespace Platformer
                     DialoguePhase++;
                     break;
                 case 4:
-                    Player.ReleasedByInteraction();
+                    Player.Idle();
                     Game.Dialogue.Hide();
                     ProgressManager.SetQuest(EQuest.MotherPie, 2);
                     Player.Interaction -= OnInteraction;

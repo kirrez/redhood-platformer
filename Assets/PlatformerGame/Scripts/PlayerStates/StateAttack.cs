@@ -79,5 +79,40 @@ namespace Platformer.PlayerStates
 
             if (Model.IsHolyWaterAttack()) Model.ShootHolyWater();
         }
+
+        public void Jump()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void MoveLeft()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void MoveRight()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void Fire()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void ExtraFire()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void Use()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void Stop()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

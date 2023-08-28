@@ -50,14 +50,14 @@ namespace Platformer
             switch (DialoguePhase)
             {
                 case 0:
-                    Player.HoldByInteraction();
+                    Player.Use();
                     Game.Dialogue.Show();
                     Game.Dialogue.SetDialogueName(Localization.Text(ETexts.ShopkeeperTitle));
                     Game.Dialogue.ChangeContent(Localization.Text(ETexts.Shopkeeper1));
                     DialoguePhase++;
                     break;
                 case 1:
-                    Player.ReleasedByInteraction();
+                    Player.Idle();
                     Game.Dialogue.Hide();
                     DialoguePhase = 0;
                     HelpText.gameObject.SetActive(false);

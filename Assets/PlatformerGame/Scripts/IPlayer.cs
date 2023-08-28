@@ -7,8 +7,6 @@ namespace Platformer
     {
         event Action Interaction;
 
-        EFacing Facing { get; }
-
         Transform Transform { get; }
         Vector3 Position { get; set; }
 
@@ -16,8 +14,17 @@ namespace Platformer
         void UpdateMaxLives();
         void Revive();
 
-        void HoldByInteraction();
-        void ReleasedByInteraction();
         void Stun(float time);
+
+        //Refactoring
+        void Idle();
+        void Jump();
+        void MoveLeft();
+        void MoveRight();
+        void Fire();
+        void ExtraFire();
+        void Use();
+
+        EFacing GetFacing();
     }
 }

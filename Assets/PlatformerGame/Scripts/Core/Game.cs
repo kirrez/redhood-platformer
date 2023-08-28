@@ -28,11 +28,13 @@ namespace Platformer
 
         private void Awake()
         {
-            ResourceManager = CompositionRoot.GetResourceManager();
-            ProgressManager = CompositionRoot.GetProgressManager();
+            Player = CompositionRoot.GetPlayer();
             Navigation = CompositionRoot.GetNavigation();
+            ProgressManager = CompositionRoot.GetProgressManager();
+            ResourceManager = CompositionRoot.GetResourceManager();
             DynamicsContainer = CompositionRoot.GetDynamicsContainer();
 
+            var playerInput = CompositionRoot.GetPlayerInput();
             var eventSystem = CompositionRoot.GetEventSystem();
             var mainCMCamera = CompositionRoot.GetMainCMCamera();
 
@@ -55,7 +57,6 @@ namespace Platformer
             HUDModel.SetMaxLives(ProgressManager.GetQuest(EQuest.MaxLives));
             HUDModel.UpdateResourceAmount();
 
-            Player = CompositionRoot.GetPlayer();
             Player.Initiate(this);
             Player.Revive();
 
