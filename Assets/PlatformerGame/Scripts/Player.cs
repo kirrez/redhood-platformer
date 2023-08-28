@@ -40,17 +40,17 @@ namespace Platformer
         public StateAttack StateAttack;
         public StateJumpRising StateJumpRising;
         public StateJumpFalling StateJumpFalling;
-        public StateJumpRisingAttack StateJumpRisingAttack;
-        public StateJumpFallingAttack StateJumpFallingAttack;
-        public StateJumpDown StateJumpDown;
-        public StateSit StateSit;
-        public StateSitAttack StateSitAttack;
-        public StateSitCrouch StateSitCrouch;
-        public StateRollDown StateRollDown;
-        public StateDamageTaken StateDamageTaken;
-        public StateSitDamageTaken StateSitDamageTaken;
-        public StateInteraction StateInteraction;
-        public StateStunned StateStunned;
+        //public StateJumpRisingAttack StateJumpRisingAttack;
+        //public StateJumpFallingAttack StateJumpFallingAttack;
+        //public StateJumpDown StateJumpDown;
+        //public StateSit StateSit;
+        //public StateSitAttack StateSitAttack;
+        //public StateSitCrouch StateSitCrouch;
+        //public StateRollDown StateRollDown;
+        //public StateDamageTaken StateDamageTaken;
+        //public StateSitDamageTaken StateSitDamageTaken;
+        //public StateInteraction StateInteraction;
+        //public StateStunned StateStunned;
 
         private IState CurrentState;
 
@@ -125,17 +125,17 @@ namespace Platformer
             StateAttack = new StateAttack(this);
             StateJumpRising = new StateJumpRising(this);
             StateJumpFalling = new StateJumpFalling(this);
-            StateJumpRisingAttack = new StateJumpRisingAttack(this);
-            StateJumpFallingAttack = new StateJumpFallingAttack(this);
-            StateJumpDown = new StateJumpDown(this);
-            StateSit = new StateSit(this);
-            StateSitAttack = new StateSitAttack(this);
-            StateSitCrouch = new StateSitCrouch(this);
-            StateRollDown = new StateRollDown(this);
-            StateDamageTaken = new StateDamageTaken(this);
-            StateSitDamageTaken = new StateSitDamageTaken(this);
-            StateInteraction = new StateInteraction(this);
-            StateStunned = new StateStunned(this);
+            //StateJumpRisingAttack = new StateJumpRisingAttack(this);
+            //StateJumpFallingAttack = new StateJumpFallingAttack(this);
+            //StateJumpDown = new StateJumpDown(this);
+            //StateSit = new StateSit(this);
+            //StateSitAttack = new StateSitAttack(this);
+            //StateSitCrouch = new StateSitCrouch(this);
+            //StateRollDown = new StateRollDown(this);
+            //StateDamageTaken = new StateDamageTaken(this);
+            //StateSitDamageTaken = new StateSitDamageTaken(this);
+            //StateInteraction = new StateInteraction(this);
+            //StateStunned = new StateStunned(this);
 
             Config = new PlayerConfig();
         }
@@ -592,7 +592,7 @@ namespace Platformer
 
         public void HoldByInteraction()
         {
-            SetState(StateInteraction);
+            //SetState(StateInteraction);
         }
 
         public void ReleasedByInteraction()
@@ -604,7 +604,7 @@ namespace Platformer
 
         public void Stun(float time)
         {
-            SetState(StateStunned, time);
+            //SetState(StateStunned, time);
         }
 
         private void LoadConfigData()

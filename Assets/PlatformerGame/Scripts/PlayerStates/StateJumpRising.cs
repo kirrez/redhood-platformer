@@ -14,7 +14,7 @@ namespace Platformer.PlayerStates
         public void HealthChanged()
         {
             Model.ChangeHealthUI();
-            Model.SetState(Model.StateDamageTaken);
+            //Model.SetState(Model.StateDamageTaken);
         }
 
         public void OnEnable(float time = 0)
@@ -74,23 +74,23 @@ namespace Platformer.PlayerStates
             }
 
             // Attack Checks. Animations could be different, but they are not ))
-            if (Model.IsAxeAttack())
-            {
-                Model.ShootAxe();
-                Model.SetState(Model.StateJumpRisingAttack, Model.Animations.AirAttack());
-            }
+            //if (Model.IsAxeAttack())
+            //{
+            //    Model.ShootAxe();
+            //    Model.SetState(Model.StateJumpRisingAttack, Model.Animations.AirAttack());
+            //}
 
-            if (Model.IsKnifeAttack())
-            {
-                Model.ShootKnife();
-                Model.SetState(Model.StateJumpRisingAttack, Model.Animations.AirAttack());
-            }
+            //if (Model.IsKnifeAttack())
+            //{
+            //    Model.ShootKnife();
+            //    Model.SetState(Model.StateJumpRisingAttack, Model.Animations.AirAttack());
+            //}
 
-            if (Model.IsHolyWaterAttack())
-            {
-                Model.ShootHolyWater();
-                Model.SetState(Model.StateJumpRisingAttack, Model.Animations.AirAttack());
-            }
+            //if (Model.IsHolyWaterAttack())
+            //{
+            //    Model.ShootHolyWater();
+            //    Model.SetState(Model.StateJumpRisingAttack, Model.Animations.AirAttack());
+            //}
         }
 
         public void Update()

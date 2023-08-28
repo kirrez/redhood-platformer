@@ -19,7 +19,7 @@ namespace Platformer.PlayerStates
         public void HealthChanged()
         {
             Model.ChangeHealthUI();
-            Model.SetState(Model.StateDamageTaken);
+            //Model.SetState(Model.StateDamageTaken);
         }
 
         public void OnEnable(float time = 0f)
@@ -60,7 +60,7 @@ namespace Platformer.PlayerStates
             if (Model.Vertical == -1)
             {
                 Model.Animations.Sit();
-                Model.SetState(Model.StateSit);
+                //Model.SetState(Model.StateSit);
             }
 
             // State Jump Rising, from ground

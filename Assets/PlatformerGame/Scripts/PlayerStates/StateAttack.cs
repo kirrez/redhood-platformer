@@ -19,7 +19,7 @@ namespace Platformer.PlayerStates
         public void HealthChanged()
         {
             Model.ChangeHealthUI();
-            Model.SetState(Model.StateDamageTaken);
+            //Model.SetState(Model.StateDamageTaken);
         }
 
         public void OnEnable(float time = 0)
