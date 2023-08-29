@@ -2,10 +2,12 @@ using UnityEngine;
 
 namespace Platformer
 {
-    public class KeyboardInput : MonoBehaviour, IPlayerInput
+    public class KeyboardInput : MonoBehaviour, IUserInput
     {
         private IPlayer Player;
         private KeyboardConfig Config = new KeyboardConfig();
+
+        private bool IsEnabled = true;
 
         private void Awake()
         {
@@ -14,6 +16,11 @@ namespace Platformer
 
         private void Update()
         {
+            if (IsEnabled == false)
+            {
+                return;
+            }
+
             if (Input.GetKeyDown(Config.LeftKeyCode))
             {
                 Player.MoveLeft();
@@ -70,12 +77,14 @@ namespace Platformer
             }
         }
 
-        public void Lock()
+        public void Enable()
         {
+            IsEnabled = true;
         }
 
-        public void Unlock()
+        public void Disable()
         {
+            IsEnabled = false;
         }
     }
 }

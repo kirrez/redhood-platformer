@@ -39,12 +39,12 @@ namespace Platformer
 
         public void Show()
         {
-            View.Show();
+            View.Enable();
         }
 
         public void Hide()
         {
-            View.Hide();
+            View.Disable();
         }
     }
 }

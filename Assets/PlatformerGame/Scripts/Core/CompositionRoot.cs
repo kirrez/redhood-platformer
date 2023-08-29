@@ -14,8 +14,9 @@ namespace Platformer
         private static GameObject EventSystemContainer;
 
         private static IPlayer Player;
-        private static IPlayerInput PlayerInput;
+        private static IUserInput UserInput;
 
+        private static IPlatformFactory PlatformFactory;
         private static IResourceManager ResourceManager;
         private static IProgressManager ProgressManager;
         private static ILocalization Localization;
@@ -66,15 +67,35 @@ namespace Platformer
             return Player;
         }
 
-        public static IPlayerInput GetPlayerInput()
+        public static IUserInput GetUserInput()
         {
-            if (PlayerInput == null)
+            if (UserInput == null)
             {
-                var resourceManager = GetResourceManager();
-                PlayerInput = resourceManager.CreatePrefab<IPlayerInput, EComponents>(EComponents.PlayerInput);
+                var platformFactory = GetPlatformFactory();
+
+                UserInput = platformFactory.CreateUserInput();
             }
 
-            return PlayerInput;
+            return UserInput;
+        }
+
+        private static IPlatformFactory GetPlatformFactory()
+        {
+            if (PlatformFactory == null)
+            {
+                var resourceManager = GetResourceManager();
+
+                if (Application.isMobilePlatform)
+                {
+                    PlatformFactory = new MobilePlatformFactory(resourceManager);
+                }
+                else
+                {
+                    PlatformFactory = new StandalonePlatformFactory(resourceManager);
+                }
+            }
+
+            return PlatformFactory;
         }
         
         public static IUIRoot GetUIRoot()

@@ -1,4 +1,3 @@
-
 using UnityEngine;
 
 namespace Platformer
@@ -8,10 +7,11 @@ namespace Platformer
         public Transform ScreenCanvasLink;
         public Transform HUDCanvasLink;
         public Transform MenuCanvasLink;
+        public Transform InputCanvasLink;
 
         public Transform ScreenCanvas => ScreenCanvasLink;
         public Transform HUDCanvas => HUDCanvasLink;
-
         public Transform MenuCanvas => MenuCanvasLink;
+        public Transform InputCanvas => InputCanvasLink;
     }
 }

@@ -1,6 +1,3 @@
-using System.Collections.Generic;
-using System.Collections;
-using Cinemachine;
 using UnityEngine;
 
 namespace Platformer
@@ -25,16 +22,18 @@ namespace Platformer
 
         public HUDModel HUD => HUDModel;
         private HUDModel HUDModel;
+        private IUserInput UserInput;
 
         private void Awake()
         {
             Player = CompositionRoot.GetPlayer();
+            UserInput = CompositionRoot.GetUserInput();
             Navigation = CompositionRoot.GetNavigation();
             ProgressManager = CompositionRoot.GetProgressManager();
             ResourceManager = CompositionRoot.GetResourceManager();
             DynamicsContainer = CompositionRoot.GetDynamicsContainer();
 
-            var playerInput = CompositionRoot.GetPlayerInput();
+            var playerInput = CompositionRoot.GetUserInput();
             var eventSystem = CompositionRoot.GetEventSystem();
             var mainCMCamera = CompositionRoot.GetMainCMCamera();
 

@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 namespace Platformer
 {
     public enum EScreens
@@ -9,6 +5,7 @@ namespace Platformer
         FadeScreenView,
         DialogueView,
         GameOverView,
-        HUDView
+        HUDView,
+        InputView
     }
 }

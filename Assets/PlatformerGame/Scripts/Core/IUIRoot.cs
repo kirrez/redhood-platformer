@@ -7,6 +7,7 @@ namespace Platformer
         Transform ScreenCanvas { get; }
         Transform HUDCanvas { get; }
         Transform MenuCanvas { get; }
+        Transform InputCanvas { get; }
     }
 }
 

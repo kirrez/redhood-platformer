@@ -140,17 +140,14 @@ namespace Platformer.PlayerStates
 
         public void Fire()
         {
-            throw new System.NotImplementedException();
         }
 
         public void ExtraFire()
         {
-            throw new System.NotImplementedException();
         }
 
         public void Use()
         {
-            throw new System.NotImplementedException();
         }
 
         public void Stop()

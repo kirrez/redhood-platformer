@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using System;
-using UnityEngine;
 
 namespace Platformer
 {
@@ -24,12 +21,12 @@ namespace Platformer
 
         public void Show()
         {
-            View.Show();
+            View.Enable();
         }
 
         public void Hide()
         {
-            View.Hide();
+            View.Disable();
         }
 
         private void OnTryAgainClicked()

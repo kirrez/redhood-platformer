@@ -5,7 +5,8 @@ namespace Platformer
     {
         Player,
         Player2,
-        PlayerInput,
+        TouchInput,
+        KeyboardInput,
         
         UIRoot,
         MainCMCamera,

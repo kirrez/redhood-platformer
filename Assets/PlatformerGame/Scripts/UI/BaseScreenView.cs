@@ -1,17 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Platformer
 {
-    public abstract class BaseScreenView : MonoBehaviour
+    public abstract class BaseScreenView : MonoBehaviour, IView
     {
-        public void Show()
+        public void Enable()
         {
             gameObject.SetActive(true);
         }
 
-        public void Hide()
+        public void Disable()
         {
             gameObject.SetActive(false);
         }
