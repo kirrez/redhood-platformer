@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UIElements.Experimental;
 
 namespace Platformer.PlayerStates
 {
@@ -77,7 +76,7 @@ namespace Platformer.PlayerStates
 
             if (Model.Grounded(LayerMasks.Walkable))
             {
-                Model.Animations.Walk();
+                Model.Animations.Moving();
 
                 Model.SetState(Model.StateMoving);
                 return;
@@ -161,6 +160,14 @@ namespace Platformer.PlayerStates
         public void Stop()
         {
             Model.SetState(Model.StateJumpFalling);
+        }
+
+        public void Crouch()
+        {
+        }
+
+        public void Stand()
+        {
         }
     }
 }

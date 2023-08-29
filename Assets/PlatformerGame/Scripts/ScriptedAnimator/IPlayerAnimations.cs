@@ -4,18 +4,18 @@ namespace Platformer
     public interface IPlayerAnimations
     {
         float Idle();
-        float Walk();
+        float Moving();
         float JumpRising();
         float JumpFalling();
         float Dying();
         float Attack();
         float AirAttack();
-        float Sit();
-        float SitAttack();
-        float RollDown();
         float Crouch();
+        float CrouchAttack();
+        float RollDown();
+        float CrouchMoving();
         float DamageTaken();
-        float SitDamageTaken();
+        float CrouchDamageTaken();
         float Stunned();
     }
 }

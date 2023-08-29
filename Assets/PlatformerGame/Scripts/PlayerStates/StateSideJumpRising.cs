@@ -157,5 +157,15 @@ namespace Platformer.PlayerStates
         {
             Model.SetState(Model.StateJumpRising);
         }
+
+        public void Crouch()
+        {
+            //TODO: it works?
+            Model.Rigidbody.velocity = new Vector2(Model.Rigidbody.velocity.x, Model.Rigidbody.velocity.y + Model.PushDownForce * Time.fixedDeltaTime * (-1));
+        }
+
+        public void Stand()
+        {
+        }
     }
 }

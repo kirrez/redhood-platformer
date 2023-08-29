@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UIElements.Experimental;
 
 namespace Platformer.PlayerStates
 {
@@ -164,6 +163,14 @@ namespace Platformer.PlayerStates
         }
 
         public void Stop()
+        {
+        }
+
+        public void Crouch()
+        {
+        }
+
+        public void Stand()
         {
         }
     }

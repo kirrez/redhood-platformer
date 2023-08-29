@@ -21,8 +21,8 @@ namespace Platformer
         public IPlayerAnimations Animations;
 
         //Input
-        public float Horizontal;
-        public float Vertical;
+        //public float Horizontal;
+        //public float Vertical;
         public bool HitJump;
         public bool HitAttack;
         public bool HitInteraction;
@@ -34,6 +34,8 @@ namespace Platformer
         public float RollDownTime { get; private set; }
         public float DeathShockTime { get; private set; }
 
+        public IState StateCrouch;
+        public IState StateCrouchMoving;
         public IState StateIdle;
         public IState StateMoving;
         public IState StateDying;
@@ -46,7 +48,7 @@ namespace Platformer
         //public StateJumpRisingAttack StateJumpRisingAttack;
         //public StateJumpFallingAttack StateJumpFallingAttack;
         //public StateJumpDown StateJumpDown;
-        //public StateSit StateSit;
+
         //public StateSitAttack StateSitAttack;
         //public StateSitCrouch StateSitCrouch;
         //public StateRollDown StateRollDown;
@@ -120,6 +122,8 @@ namespace Platformer
             PlayerAnimator = new PlayerAnimator(Renderer);
             Animations = new PlayerAnimation(PlayerAnimator);
 
+            StateCrouch = new StateCrouch(this);
+            StateCrouchMoving = new StateCrouchMoving(this);
             StateIdle = new StateIdle(this);
             StateMoving = new StateMoving(this);
             StateDying = new StateDying(this);
@@ -132,7 +136,6 @@ namespace Platformer
             //StateJumpRisingAttack = new StateJumpRisingAttack(this);
             //StateJumpFallingAttack = new StateJumpFallingAttack(this);
             //StateJumpDown = new StateJumpDown(this);
-            //StateSit = new StateSit(this);
             //StateSitAttack = new StateSitAttack(this);
             //StateSitCrouch = new StateSitCrouch(this);
             //StateRollDown = new StateRollDown(this);
@@ -220,33 +223,33 @@ namespace Platformer
             //CurrentState.OnEnable(time);
         }
 
-        public void UpdateFacing()
-        {
-            // Changes Renderer and weapon's directions
-            if (Horizontal > 0)
-            {
-                Renderer.flipX = false;
-                Facing = EFacing.Right;
+        //public void UpdateFacing()
+        //{
+        //    // Changes Renderer and weapon's directions
+        //    if (Horizontal > 0)
+        //    {
+        //        Renderer.flipX = false;
+        //        Facing = EFacing.Right;
 
-                var newPosition = new Vector2(StandingFirePointX, StandingFirePoint.localPosition.y);
-                StandingFirePoint.localPosition = newPosition;
+        //        var newPosition = new Vector2(StandingFirePointX, StandingFirePoint.localPosition.y);
+        //        StandingFirePoint.localPosition = newPosition;
 
-                newPosition = new Vector2(SittingFirePointX, SittingFirePoint.localPosition.y);
-                SittingFirePoint.localPosition = newPosition;
-            }
+        //        newPosition = new Vector2(SittingFirePointX, SittingFirePoint.localPosition.y);
+        //        SittingFirePoint.localPosition = newPosition;
+        //    }
 
-            if (Horizontal < 0)
-            {
-                Renderer.flipX = true;
-                Facing = EFacing.Left;
+        //    if (Horizontal < 0)
+        //    {
+        //        Renderer.flipX = true;
+        //        Facing = EFacing.Left;
 
-                var newPosition = new Vector2(-StandingFirePointX, StandingFirePoint.localPosition.y);
-                StandingFirePoint.localPosition = newPosition;
+        //        var newPosition = new Vector2(-StandingFirePointX, StandingFirePoint.localPosition.y);
+        //        StandingFirePoint.localPosition = newPosition;
 
-                newPosition = new Vector2(-SittingFirePointX, SittingFirePoint.localPosition.y);
-                SittingFirePoint.localPosition = newPosition;
-            }
-        }
+        //        newPosition = new Vector2(-SittingFirePointX, SittingFirePoint.localPosition.y);
+        //        SittingFirePoint.localPosition = newPosition;
+        //    }
+        //}
 
         public void StandUp()
         {
@@ -262,70 +265,70 @@ namespace Platformer
             FirePoint = SittingFirePoint;
         }
 
-        public bool IsKnifeAttack()
-        {
-            if (KnifeTimer > 0)
-            {
-                return false;
-            }
+        //public bool IsKnifeAttack()
+        //{
+        //    if (KnifeTimer > 0)
+        //    {
+        //        return false;
+        //    }
 
-            if (HitAttack && Vertical < 1f)
-            {
-                KnifeTimer = KnifeCooldown;
-                HitAttack = false;
+        //    if (HitAttack && Vertical < 1f)
+        //    {
+        //        KnifeTimer = KnifeCooldown;
+        //        HitAttack = false;
 
-                if (KnifeLevel > 0)
-                {
-                    return true;
-                }
-            }
+        //        if (KnifeLevel > 0)
+        //        {
+        //            return true;
+        //        }
+        //    }
 
-            return false;
-        }
+        //    return false;
+        //}
 
-        public bool IsAxeAttack()
-        {
-            if (AxeTimer > 0)
-            {
-                return false;
-            }
+        //public bool IsAxeAttack()
+        //{
+        //    if (AxeTimer > 0)
+        //    {
+        //        return false;
+        //    }
 
-            if (HitAttack && Vertical == 1f)
-            {
-                AxeTimer = AxeCooldown;
-                HitAttack = false;
+        //    if (HitAttack && Vertical == 1f)
+        //    {
+        //        AxeTimer = AxeCooldown;
+        //        HitAttack = false;
 
-                if (AxeLevel > 0)
-                {
-                    return true;
-                }
-            }
+        //        if (AxeLevel > 0)
+        //        {
+        //            return true;
+        //        }
+        //    }
 
-            return false;
-        }
+        //    return false;
+        //}
 
-        public bool IsHolyWaterAttack()
-        {
-            if (HolyWaterTimer > 0)
-            {
-                HitInteraction = false;
-                return false;
-            }
+        //public bool IsHolyWaterAttack()
+        //{
+        //    if (HolyWaterTimer > 0)
+        //    {
+        //        HitInteraction = false;
+        //        return false;
+        //    }
 
-            if (HitInteraction && Vertical == 1)
-            {
-                HolyWaterTimer = HolyWaterCooldown;
-                HitInteraction = false;
+        //    if (HitInteraction && Vertical == 1)
+        //    {
+        //        HolyWaterTimer = HolyWaterCooldown;
+        //        HitInteraction = false;
 
-                if (HolyWaterLevel > 0)
-                {
-                    return true;
-                }
-            }
+        //        if (HolyWaterLevel > 0)
+        //        {
+        //            return true;
+        //        }
+        //    }
 
-            HitInteraction = false;
-            return false;
-        }
+        //    HitInteraction = false;
+        //    return false;
+        //}
 
         public void ShootKnife()
         {
@@ -640,10 +643,6 @@ namespace Platformer
         }
 
 
-
-
-
-
         public void Jump()
         {
             CurrentState.Jump();
@@ -677,6 +676,16 @@ namespace Platformer
         public void Idle()
         {
             CurrentState.Stop();
+        }
+
+        public void Crouch()
+        {
+            CurrentState.Crouch();
+        }
+
+        public void Stand()
+        {
+            CurrentState.Stand();
         }
     }
 }

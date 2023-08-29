@@ -44,6 +44,16 @@ namespace Platformer
                 Player.Idle();
             }
 
+            if (Input.GetKeyDown(Config.DownKeyCode))
+            {
+                Player.Crouch();
+            }
+
+            if (Input.GetKeyUp(Config.DownKeyCode))
+            {
+                Player.Stand();
+            }
+
             if (Input.GetKeyDown(Config.JumpKeyCode))
             {
                 Player.Jump();

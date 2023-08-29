@@ -2,11 +2,11 @@ using UnityEngine;
 
 namespace Platformer.PlayerStates
 {
-    public class StateMoving : IState
+    public class StateCrouchMoving : IState
     {
         private Player Model;
 
-        public StateMoving(Player model)
+        public StateCrouchMoving(Player model)
         {
             Model = model;
         }
@@ -19,7 +19,6 @@ namespace Platformer.PlayerStates
         public void HealthChanged()
         {
             //Model.ChangeHealthUI();
-
             //Model.SetState(Model.StateDamageTaken);
         }
 
@@ -27,7 +26,7 @@ namespace Platformer.PlayerStates
         {
             //Model.Timer = time;
 
-            //Model.StandUp();
+            //Model.SitDown();
         }
 
         public void FixedUpdate()
@@ -37,77 +36,83 @@ namespace Platformer.PlayerStates
 
             //Model.UpdateFacing();
 
-            // Horizontal movement
+            //// Horizontal movement with checking platform riding
             //if (Model.PlatformRigidbody != null)
             //{
-            //    Model.Rigidbody.velocity = new Vector2(Model.Horizontal * Time.fixedDeltaTime * Model.HorizontalSpeed, 0f) + Model.PlatformRigidbody.velocity;
+            //    Model.Rigidbody.velocity = new Vector2(Model.Horizontal * Time.fixedDeltaTime * Model.CrouchSpeed, 0f) + Model.PlatformRigidbody.velocity;
             //}
 
             if (Model.PlatformRigidbody == null)
             {
                 var y = Model.Facing == EFacing.Left ? -1f : 1f;
-                Model.Rigidbody.velocity = new Vector2(y * Time.fixedDeltaTime * Model.HorizontalSpeed, Model.Rigidbody.velocity.y);
+                Model.Rigidbody.velocity = new Vector2(y * Time.fixedDeltaTime * Model.CrouchSpeed, Model.Rigidbody.velocity.y);
             }
 
-            // State Idle
+            //// Sit
             //if (Model.Horizontal == 0)
             //{
-            //    Model.Animations.Idle();
-            //    Model.SetState(Model.StateIdle);
-            //}
-
-            // State Sit
-            //if (Model.Vertical == -1)
-            //{
             //    Model.Animations.Sit();
-            //    //Model.SetState(Model.StateSit);
+            //    Model.SetState(Model.StateSit);
             //}
 
-            // State Jump Rising, from ground
-            //if (Model.HitJump && Model.Grounded(LayerMasks.Walkable) && !Model.StandingCeiled(LayerMasks.Solid))
+            //// Idle and Walk
+            //if (Model.Vertical > -1 && !Model.Ceiled(LayerMasks.Solid))
             //{
-            //    //Model.UpdateInAir(true);
+            //    if (Model.Horizontal == 0)
+            //    {
+            //        //Model.StandUp();
+            //        Model.Animations.Idle();
+            //        Model.SetState(Model.StateIdle);
+            //    }
+            //    else if (Model.Horizontal != 0)
+            //    {
+            //        //Model.StandUp();
+            //        Model.Animations.Walk();
+            //        Model.SetState(Model.StateWalk);
+            //    }
+            //}
+
+            //// Roll Down
+            //if (Model.HitJump && Model.Grounded(LayerMasks.Ground))
+            //{
             //    Model.HitJump = false;
-            //    Model.Animations.JumpRising();
-            //    Model.ReleasePlatform();
-            //    Model.Rigidbody.velocity = Vector2.zero; // slips anyway, but quite slowly // Test
-            //    Model.SetState(Model.StateJumpRising, 0.75f);
-            //    Model.Rigidbody.AddForce(new Vector2(0f, Model.JumpForce));
+            //    Model.Animations.RollDown();
+            //    Model.SetState(Model.StateRollDown, Model.RollDownTime);
             //}
 
             //// State Jump Rising without hitting "Jump" button ))
-            //if (Model.DeltaY > 0 && !Model.Grounded(LayerMasks.Walkable) && !Model.StandingCeiled(LayerMasks.Solid))
+            //if (Model.DeltaY > 0 && !Model.Grounded(LayerMasks.Walkable))
             //{
             //    //Model.UpdateInAir(true);
             //    Model.Animations.JumpRising();
             //    Model.SetState(Model.StateJumpRising);
             //}
 
-            //// State Jump Falling
+            //// State Jump Falling, something disappeared right beneath your feet!
             //if (Model.DeltaY < 0 && !Model.Grounded(LayerMasks.Walkable))
             //{
             //    //Model.UpdateInAir(true);
             //    Model.Animations.JumpFalling();
-            //    Model.SetState(Model.StateJumpFalling);
+            //    Model.SetState(Model.StateJumpFalling, 0.75f);
             //}
 
             //// Attack Checks. Animations could be different, but they are not ))
             //if (Model.IsAxeAttack())
             //{
             //    Model.ShootAxe();
-            //    Model.SetState(Model.StateAttack, Model.Animations.Attack());
+            //    Model.SetState(Model.StateSitAttack, Model.Animations.SitAttack());
             //}
 
             //if (Model.IsKnifeAttack())
             //{
             //    Model.ShootKnife();
-            //    Model.SetState(Model.StateAttack, Model.Animations.Attack());
+            //    Model.SetState(Model.StateSitAttack, Model.Animations.SitAttack());
             //}
 
             //if (Model.IsHolyWaterAttack())
             //{
             //    Model.ShootHolyWater();
-            //    Model.SetState(Model.StateAttack, Model.Animations.Attack());
+            //    Model.SetState(Model.StateSitAttack, Model.Animations.SitAttack());
             //}
         }
 
@@ -165,20 +170,18 @@ namespace Platformer.PlayerStates
 
         public void Stop()
         {
-            Model.Animations.Idle();
-            Model.Rigidbody.velocity = Vector2.zero;
-
-            Model.SetState(Model.StateIdle);
+            Model.Animations.Crouch();
+            Model.SetState(Model.StateCrouch);
         }
 
         public void Crouch()
         {
-            Model.Animations.CrouchMoving();
-            Model.SetState(Model.StateCrouchMoving);
         }
 
         public void Stand()
         {
+            Model.Animations.Moving();
+            Model.SetState(Model.StateMoving);
         }
     }
 }

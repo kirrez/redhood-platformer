@@ -73,11 +73,11 @@ namespace Platformer.PlayerStates
             }
 
             // we can shoot any weapon if it's timer = 0
-            if (Model.IsAxeAttack()) Model.ShootAxe();
+            //if (Model.IsAxeAttack()) Model.ShootAxe();
 
-            if (Model.IsKnifeAttack()) Model.ShootKnife();
+            //if (Model.IsKnifeAttack()) Model.ShootKnife();
 
-            if (Model.IsHolyWaterAttack()) Model.ShootHolyWater();
+            //if (Model.IsHolyWaterAttack()) Model.ShootHolyWater();
         }
 
         public void Jump()
@@ -111,6 +111,16 @@ namespace Platformer.PlayerStates
         }
 
         public void Stop()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void Crouch()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void Stand()
         {
             throw new System.NotImplementedException();
         }

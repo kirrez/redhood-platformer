@@ -14,5 +14,7 @@ namespace Platformer.PlayerStates
         void ExtraFire();
         void Use();
         void Stop();
+        void Crouch();
+        void Stand();
     }
 }

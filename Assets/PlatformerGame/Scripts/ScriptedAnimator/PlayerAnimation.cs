@@ -17,7 +17,7 @@ namespace Platformer.ScriptedAnimator
             return Animator.Idle();
         }
 
-        public float Walk()
+        public float Moving()
         {
             return Animator.Walk();
         }
@@ -47,12 +47,12 @@ namespace Platformer.ScriptedAnimator
             return Animator.AirAttack();
         }
 
-        public float Sit()
+        public float Crouch()
         {
             return Animator.Sit();
         }
 
-        public float SitAttack()
+        public float CrouchAttack()
         {
             return Animator.SitAttack();
         }
@@ -62,7 +62,7 @@ namespace Platformer.ScriptedAnimator
             return Animator.RollDown();
         }
 
-        public float Crouch()
+        public float CrouchMoving()
         {
             return Animator.Crouch();
         }
@@ -72,7 +72,7 @@ namespace Platformer.ScriptedAnimator
             return Animator.DamageTaken();
         }
 
-        public float SitDamageTaken()
+        public float CrouchDamageTaken()
         {
             return Animator.SitDamageTaken();
         }

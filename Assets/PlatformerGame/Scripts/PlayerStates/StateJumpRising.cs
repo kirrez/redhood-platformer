@@ -160,5 +160,16 @@ namespace Platformer.PlayerStates
         public void Stop()
         {
         }
+
+        public void Crouch()
+        {
+            //TODO: it works?
+            Model.Rigidbody.velocity = new Vector2(Model.Rigidbody.velocity.x, Model.Rigidbody.velocity.y + Model.PushDownForce * Time.fixedDeltaTime * (-1));
+        }
+
+        public void Stand()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

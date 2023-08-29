@@ -24,6 +24,8 @@ namespace Platformer
         void Fire();
         void ExtraFire();
         void Use();
+        void Crouch();
+        void Stand();
 
         EFacing GetFacing();
     }

@@ -120,7 +120,7 @@ namespace Platformer.PlayerStates
 
         public void MoveLeft()
         {
-            Model.Animations.Walk();
+            Model.Animations.Moving();
 
             Model.Rigidbody.velocity = new Vector2(-Time.fixedDeltaTime * Model.HorizontalSpeed, Model.Rigidbody.velocity.y);
 
@@ -138,7 +138,7 @@ namespace Platformer.PlayerStates
 
         public void MoveRight()
         {
-            Model.Animations.Walk();
+            Model.Animations.Moving();
 
             Model.Rigidbody.velocity = new Vector2(Time.fixedDeltaTime * Model.HorizontalSpeed, Model.Rigidbody.velocity.y);
 
@@ -170,6 +170,16 @@ namespace Platformer.PlayerStates
         }
 
         public void Stop()
+        {
+        }
+
+        public void Crouch()
+        {
+            Model.Animations.Crouch();
+            Model.SetState(Model.StateCrouch);
+        }
+
+        public void Stand()
         {
         }
     }
