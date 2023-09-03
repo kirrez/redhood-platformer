@@ -60,8 +60,8 @@ namespace Platformer
             SetQuest(EQuest.SuspensionBridge, 3);
 
             //new Player's location
-            SetQuest(EQuest.Stage, (int)EStages.TheVillage);
-            SetQuest(EQuest.Location, 0);
+            SetQuest(EQuest.Stage, (int)EStages.CaveLabyrinth);
+            SetQuest(EQuest.Location, 2);
             SetQuest(EQuest.SpawnPoint, 0);
 
             SetQuest(EQuest.KnifeLevel, 1);

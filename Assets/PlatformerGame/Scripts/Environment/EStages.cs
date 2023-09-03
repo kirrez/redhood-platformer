@@ -7,6 +7,7 @@ namespace Platformer
         TheVillage,
         WestForest,
         Mountains,
-        Lumbermill
+        Lumbermill,
+        CaveLabyrinth
     }
 }

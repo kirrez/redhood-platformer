@@ -2544,11 +2544,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BelnadesStatue
+      name: StatueBelnadesBlue
       rect:
         serializedVersion: 2
         x: 304
-        y: 264
+        y: 256
         width: 24
         height: 40
       alignment: 7
@@ -3131,6 +3131,195 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: StatueFemale1Blue
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 256
+        width: 18
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa18a7256ddac4240ad7933cd927d496
+      internalID: -454061888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StatueBelnadesGrey
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 208
+        width: 24
+        height: 40
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fab123ec6c98231468cff29dc51e77f3
+      internalID: -1018311449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StatueFemale1Grey
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 208
+        width: 18
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3264430142203aa4fb9448df30958564
+      internalID: 1413428699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StatueFemale2Blue
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 256
+        width: 18
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 544553e704418ce4c84c8ee89b88edb9
+      internalID: 1042732916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StatueFemale2Grey
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 208
+        width: 18
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd870d0fbcaca1d4980feeee43bd5b8e
+      internalID: -707712450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crate
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 424
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38c18fec953c124498141a9b842e8511
+      internalID: -614448405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WaterfallDarkRapid_0
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 56
+        width: 32
+        height: 32
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88c0bd908477bc841acdc9e739052004
+      internalID: -1113234018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WaterfallDarkRapid_1
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 56
+        width: 32
+        height: 32
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf4e5f58e817039498cace722202fc86
+      internalID: -80851947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WaterfallDarkRapid_2
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 56
+        width: 32
+        height: 32
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9a6c6f31f368934f9750e915bf9eb42
+      internalID: 411317632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -3142,195 +3331,204 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Holder: 479004354
-      ManBrown_1: 964522010
-      WoodShatter: -2086196866
-      Bag1500: -1140358114
-      Ropes_2: 2037492357
-      Candle_0: -387247735
-      KnifeIcon_1: -1823561205
-      BreakableWood_7: 1493924921
-      KnifeIcon_2: -250723437
-      HealthReplenish: -986860588
-      DarkCloudsL2_2: 567104749
-      DarkCloudsL2_8: 74150674
-      BreakableWood_3: -22461363
-      Blacksmith_2: -1075378831
-      ButtonOff: 1654182457
-      RopeSlopeRight: -151934057
-      Bubble: -631682307
-      DarkCloudsL1_7: -419847979
-      FountainBasinC: -1309141152
-      ManBlack_0: -135203124
-      DarkCloudsL1_12: -1543764027
-      WomanBlue_1: 759018448
-      DoorGreen_0: -425144864
-      Fall_1: 2073561585
-      DarkCloudsL1_10: 233604434
-      OldManRed_0: 1842019303
-      DarkCloudsL2_7: -729258153
       Anvil: 1114881007
-      DarkCloudsL1_8: 1879142511
-      DarkCloudsL3_2: 1985532748
-      Fountain_1: 1542308353
-      Fish_4: -495157367
-      Chain2: 149674829
-      DarkCloudsL3_3: 2090795456
-      ManBlond_1: 113528172
-      RopeSlopeLeft: 1691112775
-      DarkCloudsL2_3: 945260194
-      Fall_0: -628325260
-      Firebowl_0: 267164088
-      Firebowl_1: -388648844
-      Fireplace_1: -1024916941
-      DarkCloudsL1_11: -739747816
-      Fish_3: 1361706878
-      Camp_Off: 601563294
-      OldManGreen_1: -1148329170
-      DoorGrey_1: -16567571
-      Mother_2: 996843073
-      DarkCloudsL2_1: 1230439699
-      WaterfallDarkBody_0: 644923605
-      Father_1: 1381507882
-      WeaponEmpty: 1594718321
-      OldWoman_1: -98292667
-      Fountain_3: -287360247
-      DarkCloudsL1: -1662598905
-      BridgeRight: 27038073
-      Ropes_3: 860458067
-      Chain: -1271331200
-      DoorGrey_2: -604756203
-      DarkCloudsL1_4: -566693553
-      BreakableWood_4: -1482915127
-      DoorRed_2: -1579968724
-      Ropes_1: 2084056853
       AxeIcon_1: 1986779346
-      KnifeIcon_3: -1734167671
-      DarkCloudsL1_0: 1666325539
-      Father_2: -88207837
-      LightCloud_3: 1974901377
-      ManBlond_0: 667314759
-      WeaponFrame: 1830880056
-      Platform_2: 17101485
-      WaterBlueTransparent: 1422703808
-      ButtonOn: 876549026
-      Bag600: 655228387
-      DarkCloudsL2_6: -153351782
-      Block_red: 297420487
-      SpikesRed: 1164528437
-      WaterfallDarkSplashR_0: 332695296
-      DarkCloudsL1_5: -1699626249
-      ExitZone: 1976855063
+      AxeIcon_2: -1346496552
+      AxeIcon_3: -562969194
       Backpack: -392845782
-      WomanGreen_0: -1914863978
-      Key_Grey: -6393119
-      ManBrown_0: 2005081732
-      Platform_4: 933978366
-      Key_Green: 2089127135
-      Platform_1: -1624028744
-      DarkCloudsL1_3: 1355649025
+      Bag1500: -1140358114
+      Bag250: -1046768469
+      Bag600: 655228387
       Blackberry: 961531519
-      Fountain_5: -912124016
-      DoorRed_1: 729713761
+      Blacksmith_1: 2072301162
+      Blacksmith_2: -1075378831
+      Blacksmith_3: 1102150372
+      BlockBeige: -1438525317
+      Block_green: 1572604686
+      Block_red: 297420487
+      BreakableWood_1: -731882785
+      BreakableWood_2: 1427516514
+      BreakableWood_3: -22461363
+      BreakableWood_4: -1482915127
+      BreakableWood_5: -1160252470
+      BreakableWood_6: 1379923547
+      BreakableWood_7: 1493924921
+      BridgeCenter: 1616014153
+      BridgeLeft: -479444781
+      BridgeRight: 27038073
+      Bubble: -631682307
+      ButtonOff: 1654182457
+      ButtonOn: 876549026
+      Camp_Off: 601563294
+      Camp_On: -2025242477
+      Candle_0: -387247735
+      Candle_1: 1892384369
+      Chain: -1271331200
+      Chain2: 149674829
+      Cloacked_0: -1755142945
+      Cloacked_1: 1650267948
+      Coin: -1532539009
+      Crate: -614448405
+      DarkCloudsL1: -1662598905
+      DarkCloudsL1_0: 1666325539
+      DarkCloudsL1_1: 1993751466
+      DarkCloudsL1_10: 233604434
+      DarkCloudsL1_11: -739747816
+      DarkCloudsL1_12: -1543764027
+      DarkCloudsL1_2: -1559139224
+      DarkCloudsL1_3: 1355649025
+      DarkCloudsL1_4: -566693553
+      DarkCloudsL1_5: -1699626249
+      DarkCloudsL1_6: -1426506302
+      DarkCloudsL1_7: -419847979
+      DarkCloudsL1_8: 1879142511
       DarkCloudsL1_9: -583554590
       DarkCloudsL2_0: -1209619850
-      WomanGreen_1: -569639555
-      LightCloud_2: -1223994109
-      Food: -656141367
+      DarkCloudsL2_1: 1230439699
+      DarkCloudsL2_2: 567104749
+      DarkCloudsL2_3: 945260194
+      DarkCloudsL2_4: 109478668
+      DarkCloudsL2_5: -426296842
+      DarkCloudsL2_6: -153351782
+      DarkCloudsL2_7: -729258153
+      DarkCloudsL2_8: 74150674
+      DarkCloudsL3_0: -1479163918
+      DarkCloudsL3_1: 1253647553
+      DarkCloudsL3_2: 1985532748
+      DarkCloudsL3_3: 2090795456
+      DarkCloudsL4: 2110242026
+      DarkCloudsLVL2: -431119207
+      DoorGreen_0: -425144864
+      DoorGreen_1: -227913323
+      DoorGreen_2: 1295310118
+      DoorGrey_0: 1360749912
+      DoorGrey_1: -16567571
+      DoorGrey_2: -604756203
+      DoorRed_0: 1550466903
+      DoorRed_1: 729713761
+      DoorRed_2: -1579968724
+      ExitZone: 1976855063
+      Fall_0: -628325260
+      Fall_1: 2073561585
+      Fall_2: 1255714272
+      Father_1: 1381507882
+      Father_2: -88207837
+      Firebowl_0: 267164088
+      Firebowl_1: -388648844
+      Firebowl_2: 456338429
+      Fireplace_0: -630716480
+      Fireplace_1: -1024916941
+      Fireplace_2: 1631699850
+      Fish_0: 731272904
       Fish_1: -1815086659
       Fish_2: -175219856
-      DarkCloudsL4: 2110242026
-      OldWoman_0: -1508033894
-      Heart_Empty: -1194434640
-      WomanRed_1: 1779097657
-      DarkCloudsL1_1: 1993751466
-      HolyWaterIcon_1: 818119534
-      Cloacked_0: -1755142945
-      DarkCloudsL2_5: -426296842
-      DarkCloudsL3_1: 1253647553
-      WaterfallBody_1: 76578312
-      LightCloud_4: -268048731
-      OldManRed_1: -1755499994
-      Firebowl_2: 456338429
-      Fish_0: 731272904
-      BreakableWood_1: -731882785
+      Fish_3: 1361706878
+      Fish_4: -495157367
+      Fish_5: -1548963843
+      Fish_6: -65723090
+      Food: -656141367
       FountainBasin: 1340344472
-      Coin: -1532539009
-      Camp_On: -2025242477
-      OldManGreen_0: -832100550
-      Fireplace_2: 1631699850
-      RopeCenter: -1307795433
-      DarkCloudsL1_2: -1559139224
-      WaterfallDarkSplashL_2: 1884388840
-      WaterfallDarkTop_1: -1978122356
-      Priest_0: 703090300
-      BridgeCenter: 1616014153
-      Soldier_0: 390478329
+      FountainBasinC: -1309141152
+      Fountain_1: 1542308353
+      Fountain_2: 1039542931
+      Fountain_3: -287360247
+      Fountain_4: -1372597606
+      Fountain_5: -912124016
+      HealthReplenish: -986860588
       HealthUpgrade: 136882220
-      Stream_1: 855704516
-      WaterfallDarkSplashL_1: 1135944390
-      Cloacked_1: 1650267948
-      WaterfallDarkSplashR_1: -1077411610
-      Objects_0: 1160243267
-      Spikes_grey: -1018720058
-      DarkCloudsL2_4: 109478668
-      WaterfallDarkBody_2: -727771062
-      Fall_2: 1255714272
-      WaterfallBody_2: -35298014
-      AxeIcon_2: -1346496552
+      Heart_Empty: -1194434640
+      Heart_full: -1332053382
+      Holder: 479004354
+      HolyWaterIcon_1: 818119534
+      HolyWaterIcon_2: -111287172
+      Key_Green: 2089127135
+      Key_Grey: -6393119
       Key_Red: 1805074571
+      KnifeIcon_1: -1823561205
+      KnifeIcon_2: -250723437
+      KnifeIcon_3: -1734167671
+      LightCloud_1: 1968002318
+      LightCloud_2: -1223994109
+      LightCloud_3: 1974901377
+      LightCloud_4: -268048731
+      LightCloud_5: -203564046
+      ManBlack_0: -135203124
+      ManBlack_1: -772477246
+      ManBlond_0: 667314759
+      ManBlond_1: 113528172
+      ManBrown_0: 2005081732
+      ManBrown_1: 964522010
+      MaxHealthUp: 2022743721
+      MotherPie: -1015853895
+      Mother_2: 996843073
+      Mushroom: 1425082455
+      Objects_0: 1160243267
+      OldManGreen_0: -832100550
+      OldManGreen_1: -1148329170
+      OldManRed_0: 1842019303
+      OldManRed_1: -1755499994
+      OldWoman_0: -1508033894
+      OldWoman_1: -98292667
+      Ore: 1752684501
+      Platform_1: -1624028744
+      Platform_2: 17101485
+      Platform_3: 880925628
+      Platform_4: 933978366
+      Priest_0: 703090300
+      Priest_1: -654608740
+      RopeCenter: -1307795433
+      RopeSlopeLeft: 1691112775
+      RopeSlopeRight: -151934057
+      Rope_4: -866954109
+      Ropes_1: 2084056853
+      Ropes_2: 2037492357
+      Ropes_3: 860458067
+      Soldier_0: 390478329
+      Soldier_1: -1451179720
+      SpikesRed: 1164528437
+      Spikes_grey: -1018720058
+      StatueBelnadesBlue: 478016404
+      StatueBelnadesGrey: -1018311449
+      StatueFemale1Blue: -454061888
+      StatueFemale1Grey: 1413428699
+      StatueFemale2Blue: 1042732916
+      StatueFemale2Grey: -707712450
+      Stream_0: 1860220395
+      Stream_1: 855704516
+      Stream_2: -309486281
       Stream_3: -1190808691
       SuspensionHolder_Left: 133505279
-      WaterfallDarkBody_1: 43808338
-      DoorRed_0: 1550466903
       SuspensionHolder_Right: 834547123
-      WaterfallDarkSplashL_0: 1233807362
-      HolyWaterIcon_2: -111287172
-      DoorGrey_0: 1360749912
-      Fish_5: -1548963843
-      LightCloud_1: 1968002318
-      BreakableWood_5: -1160252470
-      Fountain_4: -1372597606
-      WaterfallBody_3: -1630037961
-      BreakableWood_2: 1427516514
-      AxeIcon_3: -562969194
-      Fountain_2: 1039542931
-      DoorGreen_1: -227913323
-      WomanBlue_0: 1539828992
-      WaterfallDarkTop_0: 985770286
-      Block_green: 1572604686
-      Candle_1: 1892384369
-      BridgeLeft: -479444781
-      MotherPie: -1015853895
-      DarkCloudsL3_0: -1479163918
-      BreakableWood_6: 1379923547
-      LightCloud_5: -203564046
-      Blacksmith_1: 2072301162
       SwitchOff: 1425627654
-      Priest_1: -654608740
-      BelnadesStatue: 478016404
-      DoorGreen_2: 1295310118
-      MaxHealthUp: 2022743721
-      Ore: 1752684501
-      Stream_2: -309486281
-      Mushroom: 1425082455
-      Soldier_1: -1451179720
-      BlockBeige: -1438525317
-      WaterfallDarkSplashR_2: 1189895126
-      Blacksmith_3: 1102150372
-      Heart_full: -1332053382
-      WaterfallDarkTop_2: 660868015
-      DarkCloudsL1_6: -1426506302
-      ManBlack_1: -772477246
-      Platform_3: 880925628
-      Rope_4: -866954109
-      Bag250: -1046768469
-      DarkCloudsLVL2: -431119207
-      Stream_0: 1860220395
       SwitchOn: -1816534046
-      Fireplace_0: -630716480
-      Fish_6: -65723090
+      WaterBlueTransparent: 1422703808
+      WaterfallBody_1: 76578312
+      WaterfallBody_2: -35298014
+      WaterfallBody_3: -1630037961
+      WaterfallDarkBody_0: 644923605
+      WaterfallDarkBody_1: 43808338
+      WaterfallDarkBody_2: -727771062
+      WaterfallDarkRapid_0: -1113234018
+      WaterfallDarkRapid_1: -80851947
+      WaterfallDarkRapid_2: 411317632
+      WaterfallDarkSplashL_0: 1233807362
+      WaterfallDarkSplashL_1: 1135944390
+      WaterfallDarkSplashL_2: 1884388840
+      WaterfallDarkSplashR_0: 332695296
+      WaterfallDarkSplashR_1: -1077411610
+      WaterfallDarkSplashR_2: 1189895126
+      WaterfallDarkTop_0: 985770286
+      WaterfallDarkTop_1: -1978122356
+      WaterfallDarkTop_2: 660868015
+      WeaponEmpty: 1594718321
+      WeaponFrame: 1830880056
+      WomanBlue_0: 1539828992
+      WomanBlue_1: 759018448
+      WomanGreen_0: -1914863978
+      WomanGreen_1: -569639555
       WomanRed_0: -1234947266
+      WomanRed_1: 1779097657
+      WoodShatter: -2086196866
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
