@@ -5,6 +5,7 @@ namespace Platformer
         Stage,
         Location,
         SpawnPoint,
+        Confiner,
 
         //Mother's Pie quest
         MotherPie,
@@ -48,12 +49,13 @@ namespace Platformer
         KeyGreen,
 
         //Items for PlatformActivation
-        WFFirstElevator,
+        WFFirstElevator, // index 0
         WFSkeletonPlatform,
         WFSecondElevator,
         MarketElevator,
         MountainsElevator1,
         MountainsElevator2,
+        CavePlatform1,
 
         Mushroom0,
         Mushroom1,

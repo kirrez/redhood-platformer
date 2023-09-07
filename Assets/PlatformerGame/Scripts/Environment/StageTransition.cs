@@ -15,6 +15,9 @@ namespace Platformer
         [SerializeField]
         private int SpawnPointIndex;
 
+        [SerializeField]
+        private int ConfinerIndex;
+
         //private IPlayer Player;
 
         [SerializeField]
@@ -41,7 +44,7 @@ namespace Platformer
                     var navigation = CompositionRoot.GetNavigation();
                     Dynamics.DeactivateAll();
                     navigation.LoadStage(Stage);
-                    navigation.SetLocation(LocationIndex, SpawnPointIndex);
+                    navigation.SetLocation(LocationIndex, SpawnPointIndex, ConfinerIndex);
 
                     var game = CompositionRoot.GetGame();
                     game.FadeScreen.DelayBefore(Color.black, 1f);

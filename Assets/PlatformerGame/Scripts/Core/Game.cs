@@ -74,9 +74,10 @@ namespace Platformer
             var stage = (EStages)ProgressManager.GetQuest(EQuest.Stage);
             var location = ProgressManager.GetQuest(EQuest.Location);
             var spawnPoint = ProgressManager.GetQuest(EQuest.SpawnPoint);
+            var confiner = ProgressManager.GetQuest(EQuest.Confiner);
 
             Navigation.LoadStage(stage);
-            Navigation.SetLocation(location, spawnPoint);
+            Navigation.SetLocation(location, spawnPoint, confiner);
         }
 
         private void TryAgain()

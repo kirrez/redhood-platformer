@@ -8,6 +8,8 @@ namespace Platformer
     {
         public List<Transform> SpawnPoints;
 
+        public List<PolygonCollider2D> Confiners;
+
         public List<LocationConfig> LocationTransitions;
 
         private IPlayer Player;
@@ -25,11 +27,11 @@ namespace Platformer
             Confiner = VirtualPlayerCamera.GetComponent<CinemachineConfiner>();
         }
 
-        public void SetLocation(int LocationIndex, int SpawnPointIndex)
+        public void SetLocation(int LocationIndex, int SpawnPointIndex, int ConfinerIndex)
         {
             var originLocation = LocationTransitions[LocationIndex].OriginLocation;
             var targetLocation = LocationTransitions[LocationIndex].TargetLocation;
-            var confiner = LocationTransitions[LocationIndex].Confiner;
+            var confiner = Confiners[ConfinerIndex];
 
             for (int i = 0; i < originLocation.Count; i++)
             {
@@ -42,7 +44,7 @@ namespace Platformer
             }
 
             Player.Position = SpawnPoints[SpawnPointIndex].position;
-
+            confiner.gameObject.SetActive(true);
             Confiner.m_BoundingShape2D = confiner;
         }
     }

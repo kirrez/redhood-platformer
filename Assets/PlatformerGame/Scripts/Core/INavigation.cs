@@ -7,6 +7,6 @@ namespace Platformer
     public interface INavigation
     {
         void LoadStage(EStages stage);
-        void SetLocation(int locationIndex, int spawnPointIndex);
+        void SetLocation(int locationIndex, int spawnPointIndex, int confinerIndex);
     }
 }

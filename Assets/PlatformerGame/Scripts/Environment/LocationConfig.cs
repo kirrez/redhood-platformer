@@ -9,6 +9,5 @@ namespace Platformer
     {
         public List<GameObject> TargetLocation;
         public List<GameObject> OriginLocation;
-        public PolygonCollider2D Confiner;
     }
 }

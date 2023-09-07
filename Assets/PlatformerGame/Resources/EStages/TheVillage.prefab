@@ -1313,6 +1313,10 @@ MonoBehaviour:
   - {fileID: 3730205482973248749}
   - {fileID: 8068341943241551647}
   - {fileID: 8584299940959598252}
+  Confiners:
+  - {fileID: 7496417571974212075}
+  - {fileID: 8105134857622277745}
+  - {fileID: 386873825323843415}
   LocationTransitions:
   - TargetLocation:
     - {fileID: 3730205484727559254}
@@ -1329,7 +1333,6 @@ MonoBehaviour:
     - {fileID: 5455186000671892474}
     - {fileID: 4983981978371449644}
     - {fileID: 5644114353743226018}
-    Confiner: {fileID: 7496417571974212075}
   - TargetLocation:
     - {fileID: 5377727182814657196}
     - {fileID: 3730205484067360031}
@@ -1341,7 +1344,6 @@ MonoBehaviour:
     - {fileID: 3730205484727559254}
     - {fileID: 3730205484643678660}
     - {fileID: 3730205484747784266}
-    Confiner: {fileID: 8105134857622277745}
   - TargetLocation:
     - {fileID: 5377727182814657196}
     - {fileID: 3730205484067360031}
@@ -1352,7 +1354,6 @@ MonoBehaviour:
     - {fileID: 3730205484727559254}
     - {fileID: 3730205484747784266}
     - {fileID: 3262712118609070220}
-    Confiner: {fileID: 386873825323843415}
 --- !u!1 &3730205482906121113
 GameObject:
   m_ObjectHideFlags: 0
@@ -117313,6 +117314,10 @@ PrefabInstance:
       value: EntranceSmithery
       objectReference: {fileID: 0}
     - target: {fileID: 7978053144784595321, guid: 8154d16165d21384db1a7cf8d245ef21, type: 3}
+      propertyPath: ConfinerIndex
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7978053144784595321, guid: 8154d16165d21384db1a7cf8d245ef21, type: 3}
       propertyPath: LocationIndex
       value: 2
       objectReference: {fileID: 0}
@@ -118870,6 +118875,10 @@ PrefabInstance:
     - target: {fileID: 1216259156015970143, guid: 8154d16165d21384db1a7cf8d245ef21, type: 3}
       propertyPath: m_Name
       value: EntranceBuilding1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7978053144784595321, guid: 8154d16165d21384db1a7cf8d245ef21, type: 3}
+      propertyPath: ConfinerIndex
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7978053144784595321, guid: 8154d16165d21384db1a7cf8d245ef21, type: 3}
       propertyPath: LocationIndex

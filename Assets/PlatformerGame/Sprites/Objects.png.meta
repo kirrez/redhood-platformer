@@ -3320,6 +3320,111 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: WaterfallDarkRapid_0_tr
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 24
+        width: 32
+        height: 32
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8b0f238fb52b3c44bcb74e44cb3ac80
+      internalID: -1408070509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WaterfallDarkRapid_1_tr
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 24
+        width: 32
+        height: 32
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cef53196d75e55e499bcd59b124f8409
+      internalID: -338646107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WaterfallDarkRapid_2_tr
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 24
+        width: 32
+        height: 32
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ef916485f7a1564d8d80d0ba36f43dd
+      internalID: 1304839248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Objects_4
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 24
+        width: 32
+        height: 32
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ba35f5340d9c2142a1b648f02ad9ca7
+      internalID: 587220131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Danger_sign
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 136
+        width: 32
+        height: 40
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea43a50c25ec4714797a421fe3c8aaf4
+      internalID: -1908153735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -3369,6 +3474,7 @@ TextureImporter:
       Cloacked_1: 1650267948
       Coin: -1532539009
       Crate: -614448405
+      Danger_sign: -1908153735
       DarkCloudsL1: -1662598905
       DarkCloudsL1_0: 1666325539
       DarkCloudsL1_1: 1993751466
@@ -3463,6 +3569,7 @@ TextureImporter:
       Mother_2: 996843073
       Mushroom: 1425082455
       Objects_0: 1160243267
+      Objects_4: 587220131
       OldManGreen_0: -832100550
       OldManGreen_1: -1148329170
       OldManRed_0: 1842019303
@@ -3509,8 +3616,11 @@ TextureImporter:
       WaterfallDarkBody_1: 43808338
       WaterfallDarkBody_2: -727771062
       WaterfallDarkRapid_0: -1113234018
+      WaterfallDarkRapid_0_tr: -1408070509
       WaterfallDarkRapid_1: -80851947
+      WaterfallDarkRapid_1_tr: -338646107
       WaterfallDarkRapid_2: 411317632
+      WaterfallDarkRapid_2_tr: 1304839248
       WaterfallDarkSplashL_0: 1233807362
       WaterfallDarkSplashL_1: 1135944390
       WaterfallDarkSplashL_2: 1884388840

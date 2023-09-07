@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine.UI;
 using UnityEngine;
 
@@ -17,11 +18,15 @@ namespace Platformer
         private int SpawnPointIndex;
 
         [SerializeField]
+        private int ConfinerIndex;
+
+        [SerializeField]
         [Range(0, 3)]
         private int LabelIndex;
 
         [SerializeField]
         private Text HelpText;
+
 
         private ETexts Label;
         private float Timer;
@@ -95,7 +100,8 @@ namespace Platformer
         {
             var navigation = CompositionRoot.GetNavigation();
             Dynamics.DeactivateAll();
-            navigation.SetLocation(LocationIndex, SpawnPointIndex);
+            navigation.SetLocation(LocationIndex, SpawnPointIndex, ConfinerIndex);
+
             var game = CompositionRoot.GetGame();
             game.FadeScreen.DelayBefore(Color.black, 0.5f);
             game.FadeScreen.FadeOut(Color.black, 1f);
