@@ -33,6 +33,13 @@ namespace Platformer
             {
                 Velocity = (Waypoints[Index].position - transform.position).normalized * Force;
                 Rigidbody.velocity = Velocity;
+
+                //platform jumps to a current waypoint if it is a teleport
+                var wayPoint = Waypoints[Index].GetComponent<PlatformWaypoint>();
+                if (wayPoint != null && wayPoint.IsTeleport())
+                {
+                    transform.position = Waypoints[Index].position;
+                } 
             }
 
             if (distance <= 0.1f)
@@ -42,6 +49,8 @@ namespace Platformer
                 {
                     Index = 0;
                 }
+
+
             }
 
             if (!IsActive) return;

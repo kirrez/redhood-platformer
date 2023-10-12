@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8517056275624365110}
   - component: {fileID: 8517056275624365109}
+  - component: {fileID: 4246076603176232348}
   m_Layer: 0
   m_Name: PlatformWaypoint
   m_TagString: Untagged
@@ -84,3 +85,16 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4246076603176232348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8517056275624365108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93c938da19ffbd14386fbf61ee977353, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Teleport: 0

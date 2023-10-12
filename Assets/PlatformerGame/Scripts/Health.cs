@@ -11,8 +11,7 @@ namespace Platformer
         //now for frog only
         public Action DamageCooldownExpired = () => { };
 
-        [HideInInspector]
-        public float DamageDirection;
+        public float DamageDirection { get; set; }
 
         [SerializeField]
         private int MaxHitPoints;
@@ -30,11 +29,11 @@ namespace Platformer
         {
             RefillHealth();
             DamageTimer = 0f;
-            IsDamageable = true;
         }
 
         private void FixedUpdate()
         {
+            // DamageCooldownExpired will be invoked once after each resetting of DamageTimer
             if (DamageTimer > 0)
             {
                 DamageTimer -= Time.deltaTime;

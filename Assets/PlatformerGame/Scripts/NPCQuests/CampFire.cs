@@ -8,10 +8,13 @@ namespace Platformer
     public class CampFire : MonoBehaviour
     {
         [SerializeField]
-        private int CheckpointIndex;
+        private int SpawnPointIndex;
 
         [SerializeField]
         private int LocationIndex;
+
+        [SerializeField]
+        private int ConfinerIndex;
 
         [SerializeField]
         private Sprite FireOff;
@@ -48,7 +51,7 @@ namespace Platformer
         {
             HelpText.gameObject.SetActive(false);
 
-            if (ProgressManager.GetQuest(EQuest.SpawnPoint) == CheckpointIndex)
+            if (ProgressManager.GetQuest(EQuest.SpawnPoint) == SpawnPointIndex)
             {
                 SwitchFire(true);
             }
@@ -60,7 +63,7 @@ namespace Platformer
 
         private void Update()
         {
-            if (ProgressManager.GetQuest(EQuest.SpawnPoint) == CheckpointIndex) return;
+            if (ProgressManager.GetQuest(EQuest.SpawnPoint) == SpawnPointIndex) return;
 
             if (AreaTrigger.bounds.Contains(Player.Position) && !Inside)
             {
@@ -81,8 +84,9 @@ namespace Platformer
 
         private void OnInteraction()
         {
-            ProgressManager.SetQuest(EQuest.SpawnPoint, CheckpointIndex);
+            ProgressManager.SetQuest(EQuest.SpawnPoint, SpawnPointIndex);
             ProgressManager.SetQuest(EQuest.Location, LocationIndex);
+            ProgressManager.SetQuest(EQuest.Confiner, ConfinerIndex);
             SwitchFire(true);
 
             HelpText.gameObject.SetActive(false);

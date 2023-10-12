@@ -3425,6 +3425,384 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Unlit_Bowl
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 472
+        width: 16
+        height: 13
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2180e3c826399344b0ac2049382b115
+      internalID: -751473975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpikeBullet
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 438
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fcfeb0ac3d810064f963d507a2c77291
+      internalID: 1601082217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toad_green
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 152
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63dffc2238fd45c409650f5389eaaaa6
+      internalID: -1015301523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toad_pink
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 152
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77e1ea622a9c415408af6560369ada2d
+      internalID: -138495502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toad_blue
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 120
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 659841557d8ce8044a0e2c851c781055
+      internalID: 565997020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toad_yellow
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 120
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a658a5979a6b998448c5de8f6dc0130d
+      internalID: -1737838183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ToadGreenLaunch
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 152
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87fd345ff60af8842b175729c8e6a31d
+      internalID: -384571671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ToadPinkLaunch
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 152
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 178cb28e41511434e8464b6bbf1bf64d
+      internalID: 2073867044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ToadBlueLaunch
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 120
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a81f99b588476ed418f82fb8a0f126b2
+      internalID: 964546093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ToadYellowLaunch
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 120
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 787bd3e90ef69f84ebf8ae180fcef826
+      internalID: 392430397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FrogHeart_0
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 107
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e9a63c02050fc546ba552b3b3444f38
+      internalID: -827267326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FrogHeart_1
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 107
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4bd0915fe539eb4dbaccd7382803c86
+      internalID: -1243356468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FrogHeart_2
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 107
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 473a8831fe2fac04f970baf0dc8e9021
+      internalID: 907619741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FrogHeart_3
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 107
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce2f4ce45852b814d99b4fa5e202516c
+      internalID: -1463721226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealthBar_Frame
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 88
+        width: 16
+        height: 16
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 6, y: 6, z: 6, w: 6}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9fec2e56549a6445a7118ecae7b852d
+      internalID: -458936447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealthBar_Background
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 88
+        width: 16
+        height: 16
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 6, y: 6, z: 6, w: 6}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b6be3f15bea0fe4b8fe47ef75384d53
+      internalID: 667426782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealthBar_Red
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 88
+        width: 16
+        height: 16
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 6, y: 6, z: 6, w: 6}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffc39b8e9f58329458528f293f044fd2
+      internalID: -1302089048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Megafrog_Icon
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 40
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14dd916059328224f80d09678e6c979d
+      internalID: -734977053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -3540,6 +3918,13 @@ TextureImporter:
       Fountain_3: -287360247
       Fountain_4: -1372597606
       Fountain_5: -912124016
+      FrogHeart_0: -827267326
+      FrogHeart_1: -1243356468
+      FrogHeart_2: 907619741
+      FrogHeart_3: -1463721226
+      HealthBar_Background: 667426782
+      HealthBar_Frame: -458936447
+      HealthBar_Red: -1302089048
       HealthReplenish: -986860588
       HealthUpgrade: 136882220
       Heart_Empty: -1194434640
@@ -3565,6 +3950,7 @@ TextureImporter:
       ManBrown_0: 2005081732
       ManBrown_1: 964522010
       MaxHealthUp: 2022743721
+      Megafrog_Icon: -734977053
       MotherPie: -1015853895
       Mother_2: 996843073
       Mushroom: 1425082455
@@ -3592,6 +3978,7 @@ TextureImporter:
       Ropes_3: 860458067
       Soldier_0: 390478329
       Soldier_1: -1451179720
+      SpikeBullet: 1601082217
       SpikesRed: 1164528437
       Spikes_grey: -1018720058
       StatueBelnadesBlue: 478016404
@@ -3608,6 +3995,15 @@ TextureImporter:
       SuspensionHolder_Right: 834547123
       SwitchOff: 1425627654
       SwitchOn: -1816534046
+      ToadBlueLaunch: 964546093
+      ToadGreenLaunch: -384571671
+      ToadPinkLaunch: 2073867044
+      ToadYellowLaunch: 392430397
+      Toad_blue: 565997020
+      Toad_green: -1015301523
+      Toad_pink: -138495502
+      Toad_yellow: -1737838183
+      Unlit_Bowl: -751473975
       WaterBlueTransparent: 1422703808
       WaterfallBody_1: 76578312
       WaterfallBody_2: -35298014

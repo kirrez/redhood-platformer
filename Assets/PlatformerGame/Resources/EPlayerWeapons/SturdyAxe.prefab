@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d479fe065d3ed8a48b09f44ea46b53a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 2
+  Damage: 4
   HorizontalVelocity: 5
   VerticalVelocity: 17
   TargetType: 1

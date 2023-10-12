@@ -40,11 +40,27 @@ namespace Platformer
         [SerializeField]
         private Text MoneyAmount;
 
+        // Enemy HealtBar
+        [SerializeField]
+        private List<Sprite> EnemyIcons;
+
+        [SerializeField]
+        private GameObject EnemyHealthBar;
+
+        [SerializeField]
+        private Image EnemyIcon;
+
+        [SerializeField]
+        private Slider EnemyHealthSlider;
+
         private IProgressManager ProgressManager;
 
         private void Awake()
         {
             ProgressManager = CompositionRoot.GetProgressManager();
+
+            SetEnemyIcon(0);
+            HideEnemyHealthBar();
         }
 
         public void UpdateWeaponIcons()
@@ -103,6 +119,32 @@ namespace Platformer
                     LivesFront[i].gameObject.SetActive(false);
                 }
             }
+        }
+
+        public void SetEnemyIcon(int index)
+        {
+            EnemyIcon.sprite = EnemyIcons[index];
+        }
+
+        public void ShowEnemyHealthBar()
+        {
+            EnemyHealthBar.SetActive(true);
+        }
+
+        public void HideEnemyHealthBar()
+        {
+            EnemyHealthBar.SetActive(false);
+        }
+
+        public void SetEnemyMaxHealth(int health)
+        {
+            EnemyHealthSlider.maxValue = health;
+            EnemyHealthSlider.value = health;
+        }
+
+        public void SetEnemyCurrentHealth(int health)
+        {
+            EnemyHealthSlider.value = health;
         }
     }
 }

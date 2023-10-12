@@ -106053,6 +106053,10 @@ PrefabInstance:
       propertyPath: CheckpointIndex
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3342692319588387947, guid: d2e8821b4d37f0f4d8657b68df6ec1f8, type: 3}
+      propertyPath: SpawnPointIndex
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3342692319588387949, guid: d2e8821b4d37f0f4d8657b68df6ec1f8, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -111866,6 +111870,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3342692319588387947, guid: d2e8821b4d37f0f4d8657b68df6ec1f8, type: 3}
       propertyPath: CheckpointIndex
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3342692319588387947, guid: d2e8821b4d37f0f4d8657b68df6ec1f8, type: 3}
+      propertyPath: SpawnPointIndex
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3342692319588387949, guid: d2e8821b4d37f0f4d8657b68df6ec1f8, type: 3}

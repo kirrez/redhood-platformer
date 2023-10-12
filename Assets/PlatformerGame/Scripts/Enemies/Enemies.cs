@@ -13,6 +13,10 @@ namespace Platformer
         BubbleBullet,
         BearSlash,
         Killerfish,
-        GreenFrog
+        GreenFrog,
+        SpikedBullet,
+        HeavySpikedBall,
+        ToadDrop,
+        ToadLaunch
     }
 }

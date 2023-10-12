@@ -149,10 +149,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d479fe065d3ed8a48b09f44ea46b53a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 0
+  Damage: 2
   HorizontalVelocity: 5
   VerticalVelocity: 10
-  TargetType: 2
+  TargetType: 1
   Durability: 0
   LifeTime: 1.2
   CanPenetrateWalls: 0

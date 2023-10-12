@@ -705,6 +705,7 @@ namespace Platformer
             }
 
             GetInteractionInput();
+
         }
 
         public void GetInteractionInput()
@@ -757,7 +758,6 @@ namespace Platformer
 
         private void UpdateAllWeaponLevel()
         {
-            var progressManager = CompositionRoot.GetProgressManager();
             KnifeLevel = ProgressManager.GetQuest(EQuest.KnifeLevel);
             AxeLevel = ProgressManager.GetQuest(EQuest.AxeLevel);
             HolyWaterLevel = ProgressManager.GetQuest(EQuest.HolyWaterLevel);

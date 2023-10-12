@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
@@ -39,6 +39,9 @@ namespace Platformer
             //Mother's Pie quest
             SetQuest(EQuest.MushroomsRequired, 3);
             SetQuest(EQuest.BlackberriesRequired, 4);
+
+            //Boss data
+            SetQuest(EQuest.MegafrogMaxHealth, 6); // 60
         }
 
         public void LoadTestConfig()
@@ -61,18 +64,20 @@ namespace Platformer
             SetQuest(EQuest.SuspensionBridge, 3);
 
             //new Player's location
-            SetQuest(EQuest.Stage, (int)EStages.Mountains);
-            SetQuest(EQuest.Location, 0);
-            SetQuest(EQuest.SpawnPoint, 3);
-            SetQuest(EQuest.Confiner, 0);
+            //CaveLabyrinth Cave8 : Loc. 1, SP : 16, Conf : 8
+            //CaveLabyrinth Cave11Boss : L 1, Sp 23, Conf 11
+            SetQuest(EQuest.Stage, (int)EStages.CaveLabyrinth);
+            SetQuest(EQuest.Location, 1);
+            SetQuest(EQuest.SpawnPoint, 23);
+            SetQuest(EQuest.Confiner, 11);
 
-            SetQuest(EQuest.KnifeLevel, 1);
+            SetQuest(EQuest.KnifeLevel, 2);
             SetQuest(EQuest.AxeLevel, 1);
-            SetQuest(EQuest.HolyWaterLevel, 0);
+            SetQuest(EQuest.HolyWaterLevel, 1);
 
-            SetQuest(EQuest.MaxLives, 4);
-            SetQuest(EQuest.FoodCollected, 15);
-            SetQuest(EQuest.OreCollected, 7);
+            SetQuest(EQuest.MaxLives, 6);
+            SetQuest(EQuest.FoodCollected, 3);
+            SetQuest(EQuest.OreCollected, 1);
 
             //Finished Mother's Pie quest will be with mushrooms 3 and berries 4
             SetQuest(EQuest.MushroomsCollected, 3);

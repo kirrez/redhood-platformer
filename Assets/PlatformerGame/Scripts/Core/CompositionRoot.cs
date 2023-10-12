@@ -13,8 +13,10 @@ namespace Platformer
         private static GameObject MainCMCamera;
         private static INavigation Navigation;
         private static IDynamicsContainer DynamicsContainer;
-        private static CinemachineVirtualCamera VirtualPlayerCamera;
         private static GameObject EventSystemContainer;
+
+        private static CinemachineVirtualCamera VirtualPlayerCamera;
+        private static CinemachineVirtualCamera StaticBossCamera;
 
         private static IPlayer Player;
 
@@ -97,6 +99,18 @@ namespace Platformer
             }
 
             return VirtualPlayerCamera;
+        }
+
+        public static CinemachineVirtualCamera GetStaticBossCamera()
+        {
+            if (StaticBossCamera == null)
+            {
+                var resourceManager = GetResourceManager();
+
+                StaticBossCamera = resourceManager.CreatePrefab<CinemachineVirtualCamera, EComponents>(EComponents.StaticBossCamera);
+            }
+
+            return StaticBossCamera;
         }
 
         public static INavigation GetNavigation()
