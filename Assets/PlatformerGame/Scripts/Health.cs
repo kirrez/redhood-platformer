@@ -39,7 +39,7 @@ namespace Platformer
                 DamageTimer -= Time.deltaTime;
                 if (DamageTimer <= 0)
                 {
-                    DamageCooldownExpired();
+                    DamageCooldownExpired?.Invoke();
                 }
             }
         }
@@ -85,15 +85,15 @@ namespace Platformer
                 CurrentHitPoints -= damage;
                 if (CurrentHitPoints > 0)
                 {
-                    HealthChanged();
+                    HealthChanged?.Invoke();
                 }
                 else if (CurrentHitPoints <= 0)
                 {
                     //now i need only HealthChanged in Player's states ))
                     CurrentHitPoints = 0;
-                    HealthChanged();
+                    HealthChanged?.Invoke();
                     IsDamageable = false;
-                    Killed();
+                    Killed?.Invoke();
                 }
             }
         }

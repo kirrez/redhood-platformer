@@ -41,7 +41,7 @@ namespace Platformer
             SetQuest(EQuest.BlackberriesRequired, 4);
 
             //Boss data
-            SetQuest(EQuest.MegafrogMaxHealth, 6); // 60
+            SetQuest(EQuest.MegafrogMaxHealth, 90); // 90 (45 * 2, 30 * 3)
         }
 
         public void LoadTestConfig()

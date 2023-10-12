@@ -26,7 +26,7 @@ namespace Platformer.MegafrogBoss
         public void Start()
         {
             Megafrog.Rage = 0;
-            Megafrog.SetAnimation(Megafrog.Attack);
+            Megafrog.SetAnimation(EAnimations.AttackDamaged);
             Megafrog.HitBox.Hide();
 
             var dynamics = CompositionRoot.GetDynamicsContainer();

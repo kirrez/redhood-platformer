@@ -263,6 +263,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: AttackDamaged_0
+      rect:
+        serializedVersion: 2
+        x: 488
+        y: 168
+        width: 96
+        height: 68
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 452c1f9f101b3b4468ebe3a17536257d
+      internalID: 812118028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -274,6 +295,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      AttackDamaged_0: 812118028
       Attack_0: -859653201
       Idle_0: -424548575
       Idle_1: 1517865312

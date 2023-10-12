@@ -27,7 +27,7 @@ namespace Platformer.MegafrogBoss
         public void StartFromAbove()
         {
             LaunchHeavySpikedBalls();
-            Megafrog.Body.isKinematic = true;//freeze
+            Megafrog.Freeze();
 
             var chance = UnityEngine.Random.Range(0, 6);
             int[] choises = { 0, 0, 1, 1, 2, 2, };
@@ -36,7 +36,7 @@ namespace Platformer.MegafrogBoss
 
             Megafrog.FacePlayer();
             Megafrog.SetMask("EnemySolid");
-            Megafrog.SetAnimation(Megafrog.JumpFall);
+            Megafrog.SetAnimation(EAnimations.JumpFall);
             Timer = 0.1f;
 
             SetState(RestBeforeFall);
@@ -47,7 +47,7 @@ namespace Platformer.MegafrogBoss
             Timer -= Time.fixedDeltaTime;
             if (Timer > 0) return;
 
-            Megafrog.Body.isKinematic = false; //unfreeze
+            Megafrog.Unfreeze();
             Megafrog.Body.velocity = Vector2.zero;
 
             SetState(JumpFalling);
@@ -57,7 +57,7 @@ namespace Platformer.MegafrogBoss
         {
             if (Megafrog.IsGrounded(LayerMasks.Solid))
             {
-                Megafrog.SetAnimation(Megafrog.Idle);
+                Megafrog.SetAnimation(EAnimations.Idle);
                 Megafrog.Phase++;
                 Timer = 1f;
 
@@ -85,11 +85,11 @@ namespace Platformer.MegafrogBoss
 
             Megafrog.FacePlayer();
             Megafrog.SetMask("EnemyTransparent");
-            Megafrog.SetAnimation(Megafrog.JumpRise);
+            Megafrog.SetAnimation(EAnimations.JumpRise);
 
             Megafrog.UpdateLastBodyPosition();
 
-            Megafrog.Body.isKinematic = true; //freeze
+            Megafrog.Freeze();
             Timer = 1.5f;
 
             SetState(RestBeforeJump);
@@ -103,12 +103,12 @@ namespace Platformer.MegafrogBoss
 
             Megafrog.FacePlayer();
             Megafrog.SetMask("EnemyTransparent");
-            Megafrog.SetAnimation(Megafrog.JumpRise);
+            Megafrog.SetAnimation(EAnimations.JumpRise);
             Megafrog.HitBox.Hide();
 
             Megafrog.UpdateLastBodyPosition();
 
-            Megafrog.Body.isKinematic = true;
+            Megafrog.Freeze();
             Timer = 2f;
 
             //Megafrog.Hitbox.SetActive(false);
@@ -121,7 +121,7 @@ namespace Platformer.MegafrogBoss
             Timer -= Time.fixedDeltaTime;
             if (Timer > 0) return;
 
-            Megafrog.Body.isKinematic = false; //unfreeze
+            Megafrog.Unfreeze();
             Megafrog.Body.AddForce(new Vector2(0f, JumpForce));
 
             SetState(JumpRising);
@@ -144,7 +144,7 @@ namespace Platformer.MegafrogBoss
             if (Megafrog.DeltaY < 0)
             {
                 Megafrog.SetMask("EnemySolid");
-                Megafrog.SetAnimation(Megafrog.JumpFall);
+                Megafrog.SetAnimation(EAnimations.JumpFall);
 
                 SetState(JumpFalling);
             }

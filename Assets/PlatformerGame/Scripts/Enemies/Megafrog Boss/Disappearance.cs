@@ -28,7 +28,7 @@ namespace Platformer.MegafrogBoss
             Megafrog.FacePlayer();
 
             Megafrog.Body.AddForce(new Vector2(0f, JumpForce));
-            Megafrog.SetAnimation(Megafrog.JumpRise);
+            Megafrog.SetAnimation(EAnimations.JumpRise);
 
             SetState(JumpRising);
         }

@@ -21,21 +21,6 @@ namespace Platformer
         public Transform ToadRainLevel;
 
         [Space]
-        [Header("ANIMATIONS")]
-
-        //Animations
-        [SerializeField]
-        public Sprite Idle;
-
-        [SerializeField]
-        public Sprite JumpRise;
-
-        [SerializeField]
-        public Sprite JumpFall;
-
-        [SerializeField]
-        public Sprite Attack;
-
         [Header("COMPONENTS")]
 
         [SerializeField]
@@ -70,6 +55,8 @@ namespace Platformer
         private Vector3 LastPosition;
 
         public MegafrogFight MegafrogFight { get; set; }
+
+        public MegafrogAnimator Animator { get; set; }
         public float DirectionX { get; set; } = 1f;
         public float DeltaY { get; set; }
 
@@ -88,9 +75,9 @@ namespace Platformer
             CurrentState = state;
         }
 
-        public void SetAnimation(Sprite sprite)
+        public void SetAnimation(EAnimations animation)
         {
-            Renderer.sprite = sprite;
+            Animator.SetAnimation(animation);
         }
 
         public void SetDirectionX(float direction)
@@ -106,6 +93,7 @@ namespace Platformer
         public void Initiate(MegafrogFight fight, int maxLives)
         {
             MegafrogFight = fight;
+            Animator.Initiate(Renderer);
 
             Rage = 0;
             Phase = 0;
@@ -132,18 +120,22 @@ namespace Platformer
             //Actions if "hitpoints > 0"
             if (HitPoints > 0)
             {
-
+                //basic variant
+                SetAnimation(EAnimations.AttackDamaged);
             }
             //Actions if "hitpoints = 0"
 
             if (HitPoints == 0)
             {
+                Health.DamageCooldownExpired = null;
                 SetState(Defeat.Start);
             }
         }
 
         private void OnDamageCooldownExpired()
         {
+            //basic variant
+            SetAnimation(EAnimations.Attack);
             //Change "damaged" animation back to normal
         }
 
@@ -153,6 +145,7 @@ namespace Platformer
             //ResourceManager = CompositionRoot.GetResourceManager();
 
             Collider = Body.GetComponent<Collider2D>();
+            Animator = GetComponent<MegafrogAnimator>();
 
             FirePointX = FirePoint.localPosition.x;
             HitBoxX = HitBoxTransform.localPosition.x;
