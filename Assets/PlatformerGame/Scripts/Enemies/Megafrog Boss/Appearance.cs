@@ -6,6 +6,7 @@ namespace Platformer.MegafrogBoss
 {
     public class Appearance
     {
+        private IDynamicsContainer DynamicsContainer;
         private IResourceManager ResourceManager;
         private Megafrog Megafrog;
 
@@ -20,6 +21,7 @@ namespace Platformer.MegafrogBoss
 
         public Appearance(Megafrog megafrog)
         {
+            DynamicsContainer = CompositionRoot.GetDynamicsContainer();
             ResourceManager = CompositionRoot.GetResourceManager();
             Megafrog = megafrog;
         }
@@ -37,7 +39,9 @@ namespace Platformer.MegafrogBoss
             Megafrog.FacePlayer();
             Megafrog.SetMask("EnemySolid");
             Megafrog.SetAnimation(EAnimations.JumpFall);
-            Timer = 0.1f;
+            Timer = 1.2f;
+
+            LaunchShardDropper();
 
             SetState(RestBeforeFall);
         }
@@ -110,8 +114,6 @@ namespace Platformer.MegafrogBoss
 
             Megafrog.Freeze();
             Timer = 2f;
-
-            //Megafrog.Hitbox.SetActive(false);
             
             SetState(RestBeforeJump);
         }
@@ -129,7 +131,6 @@ namespace Platformer.MegafrogBoss
 
         private void JumpRising()
         {
-            // add splash effect here )) (and in first time)
             if (!SplashTriggered && Megafrog.Body.transform.position.y + 1.5f > Megafrog.WaterLevel.position.y)
             {
                 SplashTriggered = true;
@@ -153,10 +154,9 @@ namespace Platformer.MegafrogBoss
         private void LaunchSplash(float offsetX)
         {
             var instance = ResourceManager.GetFromPool(GFXs.BlueSplash);
-            var dynamics = CompositionRoot.GetDynamicsContainer();
             var position = Megafrog.WaterLevel.position;
-            instance.transform.SetParent(dynamics.Transform, false);
-            dynamics.AddItem(instance);
+            instance.transform.SetParent(DynamicsContainer.Transform, false);
+            DynamicsContainer.AddItem(instance);
             position.x = Megafrog.Body.transform.position.x + offsetX;
             instance.transform.position = position;
         }
@@ -164,23 +164,31 @@ namespace Platformer.MegafrogBoss
         private void LaunchHeavySpikedBalls()
         {
             var instance = ResourceManager.GetFromPool(Enemies.HeavySpikedBall);
-            var dynamics = CompositionRoot.GetDynamicsContainer();
             var marks = Megafrog.Marks;
-            instance.transform.SetParent(dynamics.Transform, false);
-            dynamics.AddItem(instance);
+            instance.transform.SetParent(DynamicsContainer.Transform, false);
+            DynamicsContainer.AddItem(instance);
 
             instance.transform.position = marks[0].position;
             instance.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 25f);
             instance.GetComponent<Rigidbody2D>().AddTorque(10f, ForceMode2D.Impulse);
 
             instance = ResourceManager.GetFromPool(Enemies.HeavySpikedBall);
-            dynamics = CompositionRoot.GetDynamicsContainer();
-            instance.transform.SetParent(dynamics.Transform, false);
-            dynamics.AddItem(instance);
+            instance.transform.SetParent(DynamicsContainer.Transform, false);
+            DynamicsContainer.AddItem(instance);
 
             instance.transform.position = marks[1].position;
             instance.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 25f);
             instance.GetComponent<Rigidbody2D>().AddTorque(10f, ForceMode2D.Impulse);
+        }
+
+        private void LaunchShardDropper()
+        {
+            var instance = ResourceManager.GetFromPool(GFXs.ShardDropper);
+            instance.transform.SetParent(DynamicsContainer.Transform, false);
+            DynamicsContainer.AddItem(instance);
+
+            ShardDropper dropper = instance.GetComponent<ShardDropper>();
+            dropper.Initiate(Megafrog.Body.transform.position);
         }
     }
 }

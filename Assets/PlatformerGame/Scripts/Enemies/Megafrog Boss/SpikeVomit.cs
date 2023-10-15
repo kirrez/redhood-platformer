@@ -7,6 +7,7 @@ namespace Platformer.MegafrogBoss
     public class SpikeVomit
     {
         private IResourceManager ResourceManager;
+        private IDynamicsContainer DynamicsContainer;
 
         private Megafrog Megafrog;
         private int ShotCount;
@@ -15,6 +16,7 @@ namespace Platformer.MegafrogBoss
         public SpikeVomit(Megafrog megafrog)
         {
             ResourceManager = CompositionRoot.GetResourceManager();
+            DynamicsContainer = CompositionRoot.GetDynamicsContainer();
             Megafrog = megafrog;
         }
 
@@ -41,9 +43,8 @@ namespace Platformer.MegafrogBoss
 
             Timer = 0.45f;
             var instance = ResourceManager.GetFromPool(Enemies.SpikedBullet);
-            var dynamics = CompositionRoot.GetDynamicsContainer();
-            instance.transform.SetParent(dynamics.Transform, false);
-            dynamics.AddItem(instance);
+            instance.transform.SetParent(DynamicsContainer.Transform, false);
+            DynamicsContainer.AddItem(instance);
             instance.transform.position = Megafrog.FirePoint.position;
 
             if (ShotCount == 10 || ShotCount == 4)

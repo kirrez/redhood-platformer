@@ -6,8 +6,11 @@ namespace Platformer
     {
         BloodBlast,
         BombBlast,
+        FireBlast,
         BlueSplash,
 
+        FallingShard,
+        ShardDropper,
         WoodShatter,
 
         HolyWaterDisappear

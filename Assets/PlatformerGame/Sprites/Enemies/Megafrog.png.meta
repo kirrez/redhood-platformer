@@ -117,48 +117,6 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Megafrog_x2
-      rect:
-        serializedVersion: 2
-        x: 70
-        y: 250
-        width: 48
-        height: 32
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6f8f47d884471544b920bfea83b92162
-      internalID: 946702425
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Megafrog_x3
-      rect:
-        serializedVersion: 2
-        x: 105
-        y: 135
-        width: 72
-        height: 48
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f22895f99743e784085bcb27bcec855e
-      internalID: 1097132769
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Idle_0
       rect:
         serializedVersion: 2
@@ -284,6 +242,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: MegafrogBlink
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 104
+        width: 128
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0b2d3a69ea4fb448b9abbf95d3d49fc
+      internalID: -674294944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -301,6 +280,7 @@ TextureImporter:
       Idle_1: 1517865312
       JumpFall: 983683600
       JumpRise: -2053593372
+      MegafrogBlink: -674294944
       Megafrog_x2: 946702425
       Megafrog_x3: 1097132769
   spritePackingTag: 

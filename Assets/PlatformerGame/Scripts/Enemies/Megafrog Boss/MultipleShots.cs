@@ -46,7 +46,7 @@ namespace Platformer.MegafrogBoss
             instance.transform.position = Megafrog.FirePoint.position;
 
             var newPos = Megafrog.Player.Position;
-            newPos.y = newPos.y + 1;
+            newPos.y = newPos.y + 0.5f;
             instance.GetComponent<Rigidbody2D>().velocity = (newPos - Megafrog.FirePoint.position).normalized * ShotForce;
 
             Timer = 1f;

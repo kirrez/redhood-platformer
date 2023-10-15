@@ -40,7 +40,7 @@ namespace Platformer.MegafrogBoss
             Megafrog.Body.isKinematic = true; //freeze Body?
             Megafrog.Body.velocity = Vector2.zero;
             Megafrog.Phase = 0;
-            Timer = 1f;
+            Timer = 0.2f;
 
             SetState(Rest);
         }

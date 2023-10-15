@@ -7,14 +7,16 @@ namespace Platformer.MegafrogBoss
     public class Defeat
     {
         private IResourceManager ResourceManager;
+        private IDynamicsContainer DynamicsContainer;
         private Megafrog Megafrog;
 
         private float Timer;
-        private int BlastCount = 10;
+        private int BlastCount = 18;
 
         public Defeat(Megafrog megafrog)
         {
             ResourceManager = CompositionRoot.GetResourceManager();
+            DynamicsContainer = CompositionRoot.GetDynamicsContainer();
             Megafrog = megafrog;
         }
 
@@ -29,14 +31,13 @@ namespace Platformer.MegafrogBoss
             Megafrog.SetAnimation(EAnimations.AttackDamaged);
             Megafrog.HitBox.Hide();
 
-            var dynamics = CompositionRoot.GetDynamicsContainer();
-            dynamics.DeactivateAll();
+            DynamicsContainer.DeactivateAll();
             Megafrog.DisableBodyDamage();
 
             var game = CompositionRoot.GetGame();
             game.FadeScreen.FadeOut(Color.white, 2f);
 
-            Timer = 0.3f;
+            Timer = 0.25f;
             SetState(Burning);
         }
 
@@ -44,8 +45,15 @@ namespace Platformer.MegafrogBoss
         {
             Timer -= Time.fixedDeltaTime;
             if (Timer > 0) return;
+            Timer = 0.25f;
 
-            //Instantiate new blast here
+            var instance = ResourceManager.GetFromPool(GFXs.FireBlast);
+            instance.transform.SetParent(DynamicsContainer.Transform, false);
+            DynamicsContainer.AddItem(instance);
+
+            Vector2 effectPosition = Megafrog.Body.transform.position + new Vector3(Random.Range(-2.5f, 2.5f), Random.Range(0f, 3.5f));
+            BaseGFX effect = instance.GetComponent<BaseGFX>();
+            effect.Initiate(effectPosition, 1f);
 
             SetState(Finish);
         }
@@ -62,7 +70,7 @@ namespace Platformer.MegafrogBoss
 
             if (BlastCount == 0)
             {
-                Timer = 1.5f;
+                Timer = 1f;
                 SetState(RestFinal);
             }
         }

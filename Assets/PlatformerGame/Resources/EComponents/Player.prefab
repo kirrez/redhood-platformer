@@ -74,10 +74,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a1f1dc202829a24ab6d9daa34b1f5f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DamageDirection: 0
   MaxHitPoints: 10
-  DamageCooldown: 2
   Type: 0
+  DamageCooldown: 2
 --- !u!212 &8522719760752516165
 SpriteRenderer:
   m_ObjectHideFlags: 0

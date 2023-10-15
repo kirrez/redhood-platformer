@@ -11,6 +11,9 @@ namespace Platformer
         [SerializeField]
         private float AnimationDelay = 0.25f;
 
+        [SerializeField]
+        private bool NoLoop;
+
         private int SpriteIndex;
         private float Timer;
 
@@ -37,7 +40,7 @@ namespace Platformer
 
                 if (SpriteIndex == Sprites.Count - 1)
                 {
-                    SpriteIndex = 0;
+                    if (NoLoop == false) SpriteIndex = 0;
                 }
                 else if (SpriteIndex < Sprites.Count - 1)
                 {
