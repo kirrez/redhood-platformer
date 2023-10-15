@@ -27,9 +27,6 @@ namespace Platformer
         public Rigidbody2D Body;
 
         [SerializeField]
-        private SpriteRenderer Renderer;
-
-        [SerializeField]
         private PolygonCollider2D Damager;
 
         public Transform HitBoxTransform;
@@ -55,8 +52,7 @@ namespace Platformer
         private Vector3 LastPosition;
 
         public MegafrogFight MegafrogFight { get; set; }
-
-        public MegafrogAnimator Animator { get; set; }
+        public FrogAnimator FrogAnimator { get; set; }
         public float DirectionX { get; set; } = 1f;
         public float DeltaY { get; set; }
 
@@ -75,9 +71,9 @@ namespace Platformer
             CurrentState = state;
         }
 
-        public void SetAnimation(EAnimations animation)
+        public void SetAnimation(FrogAnimations animation)
         {
-            Animator.SetAnimation(animation);
+            FrogAnimator.SetAnimation(animation);
         }
 
         public void SetDirectionX(float direction)
@@ -93,7 +89,6 @@ namespace Platformer
         public void Initiate(MegafrogFight fight, int maxLives)
         {
             MegafrogFight = fight;
-            Animator.Initiate(Renderer);
 
             Rage = 0;
             Phase = 0;
@@ -103,49 +98,31 @@ namespace Platformer
             Health.HealthChanged = null;
             Health.HealthChanged += OnHealthChanged;
 
-            Health.DamageCooldownExpired = null;
-            Health.DamageCooldownExpired += OnDamageCooldownExpired;
-
             SetState(Appearance.StartFirstTime);
         }
 
         private void OnHealthChanged()
         {
             var game = CompositionRoot.GetGame();
-
             HitPoints = Health.GetHitPoints;
-            //Update UI hitPoints
             game.HUD.SetEnemyCurrentHealth(HitPoints);
 
-            //Actions if "hitpoints > 0"
             if (HitPoints > 0)
             {
-                //basic variant
-                SetAnimation(EAnimations.AttackDamaged);
+                FrogAnimator.StartBlinking();
             }
-            //Actions if "hitpoints = 0"
 
             if (HitPoints == 0)
             {
-                Health.DamageCooldownExpired = null;
                 SetState(Defeat.Start);
             }
-        }
-
-        private void OnDamageCooldownExpired()
-        {
-            //basic variant
-            SetAnimation(EAnimations.Attack);
-            //Change "damaged" animation back to normal
         }
 
         private void Awake()
         {
             Player = CompositionRoot.GetPlayer();
-            //ResourceManager = CompositionRoot.GetResourceManager();
-
             Collider = Body.GetComponent<Collider2D>();
-            Animator = GetComponent<MegafrogAnimator>();
+            FrogAnimator = GetComponent<FrogAnimator>();
 
             FirePointX = FirePoint.localPosition.x;
             HitBoxX = HitBoxTransform.localPosition.x;
@@ -243,7 +220,7 @@ namespace Platformer
             Vector2 newPosition;
             if (DirectionX == 1f)
             {
-                Renderer.flipX = false;
+                FrogAnimator.SetFlip(false);
                 newPosition = new Vector2(FirePointX, FirePoint.localPosition.y);
                 FirePoint.localPosition = newPosition;
 
@@ -252,7 +229,7 @@ namespace Platformer
             }
             if (DirectionX == -1f)
             {
-                Renderer.flipX = true;
+                FrogAnimator.SetFlip(true);
                 newPosition = new Vector2(-FirePointX, FirePoint.localPosition.y);
                 FirePoint.localPosition = newPosition;
 

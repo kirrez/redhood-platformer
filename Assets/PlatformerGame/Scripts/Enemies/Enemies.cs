@@ -7,7 +7,7 @@ namespace Platformer
     public enum Enemies
     {
         Bat,
-        Frog,
+        RedFrog,
         Bear,
         EvilBear,
         BubbleBullet,

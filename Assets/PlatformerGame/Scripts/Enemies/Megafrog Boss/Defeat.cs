@@ -28,7 +28,8 @@ namespace Platformer.MegafrogBoss
         public void Start()
         {
             Megafrog.Rage = 0;
-            Megafrog.SetAnimation(EAnimations.AttackDamaged);
+            Megafrog.SetAnimation(FrogAnimations.Attack);
+            Megafrog.FrogAnimator.StartEndlessBlinking();
             Megafrog.HitBox.Hide();
 
             DynamicsContainer.DeactivateAll();

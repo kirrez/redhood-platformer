@@ -159,7 +159,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attack_0
+      name: Attack
       rect:
         serializedVersion: 2
         x: 36
@@ -222,28 +222,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AttackDamaged_0
-      rect:
-        serializedVersion: 2
-        x: 488
-        y: 168
-        width: 96
-        height: 68
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 452c1f9f101b3b4468ebe3a17536257d
-      internalID: 812118028
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MegafrogBlink
+      name: WhiteCover
       rect:
         serializedVersion: 2
         x: 16
@@ -274,15 +253,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      Attack: -859653201
       AttackDamaged_0: 812118028
-      Attack_0: -859653201
       Idle_0: -424548575
       Idle_1: 1517865312
       JumpFall: 983683600
       JumpRise: -2053593372
-      MegafrogBlink: -674294944
       Megafrog_x2: 946702425
       Megafrog_x3: 1097132769
+      WhiteCover: -674294944
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

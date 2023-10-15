@@ -71,7 +71,7 @@ namespace Platformer
             SetQuest(EQuest.SpawnPoint, 23);
             SetQuest(EQuest.Confiner, 11);
 
-            SetQuest(EQuest.KnifeLevel, 2);
+            SetQuest(EQuest.KnifeLevel, 1);
             SetQuest(EQuest.AxeLevel, 1);
             SetQuest(EQuest.HolyWaterLevel, 1);
 

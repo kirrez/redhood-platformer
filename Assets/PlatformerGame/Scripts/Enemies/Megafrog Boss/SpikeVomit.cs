@@ -28,7 +28,7 @@ namespace Platformer.MegafrogBoss
         public void Start()
         {
             Megafrog.FacePlayer();
-            Megafrog.SetAnimation(EAnimations.Attack);
+            Megafrog.SetAnimation(FrogAnimations.Attack);
             Megafrog.HitBox.Show();
             Timer = 0.45f;
             ShotCount = 12;
@@ -82,7 +82,7 @@ namespace Platformer.MegafrogBoss
             if (Timer > 0) return;
 
             Timer = 0.5f;
-            Megafrog.SetAnimation(EAnimations.Idle);
+            Megafrog.SetAnimation(FrogAnimations.Idle);
             Megafrog.HitBox.Hide();
 
             SetState(RestFinal);
