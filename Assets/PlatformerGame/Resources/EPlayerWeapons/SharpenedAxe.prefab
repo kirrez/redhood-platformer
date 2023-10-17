@@ -12,9 +12,12 @@ GameObject:
   - component: {fileID: 830021847348928814}
   - component: {fileID: 830021847348928801}
   - component: {fileID: 830021847348928800}
-  - component: {fileID: 1326028302383811636}
   - component: {fileID: 830021847348928813}
+  - component: {fileID: 4451921847879681874}
+  - component: {fileID: 5618965666166997145}
   - component: {fileID: -8056307411590464081}
+  - component: {fileID: -26119489684122820}
+  - component: {fileID: 6623401341967226941}
   m_Layer: 12
   m_Name: SharpenedAxe
   m_TagString: Untagged
@@ -126,19 +129,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.45
---- !u!114 &1326028302383811636
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 830021847348928812}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b230b391c1eb7724988168ae2b5c8dd2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  WeaponLevel: 2
 --- !u!114 &830021847348928813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,10 +146,34 @@ MonoBehaviour:
   VerticalVelocity: 17
   TargetType: 1
   Durability: 2
-  LifeTime: 1.35
   CanPenetrateWalls: 1
   Moving: 1
   HitDirection: 1
+--- !u!114 &4451921847879681874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 830021847348928812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 243e4e4f5d5e9674bad549d9ec1883a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5618965666166997145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 830021847348928812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86ebf221a646c464689b82439aaec91b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Duration: 1.35
 --- !u!114 &-8056307411590464081
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,3 +186,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdf3d412661675e4e95646f3aeafa4b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-26119489684122820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 830021847348928812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0868d419cc75abc459bb74c5203508f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6623401341967226941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 830021847348928812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c0df2ca52d5880499aa797f424511d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Sprites:
+  - {fileID: 1202019176, guid: ee4f7ce981b3ec64694e03c56966bb57, type: 3}
+  - {fileID: -1794736886, guid: ee4f7ce981b3ec64694e03c56966bb57, type: 3}
+  - {fileID: -785134249, guid: ee4f7ce981b3ec64694e03c56966bb57, type: 3}
+  - {fileID: 794295384, guid: ee4f7ce981b3ec64694e03c56966bb57, type: 3}
+  - {fileID: -1026884941, guid: ee4f7ce981b3ec64694e03c56966bb57, type: 3}
+  - {fileID: 1413011823, guid: ee4f7ce981b3ec64694e03c56966bb57, type: 3}
+  - {fileID: 495838639, guid: ee4f7ce981b3ec64694e03c56966bb57, type: 3}
+  - {fileID: -1737146645, guid: ee4f7ce981b3ec64694e03c56966bb57, type: 3}
+  AnimationDelay: 0.1
+  NoLoop: 0

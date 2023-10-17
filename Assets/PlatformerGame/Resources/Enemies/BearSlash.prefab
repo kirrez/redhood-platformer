@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 685900246989734846}
   - component: {fileID: 685900246989734845}
   - component: {fileID: 5314932757105353319}
+  - component: {fileID: -8282488854826155073}
+  - component: {fileID: 8650765541678040733}
   m_Layer: 0
   m_Name: BearSlash
   m_TagString: Untagged
@@ -75,14 +77,14 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1802282183
-  m_SortingLayer: 2
+  m_SortingLayer: 1
   m_SortingOrder: 7
-  m_Sprite: {fileID: -324936604, guid: 6ab8b8bbf63ec7442b75aba26a8717c8, type: 3}
+  m_Sprite: {fileID: -1295192106, guid: 7f592dc147167e3479ff3d7436fa9b99, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.6875, y: 2.25}
+  m_Size: {x: 1.75, y: 2.25}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -126,8 +128,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
-    oldSize: {x: 1.6875, y: 2.25}
-    newSize: {x: 1.6875, y: 2.25}
+    oldSize: {x: 1.75, y: 2.25}
+    newSize: {x: 1.75, y: 2.25}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -168,3 +170,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77633388e9455d64497f313ea09cfd27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-8282488854826155073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 685900246989734844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86ebf221a646c464689b82439aaec91b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Duration: 1.5
+--- !u!114 &8650765541678040733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 685900246989734844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c0df2ca52d5880499aa797f424511d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Sprites:
+  - {fileID: -1295192106, guid: 7f592dc147167e3479ff3d7436fa9b99, type: 3}
+  - {fileID: -1295192106, guid: 7f592dc147167e3479ff3d7436fa9b99, type: 3}
+  - {fileID: -1155087847, guid: 7f592dc147167e3479ff3d7436fa9b99, type: 3}
+  - {fileID: 480850816, guid: 7f592dc147167e3479ff3d7436fa9b99, type: 3}
+  - {fileID: -439052773, guid: 7f592dc147167e3479ff3d7436fa9b99, type: 3}
+  - {fileID: 1892987332, guid: 7f592dc147167e3479ff3d7436fa9b99, type: 3}
+  - {fileID: -431745278, guid: 2d3029c57dfb86b4a87ff8c7f64ee3cb, type: 3}
+  AnimationDelay: 0.083
+  NoLoop: 1

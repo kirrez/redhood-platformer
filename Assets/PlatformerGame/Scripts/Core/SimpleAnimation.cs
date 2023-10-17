@@ -50,5 +50,10 @@ namespace Platformer
                 Renderer.sprite = Sprites[SpriteIndex];
             }
         }
+
+        public void SetFlipX(bool flip)
+        {
+            Renderer.flipX = flip;
+        }
     }
 }

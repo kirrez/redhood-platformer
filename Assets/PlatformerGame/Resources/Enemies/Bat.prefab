@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 2895014899571224549}
   - component: {fileID: 2895014899571224550}
   - component: {fileID: 2895014899571224571}
+  - component: {fileID: 6442854423733344742}
+  - component: {fileID: 5925374529008143510}
   m_Layer: 0
   m_Name: Bat
   m_TagString: Untagged
@@ -154,7 +156,7 @@ MonoBehaviour:
   HorizontalVelocity: 0
   VerticalVelocity: 0
   TargetType: 0
-  Durability: 1
+  Durability: 0
   LifeTime: 6
   CanPenetrateWalls: 1
   Moving: 1
@@ -171,7 +173,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a1f1dc202829a24ab6d9daa34b1f5f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DamageDirection: 0
   MaxHitPoints: 1
   Type: 1
   DamageCooldown: 0.5
+--- !u!114 &6442854423733344742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2895014899571224546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c0df2ca52d5880499aa797f424511d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Sprites:
+  - {fileID: 7936849975484762555, guid: dd3217df1fe7082418cdc391f0c6d8f8, type: 3}
+  - {fileID: -3689407274538956449, guid: dd3217df1fe7082418cdc391f0c6d8f8, type: 3}
+  - {fileID: 6139413691140387631, guid: dd3217df1fe7082418cdc391f0c6d8f8, type: 3}
+  - {fileID: -7165992461079878381, guid: dd3217df1fe7082418cdc391f0c6d8f8, type: 3}
+  - {fileID: 6139413691140387631, guid: dd3217df1fe7082418cdc391f0c6d8f8, type: 3}
+  - {fileID: -3689407274538956449, guid: dd3217df1fe7082418cdc391f0c6d8f8, type: 3}
+  AnimationDelay: 0.083
+  NoLoop: 0
+--- !u!114 &5925374529008143510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2895014899571224546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86ebf221a646c464689b82439aaec91b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Duration: 6

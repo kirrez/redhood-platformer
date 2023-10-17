@@ -3812,7 +3812,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3833,7 +3833,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3854,7 +3854,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3875,7 +3875,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3883,6 +3883,174 @@ TextureImporter:
       bones: []
       spriteID: 327b67801ffb2b4449366c003a984979
       internalID: -12171519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BloodBlast_0
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 16
+        width: 8
+        height: 8
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5fd5ce38c3f468544a9a20a0d8e341c7
+      internalID: 258078436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BloodBlast_1
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 16
+        width: 16
+        height: 16
+      alignment: 9
+      pivot: {x: 0.25, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7ae38c809bd906488d27b3fa8c26d5c
+      internalID: 1326637044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BloodBlast_2
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 16
+        width: 24
+        height: 24
+      alignment: 9
+      pivot: {x: 0.17, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bcb6f194e150894459e0b408fabfaa4f
+      internalID: -240389305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BloodBlast_3
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 16
+        width: 34
+        height: 24
+      alignment: 9
+      pivot: {x: 0.1, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da06795cfe5d5224484cec61e8e96dac
+      internalID: -453625236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BloodBlast_4
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 16
+        width: 28
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29269b999cbd58643b25b09577652526
+      internalID: -301686125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BloodBlast_5
+      rect:
+        serializedVersion: 2
+        x: 372
+        y: 16
+        width: 32
+        height: 24
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33043ad031b2c6c42a7aac9d090804ff
+      internalID: 1935130894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Z
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 24
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 831fb34900c0afd44aee6754ea64cb28
+      internalID: -431745278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HitEffect
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 395
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df11e0f034a1c7149a4b0eb064a2a8a0
+      internalID: -547077511
       vertices: []
       indices: 
       edges: []
@@ -3913,6 +4081,12 @@ TextureImporter:
       BlockBeige: -1438525317
       Block_green: 1572604686
       Block_red: 297420487
+      BloodBlast_0: 258078436
+      BloodBlast_1: 1326637044
+      BloodBlast_2: -240389305
+      BloodBlast_3: -453625236
+      BloodBlast_4: -301686125
+      BloodBlast_5: 1935130894
       BreakableWood_1: -731882785
       BreakableWood_2: 1427516514
       BreakableWood_3: -22461363
@@ -4017,6 +4191,7 @@ TextureImporter:
       HealthUpgrade: 136882220
       Heart_Empty: -1194434640
       Heart_full: -1332053382
+      HitEffect: -547077511
       Holder: 479004354
       HolyWaterIcon_1: 818119534
       HolyWaterIcon_2: -111287172
@@ -4123,6 +4298,7 @@ TextureImporter:
       WomanRed_0: -1234947266
       WomanRed_1: 1779097657
       WoodShatter: -2086196866
+      Z: -431745278
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

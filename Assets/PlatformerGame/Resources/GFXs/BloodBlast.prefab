@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 7623773278327647985}
   - component: {fileID: 7623773278327647984}
   - component: {fileID: 7567477941889960542}
+  - component: {fileID: -3335757271538940624}
+  - component: {fileID: 7047648507399162728}
   m_Layer: 0
   m_Name: BloodBlast
   m_TagString: Untagged
@@ -97,3 +99,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f955f5172496544f9d395a68ceeac94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-3335757271538940624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7623773278327647990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c0df2ca52d5880499aa797f424511d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Sprites:
+  - {fileID: 258078436, guid: 2d3029c57dfb86b4a87ff8c7f64ee3cb, type: 3}
+  - {fileID: 1326637044, guid: 2d3029c57dfb86b4a87ff8c7f64ee3cb, type: 3}
+  - {fileID: -240389305, guid: 2d3029c57dfb86b4a87ff8c7f64ee3cb, type: 3}
+  - {fileID: -453625236, guid: 2d3029c57dfb86b4a87ff8c7f64ee3cb, type: 3}
+  - {fileID: -301686125, guid: 2d3029c57dfb86b4a87ff8c7f64ee3cb, type: 3}
+  - {fileID: 1935130894, guid: 2d3029c57dfb86b4a87ff8c7f64ee3cb, type: 3}
+  - {fileID: -431745278, guid: 2d3029c57dfb86b4a87ff8c7f64ee3cb, type: 3}
+  AnimationDelay: 0.1
+  NoLoop: 1
+--- !u!114 &7047648507399162728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7623773278327647990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86ebf221a646c464689b82439aaec91b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Duration: 1

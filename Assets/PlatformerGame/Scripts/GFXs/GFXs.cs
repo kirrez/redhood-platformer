@@ -4,6 +4,9 @@ namespace Platformer
 {
     public enum GFXs
     {
+        HitEffect,
+        HitFlame,
+        
         BloodBlast,
         BombBlast,
         FireBlast,
@@ -13,6 +16,6 @@ namespace Platformer
         ShardDropper,
         WoodShatter,
 
-        HolyWaterDisappear
+        HolyWaterDisappear,
     }
 }

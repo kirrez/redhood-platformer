@@ -66,10 +66,15 @@ namespace Platformer
             //new Player's location
             //CaveLabyrinth Cave8 : Loc. 1, SP : 16, Conf : 8
             //CaveLabyrinth Cave11Boss : L 1, Sp 23, Conf 11
-            SetQuest(EQuest.Stage, (int)EStages.CaveLabyrinth);
-            SetQuest(EQuest.Location, 1);
-            SetQuest(EQuest.SpawnPoint, 23);
-            SetQuest(EQuest.Confiner, 11);
+            //SetQuest(EQuest.Stage, (int)EStages.CaveLabyrinth);
+            //SetQuest(EQuest.Location, 1);
+            //SetQuest(EQuest.SpawnPoint, 23);
+            //SetQuest(EQuest.Confiner, 11);
+
+            SetQuest(EQuest.Stage, (int)EStages.Mountains);
+            SetQuest(EQuest.Location, 0);
+            SetQuest(EQuest.SpawnPoint, 1);
+            SetQuest(EQuest.Confiner, 0);
 
             SetQuest(EQuest.KnifeLevel, 1);
             SetQuest(EQuest.AxeLevel, 1);

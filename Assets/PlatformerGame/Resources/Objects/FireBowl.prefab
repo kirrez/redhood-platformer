@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1107102898165104141}
   - component: {fileID: 1107102898165104140}
-  - component: {fileID: 7531637891784147782}
+  - component: {fileID: 6898426120104060270}
   m_Layer: 0
   m_Name: FireBowl
   m_TagString: Untagged
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7531637891784147782
+--- !u!114 &6898426120104060270
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,6 +94,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1107102898165104142}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd3bf7ead59f9c14baa752ebda7a3dcf, type: 3}
+  m_Script: {fileID: 11500000, guid: 7c0df2ca52d5880499aa797f424511d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Sprites:
+  - {fileID: 267164088, guid: 2d3029c57dfb86b4a87ff8c7f64ee3cb, type: 3}
+  - {fileID: 456338429, guid: 2d3029c57dfb86b4a87ff8c7f64ee3cb, type: 3}
+  - {fileID: -388648844, guid: 2d3029c57dfb86b4a87ff8c7f64ee3cb, type: 3}
+  AnimationDelay: 0.166
+  NoLoop: 0

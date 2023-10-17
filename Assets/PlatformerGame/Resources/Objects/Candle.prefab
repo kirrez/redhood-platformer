@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4117169495250967800}
   - component: {fileID: 4117169495250967801}
-  - component: {fileID: 4117169495250967686}
+  - component: {fileID: -4096254845521366689}
   m_Layer: 0
   m_Name: Candle
   m_TagString: Untagged
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4117169495250967686
+--- !u!114 &-4096254845521366689
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,6 +94,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4117169495250967687}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5151b29355928b242b5946b8e98751fa, type: 3}
+  m_Script: {fileID: 11500000, guid: 7c0df2ca52d5880499aa797f424511d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Sprites:
+  - {fileID: -387247735, guid: 2d3029c57dfb86b4a87ff8c7f64ee3cb, type: 3}
+  - {fileID: 1892384369, guid: 2d3029c57dfb86b4a87ff8c7f64ee3cb, type: 3}
+  AnimationDelay: 0.25
+  NoLoop: 0

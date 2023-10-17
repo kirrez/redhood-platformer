@@ -3,13 +3,10 @@ using System;
 
 namespace Platformer
 {
-    // this class should be largely refactored, should become not a monobeh etc...
     public class Health : MonoBehaviour
     {
         public Action Killed = () => { };
         public Action HealthChanged = () => { };
-        //now for frog only
-        public Action DamageCooldownExpired = () => { };
 
         public float DamageDirection { get; set; }
 
@@ -24,24 +21,20 @@ namespace Platformer
         private float DamageCooldown;
         private float DamageTimer;
         private bool IsDamageable;
+        private bool IsDamageReceived;
 
         private void OnEnable()
         {
             RefillHealth();
             DamageTimer = 0f;
+            IsDamageReceived = false;
         }
 
         private void FixedUpdate()
         {
-            // DamageCooldownExpired will be invoked once after each resetting of DamageTimer
-            if (DamageTimer > 0)
-            {
-                DamageTimer -= Time.deltaTime;
-                if (DamageTimer <= 0)
-                {
-                    DamageCooldownExpired?.Invoke();
-                }
-            }
+            if (DamageTimer <= 0) return;
+
+            DamageTimer -= Time.fixedDeltaTime;
         }
 
         public int GetHitPoints
@@ -49,13 +42,10 @@ namespace Platformer
             get { return CurrentHitPoints; }
         }
 
-
-        //for Player
         public void SetMaxLives(int lives)
         {
             MaxHitPoints = lives;
         }
-
 
         public int GetCharacterType()
         {
@@ -73,14 +63,20 @@ namespace Platformer
             DamageTimer = DamageCooldown;
         }
 
+        public bool DamageReceived()
+        {
+            return IsDamageReceived;
+        }
+
         public void ReceiveDamage(int damage, float direction)
         {
-            if (!IsDamageable) return;
+            if (IsDamageable == false) return;
 
             DamageDirection = direction;
 
             if (DamageTimer <= 0)
             {
+                IsDamageReceived = true;
                 ResetDamageCooldown();
                 CurrentHitPoints -= damage;
                 if (CurrentHitPoints > 0)
@@ -89,12 +85,15 @@ namespace Platformer
                 }
                 else if (CurrentHitPoints <= 0)
                 {
-                    //now i need only HealthChanged in Player's states ))
                     CurrentHitPoints = 0;
                     HealthChanged?.Invoke();
                     IsDamageable = false;
                     Killed?.Invoke();
                 }
+            }
+            else
+            {
+                IsDamageReceived = false;
             }
         }
     }

@@ -124,8 +124,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3396643462824297212}
   - component: {fileID: 3396643462824297185}
-  - component: {fileID: 3396643462824297184}
-  - component: {fileID: 3396643462824297211}
+  - component: {fileID: 8304702785742851172}
   - component: {fileID: 3396643462824297213}
   - component: {fileID: 3396643462824297210}
   - component: {fileID: 2500007929931130536}
@@ -175,34 +174,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &3396643462824297184
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3396643462824297187}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.45}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
-    oldSize: {x: 1.5, y: 1.0625}
-    newSize: {x: 1.9375, y: 1.75}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 0.9}
-  m_EdgeRadius: 0
---- !u!61 &3396643462824297211
-BoxCollider2D:
+--- !u!60 &8304702785742851172
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -214,19 +187,22 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.7}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
-    oldSize: {x: 1.5, y: 1.0625}
-    newSize: {x: 1.9375, y: 1.75}
-    adaptiveTilingThreshold: 0.5
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1.4}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.5, y: 0}
+      - {x: -0.5, y: 1.4}
+      - {x: 0.5, y: 1.4}
+      - {x: 0.5, y: 0}
 --- !u!114 &3396643462824297213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -240,8 +216,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FirePoint: {fileID: 8955224032510328235}
-  SmallCollider: {fileID: 3396643462824297184}
-  BigCollider: {fileID: 3396643462824297211}
+  HigherPath:
+  - {x: -0.5, y: 0}
+  - {x: -0.5, y: 1.4}
+  - {x: 0.5, y: 1.4}
+  - {x: 0.5, y: 0}
+  LowerPath:
+  - {x: -0.5, y: 0}
+  - {x: -0.5, y: 0.9}
+  - {x: 0.5, y: 0.9}
+  - {x: 0.5, y: 0}
 --- !u!114 &3396643462824297210
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -256,7 +240,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHitPoints: 8
   Type: 1
-  DamageCooldown: 1.5
+  DamageCooldown: 1
 --- !u!114 &2500007929931130536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -283,7 +267,7 @@ MonoBehaviour:
   - {fileID: 1370836582, guid: b44101de0c7b6744c9b63f1769528335, type: 3}
   AnimationPeriod: 0.5
   BlinkPeriod: 0.1
-  BlinkEffectDuration: 1.5
+  BlinkEffectDuration: 1
 --- !u!1 &6072728423278455803
 GameObject:
   m_ObjectHideFlags: 0
@@ -444,7 +428,6 @@ MonoBehaviour:
   VerticalVelocity: 0
   TargetType: 0
   Durability: 0
-  LifeTime: 0
   CanPenetrateWalls: 1
   Moving: 1
   HitDirection: 1

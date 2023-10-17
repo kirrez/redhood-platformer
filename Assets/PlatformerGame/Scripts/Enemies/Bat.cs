@@ -11,33 +11,26 @@ namespace Platformer
 
         private Health Health;
         private Rigidbody2D Rigidbody;
-        private SpriteRenderer Renderer;
+        private SimpleAnimation Animation;
         private IResourceManager ResourceManager;
 
-        private List<Sprite> CurrentAnimations;
-        private float AnimationDelay = 0.1f;
-        private int SpriteIndex;
-        private float Timer;
-
         private float DirectionX = 1f;
-        private float Speed;
         private float OriginY;
+        private float Speed;
 
         private void Awake()
         {
             ResourceManager = CompositionRoot.GetResourceManager();
-            Health = GetComponent<Health>();
+            Animation = GetComponent<SimpleAnimation>();
             Rigidbody = GetComponent<Rigidbody2D>();
-            Renderer = GetComponent<SpriteRenderer>();
-            Health.Killed += OnKilled;
+            Health = GetComponent<Health>();
 
-            LoadSprites();
+            Health.Killed += OnKilled;
         }
 
         private void OnEnable()
         {
-            Timer = 0f;
-            SpriteIndex = 0;
+            
         }
 
         private void OnDisable()
@@ -50,11 +43,11 @@ namespace Platformer
             DirectionX = direction;
             if (DirectionX == 1f)
             {
-                Renderer.flipX = false;
+                Animation.SetFlipX(false);
             } 
             if (DirectionX == -1f)
             {
-                Renderer.flipX = true;
+                Animation.SetFlipX(true);
             }
 
             transform.position = startPosition;
@@ -67,32 +60,11 @@ namespace Platformer
         {
             float offsetY = Mathf.Sin(Time.time * 4) * 1.5f;
             Rigidbody.velocity = new Vector2(Speed * DirectionX * Time.fixedDeltaTime, OriginY + offsetY);
-
-            Renderer.sprite = CurrentAnimations[SpriteIndex];
-            Timer += Time.deltaTime;
-
-            if (Timer >= AnimationDelay)
-            {
-                Timer -= AnimationDelay;
-
-                if (SpriteIndex == CurrentAnimations.Count - 1)
-                {
-                    SpriteIndex = 0;
-                    return;
-                }
-
-                if (SpriteIndex < CurrentAnimations.Count - 1)
-                {
-                    SpriteIndex++;
-                }
-            }
         }
 
         private void OnKilled()
         {
-            bool direction = false;
-
-            Killed(); // BatSpawner listens to this event
+            Killed();
 
             var collider = gameObject.GetComponent<Collider2D>();
             var newPosition = new Vector2(collider.bounds.center.x, collider.bounds.center.y);
@@ -100,31 +72,9 @@ namespace Platformer
             var dynamics = CompositionRoot.GetDynamicsContainer();
             instance.transform.SetParent(dynamics.Transform, false);
             dynamics.AddItem(instance.gameObject);
-
-            if (Rigidbody.velocity.x > 0)
-            {
-                direction = true;
-            }
-            if (Rigidbody.velocity.x < 0)
-            {
-                direction = false;
-            }
-
-            instance.GetComponent<BloodBlast>().Initiate(newPosition, direction);
-
+            instance.GetComponent<BloodBlast>().Initiate(newPosition, - Rigidbody.velocity.x);
 
             gameObject.SetActive(false);
-        }
-
-        private void LoadSprites()
-        {
-            var resourceManager = CompositionRoot.GetResourceManager();
-
-            ScriptedAnimation asset = resourceManager.CreatePrefab<ScriptedAnimation, EGFXAnimations>(EGFXAnimations.BatFlying);
-            CurrentAnimations = asset.Animations;
-            AnimationDelay = 1 / asset.FramesPerSecond;
-
-            GameObject.Destroy(asset.gameObject);
         }
     }
 }

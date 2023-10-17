@@ -177,8 +177,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3396643462824297212}
   - component: {fileID: 3396643462824297185}
-  - component: {fileID: 3396643462824297184}
-  - component: {fileID: 4567204683029225152}
+  - component: {fileID: 8797970946019454954}
   - component: {fileID: 7374652208169536954}
   - component: {fileID: 3396643462824297210}
   - component: {fileID: 661706424476691980}
@@ -227,8 +226,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &3396643462824297184
-BoxCollider2D:
+--- !u!60 &8797970946019454954
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -240,45 +239,22 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.45}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
-    oldSize: {x: 1.5, y: 1.0625}
-    newSize: {x: 1.9375, y: 1.75}
-    adaptiveTilingThreshold: 0.5
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 0.9}
-  m_EdgeRadius: 0
---- !u!61 &4567204683029225152
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3396643462824297187}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.7}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
-    oldSize: {x: 1.5, y: 1.0625}
-    newSize: {x: 1.9375, y: 1.75}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1.4}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.5, y: 0}
+      - {x: -0.5, y: 1.4}
+      - {x: 0.5, y: 1.4}
+      - {x: 0.5, y: 0}
 --- !u!114 &7374652208169536954
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -291,8 +267,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2142c256b40afd43a11e95b078039ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SmallCollider: {fileID: 3396643462824297184}
-  BigCollider: {fileID: 4567204683029225152}
+  HigherPath:
+  - {x: -0.5, y: 0}
+  - {x: -0.5, y: 1.4}
+  - {x: 0.5, y: 1.4}
+  - {x: 0.5, y: 0}
+  LowerPath:
+  - {x: -0.5, y: 0}
+  - {x: -0.5, y: 0.9}
+  - {x: 0.5, y: 0.9}
+  - {x: 0.5, y: 0}
 --- !u!114 &3396643462824297210
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -307,7 +291,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHitPoints: 3
   Type: 1
-  DamageCooldown: 1.5
+  DamageCooldown: 1
 --- !u!114 &661706424476691980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -334,7 +318,7 @@ MonoBehaviour:
   - {fileID: 306052516, guid: b44101de0c7b6744c9b63f1769528335, type: 3}
   AnimationPeriod: 0.5
   BlinkPeriod: 0.1
-  BlinkEffectDuration: 1.5
+  BlinkEffectDuration: 1
 --- !u!1 &6104671449723724493
 GameObject:
   m_ObjectHideFlags: 0
@@ -411,7 +395,6 @@ MonoBehaviour:
   VerticalVelocity: 0
   TargetType: 0
   Durability: 0
-  LifeTime: 0
   CanPenetrateWalls: 1
   Moving: 1
   HitDirection: 1

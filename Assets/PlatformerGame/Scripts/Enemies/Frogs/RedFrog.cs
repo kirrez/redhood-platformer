@@ -13,6 +13,7 @@ namespace Platformer
         private Rigidbody2D Rigidbody;
         private IPlayer Player;
         private IResourceManager ResourceManager;
+        private IDynamicsContainer DynamicsContainer;
 
         private float DeltaY;
         private float Timer;
@@ -26,16 +27,18 @@ namespace Platformer
         private float DirectionX = 1f;
         private float FirePointX;
 
-        private int Behaviour = 0; // a counter for tracking actions, performed in row in a single direction
+        private int Phase = 0; // a counter for tracking actions, performed in row in a single direction
 
         [SerializeField]
         private Transform FirePoint;
+
         [SerializeField]
-        private Collider2D SmallCollider;
+        private Vector2[] HigherPath;
+
         [SerializeField]
-        private Collider2D BigCollider;
-        // current collider
-        private Collider2D Collider;
+        private Vector2[] LowerPath;
+
+        private PolygonCollider2D Collider;
 
         private Enemies Bullet = Enemies.BubbleBullet;
 
@@ -47,7 +50,10 @@ namespace Platformer
             Health = GetComponent<Health>();
             Rigidbody = GetComponent<Rigidbody2D>();
             FrogAnimator = GetComponent<FrogAnimator>();
+            Collider = GetComponent<PolygonCollider2D>();
+            DynamicsContainer = CompositionRoot.GetDynamicsContainer();
             ResourceManager = CompositionRoot.GetResourceManager();
+            Player = CompositionRoot.GetPlayer();
 
             FirePointX = FirePoint.localPosition.x;
 
@@ -57,7 +63,6 @@ namespace Platformer
 
         private void OnEnable()
         {
-            Player = CompositionRoot.GetPlayer();
             LastPosition.y = transform.position.y;
             FrogAnimator.SetAnimation(FrogAnimations.JumpRise);
         }
@@ -75,23 +80,11 @@ namespace Platformer
         private void OnKilled()
         {
             // Blood effect
-            var direction = false;
-            var collider = gameObject.GetComponent<Collider2D>();
-            var newPosition = new Vector2(collider.bounds.center.x, collider.bounds.center.y);
+            var newPosition = new Vector2(Collider.bounds.center.x, Collider.bounds.center.y);
             var instance = ResourceManager.GetFromPool(GFXs.BloodBlast);
-            var dynamics = CompositionRoot.GetDynamicsContainer();
-            instance.transform.SetParent(dynamics.Transform, false);
-            dynamics.AddItem(instance);
-
-            if (DirectionX == 1)
-            {
-                direction = true;
-            }
-            if (DirectionX == -1)
-            {
-                direction = false;
-            }
-            instance.GetComponent<BloodBlast>().Initiate(newPosition, direction);
+            instance.transform.SetParent(DynamicsContainer.Transform, false);
+            DynamicsContainer.AddItem(instance);
+            instance.GetComponent<BloodBlast>().Initiate(newPosition, - DirectionX);
 
             Killed();
             gameObject.SetActive(false);
@@ -136,9 +129,7 @@ namespace Platformer
         {
             var origin = new Vector2(Collider.bounds.center.x, Collider.bounds.center.y - Collider.bounds.extents.y);
             var boxSize = new Vector2(Collider.bounds.size.x, 0.1f);
-
             float distance = 0.1f; // Magic number, empirical
-
             RaycastHit2D GroundHit = Physics2D.BoxCast(origin, boxSize, 0f, Vector2.down, distance, mask);
 
             return GroundHit.collider != null;
@@ -149,19 +140,15 @@ namespace Platformer
             Rigidbody.velocity = new Vector2(DirectionX * Time.fixedDeltaTime * HorizontalSpeed, Rigidbody.velocity.y);
         }
 
-        private void SwitchColliders(bool state)
+        private void SwitchColliderPaths(bool state)
         {
             if (!state)
             {
-                Collider = BigCollider;
-                BigCollider.enabled = true;
-                SmallCollider.enabled = false;
+                Collider.SetPath(0, HigherPath);
             }
             else
             {
-                Collider = SmallCollider;
-                SmallCollider.enabled = true;
-                BigCollider.enabled = false;
+                Collider.SetPath(0, LowerPath);
             }
         }
 
@@ -174,7 +161,7 @@ namespace Platformer
         private void StateInitialJump()
         {
             SetMask("EnemyTransparent");
-            SwitchColliders(false);
+            SwitchColliderPaths(false);
             FrogAnimator.SetAnimation(FrogAnimations.JumpRise);
             Rigidbody.AddForce(new Vector2(0f, VeryHighJumpForce));
             Timer = 0f;
@@ -211,8 +198,7 @@ namespace Platformer
             if (Grounded(LayerMasks.Solid + LayerMasks.OneWay))
             {
                 FrogAnimator.SetAnimation(FrogAnimations.Idle);
-                
-                SwitchColliders(true);
+                SwitchColliderPaths(true);
                 SetMask("EnemySolid");
                 Timer = 1f; // waiting for next move
                 CurrentState = StateIdle;
@@ -239,7 +225,7 @@ namespace Platformer
             }
             FrogAnimator.SetAnimation(FrogAnimations.JumpRise);
 
-            SwitchColliders(false);
+            SwitchColliderPaths(false);
             CurrentState = StateJumpRising;
             Timer = 1f;
         }
@@ -264,14 +250,14 @@ namespace Platformer
                         //player's at the left side
                         if (distance > 0)
                         {
-                            Behaviour++;
+                            Phase++;
 
-                            if (Behaviour == 1)
+                            if (Phase == 1)
                             {
                                 AttackBehaviour();
                             }
 
-                            if (Behaviour > 1)
+                            if (Phase > 1)
                             {
                                 if (chance > 0.6f)
                                 {
@@ -294,7 +280,7 @@ namespace Platformer
                         //player's at the right side
                         if (distance <= 0)
                         {
-                            Behaviour = 0;
+                            Phase = 0;
                             DirectionX = 1f;
                             CheckDirection();
                             JumpBehaviour(false);
@@ -308,14 +294,14 @@ namespace Platformer
                         //player's at the right side
                         if (distance < 0)
                         {
-                            Behaviour++;
+                            Phase++;
 
-                            if (Behaviour == 1)
+                            if (Phase == 1)
                             {
                                 AttackBehaviour();
                             }
 
-                            if (Behaviour > 1)
+                            if (Phase > 1)
                             {
                                 if (chance > 0.6f)
                                 {
@@ -338,7 +324,7 @@ namespace Platformer
                         //player's at the left side
                         if (distance >= 0)
                         {
-                            Behaviour = 0;
+                            Phase = 0;
                             DirectionX = -1f;
                             //Renderer.flipX = true;
                             CheckDirection();
@@ -355,7 +341,7 @@ namespace Platformer
                     if (DisappearTimer >= 4f)
                     {
                         FrogAnimator.SetAnimation(FrogAnimations.JumpRise);
-                        SwitchColliders(false);
+                        SwitchColliderPaths(false);
                         SetMask("EnemyTransparent");
                         Rigidbody.AddForce(new Vector2(0f, HighJumpForce));
                         CurrentState = StateLeaveJumpRising;
@@ -403,9 +389,8 @@ namespace Platformer
             if (Timer <= 0)
             {
                 var instance = ResourceManager.GetFromPool(Bullet);
-                var dynamics = CompositionRoot.GetDynamicsContainer();
-                instance.transform.SetParent(dynamics.Transform, false);
-                dynamics.AddItem(instance);
+                instance.transform.SetParent(DynamicsContainer.Transform, false);
+                DynamicsContainer.AddItem(instance);
                 instance.transform.position = FirePoint.position;
                 var weaponVelocity = instance.GetComponent<DamageDealer>().Velocity;
                 weaponVelocity.x *= DirectionX;

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Platformer
 {
-    public class BaseGFX : MonoBehaviour
+    public class BaseGFX : MonoBehaviour, IBaseGFX
     {
         protected SpriteRenderer Renderer;
 

@@ -36,11 +36,7 @@ namespace Platformer
             var dynamics = CompositionRoot.GetDynamicsContainer();
             instance.transform.SetParent(dynamics.Transform, false);
             dynamics.AddItem(instance.gameObject);
-
-            var chance = UnityEngine.Random.Range(0f, 1f);
-
-            if (chance <= 0.5) instance.GetComponent<BloodBlast>().Initiate(newPosition, true);
-            if (chance > 0.5) instance.GetComponent<BloodBlast>().Initiate(newPosition, false);
+            instance.GetComponent<BloodBlast>().Initiate(newPosition, Random.Range(-1f, 1f));
 
             gameObject.SetActive(false);
         }

@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3398881197874485186}
   - component: {fileID: 3398881197874485213}
-  - component: {fileID: -894685492308212289}
+  - component: {fileID: -2756470012051802783}
+  - component: {fileID: 5423058880128822083}
   m_Layer: 0
   m_Name: HolyWaterDisappear
   m_TagString: Untagged
@@ -85,7 +86,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-894685492308212289
+--- !u!114 &-2756470012051802783
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,7 +95,31 @@ MonoBehaviour:
   m_GameObject: {fileID: 3398881197874485215}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21202d50e331dcb47bdf8bc1071bd71e, type: 3}
+  m_Script: {fileID: 11500000, guid: 7c0df2ca52d5880499aa797f424511d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WeaponType: 1
+  Sprites:
+  - {fileID: 1711377829, guid: ee4f7ce981b3ec64694e03c56966bb57, type: 3}
+  - {fileID: 1037604004, guid: ee4f7ce981b3ec64694e03c56966bb57, type: 3}
+  - {fileID: 352635053, guid: ee4f7ce981b3ec64694e03c56966bb57, type: 3}
+  - {fileID: -1511959216, guid: ee4f7ce981b3ec64694e03c56966bb57, type: 3}
+  - {fileID: 1326037964, guid: ee4f7ce981b3ec64694e03c56966bb57, type: 3}
+  - {fileID: 728798006, guid: ee4f7ce981b3ec64694e03c56966bb57, type: 3}
+  - {fileID: 353387895, guid: ee4f7ce981b3ec64694e03c56966bb57, type: 3}
+  - {fileID: 1728023930, guid: ee4f7ce981b3ec64694e03c56966bb57, type: 3}
+  - {fileID: -431745278, guid: 2d3029c57dfb86b4a87ff8c7f64ee3cb, type: 3}
+  AnimationDelay: 0.125
+  NoLoop: 1
+--- !u!114 &5423058880128822083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3398881197874485215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86ebf221a646c464689b82439aaec91b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Duration: 1.2

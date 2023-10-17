@@ -12,8 +12,11 @@ GameObject:
   - component: {fileID: 6965970566619243594}
   - component: {fileID: 6965970566619243595}
   - component: {fileID: 6965970566619243596}
-  - component: {fileID: 7792415532422497473}
   - component: {fileID: 6965970566619243597}
+  - component: {fileID: 1987084883243245420}
+  - component: {fileID: -6134509903454359058}
+  - component: {fileID: 8405359791226800619}
+  - component: {fileID: -1843075948833426190}
   m_Layer: 12
   m_Name: HunterKnife
   m_TagString: Untagged
@@ -135,18 +138,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.7, y: 0.3}
   m_EdgeRadius: 0
---- !u!114 &7792415532422497473
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6965970566619243598}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a89f39be44be9f43b97cd7aa5e4ce74, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6965970566619243597
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,7 +155,59 @@ MonoBehaviour:
   VerticalVelocity: 0
   TargetType: 1
   Durability: 2
-  LifeTime: 1.2
   CanPenetrateWalls: 0
   Moving: 1
   HitDirection: 1
+--- !u!114 &1987084883243245420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6965970566619243598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86ebf221a646c464689b82439aaec91b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Duration: 1.2
+--- !u!114 &-6134509903454359058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6965970566619243598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a25cfc86873c6824d811a5674b8b9e70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8405359791226800619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6965970566619243598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0868d419cc75abc459bb74c5203508f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-1843075948833426190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6965970566619243598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c0df2ca52d5880499aa797f424511d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Sprites:
+  - {fileID: -2099779392, guid: ee4f7ce981b3ec64694e03c56966bb57, type: 3}
+  AnimationDelay: 1
+  NoLoop: 1

@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 2895014899571224544}
   - component: {fileID: 2895014899571224570}
   - component: {fileID: 2895014899571224548}
-  - component: {fileID: 1306387020198029997}
   - component: {fileID: 2895014899571224550}
   - component: {fileID: 2895014899571224571}
+  - component: {fileID: 1306387020198029997}
+  - component: {fileID: 6193339081762013341}
   m_Layer: 0
   m_Name: ToadDrop
   m_TagString: Untagged
@@ -126,23 +127,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.75
---- !u!114 &1306387020198029997
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2895014899571224546}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35e1940defa80bb4786742b6ba7815fa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Sprites:
-  - {fileID: -1015301523, guid: 2d3029c57dfb86b4a87ff8c7f64ee3cb, type: 3}
-  - {fileID: 565997020, guid: 2d3029c57dfb86b4a87ff8c7f64ee3cb, type: 3}
-  - {fileID: -138495502, guid: 2d3029c57dfb86b4a87ff8c7f64ee3cb, type: 3}
-  - {fileID: -1737838183, guid: 2d3029c57dfb86b4a87ff8c7f64ee3cb, type: 3}
 --- !u!114 &2895014899571224550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,7 +160,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a1f1dc202829a24ab6d9daa34b1f5f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DamageDirection: 0
   MaxHitPoints: 1
   Type: 1
   DamageCooldown: 1
+--- !u!114 &1306387020198029997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2895014899571224546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35e1940defa80bb4786742b6ba7815fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Sprites:
+  - {fileID: -1015301523, guid: 2d3029c57dfb86b4a87ff8c7f64ee3cb, type: 3}
+  - {fileID: 565997020, guid: 2d3029c57dfb86b4a87ff8c7f64ee3cb, type: 3}
+  - {fileID: -138495502, guid: 2d3029c57dfb86b4a87ff8c7f64ee3cb, type: 3}
+  - {fileID: -1737838183, guid: 2d3029c57dfb86b4a87ff8c7f64ee3cb, type: 3}
+--- !u!114 &6193339081762013341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2895014899571224546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86ebf221a646c464689b82439aaec91b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Duration: 2.5

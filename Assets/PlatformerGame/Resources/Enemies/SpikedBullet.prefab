@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 8158163916317793571}
   - component: {fileID: 8158163916317793568}
   - component: {fileID: 8158163916317793569}
-  - component: {fileID: 5682031081926470153}
   - component: {fileID: 8158163916317793575}
+  - component: {fileID: 5682031081926470153}
+  - component: {fileID: -1945374351282940055}
   m_Layer: 0
   m_Name: SpikedBullet
   m_TagString: Untagged
@@ -125,18 +126,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.45
---- !u!114 &5682031081926470153
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8158163916317793572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ad41f2298fc9184482b745bde158bf2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &8158163916317793575
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,3 +147,28 @@ MonoBehaviour:
   CanPenetrateWalls: 1
   Moving: 1
   HitDirection: 1
+--- !u!114 &5682031081926470153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8158163916317793572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ad41f2298fc9184482b745bde158bf2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-1945374351282940055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8158163916317793572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86ebf221a646c464689b82439aaec91b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Duration: 3

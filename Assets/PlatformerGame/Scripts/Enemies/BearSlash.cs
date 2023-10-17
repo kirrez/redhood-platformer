@@ -7,86 +7,43 @@ namespace Platformer
 {
     public class BearSlash : MonoBehaviour
     {
-        private SpriteRenderer Renderer;
+        private SimpleAnimation Animation;
         private Collider2D Collider;
-        private List<Sprite> CurrentAnimations;
-        private float AnimationDelay = 0.1f;
+
         private float Timer;
-        private int SpriteIndex;
-        private float MaxLifeTime;
-        private float LifeTime;
-        private float CollisionTime;
 
         public void SetHitDirection(float direction)
         {
             GetComponent<DamageDealer>().SetHitDirection(direction);
             if (direction == 1)
             {
-                Renderer.flipX = false;
+                Animation.SetFlipX(false);
             }
 
             if (direction == -1)
             {
-                Renderer.flipX = true;
+                Animation.SetFlipX(true);
             }
         }
 
         private void Awake()
         {
-            Renderer = GetComponent<SpriteRenderer>();
+            Animation = GetComponent<SimpleAnimation>();
             Collider = GetComponent<Collider2D>();
-
-            LoadSprites();
         }
 
         private void OnEnable()
         {
             Collider.enabled = true;
-            Timer = 0f;
-            SpriteIndex = 0;
-            LifeTime = 0f;
-            CollisionTime = 0.5f; // magic number
+            Timer = 0.6f; // magic number, period of collider's activity
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
-            Renderer.sprite = CurrentAnimations[SpriteIndex];
+            Timer -= Time.fixedDeltaTime;
+            if (Timer > 0) return;
 
-            Timer += Time.deltaTime;
-            LifeTime += Time.deltaTime;
-
-            if (Timer >= AnimationDelay)
-            {
-                Timer -= AnimationDelay;
-
-                if (SpriteIndex < CurrentAnimations.Count - 1)
-                {
-                    SpriteIndex++;
-                }
-            }
-
-            if (LifeTime >= CollisionTime)
-            {
-                Collider.enabled = false;
-            }
-
-            if (LifeTime >= MaxLifeTime)
-            {
-                gameObject.SetActive(false);
-            }
-        }
-
-
-        private void LoadSprites()
-        {
-            var resourceManager = CompositionRoot.GetResourceManager();
-
-            ScriptedAnimation asset = resourceManager.CreatePrefab<ScriptedAnimation, EGFXAnimations>(EGFXAnimations.BearSlash);
-            CurrentAnimations = asset.Animations;
-            AnimationDelay = 1 / asset.FramesPerSecond;
-            MaxLifeTime = AnimationDelay * asset.FramesPerSecond;
-
-            GameObject.Destroy(asset.gameObject);
+            Collider.enabled = false;
         }
     }
 }

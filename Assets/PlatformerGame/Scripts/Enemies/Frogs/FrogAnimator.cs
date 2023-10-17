@@ -62,6 +62,11 @@ namespace Platformer
             CurrentState = Begin;
         }
 
+        private void OnDisable()
+        {
+            BlinkRenderer.enabled = false;
+        }
+
         private void FixedUpdate()
         {
             CurrentState();
@@ -72,7 +77,7 @@ namespace Platformer
             Index = 0;
             AnimationTimer = AnimationPeriod;
             SetAnimation(FrogAnimations.JumpRise);
-
+            Mask.sprite = CurrentAnimation[0];
             BlinkRenderer.enabled = false;
 
             CurrentState = NormalAnimation;

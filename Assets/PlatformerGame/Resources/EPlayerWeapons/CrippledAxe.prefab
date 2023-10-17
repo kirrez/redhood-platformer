@@ -12,8 +12,11 @@ GameObject:
   - component: {fileID: 830021847348928814}
   - component: {fileID: 830021847348928801}
   - component: {fileID: 830021847348928800}
-  - component: {fileID: 1326028302383811636}
   - component: {fileID: 830021847348928813}
+  - component: {fileID: -7002755643865525684}
+  - component: {fileID: -2932376596675082732}
+  - component: {fileID: 3049884886785158414}
+  - component: {fileID: -2764351903635269293}
   m_Layer: 12
   m_Name: CrippledAxe
   m_TagString: Untagged
@@ -125,19 +128,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.45
---- !u!114 &1326028302383811636
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 830021847348928812}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b230b391c1eb7724988168ae2b5c8dd2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  WeaponLevel: 1
 --- !u!114 &830021847348928813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,7 +145,66 @@ MonoBehaviour:
   VerticalVelocity: 17
   TargetType: 1
   Durability: 1
-  LifeTime: 1.35
   CanPenetrateWalls: 1
   Moving: 1
   HitDirection: 1
+--- !u!114 &-7002755643865525684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 830021847348928812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86ebf221a646c464689b82439aaec91b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Duration: 1.35
+--- !u!114 &-2932376596675082732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 830021847348928812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94363286b12a1ff4aa67b888ffc9c9b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3049884886785158414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 830021847348928812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c0df2ca52d5880499aa797f424511d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Sprites:
+  - {fileID: -1186497615, guid: ee4f7ce981b3ec64694e03c56966bb57, type: 3}
+  - {fileID: -446269027, guid: ee4f7ce981b3ec64694e03c56966bb57, type: 3}
+  - {fileID: 320908324, guid: ee4f7ce981b3ec64694e03c56966bb57, type: 3}
+  - {fileID: 285079235, guid: ee4f7ce981b3ec64694e03c56966bb57, type: 3}
+  - {fileID: -1105100714, guid: ee4f7ce981b3ec64694e03c56966bb57, type: 3}
+  - {fileID: -2091085743, guid: ee4f7ce981b3ec64694e03c56966bb57, type: 3}
+  - {fileID: 1209073822, guid: ee4f7ce981b3ec64694e03c56966bb57, type: 3}
+  - {fileID: 1144453508, guid: ee4f7ce981b3ec64694e03c56966bb57, type: 3}
+  AnimationDelay: 0.1
+  NoLoop: 0
+--- !u!114 &-2764351903635269293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 830021847348928812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0868d419cc75abc459bb74c5203508f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

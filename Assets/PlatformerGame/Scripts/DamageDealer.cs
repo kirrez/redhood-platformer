@@ -27,10 +27,6 @@ namespace Platformer
         private int CurrentDurability;
 
         [SerializeField]
-        private float LifeTime = 0; // 0 - never disappears, > 0 - disappears after amount of time
-        private float CurrentLifeTime;
-
-        [SerializeField]
         private bool CanPenetrateWalls = false;
 
         [SerializeField]
@@ -39,7 +35,15 @@ namespace Platformer
         [SerializeField]
         private float HitDirection = 1f;
         private float LastX;
+
         
+
+        private void Awake()
+        {
+            //DynamicsContainer = CompositionRoot.GetDynamicsContainer();
+            //ResourceManager = CompositionRoot.GetResourceManager();
+        }
+
         public void SetHitDirection(float direction)
         {
             HitDirection = direction;
@@ -64,7 +68,6 @@ namespace Platformer
         private void OnEnable()
         {
             CurrentDurability = Durability;
-            CurrentLifeTime = LifeTime;
         }
 
         private void FixedUpdate()
@@ -82,16 +85,6 @@ namespace Platformer
                 }
 
                 LastX = transform.position.x;
-            }
-
-            if (CurrentLifeTime > 0)
-            {
-                CurrentLifeTime -= Time.fixedDeltaTime;
-                if ((LifeTime > 0) && (CurrentLifeTime <= 0))
-                {
-                    //Debug.Log("LifeTime is out!");
-                    CheckDestruction();
-                }
             }
         }
 
@@ -113,7 +106,6 @@ namespace Platformer
                     CurrentDurability -= 1;
                     if ((Durability > 0) && (CurrentDurability <= 0))
                     {
-                        //Debug.Log("Durability is drained!");
                         CheckDestruction();
                     }
                 }

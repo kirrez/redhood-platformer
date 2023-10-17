@@ -165,8 +165,6 @@ namespace Platformer
 
         private void OnKilled()
         {
-            bool direction = false;
-
             Killed(); // KillerFishSpawner listens to this event
 
             var collider = gameObject.GetComponent<Collider2D>();
@@ -175,18 +173,7 @@ namespace Platformer
             var dynamics = CompositionRoot.GetDynamicsContainer();
             instance.transform.SetParent(dynamics.Transform, false);
             dynamics.AddItem(instance.gameObject);
-
-            if (Rigidbody.velocity.x > 0)
-            {
-                direction = true;
-            }
-            if (Rigidbody.velocity.x < 0)
-            {
-                direction = false;
-            }
-
-            instance.GetComponent<BloodBlast>().Initiate(newPosition, direction);
-
+            instance.GetComponent<BloodBlast>().Initiate(newPosition, - Rigidbody.velocity.x);
 
             gameObject.SetActive(false);
         }

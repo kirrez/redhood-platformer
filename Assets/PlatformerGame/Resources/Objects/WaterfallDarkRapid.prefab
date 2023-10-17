@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8682185777698809842}
-  - component: {fileID: 8914059752284638703}
   - component: {fileID: 2143061560703704970}
+  - component: {fileID: 8914059752284638703}
   m_Layer: 0
   m_Name: WaterfallDarkRapid
   m_TagString: Untagged
@@ -33,23 +33,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8914059752284638703
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3315580673615670173}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c0df2ca52d5880499aa797f424511d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Sprites:
-  - {fileID: -1113234018, guid: 2d3029c57dfb86b4a87ff8c7f64ee3cb, type: 3}
-  - {fileID: -80851947, guid: 2d3029c57dfb86b4a87ff8c7f64ee3cb, type: 3}
-  - {fileID: 411317632, guid: 2d3029c57dfb86b4a87ff8c7f64ee3cb, type: 3}
-  AnimationDelay: 0.2
 --- !u!212 &2143061560703704970
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -102,3 +85,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8914059752284638703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3315580673615670173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c0df2ca52d5880499aa797f424511d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Sprites:
+  - {fileID: -1113234018, guid: 2d3029c57dfb86b4a87ff8c7f64ee3cb, type: 3}
+  - {fileID: -80851947, guid: 2d3029c57dfb86b4a87ff8c7f64ee3cb, type: 3}
+  - {fileID: 411317632, guid: 2d3029c57dfb86b4a87ff8c7f64ee3cb, type: 3}
+  AnimationDelay: 0.2
+  NoLoop: 0

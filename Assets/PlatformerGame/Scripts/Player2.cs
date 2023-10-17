@@ -450,11 +450,11 @@ namespace Platformer
 
         public void ShootKnife()
         {
-            var knife = ProgressManager.GetQuest(EQuest.KnifeLevel);
+            var knifeLevel = ProgressManager.GetQuest(EQuest.KnifeLevel);
             var dynamics = CompositionRoot.GetDynamicsContainer();
             GameObject instance = null;
 
-            switch (knife)
+            switch (knifeLevel)
             {
                 case 1:
                     instance = ResourceManager.GetFromPool(EPlayerWeapons.KitchenKnife);
@@ -468,7 +468,7 @@ namespace Platformer
             }
 
             //all cases
-            if (knife > 0)
+            if (knifeLevel > 0)
             {
                 instance.transform.SetParent(dynamics.Transform, false);
                 dynamics.AddItem(instance);
@@ -476,19 +476,17 @@ namespace Platformer
                 var weaponVelocity = instance.GetComponent<DamageDealer>().Velocity;
                 weaponVelocity.x *= DirectionX;
                 instance.GetComponent<Rigidbody2D>().velocity = weaponVelocity;
-
-                var weapon = instance.GetComponent<PlayerKnife>();
-                weapon.Initiate(FirePoint.position, DirectionX);
+                instance.GetComponent<IBaseGFX>().Initiate(FirePoint.position, DirectionX);
             }
         }
 
         public void ShootAxe()
         {
-            var axe = ProgressManager.GetQuest(EQuest.AxeLevel);
+            var axeLevel = ProgressManager.GetQuest(EQuest.AxeLevel);
             var dynamics = CompositionRoot.GetDynamicsContainer();
             GameObject instance = null;
 
-            switch (axe)
+            switch (axeLevel)
             {
                 case 1:
                     instance = ResourceManager.GetFromPool(EPlayerWeapons.CrippledAxe);
@@ -502,7 +500,7 @@ namespace Platformer
             }
 
             //all cases
-            if (axe > 0)
+            if (axeLevel > 0)
             {
                 instance.transform.SetParent(dynamics.Transform, false);
                 dynamics.AddItem(instance);
@@ -510,21 +508,19 @@ namespace Platformer
                 var weaponVelocity = instance.GetComponent<DamageDealer>().Velocity;
                 weaponVelocity.x *= DirectionX;
                 instance.GetComponent<Rigidbody2D>().velocity = weaponVelocity;
-
-                var weapon = instance.GetComponent<PlayerAxe>();
-                weapon.Initiate(FirePoint.position, DirectionX);
+                instance.GetComponent<IBaseGFX>().Initiate(FirePoint.position, DirectionX);
             }
 
         }
 
         public void ShootHolyWater()
         {
-            var holyWater = ProgressManager.GetQuest(EQuest.HolyWaterLevel);
+            var holyWaterLevel = ProgressManager.GetQuest(EQuest.HolyWaterLevel);
             var dynamics = CompositionRoot.GetDynamicsContainer();
             GameObject instance = null;
-            GameObject disappearEffect = null;
+            //GameObject disappearEffect = null;
 
-            switch (holyWater)
+            switch (holyWaterLevel)
             {
                 case 1:
                     instance = ResourceManager.GetFromPool(EPlayerWeapons.WeakHolyWater);
@@ -535,7 +531,7 @@ namespace Platformer
             }
 
             //all cases
-            if (holyWater > 0)
+            if (holyWaterLevel > 0)
             {
                 instance.transform.SetParent(dynamics.Transform, false);
                 dynamics.AddItem(instance);
@@ -543,17 +539,16 @@ namespace Platformer
                 var weaponVelocity = instance.GetComponent<DamageDealer>().Velocity;
                 weaponVelocity.x *= DirectionX;
                 instance.GetComponent<Rigidbody2D>().velocity = weaponVelocity;
+                instance.GetComponent<IBaseGFX>().Initiate(FirePoint.position, DirectionX);
 
-                var weapon = instance.GetComponent<PlayerHolyWaterBottle>();
-                weapon.Initiate(FirePoint.position, DirectionX);
 
-                weapon.Disappear += delegate (Transform trans)
-                {
-                    disappearEffect = ResourceManager.GetFromPool(GFXs.HolyWaterDisappear);
-                    dynamics.AddItem(disappearEffect);
-                    disappearEffect.transform.SetParent(dynamics.Transform, false);
-                    disappearEffect.transform.position = trans.position;
-                };
+                //weapon.Disappear += delegate (Transform trans)
+                //{
+                //    disappearEffect = ResourceManager.GetFromPool(GFXs.HolyWaterDisappear);
+                //    dynamics.AddItem(disappearEffect);
+                //    disappearEffect.transform.SetParent(dynamics.Transform, false);
+                //    disappearEffect.transform.position = trans.position;
+                //};
                 
             }
         }
