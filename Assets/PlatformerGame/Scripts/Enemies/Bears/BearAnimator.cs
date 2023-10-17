@@ -8,7 +8,8 @@ namespace Platformer
     {
         Idle,
         Walk,
-        Attack
+        Attack,
+        Death
     }
     public class BearAnimator : MonoBehaviour
     {
@@ -29,6 +30,9 @@ namespace Platformer
 
         [SerializeField]
         private List<Sprite> Attack;
+
+        [SerializeField]
+        private List<Sprite> Death;
 
         [SerializeField]
         private float AnimationPeriod;
@@ -146,6 +150,13 @@ namespace Platformer
             CurrentState = BlinkAnimation;
         }
 
+        public void StopBlinking()
+        {
+            BlinkTimer = 0f;
+            BlinkEffectLasting = 0f;
+            BlinkRenderer.enabled = false;
+        }
+
         public void SetAnimation(BearAnimations animation)
         {
             switch (animation)
@@ -160,6 +171,10 @@ namespace Platformer
 
                 case BearAnimations.Attack:
                     CurrentAnimation = Attack;
+                    break;
+
+                case BearAnimations.Death:
+                    CurrentAnimation = Death;
                     break;
             }
 

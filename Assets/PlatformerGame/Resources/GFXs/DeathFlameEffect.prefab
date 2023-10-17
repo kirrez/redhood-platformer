@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 8569396565365342931}
   - component: {fileID: 8569396565365342930}
   - component: {fileID: 8569396565365342929}
+  - component: {fileID: 5972686467171530559}
   m_Layer: 0
-  m_Name: HitFlame
+  m_Name: DeathFlameEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -80,7 +81,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 0.5, y: 1}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -102,8 +103,8 @@ MonoBehaviour:
   - {fileID: 1631699850, guid: 2d3029c57dfb86b4a87ff8c7f64ee3cb, type: 3}
   - {fileID: -1024916941, guid: 2d3029c57dfb86b4a87ff8c7f64ee3cb, type: 3}
   - {fileID: -630716480, guid: 2d3029c57dfb86b4a87ff8c7f64ee3cb, type: 3}
-  AnimationDelay: 0.2
-  NoLoop: 1
+  AnimationDelay: 0.15
+  NoLoop: 0
 --- !u!114 &8569396565365342929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116,4 +117,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86ebf221a646c464689b82439aaec91b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Duration: 0.6
+  Duration: 1.35
+--- !u!114 &5972686467171530559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8569396565365342928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc2eb34b1e8b6494c9a6134ebe9b6d7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

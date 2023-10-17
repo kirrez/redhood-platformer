@@ -5,7 +5,7 @@ namespace Platformer
     public enum GFXs
     {
         HitEffect,
-        HitFlame,
+        DeathFlameEffect,
         
         BloodBlast,
         BombBlast,

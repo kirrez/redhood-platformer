@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8600332453497089238}
   - component: {fileID: 6005476553538686265}
-  m_Layer: 16
+  m_Layer: 10
   m_Name: Animation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -192,6 +192,7 @@ MonoBehaviour:
   RageText: {fileID: 5249313798211253976}
   RageTrigger: {fileID: 4410680059733672820}
   FirePoint: {fileID: 3730768276621574247}
+  DamageTrigger: {fileID: 3730768277116435263}
 --- !u!114 &3730768275962719562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -238,6 +239,14 @@ MonoBehaviour:
   - {fileID: 1694309922, guid: 7f592dc147167e3479ff3d7436fa9b99, type: 3}
   - {fileID: 212279873, guid: 7f592dc147167e3479ff3d7436fa9b99, type: 3}
   - {fileID: 212279873, guid: 7f592dc147167e3479ff3d7436fa9b99, type: 3}
+  Death:
+  - {fileID: -1605464634, guid: 7f592dc147167e3479ff3d7436fa9b99, type: 3}
+  - {fileID: -2016006023, guid: 7f592dc147167e3479ff3d7436fa9b99, type: 3}
+  - {fileID: 1530850712, guid: 7f592dc147167e3479ff3d7436fa9b99, type: 3}
+  - {fileID: 1780158589, guid: 7f592dc147167e3479ff3d7436fa9b99, type: 3}
+  - {fileID: 1780158589, guid: 7f592dc147167e3479ff3d7436fa9b99, type: 3}
+  - {fileID: 1780158589, guid: 7f592dc147167e3479ff3d7436fa9b99, type: 3}
+  - {fileID: 1780158589, guid: 7f592dc147167e3479ff3d7436fa9b99, type: 3}
   AnimationPeriod: 0.25
   BlinkPeriod: 0.125
   BlinkEffectDuration: 1
@@ -348,7 +357,6 @@ MonoBehaviour:
   VerticalVelocity: 0
   TargetType: 0
   Durability: 0
-  LifeTime: 0
   CanPenetrateWalls: 1
   Moving: 1
   HitDirection: 1
@@ -502,7 +510,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 126021508956331735}
-  m_Layer: 16
+  m_Layer: 10
   m_Name: Graphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -537,7 +545,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4962967926700210472}
   - component: {fileID: 2002319737352955430}
-  m_Layer: 16
+  m_Layer: 10
   m_Name: BlinkImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -701,7 +709,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1739605747130354433}
   - component: {fileID: 4169435086562807166}
-  m_Layer: 16
+  m_Layer: 10
   m_Name: Mask
   m_TagString: Untagged
   m_Icon: {fileID: 0}

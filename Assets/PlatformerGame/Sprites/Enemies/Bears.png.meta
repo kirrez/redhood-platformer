@@ -522,7 +522,7 @@ TextureImporter:
         x: 56
         y: 0
         width: 28
-        height: 36
+        height: 28
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -540,10 +540,10 @@ TextureImporter:
       name: Slash_3
       rect:
         serializedVersion: 2
-        x: 84
-        y: 0
+        x: 56
+        y: 28
         width: 28
-        height: 36
+        height: 20
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -578,6 +578,174 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: BrownDeath_0
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 0
+        width: 32
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d13227163b7abc1419e671918abcac04
+      internalID: -184470753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BrownDeath_1
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 0
+        width: 32
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c485576e237135f45b081086bab67c1d
+      internalID: -718493588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BrownDeath_2
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 0
+        width: 32
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f79d949c11104d54e874bc26e93d5d9b
+      internalID: -492595974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BrownDeath_3
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 0
+        width: 32
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0431a370d57a7a040a5894dbdcf70ce9
+      internalID: 1252947400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueDeath_0
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 48
+        width: 32
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb03838daa7a38941884bb8e23a738f8
+      internalID: -1605464634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueDeath_1
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 48
+        width: 32
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 307c2e41ec4e58248bc584080727b9ce
+      internalID: -2016006023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueDeath_2
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 0
+        width: 32
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4f3b5e779bd1e14bb80e6d6afcf5f4b
+      internalID: 1530850712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueDeath_3
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 0
+        width: 32
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99c77e38e7f636340b95b811e71b84b5
+      internalID: 1780158589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -589,6 +757,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      BlueDeath_0: -1605464634
+      BlueDeath_1: -2016006023
+      BlueDeath_2: 1530850712
+      BlueDeath_3: 1780158589
       Blue_Attack0: 550637626
       Blue_Attack1: 1694309922
       Blue_Attack2: 212279873
@@ -597,6 +769,10 @@ TextureImporter:
       Blue_Walk0: -1272824702
       Blue_Walk1: -30326315
       Blue_Walk2: -63119533
+      BrownDeath_0: -184470753
+      BrownDeath_1: -718493588
+      BrownDeath_2: -492595974
+      BrownDeath_3: 1252947400
       Brown_Attack0: -1827573652
       Brown_Attack1: 836711381
       Brown_Attack2: -1181071429

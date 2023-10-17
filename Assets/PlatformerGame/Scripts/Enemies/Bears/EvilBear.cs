@@ -20,7 +20,10 @@ namespace Platformer
         private Transform FirePoint;
         private float FirePointX;
 
-        private BearAnimator BearAnimator;
+        [SerializeField]
+        private Collider2D DamageTrigger;
+
+        private BearAnimator Animator;
         private Collider2D Collider;
         private Collider2D DeathTrigger;
 
@@ -55,13 +58,21 @@ namespace Platformer
             Player = CompositionRoot.GetPlayer();
             Collider = GetComponent<Collider2D>();
             Rigidbody = GetComponent<Rigidbody2D>();
-            BearAnimator = GetComponent<BearAnimator>();
+            Animator = GetComponent<BearAnimator>();
             ResourceManager = CompositionRoot.GetResourceManager();
 
             FirePointX = FirePoint.transform.localPosition.x;
 
             Health.HealthChanged += OnHealthChanged;
             Health.Killed += OnKilled;
+        }
+
+        private void OnEnable()
+        {
+            StairTimer = 0.5f;
+            SetMask("EnemySolid");
+            Rigidbody.isKinematic = false;
+            DamageTrigger.enabled = true;
         }
 
         private void OnDisable()
@@ -86,19 +97,47 @@ namespace Platformer
             CurrentState();
         }
 
+        private void SetMask(string mask)
+        {
+            gameObject.layer = LayerMask.NameToLayer(mask);
+        }
+
         private void OnHealthChanged()
         {
-            BearAnimator.StartBlinking();
+            Animator.StartBlinking();
         }
 
         private void OnKilled()
         {
-            var newPosition = new Vector2(Collider.bounds.center.x, Collider.bounds.center.y);
-            var instance = ResourceManager.GetFromPool(GFXs.BombBlast);
+            CurrentState = StateDying;
+        }
+
+        private void StateDying()
+        {
+            var newPosition = new Vector2(Collider.bounds.center.x, Collider.bounds.center.y - Collider.bounds.extents.y);
+            var instance = ResourceManager.GetFromPool(GFXs.DeathFlameEffect);
             var dynamics = CompositionRoot.GetDynamicsContainer();
             instance.transform.SetParent(dynamics.Transform, false);
             dynamics.AddItem(instance);
-            instance.GetComponent<BombBlast>().Initiate(newPosition);
+
+            instance.GetComponent<DeathFlameEffect>().Initiate(newPosition, new Vector2(2f, 3f));
+
+            Animator.StopBlinking();
+            Animator.SetAnimation(BearAnimations.Death);
+
+            SetMask("EnemyInactive");
+            Rigidbody.velocity = Vector2.zero;
+            Rigidbody.isKinematic = true;
+            DamageTrigger.enabled = false;
+            Timer = 1.35f;
+
+            CurrentState = StateDyingFinal;
+        }
+
+        private void StateDyingFinal()
+        {
+            Timer -= Time.fixedDeltaTime;
+            if (Timer > 0) return;
 
             Killed();
             WasSlain = true;
@@ -163,13 +202,13 @@ namespace Platformer
             Vector2 newPosition;
             if (DirectionX == 1f)
             {
-                BearAnimator.SetFlip(false);
+                Animator.SetFlip(false);
                 newPosition = new Vector2(FirePointX, FirePoint.localPosition.y);
                 FirePoint.localPosition = newPosition;
             }
             if (DirectionX == -1f)
             {
-                BearAnimator.SetFlip(true);
+                Animator.SetFlip(true);
                 newPosition = new Vector2(-FirePointX, FirePoint.localPosition.y);
                 FirePoint.localPosition = newPosition;
             }
@@ -178,7 +217,7 @@ namespace Platformer
         private void StateInitial()
         {
             Timer = 0f;
-            BearAnimator.SetAnimation(BearAnimations.Walk);
+            Animator.SetAnimation(BearAnimations.Walk);
             CurrentState = StateRoaming;
         }
 
@@ -234,7 +273,7 @@ namespace Platformer
                 {
                     Rage = 0f;
                     RageText.text = Rage.ToString("0.00");
-                    BearAnimator.SetAnimation(BearAnimations.Attack);
+                    Animator.SetAnimation(BearAnimations.Attack);
                     Timer = 0.5f;
                     CurrentState = StateAttack;
 
@@ -261,7 +300,7 @@ namespace Platformer
 
                 Timer = 2f;
 
-                BearAnimator.SetAnimation(BearAnimations.Idle);
+                Animator.SetAnimation(BearAnimations.Idle);
                 CurrentState = StateRest;
             }
         }
@@ -272,7 +311,7 @@ namespace Platformer
 
             if (Timer <= 0)
             {
-                BearAnimator.SetAnimation(BearAnimations.Walk);
+                Animator.SetAnimation(BearAnimations.Walk);
                 CurrentState = StateRoaming;
             }
         }

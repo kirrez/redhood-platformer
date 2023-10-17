@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2838389116753870351}
   - component: {fileID: 900310389643645903}
-  m_Layer: 16
+  m_Layer: 10
   m_Name: BlinkImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6081443520506046976}
-  m_Layer: 16
+  m_Layer: 10
   m_Name: Graphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -224,6 +224,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RageTrigger: {fileID: 3138720382151779702}
   FirePoint: {fileID: 2701388265984829029}
+  DamageTrigger: {fileID: 2701388266513259837}
 --- !u!114 &2701388265360034632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -236,7 +237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a1f1dc202829a24ab6d9daa34b1f5f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHitPoints: 8
+  MaxHitPoints: 4
   Type: 1
   DamageCooldown: 1
 --- !u!114 &101925359166865606
@@ -270,6 +271,14 @@ MonoBehaviour:
   - {fileID: 836711381, guid: 7f592dc147167e3479ff3d7436fa9b99, type: 3}
   - {fileID: -1181071429, guid: 7f592dc147167e3479ff3d7436fa9b99, type: 3}
   - {fileID: -1181071429, guid: 7f592dc147167e3479ff3d7436fa9b99, type: 3}
+  Death:
+  - {fileID: -184470753, guid: 7f592dc147167e3479ff3d7436fa9b99, type: 3}
+  - {fileID: -718493588, guid: 7f592dc147167e3479ff3d7436fa9b99, type: 3}
+  - {fileID: -492595974, guid: 7f592dc147167e3479ff3d7436fa9b99, type: 3}
+  - {fileID: 1252947400, guid: 7f592dc147167e3479ff3d7436fa9b99, type: 3}
+  - {fileID: 1252947400, guid: 7f592dc147167e3479ff3d7436fa9b99, type: 3}
+  - {fileID: 1252947400, guid: 7f592dc147167e3479ff3d7436fa9b99, type: 3}
+  - {fileID: 1252947400, guid: 7f592dc147167e3479ff3d7436fa9b99, type: 3}
   AnimationPeriod: 0.25
   BlinkPeriod: 0.125
   BlinkEffectDuration: 1
@@ -380,7 +389,6 @@ MonoBehaviour:
   VerticalVelocity: 0
   TargetType: 0
   Durability: 0
-  LifeTime: 0
   CanPenetrateWalls: 1
   Moving: 1
   HitDirection: 1
@@ -452,7 +460,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3132743653601349770}
   - component: {fileID: 4493843997650872746}
-  m_Layer: 16
+  m_Layer: 10
   m_Name: Mask
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -535,7 +543,7 @@ GameObject:
   m_Component:
   - component: {fileID: 62661349397997851}
   - component: {fileID: 2579403485976426998}
-  m_Layer: 16
+  m_Layer: 10
   m_Name: Animation
   m_TagString: Untagged
   m_Icon: {fileID: 0}

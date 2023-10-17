@@ -65,6 +65,7 @@ namespace Platformer
 
         public bool DamageReceived()
         {
+            //return IsDamageReceived && IsDamageable;
             return IsDamageReceived;
         }
 
