@@ -9,6 +9,9 @@ namespace Platformer
     {
         public Action Killed = () => { };
 
+        [SerializeField]
+        private Rigidbody2D Body;
+
         //Test purpose
         [SerializeField]
         private Text RageText;
@@ -25,10 +28,8 @@ namespace Platformer
 
         private BearAnimator Animator;
         private Collider2D Collider;
-        private Collider2D DeathTrigger;
 
         private Health Health;
-        private Rigidbody2D Rigidbody;
         private IPlayer Player;
 
         private Enemies Slash = Enemies.BearSlash;
@@ -54,15 +55,14 @@ namespace Platformer
 
         private void Awake()
         {
-            Health = GetComponent<Health>();
-            Player = CompositionRoot.GetPlayer();
-            Collider = GetComponent<Collider2D>();
-            Rigidbody = GetComponent<Rigidbody2D>();
-            Animator = GetComponent<BearAnimator>();
             ResourceManager = CompositionRoot.GetResourceManager();
+            Player = CompositionRoot.GetPlayer();
+            Animator = GetComponent<BearAnimator>();
+
+            Health = Body.GetComponent<Health>();
+            Collider = Body.GetComponent<Collider2D>();
 
             FirePointX = FirePoint.transform.localPosition.x;
-
             Health.HealthChanged += OnHealthChanged;
             Health.Killed += OnKilled;
         }
@@ -71,7 +71,7 @@ namespace Platformer
         {
             StairTimer = 0.5f;
             SetMask("EnemySolid");
-            Rigidbody.isKinematic = false;
+            UnfreezeBody();
             DamageTrigger.enabled = true;
         }
 
@@ -89,17 +89,12 @@ namespace Platformer
             DeltaY = transform.position.y - LastPosition.y;
             LastPosition = transform.position;
 
-            if (DeathTrigger != null && DeathTrigger.bounds.Contains(transform.position))
-            {
-                OnKilled();
-            }
-
             CurrentState();
         }
 
         private void SetMask(string mask)
         {
-            gameObject.layer = LayerMask.NameToLayer(mask);
+            Body.gameObject.layer = LayerMask.NameToLayer(mask);
         }
 
         private void OnHealthChanged()
@@ -110,6 +105,16 @@ namespace Platformer
         private void OnKilled()
         {
             CurrentState = StateDying;
+        }
+
+        private void FreezeBody()
+        {
+            Body.isKinematic = true;
+        }
+
+        private void UnfreezeBody()
+        {
+            Body.isKinematic = false;
         }
 
         private void StateDying()
@@ -126,8 +131,8 @@ namespace Platformer
             Animator.SetAnimation(BearAnimations.Death);
 
             SetMask("EnemyInactive");
-            Rigidbody.velocity = Vector2.zero;
-            Rigidbody.isKinematic = true;
+            Body.velocity = Vector2.zero;
+            FreezeBody();
             DamageTrigger.enabled = false;
             Timer = 1.35f;
 
@@ -144,19 +149,18 @@ namespace Platformer
             gameObject.SetActive(false);
         }
 
-        public void Initiate(float direction, Vector2 startPosition, Collider2D deathTrigger = null)
+        public void Initiate(float direction, Vector2 startPosition)
         {
             DirectionX = direction;
             CheckDirection();
-            transform.position = startPosition;
-            DeathTrigger = deathTrigger;
+            Body.transform.position = startPosition;
 
             CurrentState = StateInitial;
         }
 
         private void MoveHorizontal()
         {
-            Rigidbody.velocity = new Vector2(DirectionX * Time.fixedDeltaTime * HorizontalSpeed, Rigidbody.velocity.y);
+            Body.velocity = new Vector2(DirectionX * Time.fixedDeltaTime * HorizontalSpeed, Body.velocity.y);
 
             //delay between stair rises
             StairTimer -= Time.fixedDeltaTime;
@@ -169,7 +173,7 @@ namespace Platformer
 
             if (CheckStair(LayerMasks.Ground) && StairTimer <= 0)
             {
-                Rigidbody.velocity = new Vector2(Rigidbody.velocity.x, Rigidbody.velocity.y + 6.5f);
+                Body.velocity = new Vector2(Body.velocity.x, Body.velocity.y + 6.5f);
                 StairTimer = 0.5f;
             }
 
@@ -242,8 +246,8 @@ namespace Platformer
         {
             MoveHorizontal();
 
-            var distance = Player.Position.x - transform.position.x;
-            var height = Player.Position.y - transform.position.y;
+            var distance = Player.Position.x - Body.transform.position.x;
+            var height = Player.Position.y - Body.transform.position.y;
 
             if (AttackTimer > 0)
             {
@@ -279,7 +283,7 @@ namespace Platformer
 
                     if (height > 0.9f)
                     {
-                        Rigidbody.AddForce(new Vector2(0f, JumpForce));
+                        Body.AddForce(new Vector2(0f, JumpForce));
                     }
                 }
             }

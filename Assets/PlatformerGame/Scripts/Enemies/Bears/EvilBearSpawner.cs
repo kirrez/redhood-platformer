@@ -10,9 +10,6 @@ namespace Platformer
         private GameObject SpawnPoint;
 
         [SerializeField]
-        private Collider2D DeathTrigger;
-
-        [SerializeField]
         private float RespawnCooldown = 3f;
         [SerializeField]
         private int MaxSpawnCount = 2;
@@ -81,7 +78,7 @@ namespace Platformer
                 dynamics.AddItem(instance);
                 Bear = instance.GetComponent<EvilBear>();
 
-                Bear.Initiate(direction, SpawnPoint.transform.position, DeathTrigger);
+                Bear.Initiate(direction, SpawnPoint.transform.position);
                 Bear.Killed -= OnBearKilled;
                 Bear.Killed += OnBearKilled;
             }
