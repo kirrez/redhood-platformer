@@ -21,7 +21,6 @@ namespace Platformer
             Timer = Delay;
             gameObject.layer = (int)Layers.OneWayTransparent;
             IsActive = true;
-            Debug.Log("ComeThrough");
         }
     }
 }

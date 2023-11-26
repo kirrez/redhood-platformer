@@ -26,8 +26,8 @@ namespace Platformer
                 Vector2 newPosition = collision.ClosestPoint(transform.position);
 
                 var instance = ResourceManager.GetFromPool(GFXs.HitEffect);
-                instance.transform.SetParent(DynamicsContainer.Transform, false);
-                DynamicsContainer.AddItem(instance);
+                //instance.transform.SetParent(DynamicsContainer.Transform, false);
+                DynamicsContainer.AddMain(instance);
 
                 instance.GetComponent<IBaseGFX>().Initiate(newPosition, 1f);
             }

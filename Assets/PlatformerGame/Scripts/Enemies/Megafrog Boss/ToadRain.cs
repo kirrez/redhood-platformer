@@ -47,8 +47,8 @@ namespace Platformer.MegafrogBoss
                 {
                     var instance = ResourceManager.GetFromPool(Enemies.ToadLaunch);
                     var dynamics = CompositionRoot.GetDynamicsContainer();
-                    instance.transform.SetParent(dynamics.Transform, false);
-                    dynamics.AddItem(instance);
+                    //instance.transform.SetParent(dynamics.Transform, false);
+                    dynamics.AddTemporary(instance);
                     instance.GetComponent<ToadLaunch>().Launch(Megafrog.WaterLevel.position);
                 }
             }
@@ -56,8 +56,8 @@ namespace Platformer.MegafrogBoss
             {
                 var instance = ResourceManager.GetFromPool(Enemies.ToadLaunch);
                 var dynamics = CompositionRoot.GetDynamicsContainer();
-                instance.transform.SetParent(dynamics.Transform, false);
-                dynamics.AddItem(instance);
+                //instance.transform.SetParent(dynamics.Transform, false);
+                dynamics.AddTemporary(instance);
                 instance.GetComponent<ToadLaunch>().Launch(Megafrog.WaterLevel.position);
             }
 
@@ -65,22 +65,22 @@ namespace Platformer.MegafrogBoss
             {
                 var instance = ResourceManager.GetFromPool(Enemies.ToadDrop);
                 var dynamics = CompositionRoot.GetDynamicsContainer();
-                instance.transform.SetParent(dynamics.Transform, false);
-                dynamics.AddItem(instance);
+                //instance.transform.SetParent(dynamics.Transform, false);
+                dynamics.AddTemporary(instance);
                 instance.GetComponent<ToadDrop>().Initiate(Megafrog.ToadRainLevel.position);
                 
                 if (DropCount % 3 == 0)
                 {
                     instance = ResourceManager.GetFromPool(Enemies.ToadDrop);
                     dynamics = CompositionRoot.GetDynamicsContainer();
-                    instance.transform.SetParent(dynamics.Transform, false);
-                    dynamics.AddItem(instance);
+                    //instance.transform.SetParent(dynamics.Transform, false);
+                    dynamics.AddTemporary(instance);
                     instance.GetComponent<ToadDrop>().Initiate(Megafrog.ToadRainLevel.position);
 
                     instance = ResourceManager.GetFromPool(Enemies.ToadDrop);
                     dynamics = CompositionRoot.GetDynamicsContainer();
-                    instance.transform.SetParent(dynamics.Transform, false);
-                    dynamics.AddItem(instance);
+                    //instance.transform.SetParent(dynamics.Transform, false);
+                    dynamics.AddTemporary(instance);
                     instance.GetComponent<ToadDrop>().Initiate(Megafrog.ToadRainLevel.position);
                 }
             }

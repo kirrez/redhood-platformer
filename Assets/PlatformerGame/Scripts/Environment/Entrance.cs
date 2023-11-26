@@ -7,8 +7,9 @@ namespace Platformer
 {
     public class Entrance : MonoBehaviour
     {
-        private IDynamicsContainer Dynamics;
+        private IDynamicsContainer DynamicsContainer;
         private ILocalization Localization;
+        private IAudioManager AudioManager;
         private IPlayer Player;
 
         [SerializeField]
@@ -35,8 +36,9 @@ namespace Platformer
 
         private void Awake()
         {
+            DynamicsContainer = CompositionRoot.GetDynamicsContainer();
             Localization = CompositionRoot.GetLocalization();
-            Dynamics = CompositionRoot.GetDynamicsContainer();
+            AudioManager = CompositionRoot.GetAudioManager();
         }
 
         private void OnEnable()
@@ -99,8 +101,12 @@ namespace Platformer
         private void OnLocationEnter()
         {
             var navigation = CompositionRoot.GetNavigation();
-            Dynamics.DeactivateAll();
+            DynamicsContainer.DeactivateMain();
+            DynamicsContainer.DeactivateEnemies();
+            DynamicsContainer.DeactivateTemporary(); // temporary ))
+
             navigation.SetLocation(LocationIndex, SpawnPointIndex, ConfinerIndex);
+            AudioManager.PlaySound(ESounds.StairSteps);
 
             var game = CompositionRoot.GetGame();
             game.FadeScreen.DelayBefore(Color.black, 0.5f);

@@ -15,63 +15,85 @@ namespace Platformer
         private int TargetValue;
         private EQuest KeyItem;
 
-        //advanced player's presence detection
         private Collider2D Collider;
         private IPlayer Player;
-        private bool Inside;
+
+        private float Timer;
 
         private IDoorAnimator DoorAnimator;
+        private IAudioManager AudioManager;
         private IProgressManager ProgressManager;
+
+        private delegate void State();
+        private State CurrentState = () => { };
 
         private void Awake()
         {
+            Player = CompositionRoot.GetPlayer();
             Collider = GetComponent<Collider2D>();
             DoorAnimator = GetComponent<IDoorAnimator>();
+            AudioManager = CompositionRoot.GetAudioManager();
             ProgressManager = CompositionRoot.GetProgressManager();
 
             TargetValue = (int)EQuest.KeyRed + ItemIndex;
             KeyItem = (EQuest)TargetValue;
         }
 
-
-        private void Update()
+        private void OnEnable()
         {
-            if (Player == null) return;
+            CurrentState = WaitForOpening;
+        }
 
-            if (Collider.bounds.Contains(Player.Position) && !Inside)
+        private void FixedUpdate()
+        {
+            CurrentState();
+        }
+
+        private void WaitForOpening()
+        {
+            if (Collider.bounds.Contains(Player.Position))
             {
                 if (ProgressManager.GetQuest(KeyItem) == 1)
                 {
                     Block.enabled = false;
                     DoorAnimator.AnimateOpen();
-                    Inside = true;
+                    AudioManager.PlaySound(ESounds.DoorHeavy);
+                    Timer = 1f;
+                    CurrentState = OpeningInProcess;
                 }
             }
+        }
 
-            if (!Collider.bounds.Contains(Player.Position) && Inside)
-                {
+        private void OpeningInProcess()
+        {
+            Timer -= Time.fixedDeltaTime;
+            if (Timer <= 0)
+            {
+                CurrentState = WaitForClosing;
+            }
+        }
+
+        private void WaitForClosing()
+        {
+            if (!Collider.bounds.Contains(Player.Position))
+            {
                 if (ProgressManager.GetQuest(KeyItem) == 1)
                 {
                     Block.enabled = true;
                     DoorAnimator.AnimateClose();
-                    Inside = false;
+                    AudioManager.PlaySound(ESounds.DoorHeavy);
+                    Timer = 1f;
+                    CurrentState = ClosingInProcess;
                 }
             }
         }
 
-        private void OnTriggerEnter2D(Collider2D collision)
+        private void ClosingInProcess()
         {
-            if (collision.gameObject.CompareTag("Player"))
+            Timer -= Time.fixedDeltaTime;
+            if (Timer <= 0)
             {
-                Player = collision.gameObject.GetComponent<IPlayer>();
-            }
-        }
-
-        private void OnTriggerExit2D(Collider2D collision)
-        {
-            if (collision.gameObject.CompareTag("Player"))
-            {
-                Player = null;
+                CurrentState = WaitForOpening;
             }
         }
     }

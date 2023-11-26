@@ -7,6 +7,7 @@ namespace Platformer
     {
         public Action Killed = () => { };
         public Action HealthChanged = () => { };
+        public Action DamageCooldownExpired = () => { };
 
         public float DamageDirection { get; set; }
 
@@ -19,6 +20,7 @@ namespace Platformer
 
         [SerializeField]
         private float DamageCooldown;
+
         private float DamageTimer;
         private bool IsDamageable;
         private bool IsDamageReceived;
@@ -35,6 +37,10 @@ namespace Platformer
             if (DamageTimer <= 0) return;
 
             DamageTimer -= Time.fixedDeltaTime;
+            if (DamageTimer <= 0)
+            {
+                DamageCooldownExpired();
+            }
         }
 
         public int GetHitPoints

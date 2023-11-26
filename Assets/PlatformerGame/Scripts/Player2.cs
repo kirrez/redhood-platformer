@@ -106,14 +106,18 @@ namespace Platformer
         private int AxeLevel;
         private int HolyWaterLevel;
 
+        private IDynamicsContainer DynamicsContainer;
         private IResourceManager ResourceManager;
         private IProgressManager ProgressManager;
+        private IAudioManager AudioManager;
         private IGame Game;
 
         private void Awake()
         {
+            DynamicsContainer = CompositionRoot.GetDynamicsContainer();
             ResourceManager = CompositionRoot.GetResourceManager();
             ProgressManager = CompositionRoot.GetProgressManager();
+            AudioManager = CompositionRoot.GetAudioManager();
 
             Rigidbody = GetComponent<Rigidbody2D>();
             Renderer = GetComponent<SpriteRenderer>();
@@ -451,7 +455,6 @@ namespace Platformer
         public void ShootKnife()
         {
             var knifeLevel = ProgressManager.GetQuest(EQuest.KnifeLevel);
-            var dynamics = CompositionRoot.GetDynamicsContainer();
             GameObject instance = null;
 
             switch (knifeLevel)
@@ -470,20 +473,21 @@ namespace Platformer
             //all cases
             if (knifeLevel > 0)
             {
-                instance.transform.SetParent(dynamics.Transform, false);
-                dynamics.AddItem(instance);
+                DynamicsContainer.AddMain(instance);
 
                 var weaponVelocity = instance.GetComponent<DamageDealer>().Velocity;
                 weaponVelocity.x *= DirectionX;
                 instance.GetComponent<Rigidbody2D>().velocity = weaponVelocity;
                 instance.GetComponent<IBaseGFX>().Initiate(FirePoint.position, DirectionX);
+
+                //AudioManager.PlaySound(ESounds.ThrowKnife1);
+                PlayRedhoodSound(EPlayerSounds.ThrowKnife);
             }
         }
 
         public void ShootAxe()
         {
             var axeLevel = ProgressManager.GetQuest(EQuest.AxeLevel);
-            var dynamics = CompositionRoot.GetDynamicsContainer();
             GameObject instance = null;
 
             switch (axeLevel)
@@ -502,13 +506,14 @@ namespace Platformer
             //all cases
             if (axeLevel > 0)
             {
-                instance.transform.SetParent(dynamics.Transform, false);
-                dynamics.AddItem(instance);
+                DynamicsContainer.AddMain(instance);
 
                 var weaponVelocity = instance.GetComponent<DamageDealer>().Velocity;
                 weaponVelocity.x *= DirectionX;
                 instance.GetComponent<Rigidbody2D>().velocity = weaponVelocity;
                 instance.GetComponent<IBaseGFX>().Initiate(FirePoint.position, DirectionX);
+
+                PlayRedhoodSound(EPlayerSounds.ThrowAxe);
             }
 
         }
@@ -516,7 +521,6 @@ namespace Platformer
         public void ShootHolyWater()
         {
             var holyWaterLevel = ProgressManager.GetQuest(EQuest.HolyWaterLevel);
-            var dynamics = CompositionRoot.GetDynamicsContainer();
             GameObject instance = null;
             //GameObject disappearEffect = null;
 
@@ -533,14 +537,14 @@ namespace Platformer
             //all cases
             if (holyWaterLevel > 0)
             {
-                instance.transform.SetParent(dynamics.Transform, false);
-                dynamics.AddItem(instance);
+                DynamicsContainer.AddMain(instance);
 
                 var weaponVelocity = instance.GetComponent<DamageDealer>().Velocity;
                 weaponVelocity.x *= DirectionX;
                 instance.GetComponent<Rigidbody2D>().velocity = weaponVelocity;
                 instance.GetComponent<IBaseGFX>().Initiate(FirePoint.position, DirectionX);
 
+                PlayRedhoodSound(EPlayerSounds.ThrowBottle);
 
                 //weapon.Disappear += delegate (Transform trans)
                 //{
@@ -549,7 +553,7 @@ namespace Platformer
                 //    disappearEffect.transform.SetParent(dynamics.Transform, false);
                 //    disappearEffect.transform.position = trans.position;
                 //};
-                
+
             }
         }
 
@@ -732,6 +736,11 @@ namespace Platformer
         public void GetStunned(float time)
         {
             SetState(EPlayerStates.Stunned, time);
+        }
+
+        public void PlayRedhoodSound(EPlayerSounds key)
+        {
+            AudioManager.PlayRedhoodSound(key);
         }
 
 

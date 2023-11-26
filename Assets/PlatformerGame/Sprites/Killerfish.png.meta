@@ -286,13 +286,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Killerfish_3: -271655843
-      Killerfish_2: -983730597
-      Killerfish_4: 781407716
-      Killerfish_6: 605603934
       Killerfish_0: 449470970
-      Killerfish_5: 1447636218
       Killerfish_1: -644103812
+      Killerfish_2: -983730597
+      Killerfish_3: -271655843
+      Killerfish_4: 781407716
+      Killerfish_5: 1447636218
+      Killerfish_6: 605603934
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

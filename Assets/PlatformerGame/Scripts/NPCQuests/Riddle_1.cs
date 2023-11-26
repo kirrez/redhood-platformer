@@ -19,9 +19,16 @@ namespace Platformer
         [SerializeField]
         private Sprite SwitchOff;
 
+        private IAudioManager AudioManager;
         private IPlayer Player;
+
         private bool TrapActivated;
         private bool InsideSwitch;
+
+        private void Awake()
+        {
+            AudioManager = CompositionRoot.GetAudioManager();
+        }
 
         private void OnEnable()
         {
@@ -59,6 +66,8 @@ namespace Platformer
             Obstacles.SetActive(true);
             SwitchRenderer.sprite = SwitchOff;
             TrapActivated = true;
+
+            AudioManager.PlaySound(ESounds.DoorHeavy);
         }
 
         private void DeactivateTrap()
@@ -72,6 +81,8 @@ namespace Platformer
         {
             Player.Interaction -= OnSwitchPulled;
             SwitchRenderer.sprite = SwitchOn;
+
+            AudioManager.PlaySound(ESounds.Cling4, ContainerSort.Temporary);
             DeactivateTrap();
         }
     }

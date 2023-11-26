@@ -15,6 +15,7 @@ namespace Platformer
         private float AnimationTimer;
 
         private IResourceManager ResourceManager;
+        private IAudioManager AudioManager;
 
         private bool IsBeignHit;
 
@@ -33,6 +34,7 @@ namespace Platformer
         private void Awake()
         {
             Renderer = GetComponent<SpriteRenderer>();
+            AudioManager = CompositionRoot.GetAudioManager();
             ResourceManager = CompositionRoot.GetResourceManager();
             LoadSprites();
         }
@@ -65,6 +67,8 @@ namespace Platformer
                     var shatter = ResourceManager.GetFromPool(GFXs.WoodShatter);
                     shatter.GetComponent<WoodShatter>().Initiate(this.transform.position);
                 }
+
+                AudioManager.PlaySound(ESounds.BlastShort3);
 
                 CurrentState = BrokenState;
             }

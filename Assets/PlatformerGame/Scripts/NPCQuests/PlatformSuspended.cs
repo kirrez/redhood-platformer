@@ -13,7 +13,12 @@ namespace Platformer
         [SerializeField]
         GameObject Obstacle;
 
+        [SerializeField]
+        Transform ShattersPosition;
+
         private IProgressManager ProgressManager;
+        private IResourceManager ResourceManager;
+        private IAudioManager AudioManager;
         private ILocalization Localization;
         private IPlayer Player;
 
@@ -23,6 +28,8 @@ namespace Platformer
         private void Awake()
         {
             ProgressManager = CompositionRoot.GetProgressManager();
+            ResourceManager = CompositionRoot.GetResourceManager();
+            AudioManager = CompositionRoot.GetAudioManager();
             Localization = CompositionRoot.GetLocalization();
             Player = CompositionRoot.GetPlayer();
 
@@ -60,6 +67,17 @@ namespace Platformer
         {
             ProgressManager.SetQuest(EQuest.PlatformSuspended, 1);
             SwitchObstacle();
+
+            Vector3 newPosition;
+            for (int i = 0; i < 5; i++)
+            {
+                var shatter = ResourceManager.GetFromPool(GFXs.WoodShatter);
+                newPosition = ShattersPosition.position;
+                newPosition.y += i * 0.5f;
+                shatter.GetComponent<WoodShatter>().Initiate(newPosition);
+            }
+
+            AudioManager.PlaySound(ESounds.BlastShort3);
 
             Player.Interaction -= OnInteraction;
             HelpText.gameObject.SetActive(false);

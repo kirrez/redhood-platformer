@@ -49,8 +49,8 @@ namespace Platformer
             var instance = ResourceManager.GetFromPool(GFXs.BlueSplash);
             var dynamics = CompositionRoot.GetDynamicsContainer();
             instance.transform.position = transform.position;
-            instance.transform.SetParent(dynamics.Transform, false);
-            dynamics.AddItem(instance.gameObject);
+            //instance.transform.SetParent(dynamics.Transform, false);
+            dynamics.AddMain(instance.gameObject);
 
         }
 

@@ -6,9 +6,20 @@ namespace Platformer
 {
     public interface IDynamicsContainer
     {
-        Transform Transform { get; }
+        Transform Enemies { get; }
+        Transform Main { get; }
+        Transform Music { get; }
+        Transform Sounds { get; }
+        Transform Temporary { get; }
 
-        void AddItem(GameObject entity);
-        void DeactivateAll();
+        public void AddEnemy(GameObject item);
+        public void AddMain(GameObject item);
+        public void AddMusic(GameObject item);
+        public void AddSound(GameObject item);
+        public void AddTemporary(GameObject item);
+
+        public void DeactivateEnemies();
+        public void DeactivateMain();
+        public void DeactivateTemporary();
     }
 }

@@ -236,6 +236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff10a87005182314ca2fce204f4bbf8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Body: {fileID: 7215487638560429199}
   RageText: {fileID: 5249313798211253976}
   RageTrigger: {fileID: 4410680059733672820}
   FirePoint: {fileID: 3730768276621574247}

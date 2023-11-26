@@ -88,6 +88,7 @@ namespace Platformer
             ProgressManager.SetQuest(EQuest.Location, LocationIndex);
             ProgressManager.SetQuest(EQuest.Confiner, ConfinerIndex);
             SwitchFire(true);
+            Player.PlayRedhoodSound(EPlayerSounds.LightCampFire);
 
             HelpText.gameObject.SetActive(false);
             Player.Interaction -= OnInteraction;

@@ -24,8 +24,9 @@ namespace Platformer
             if (Collider.bounds.Contains(Player.Position) && !Inside)
             {
                 var effect = ResourceManager.GetFromPool(GFXs.BlueSplash);
-                effect.transform.SetParent(Dynamics.Transform, false);
-                Dynamics.AddItem(effect);
+                //effect.transform.SetParent(Dynamics.Main, false);
+                Dynamics.AddMain(effect);
+                Player.PlayRedhoodSound(EPlayerSounds.WaterSplash);
 
                 effect.transform.position = Player.Position;
                 Inside = true;
@@ -34,8 +35,9 @@ namespace Platformer
             if (!Collider.bounds.Contains(Player.Position) && Inside)
             {
                 var effect = ResourceManager.GetFromPool(GFXs.BlueSplash);
-                effect.transform.SetParent(Dynamics.Transform, false);
-                Dynamics.AddItem(effect);
+                //effect.transform.SetParent(Dynamics.Transform, false);
+                Dynamics.AddMain(effect);
+                Player.PlayRedhoodSound(EPlayerSounds.WaterSplash);
 
                 effect.transform.position = Player.Position;
                 Inside = false;

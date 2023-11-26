@@ -50,6 +50,8 @@ namespace Platformer.PlayerStates
                 Model.HitJump = false;
                 Model.JumpDown();
                 Model.Animations.JumpFalling();
+                Model.PlayRedhoodSound(EPlayerSounds.Jump);
+
                 //Model.SetState(EPlayerStates.JumpDown, Model.JumpDownTime);
                 Model.SetState(EPlayerStates.JumpFalling, 0.75f);
             }
@@ -60,6 +62,8 @@ namespace Platformer.PlayerStates
                 Model.HitJump = false;
                 Model.JumpDown();
                 Model.Animations.JumpFalling();
+                Model.PlayRedhoodSound(EPlayerSounds.Jump);
+
                 Model.SetState(EPlayerStates.JumpFalling, 0.75f);
             }
 

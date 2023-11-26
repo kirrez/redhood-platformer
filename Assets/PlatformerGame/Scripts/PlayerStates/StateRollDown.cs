@@ -17,6 +17,7 @@ namespace Platformer.PlayerStates
 
             Model.ResetVelocity();
             Model.RollDown();
+            Model.PlayRedhoodSound(EPlayerSounds.RollDown);
         }
 
         public override void Update()

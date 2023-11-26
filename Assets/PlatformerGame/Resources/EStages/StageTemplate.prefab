@@ -881,6 +881,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpawnPoints:
   - {fileID: 6577775087875316721}
+  Confiners: []
   LocationTransitions:
   - TargetLocation:
     - {fileID: 8498445527384233920}
@@ -890,4 +891,5 @@ MonoBehaviour:
     - {fileID: 938142874651870038}
     - {fileID: 4140714031444953231}
     OriginLocation: []
-    Confiner: {fileID: 3014650193801675931}
+  Music:
+  - {fileID: 8308225270144626178, guid: c1a31ed60be0b0645be11ff7b32213c8, type: 3}

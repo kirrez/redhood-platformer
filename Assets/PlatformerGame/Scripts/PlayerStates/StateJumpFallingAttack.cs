@@ -44,6 +44,8 @@ namespace Platformer.PlayerStates
                 Model.ResetVelocity();
                 //Model.UpdateInAir(false);
                 Model.Animations.Idle();
+                Model.PlayRedhoodSound(EPlayerSounds.Landing);
+
                 Model.SetState(EPlayerStates.Idle);
             }
 
@@ -52,6 +54,8 @@ namespace Platformer.PlayerStates
             {
                 //Model.UpdateInAir(false);
                 Model.Animations.Walk();
+                Model.PlayRedhoodSound(EPlayerSounds.Landing);
+
                 Model.SetState(EPlayerStates.Walk);
             }
 

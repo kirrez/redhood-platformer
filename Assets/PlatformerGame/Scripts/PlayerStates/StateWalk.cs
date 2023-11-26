@@ -46,8 +46,10 @@ namespace Platformer.PlayerStates
                 Model.Animations.JumpRising();
                 Model.ReleasePlatform();
                 Model.ResetVelocity(); // test
-                Model.SetState(EPlayerStates.JumpRising, 0.75f);
                 Model.Jump();
+                //Model.PlayRedhoodSound(EPlayerSounds.Jump);
+
+                Model.SetState(EPlayerStates.JumpRising, 0.75f);
             }
 
             // State Jump Rising without hitting "Jump" button ))

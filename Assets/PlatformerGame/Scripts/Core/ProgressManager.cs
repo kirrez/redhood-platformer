@@ -1,4 +1,4 @@
- using System.Collections.Generic;
+using System.Collections.Generic;
 using UnityEngine;
 using System;
 
@@ -19,6 +19,8 @@ namespace Platformer
 
         public void LoadNewGame()
         {
+            SetQuest(EQuest.GameMode, 0);// easy, infinite tries
+
             SetQuest(EQuest.MaxLives, 3);
             SetQuest(EQuest.MaxLivesCap, 8);
             SetQuest(EQuest.LifeUpgradeCost, 10);
@@ -41,7 +43,27 @@ namespace Platformer
             SetQuest(EQuest.BlackberriesRequired, 4);
 
             //Boss data
-            SetQuest(EQuest.MegafrogMaxHealth, 9); // 90 (45 * 2, 30 * 3)
+            SetQuest(EQuest.MegafrogMaxHealth, 90); // 90 (45 * 2, 30 * 3)
+        }
+
+        public void LoadTestConfig1()
+        {
+            LoadNewGame();
+
+            //Left Home
+            SetQuest(EQuest.MotherPie, 2);
+            //Got red key
+            SetQuest(EQuest.KeyRed, 1);
+            //SetQuest(EQuest.SuspensionBridge, 3);
+
+            SetQuest(EQuest.Stage, (int)EStages.WesternForest);
+            SetQuest(EQuest.Location, 0);
+            SetQuest(EQuest.SpawnPoint, 0);
+            SetQuest(EQuest.Confiner, 0);
+
+            SetQuest(EQuest.KnifeLevel, 1);
+            SetQuest(EQuest.AxeLevel, 1);
+            SetQuest(EQuest.HolyWaterLevel, 1);
         }
 
         public void LoadTestConfig()
@@ -49,7 +71,7 @@ namespace Platformer
             LoadNewGame();
 
             //Testing game mode
-            SetQuest(EQuest.GameMode, 1);
+            SetQuest(EQuest.GameMode, 1);// normal, few tries
             SetQuest(EQuest.TriesLeft, 2);
 
             //Visited WF, took the pie
@@ -59,7 +81,7 @@ namespace Platformer
             SetQuest(EQuest.KeyRed, 1);
             //Upper village testing
             SetQuest(EQuest.KeyGrey, 1);
-            SetQuest(EQuest.KeyGreen, 1);
+            //SetQuest(EQuest.KeyGreen, 1);
             //Repaired bridge (BearQuest, Suspension bridge)
             SetQuest(EQuest.SuspensionBridge, 3);
 
@@ -73,11 +95,11 @@ namespace Platformer
 
             SetQuest(EQuest.Stage, (int)EStages.Mountains);
             SetQuest(EQuest.Location, 0);
-            SetQuest(EQuest.SpawnPoint, 1);
+            SetQuest(EQuest.SpawnPoint, 2);
             SetQuest(EQuest.Confiner, 0);
 
             SetQuest(EQuest.KnifeLevel, 1);
-            SetQuest(EQuest.AxeLevel, 1);
+            SetQuest(EQuest.AxeLevel, 2);
             SetQuest(EQuest.HolyWaterLevel, 1);
 
             SetQuest(EQuest.MaxLives, 6);

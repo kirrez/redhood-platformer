@@ -9,7 +9,9 @@ namespace Platformer
         [SerializeField]
         private float InitialDistance = 7f;
 
+        private IDynamicsContainer DynamicsContainer;
         private IResourceManager ResourceManager;
+        private IAudioManager AudioManager;
 
         private float Timer = 0f;
         private bool isActive;
@@ -22,7 +24,9 @@ namespace Platformer
 
         private void Awake()
         {
+            DynamicsContainer = CompositionRoot.GetDynamicsContainer();
             ResourceManager = CompositionRoot.GetResourceManager();
+            AudioManager = CompositionRoot.GetAudioManager();
             Collider = GetComponent<Collider2D>();
             Player = CompositionRoot.GetPlayer();
         }
@@ -63,9 +67,7 @@ namespace Platformer
                 StartY = transform.position.y - Collider.bounds.extents.y;
 
                 var instance = ResourceManager.GetFromPool(Enemies.RedFrog);
-                var dynamics = CompositionRoot.GetDynamicsContainer();
-                instance.transform.SetParent(dynamics.Transform, false);
-                dynamics.AddItem(instance);
+                DynamicsContainer.AddEnemy(instance);
                 Frog = instance.GetComponent<RedFrog>();
 
                 Frog.Initiate(direction, StartY, new Vector2(StartX, StartY));
@@ -74,7 +76,10 @@ namespace Platformer
 
                 //BlueSplash effect
                 var effect = ResourceManager.GetFromPool(GFXs.BlueSplash);
+                DynamicsContainer.AddMain(effect);
                 effect.transform.position = new Vector2(StartX, StartY);
+
+                AudioManager.PlaySound(ESounds.Splash2);
             }
         }
 

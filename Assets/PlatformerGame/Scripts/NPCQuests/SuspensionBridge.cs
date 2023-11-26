@@ -19,12 +19,14 @@ namespace Platformer
         private GameObject Shatters;
 
         private IProgressManager ProgressManager;
+        private IAudioManager AudioManager;
         private ILocalization Localization;
         private IPlayer Player;
 
         private void Awake()
         {
             ProgressManager = CompositionRoot.GetProgressManager();
+            AudioManager = CompositionRoot.GetAudioManager();
             Localization = CompositionRoot.GetLocalization();
             Player = CompositionRoot.GetPlayer();
         }
@@ -76,6 +78,9 @@ namespace Platformer
                 ProgressManager.SetQuest(EQuest.SpawnPoint, 1);
 
                 Player.GetStunned(1.5f);
+
+                AudioManager.PlaySound(ESounds.Blast8, ContainerSort.Temporary);
+                AudioManager.PlaySound(ESounds.Fall1, ContainerSort.Temporary);
             }
         }
     }

@@ -22,9 +22,12 @@ namespace Platformer
         //private Collider2D Collider;
         private float Timer;
 
+        private IAudioManager AudioManager;
+
         private void Awake()
         {
             //Collider = GetComponent<Collider2D>();
+            AudioManager = CompositionRoot.GetAudioManager();
         }
 
         private void OnEnable()
@@ -48,6 +51,7 @@ namespace Platformer
 
                     SetBlocks(InvertBlocks);
                     Timer = DurationTime;
+                    AudioManager.PlaySound(ESounds.DoorHeavy);
                 }
             }
         }
@@ -61,6 +65,7 @@ namespace Platformer
                     IsTriggered = true;
                     SetBlocks(!InvertBlocks);
                     Timer = DurationTime;
+                    AudioManager.PlaySound(ESounds.DoorHeavy);
                 }
             }
         }

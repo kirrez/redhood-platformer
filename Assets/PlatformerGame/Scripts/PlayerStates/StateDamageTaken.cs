@@ -16,6 +16,7 @@ namespace Platformer.PlayerStates
         {
             Model.UpdateStateName("Damage Taken");
             Model.Health.HealthChanged = null; //cleaning previous handler
+            Model.PlayRedhoodSound(EPlayerSounds.DamageTaken);
 
             //sitDamageCheck
             if (Model.Ceiled(LayerMasks.Solid) && Model.Grounded(LayerMasks.Solid))

@@ -17,6 +17,7 @@ namespace Platformer.PlayerStates
             Timer = time;
             Model.UpdateStateName("Dying");
             Model.Health.HealthChanged = null;
+            Model.PlayRedhoodSound(EPlayerSounds.LifeLost);
         }
 
         public override void Update()

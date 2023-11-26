@@ -5,12 +5,14 @@ namespace Platformer
     public class UpgradeHealth : MonoBehaviour
     {
         private IProgressManager ProgressManager;
+        private IAudioManager AudioManager;
         private Rigidbody2D Rigidbody;
         private IPlayer Player;
 
         private void Awake()
         {
             ProgressManager = CompositionRoot.GetProgressManager();
+            AudioManager = CompositionRoot.GetAudioManager();
             Rigidbody = GetComponent<Rigidbody2D>();
             Player = CompositionRoot.GetPlayer();
 
@@ -28,8 +30,8 @@ namespace Platformer
                     ProgressManager.AddValue(EQuest.MaxLives, 1);
                     ProgressManager.SetQuest(EQuest.UpgradeHealth, 2); //spawner won't spit out items, until variable is not changed back to 1 in quest
                 }
-
                 Player.UpdateMaxLives();
+                AudioManager.PlaySound(ESounds.Collect10LifeUpgrade);
 
                 gameObject.SetActive(false);
             }

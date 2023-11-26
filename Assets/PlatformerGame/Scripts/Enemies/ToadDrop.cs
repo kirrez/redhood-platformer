@@ -23,19 +23,14 @@ namespace Platformer
             Health.Killed += OnKilled;
         }
 
-        private void FixedUpdate()
-        {
-            
-        }
-
         private void OnKilled()
         {
             var collider = gameObject.GetComponent<Collider2D>();
             var newPosition = new Vector2(collider.bounds.center.x, collider.bounds.center.y);
             var instance = ResourceManager.GetFromPool(GFXs.BloodBlast);
             var dynamics = CompositionRoot.GetDynamicsContainer();
-            instance.transform.SetParent(dynamics.Transform, false);
-            dynamics.AddItem(instance.gameObject);
+            //instance.transform.SetParent(dynamics.Transform, false);
+            dynamics.AddMain(instance.gameObject);
             instance.GetComponent<BloodBlast>().Initiate(newPosition, Random.Range(-1f, 1f));
 
             gameObject.SetActive(false);

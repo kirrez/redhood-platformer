@@ -32,7 +32,7 @@ namespace Platformer.MegafrogBoss
             Megafrog.FrogAnimator.StartEndlessBlinking();
             Megafrog.HitBox.Hide();
 
-            DynamicsContainer.DeactivateAll();
+            DynamicsContainer.DeactivateMain();
             Megafrog.DisableBodyDamage();
 
             var game = CompositionRoot.GetGame();
@@ -49,8 +49,8 @@ namespace Platformer.MegafrogBoss
             Timer = 0.25f;
 
             var instance = ResourceManager.GetFromPool(GFXs.FireBlast);
-            instance.transform.SetParent(DynamicsContainer.Transform, false);
-            DynamicsContainer.AddItem(instance);
+            instance.transform.SetParent(DynamicsContainer.Temporary, false); // temporary container
+            DynamicsContainer.AddTemporary(instance);
 
             Vector2 effectPosition = Megafrog.Body.transform.position + new Vector3(Random.Range(-2.5f, 2.5f), Random.Range(0f, 3.5f));
             BaseGFX effect = instance.GetComponent<BaseGFX>();

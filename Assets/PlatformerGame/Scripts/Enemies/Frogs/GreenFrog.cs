@@ -6,13 +6,24 @@ namespace Platformer
 {
     public class GreenFrog : MonoBehaviour
     {
-        private FrogAnimator FrogAnimator;
+        [SerializeField]
+        private Rigidbody2D Body;
 
+        [SerializeField]
+        private Collider2D DamageTrigger;
+
+        [SerializeField]
+        private Vector2[] HigherPath;
+
+        [SerializeField]
+        private Vector2[] LowerPath;
+
+        private FrogAnimator Animator;
         public Action Killed = () => { };
 
         private Health Health;
-        private Rigidbody2D Rigidbody;
         private IPlayer Player;
+        private IAudioManager AudioManager;
         private IResourceManager ResourceManager;
         private IDynamicsContainer DynamicsContainer;
 
@@ -29,12 +40,6 @@ namespace Platformer
 
         private int Phase = 0; // a counter for tracking actions, performed in row in a single direction
 
-        [SerializeField]
-        private Vector2[] HigherPath;
-
-        [SerializeField]
-        private Vector2[] LowerPath;
-
         private PolygonCollider2D Collider;
 
         delegate void State();
@@ -42,22 +47,27 @@ namespace Platformer
 
         private void Awake()
         {
-            Health = GetComponent<Health>();
-            Rigidbody = GetComponent<Rigidbody2D>();
-            FrogAnimator = GetComponent<FrogAnimator>();
-            Collider = GetComponent<PolygonCollider2D>();
-            ResourceManager = CompositionRoot.GetResourceManager();
-            DynamicsContainer = CompositionRoot.GetDynamicsContainer();
+            Health = Body.GetComponent<Health>();
+            Collider = Body.GetComponent<PolygonCollider2D>();
 
-            Health.HealthChanged += OnHealthChanged;
+            Animator = GetComponent<FrogAnimator>();
+            DynamicsContainer = CompositionRoot.GetDynamicsContainer();
+            ResourceManager = CompositionRoot.GetResourceManager();
+            AudioManager = CompositionRoot.GetAudioManager();
+            Player = CompositionRoot.GetPlayer();
+
             Health.Killed += OnKilled;
+            Health.HealthChanged += OnHealthChanged;
+            Health.DamageCooldownExpired += OnDamageCooldownExpired;
         }
 
         private void OnEnable()
         {
-            LastPosition.y = transform.position.y;
-            Player = CompositionRoot.GetPlayer();
-            FrogAnimator.SetAnimation(FrogAnimations.JumpRise);
+            LastPosition.y = Body.transform.position.y;
+            Animator.SetAnimation(FrogAnimations.JumpRise);
+            UnfreezeBody();
+
+            DamageTrigger.enabled = true;
         }
 
         private void OnDisable()
@@ -67,19 +77,69 @@ namespace Platformer
 
         private void OnHealthChanged()
         {
-            FrogAnimator.StartBlinking();
+            Animator.StartBlinking();
+            SetMask("EnemyInactive");
+            DamageTrigger.enabled = false;
+
+            AudioManager.PlaySound(ESounds.EnemyDamage2);
+        }
+
+        private void OnDamageCooldownExpired()
+        {
+            if (Health.GetHitPoints > 0)
+            {
+                SetMask("EnemySolid");
+                DamageTrigger.enabled = true;
+            }
         }
 
         private void OnKilled()
         {
-            // Blood effect
-            var newPosition = new Vector2(Collider.bounds.center.x, Collider.bounds.center.y);
-            var instance = ResourceManager.GetFromPool(GFXs.BloodBlast);
-            instance.transform.SetParent(DynamicsContainer.Transform, false);
-            DynamicsContainer.AddItem(instance);
-            instance.GetComponent<BloodBlast>().Initiate(newPosition, - DirectionX);
+            CurrentState = StateDying;
+        }
+
+        private void FreezeBody()
+        {
+            Body.isKinematic = true;
+        }
+
+        private void UnfreezeBody()
+        {
+            Body.isKinematic = false;
+        }
+
+        private void StateDying()
+        {
+            var newPosition = new Vector2(Collider.bounds.center.x, Collider.bounds.center.y - Collider.bounds.extents.y);
+            var instance = ResourceManager.GetFromPool(GFXs.DeathFlameEffect);
+            DynamicsContainer.AddMain(instance);
+
+            instance.GetComponent<DeathFlameEffect>().Initiate(newPosition, new Vector2(2f, 2f));
+
+            Animator.StopBlinking();
+            Animator.SetNewAnimationPeriod(0.25f);
+            Animator.SetAnimation(FrogAnimations.Death);
+
+            SetMask("EnemyInactive");
+            Body.velocity = Vector2.zero;
+            FreezeBody();
+            DamageTrigger.enabled = false;
+            Timer = 1.35f; //flames fully animate 3 times
+
+            AudioManager.PlaySound(ESounds.EnemyDying5);
+
+            CurrentState = StateDyingFinal;
+        }
+
+        private void StateDyingFinal()
+        {
+            Timer -= Time.fixedDeltaTime;
+            if (Timer > 0) return;
 
             Killed();
+            UnfreezeBody();
+
+            Animator.RestoreAnimationPeriod();
             gameObject.SetActive(false);
         }
 
@@ -87,11 +147,11 @@ namespace Platformer
         {
             if (DirectionX == 1f)
             {
-                FrogAnimator.SetFlip(false);
+                Animator.SetFlip(false);
             }
             if (DirectionX == -1f)
             {
-                FrogAnimator.SetFlip(true);
+                Animator.SetFlip(true);
             }
         }
 
@@ -101,14 +161,14 @@ namespace Platformer
             DisappearY = disappearY;
 
             CheckDirection();
-            transform.position = startPosition;
+            Body.transform.position = startPosition;
             CurrentState = StateInitialJump;
         }
 
         private void FixedUpdate()
         {
-            DeltaY = transform.position.y - LastPosition.y;
-            LastPosition = transform.position;
+            DeltaY = Body.transform.position.y - LastPosition.y;
+            LastPosition = Body.transform.position;
 
             CurrentState();
         }
@@ -125,7 +185,7 @@ namespace Platformer
 
         private void MoveHorizontal()
         {
-            Rigidbody.velocity = new Vector2(DirectionX * Time.fixedDeltaTime * HorizontalSpeed, Rigidbody.velocity.y);
+            Body.velocity = new Vector2(DirectionX * Time.fixedDeltaTime * HorizontalSpeed, Body.velocity.y);
         }
 
         private void SwitchColliderPaths(bool state)
@@ -142,7 +202,7 @@ namespace Platformer
 
         private void SetMask(string mask)
         {
-            gameObject.layer = LayerMask.NameToLayer(mask);
+            Body.gameObject.layer = LayerMask.NameToLayer(mask);
         }
 
         //All States here
@@ -150,8 +210,8 @@ namespace Platformer
         {
             SetMask("EnemyTransparent");
             SwitchColliderPaths(false);
-            FrogAnimator.SetAnimation(FrogAnimations.JumpRise);
-            Rigidbody.AddForce(new Vector2(0f, VeryHighJumpForce));
+            Animator.SetAnimation(FrogAnimations.JumpRise);
+            Body.AddForce(new Vector2(0f, VeryHighJumpForce));
             Timer = 0f;
 
             CurrentState = StateJumpRising;
@@ -163,7 +223,7 @@ namespace Platformer
 
             if (DeltaY < 0f)
             {
-                FrogAnimator.SetAnimation(FrogAnimations.JumpFall);
+                Animator.SetAnimation(FrogAnimations.JumpFall);
                 CurrentState = StateJumpFalling;
             }
         }
@@ -173,11 +233,14 @@ namespace Platformer
             MoveHorizontal();
 
             //Optional Despawn
-            if (transform.position.y <= DisappearY)
+            if (Body.transform.position.y <= DisappearY)
             {
                 //splash effect
                 var effect = ResourceManager.GetFromPool(GFXs.BlueSplash);
-                effect.transform.position = transform.position;
+                DynamicsContainer.AddMain(effect);
+                effect.transform.position = Body.transform.position;
+
+                AudioManager.PlaySound(ESounds.Splash2);
 
                 Killed();
                 gameObject.SetActive(false);
@@ -185,17 +248,20 @@ namespace Platformer
 
             if (Grounded(LayerMasks.Solid + LayerMasks.OneWay))
             {
-                FrogAnimator.SetAnimation(FrogAnimations.Idle);
+                Animator.SetAnimation(FrogAnimations.Idle);
                 SwitchColliderPaths(true);
                 SetMask("EnemySolid");
                 Timer = 1f; // waiting for next move
+
+                AudioManager.PlaySound(ESounds.FrogJump);
+
                 CurrentState = StateIdle;
             }
         }
         // Behaviours in Idle
         private void AttackBehaviour()
         {
-            FrogAnimator.SetAnimation(FrogAnimations.Attack);
+            Animator.SetAnimation(FrogAnimations.Attack);
             CurrentState = StateAttack;
             Timer = 0.5f;
         }
@@ -204,14 +270,14 @@ namespace Platformer
         {
             if (!high)
             {
-                Rigidbody.AddForce(new Vector2(0f, LowJumpForce));
+                Body.AddForce(new Vector2(0f, LowJumpForce));
             }
             if (high)
             {
-                Rigidbody.AddForce(new Vector2(0f, HighJumpForce));
+                Body.AddForce(new Vector2(0f, HighJumpForce));
             }
 
-            FrogAnimator.SetAnimation(FrogAnimations.JumpRise);
+            Animator.SetAnimation(FrogAnimations.JumpRise);
             SwitchColliderPaths(false);
             CurrentState = StateJumpRising;
             Timer = 1f;
@@ -223,8 +289,8 @@ namespace Platformer
 
             if (Timer <= 0f)
             {
-                var distance = transform.position.x - Player.Position.x;
-                var height = Player.Position.y - transform.position.y;
+                var distance = Body.transform.position.x - Player.Position.x;
+                var height = Player.Position.y - Body.transform.position.y;
                 var chance = UnityEngine.Random.Range(0f, 1f);
 
                 // Player not too far ??
@@ -328,10 +394,10 @@ namespace Platformer
                     DisappearTimer += Time.fixedDeltaTime;
                     if (DisappearTimer >= 4f)
                     {
-                        FrogAnimator.SetAnimation(FrogAnimations.JumpRise);
+                        Animator.SetAnimation(FrogAnimations.JumpRise);
                         SwitchColliderPaths(false);
                         SetMask("EnemyTransparent");
-                        Rigidbody.AddForce(new Vector2(0f, HighJumpForce));
+                        Body.AddForce(new Vector2(0f, HighJumpForce));
                         CurrentState = StateLeaveJumpRising;
                     }
                 }
@@ -344,7 +410,7 @@ namespace Platformer
 
             if (DeltaY < 0f)
             {
-                FrogAnimator.SetAnimation(FrogAnimations.JumpFall);
+                Animator.SetAnimation(FrogAnimations.JumpFall);
                 CurrentState = StateLeaveJumpFalling;
             }
         }
@@ -353,13 +419,14 @@ namespace Platformer
         {
             MoveHorizontal();
 
-            if (transform.position.y <= DisappearY)
+            if (Body.transform.position.y <= DisappearY)
             {
                 //splash effect
                 var effect = ResourceManager.GetFromPool(GFXs.BlueSplash);
-                effect.transform.SetParent(DynamicsContainer.Transform, false);
-                DynamicsContainer.AddItem(effect);
-                effect.transform.position = transform.position;
+                DynamicsContainer.AddMain(effect);
+                effect.transform.position = Body.transform.position;
+
+                AudioManager.PlaySound(ESounds.Splash2);
 
                 Killed();
                 gameObject.SetActive(false);
@@ -376,8 +443,10 @@ namespace Platformer
             if (Timer <= 0)
             {
                 //switch to Rest
-                FrogAnimator.SetAnimation(FrogAnimations.Idle);
+                Animator.SetAnimation(FrogAnimations.Idle);
                 Timer = 1f;
+                AudioManager.PlaySound(ESounds.Quack1);
+
                 CurrentState = StateRest;
             }
         }

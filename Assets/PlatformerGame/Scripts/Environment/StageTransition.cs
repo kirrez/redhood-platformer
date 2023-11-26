@@ -23,15 +23,18 @@ namespace Platformer
         [SerializeField]
         private float TransitionTime;
 
-        private IDynamicsContainer Dynamics;
         private IProgressManager ProgressManager;
+        private IDynamicsContainer Dynamics;
+        private INavigation Navigation;
+
         private float Timer;
         private bool Inside;
 
         private void Awake()
         {
-            Dynamics = CompositionRoot.GetDynamicsContainer();
             ProgressManager = CompositionRoot.GetProgressManager();
+            Dynamics = CompositionRoot.GetDynamicsContainer();
+            Navigation = CompositionRoot.GetNavigation();
         }
 
         private void Update()
@@ -41,10 +44,12 @@ namespace Platformer
                 Timer -= Time.deltaTime;
                 if (Timer <= 0)
                 {
-                    var navigation = CompositionRoot.GetNavigation();
-                    Dynamics.DeactivateAll();
-                    navigation.LoadStage(Stage);
-                    navigation.SetLocation(LocationIndex, SpawnPointIndex, ConfinerIndex);
+                    Dynamics.DeactivateMain();
+                    Dynamics.DeactivateEnemies();
+                    Dynamics.DeactivateTemporary(); //temporary solution )))
+
+                    Navigation.LoadStage(Stage);
+                    Navigation.SetLocation(LocationIndex, SpawnPointIndex, ConfinerIndex);
 
                     var game = CompositionRoot.GetGame();
                     game.FadeScreen.DelayBefore(Color.black, 1f);

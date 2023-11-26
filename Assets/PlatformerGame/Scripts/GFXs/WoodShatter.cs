@@ -32,8 +32,8 @@ namespace Platformer
             if (chance < 0.5f) rigidbody.angularVelocity = Random.Range(100f, 200f);
             if (chance >= 0.5f) rigidbody.angularVelocity = Random.Range(100f, 200f) * -1f;
 
-            DynamicsContainer.AddItem(this.gameObject);
-            gameObject.transform.SetParent(DynamicsContainer.Transform, false);
+            DynamicsContainer.AddMain(this.gameObject);
+            //gameObject.transform.SetParent(DynamicsContainer.Transform, false);
         }
 
         private void Update()

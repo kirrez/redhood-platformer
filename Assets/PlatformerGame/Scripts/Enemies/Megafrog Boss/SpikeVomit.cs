@@ -43,8 +43,8 @@ namespace Platformer.MegafrogBoss
 
             Timer = 0.45f;
             var instance = ResourceManager.GetFromPool(Enemies.SpikedBullet);
-            instance.transform.SetParent(DynamicsContainer.Transform, false);
-            DynamicsContainer.AddItem(instance);
+            //instance.transform.SetParent(DynamicsContainer.Transform, false);
+            DynamicsContainer.AddTemporary(instance);
             instance.transform.position = Megafrog.FirePoint.position;
 
             if (ShotCount == 10 || ShotCount == 4)

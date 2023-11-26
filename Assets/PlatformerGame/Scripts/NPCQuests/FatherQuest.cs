@@ -13,6 +13,7 @@ namespace Platformer
         private Transform TargetTransform;
 
         private IProgressManager ProgressManager;
+        private IAudioManager AudioManager;
         private ILocalization Localization;
         private CinemachineVirtualCamera PlayerCamera;
         private IPlayer Player;
@@ -25,6 +26,7 @@ namespace Platformer
         {
             ProgressManager = CompositionRoot.GetProgressManager();
             Localization = CompositionRoot.GetLocalization();
+            AudioManager = CompositionRoot.GetAudioManager();
             PlayerCamera = CompositionRoot.GetVirtualPlayerCamera();
             Player = CompositionRoot.GetPlayer();
 
@@ -61,6 +63,7 @@ namespace Platformer
                     Game.Dialogue.Show();
                     Game.Dialogue.SetDialogueName(Localization.Text(ETexts.FatherDialogue));
                     Game.Dialogue.ChangeContent(Localization.Text(ETexts.Father_1));
+                    AudioManager.PlaySound(ESounds.VoiceBeastUuu);
                     DialoguePhase++;
                     break;
                 case 1:
@@ -75,6 +78,7 @@ namespace Platformer
                 case 3:
                     PlayerCamera.Follow = TargetTransform;
                     Game.Dialogue.ChangeContent(Localization.Text(ETexts.Father_4));
+                    AudioManager.PlaySound(ESounds.VoiceBeastUuu);
                     DialoguePhase++;
                     break;
                 case 4:
@@ -84,6 +88,7 @@ namespace Platformer
                     break;
                 case 5:
                     Game.Dialogue.ChangeContent(Localization.Text(ETexts.Father_6));
+                    AudioManager.PlaySound(ESounds.VoiceBeastUuu);
                     DialoguePhase++;
                     break;
                 case 6:

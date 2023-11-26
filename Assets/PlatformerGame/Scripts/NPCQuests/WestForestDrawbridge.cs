@@ -18,6 +18,7 @@ namespace Platformer
         private Sprite SwitchOn;
 
         private IProgressManager ProgressManager;
+        private IAudioManager AudioManager;
         private ILocalization Localization;
 
         private IPlayer Player;
@@ -27,6 +28,7 @@ namespace Platformer
         {
             ProgressManager = CompositionRoot.GetProgressManager();
             Localization = CompositionRoot.GetLocalization();
+            AudioManager = CompositionRoot.GetAudioManager();
             Renderer = GetComponent<SpriteRenderer>();
 
             HelpText.text = Localization.Text(ETexts.PullLever);
@@ -35,8 +37,6 @@ namespace Platformer
 
         private void OnEnable()
         {
-            
-
             if (ProgressManager.GetQuest(EQuest.Drawbridge) == 0)
             {
                 Renderer.sprite = SwitchOff;
@@ -83,6 +83,8 @@ namespace Platformer
 
             Drawbridge.SetActive(true);
             Renderer.sprite = SwitchOn;
+
+            AudioManager.PlaySound(ESounds.DoorHeavy);
         }
     }
 }

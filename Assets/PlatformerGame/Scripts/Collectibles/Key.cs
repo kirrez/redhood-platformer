@@ -14,11 +14,13 @@ namespace Platformer
         private EQuest Item;
 
         private IProgressManager ProgressManager;
+        private IAudioManager AudioManager;
         private Rigidbody2D Rigidbody;
 
         private void Awake()
         {
             ProgressManager = CompositionRoot.GetProgressManager();
+            AudioManager = CompositionRoot.GetAudioManager();
             Rigidbody = GetComponent<Rigidbody2D>();
             PhysicsOn(false);
 
@@ -34,6 +36,8 @@ namespace Platformer
                 {
                     ProgressManager.SetQuest(Item, 1);
                 }
+                AudioManager.PlaySound(ESounds.Collect1QuestItems);
+
                 gameObject.SetActive(false);
             }
         }

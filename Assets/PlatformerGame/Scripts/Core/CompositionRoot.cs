@@ -12,6 +12,7 @@ namespace Platformer
         private static IUIRoot UIRoot;
         private static GameObject MainCMCamera;
         private static INavigation Navigation;
+        private static IAudioManager AudioManager;
         private static IDynamicsContainer DynamicsContainer;
         private static GameObject EventSystemContainer;
 
@@ -24,6 +25,15 @@ namespace Platformer
         private static IProgressManager ProgressManager;
         private static ILocalization Localization;
 
+        public static IAudioManager GetAudioManager()
+        {
+            if (AudioManager == null)
+            {
+                var resourceManager = GetResourceManager();
+                AudioManager = resourceManager.CreatePrefab<IAudioManager, EComponents>(EComponents.AudioManager);
+            }
+            return AudioManager;
+        }
         public static IDynamicsContainer GetDynamicsContainer()
         {
             if (DynamicsContainer == null)
@@ -31,7 +41,6 @@ namespace Platformer
                 var resourceManager = GetResourceManager();
                 DynamicsContainer = resourceManager.CreatePrefab<IDynamicsContainer, EComponents>(EComponents.DynamicsContainer);
             }
-
             return DynamicsContainer;
         }
 
@@ -160,6 +169,7 @@ namespace Platformer
             UIRoot = null;
             Navigation = null;
             MainCMCamera = null;
+            AudioManager = null;
             ResourceManager = null;
             VirtualPlayerCamera = null;
             EventSystemContainer = null;

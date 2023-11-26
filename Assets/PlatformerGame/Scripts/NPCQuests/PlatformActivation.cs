@@ -15,6 +15,7 @@ namespace Platformer
         [SerializeField]
         private GameObject Platform;
 
+        private IAudioManager AudioManager;
         private IProgressManager ProgressManager;
 
         private int TargetValue;
@@ -23,6 +24,7 @@ namespace Platformer
         private void Awake()
         {
             ProgressManager = CompositionRoot.GetProgressManager();
+            AudioManager = CompositionRoot.GetAudioManager();
 
             TargetValue = (int)EQuest.WFFirstElevator + ItemIndex;
             Item = (EQuest)TargetValue;
@@ -50,6 +52,7 @@ namespace Platformer
                 ProgressManager.SetQuest(Item, 1);
                 Dummy.SetActive(false);
                 Platform.SetActive(true);
+                AudioManager.PlaySound(ESounds.ElevatorActivated);
             }
         }
     }

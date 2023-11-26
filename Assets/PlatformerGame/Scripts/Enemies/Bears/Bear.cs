@@ -29,7 +29,9 @@ namespace Platformer
 
         private Enemies Slash = Enemies.BearSlash;
 
+        private IAudioManager AudioManager;
         private IResourceManager ResourceManager;
+        private IDynamicsContainer DynamicsContainer;
 
         private float Timer;
         private float DirectionX = 1f;
@@ -47,7 +49,9 @@ namespace Platformer
 
         private void Awake()
         {
+            DynamicsContainer = CompositionRoot.GetDynamicsContainer();
             ResourceManager = CompositionRoot.GetResourceManager();
+            AudioManager = CompositionRoot.GetAudioManager();
             Player = CompositionRoot.GetPlayer();
             Animator = GetComponent<BearAnimator>();
 
@@ -57,6 +61,7 @@ namespace Platformer
             FirePointX = FirePoint.transform.localPosition.x;
             Health.Killed += OnKilled;
             Health.HealthChanged += OnHealthChanged;
+            Health.DamageCooldownExpired += OnDamageCooldownExpired;
         }
 
         private void OnEnable()
@@ -64,6 +69,7 @@ namespace Platformer
             StairTimer = 0.5f;
             SetMask("EnemySolid");
             UnfreezeBody();
+
             DamageTrigger.enabled = true;
         }
 
@@ -78,8 +84,8 @@ namespace Platformer
 
         private void FixedUpdate()
         {
-            DeltaY = transform.position.y - LastPosition.y;
-            LastPosition = transform.position;
+            DeltaY = Body.transform.position.y - LastPosition.y;
+            LastPosition = Body.transform.position;
 
             CurrentState();
         }
@@ -92,6 +98,19 @@ namespace Platformer
         private void OnHealthChanged()
         {
             Animator.StartBlinking();
+            SetMask("EnemyInactive");
+            DamageTrigger.enabled = false;
+
+            AudioManager.PlaySound(ESounds.EnemyDamage2);
+        }
+
+        private void OnDamageCooldownExpired()
+        {
+            if (Health.GetHitPoints > 0)
+            {
+                SetMask("EnemySolid");
+                DamageTrigger.enabled = true;
+            }
         }
 
         private void OnKilled()
@@ -113,9 +132,7 @@ namespace Platformer
         {
             var newPosition = new Vector2(Collider.bounds.center.x, Collider.bounds.center.y - Collider.bounds.extents.y);
             var instance = ResourceManager.GetFromPool(GFXs.DeathFlameEffect);
-            var dynamics = CompositionRoot.GetDynamicsContainer();
-            instance.transform.SetParent(dynamics.Transform, false);
-            dynamics.AddItem(instance);
+            DynamicsContainer.AddMain(instance);
 
             instance.GetComponent<DeathFlameEffect>().Initiate(newPosition, new Vector2(2f, 3f));
 
@@ -127,6 +144,9 @@ namespace Platformer
             FreezeBody();
             DamageTrigger.enabled = false;
             Timer = 1.35f;
+
+            AudioManager.PlaySound(ESounds.EnemyDying5);
+            AudioManager.PlaySound(ESounds.VoiceBeastUuu);
 
             CurrentState = StateDyingFinal;
         }
@@ -274,11 +294,11 @@ namespace Platformer
             if (Timer <= 0)
             {
                 var instance = ResourceManager.GetFromPool(Slash);
-                var dynamics = CompositionRoot.GetDynamicsContainer();
-                instance.transform.SetParent(dynamics.Transform, false);
-                dynamics.AddItem(instance);
+                DynamicsContainer.AddMain(instance);
                 instance.transform.position = FirePoint.position;
                 instance.GetComponent<BearSlash>().SetHitDirection(DirectionX);
+
+                AudioManager.PlaySound(ESounds.Slash7);
 
                 Timer = 2f;
 

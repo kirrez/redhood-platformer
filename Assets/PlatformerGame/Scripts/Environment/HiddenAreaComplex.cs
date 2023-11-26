@@ -9,21 +9,32 @@ namespace Platformer
         [SerializeField]
         private TilemapRenderer Area;
 
+        [SerializeField]
+        private bool EnableDiscoverySound;
+
+        private bool SoundPlayed;
+
         public List<Collider2D> Entrances;
 
         public List<Collider2D> Exits;
 
+        private IAudioManager AudioManager;
         private IPlayer Player;
         private bool Inside;
 
-        private void Start()
+        private void Awake()
         {
+            AudioManager = CompositionRoot.GetAudioManager();
             Player = CompositionRoot.GetPlayer();
+        }
+
+        private void OnEnable()
+        {
+            SoundPlayed = false;
         }
 
         private void Update()
         {
-            if (Player == null) return;
 
             foreach (Collider2D entrance in Entrances)
             {
@@ -31,6 +42,12 @@ namespace Platformer
                 {
                     Area.enabled = false;
                     Inside = true;
+
+                    if (EnableDiscoverySound == true && SoundPlayed == false)
+                    {
+                        AudioManager.PlaySound(ESounds.Collect7CampFire);
+                        SoundPlayed = true;
+                    }
                 }
             }
 

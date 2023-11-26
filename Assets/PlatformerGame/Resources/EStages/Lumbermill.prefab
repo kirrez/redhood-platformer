@@ -176,6 +176,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpawnPoints:
   - {fileID: 7454239741384676244}
+  Confiners: []
   LocationTransitions:
   - TargetLocation:
     - {fileID: 5317272545900306341}
@@ -185,7 +186,8 @@ MonoBehaviour:
     - {fileID: 3548493330744462131}
     - {fileID: 381945472873201898}
     OriginLocation: []
-    Confiner: {fileID: 1579642493101739262}
+  Music:
+  - {fileID: 8308225270144626178, guid: c1a31ed60be0b0645be11ff7b32213c8, type: 3}
 --- !u!1 &5317272545900306341
 GameObject:
   m_ObjectHideFlags: 0

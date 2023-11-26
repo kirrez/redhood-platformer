@@ -59,8 +59,8 @@ namespace Platformer.MegafrogBoss
 
             var instance = ResourceManager.GetFromPool(Enemies.BubbleBullet);
             var dynamics = CompositionRoot.GetDynamicsContainer();
-            instance.transform.SetParent(dynamics.Transform, false);
-            dynamics.AddItem(instance);
+            //instance.transform.SetParent(dynamics.Main, false);
+            dynamics.AddMain(instance);
 
             instance.transform.position = Megafrog.FirePoint.position;
 

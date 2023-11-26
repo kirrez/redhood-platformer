@@ -57,6 +57,11 @@ namespace Platformer
             return component;
         }
 
+        public void RemoveFromPool()
+        {
+
+        }
+
         public GameObject GetFromPool<E>(E objType)
             where E : Enum
         {

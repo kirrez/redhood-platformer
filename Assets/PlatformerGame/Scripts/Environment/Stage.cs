@@ -12,7 +12,10 @@ namespace Platformer
 
         public List<LocationConfig> LocationTransitions;
 
+        public List<EMusic> Music;
+
         private IPlayer Player;
+        private IAudioManager AudioManager;
         
         private CinemachineVirtualCamera VirtualPlayerCamera;
         private CinemachineConfiner Confiner;
@@ -20,6 +23,7 @@ namespace Platformer
         private void Awake()
         {
             Player = CompositionRoot.GetPlayer();
+            AudioManager = CompositionRoot.GetAudioManager();
 
             VirtualPlayerCamera = CompositionRoot.GetVirtualPlayerCamera();
             VirtualPlayerCamera.Follow = Player.Transform;
@@ -27,7 +31,7 @@ namespace Platformer
             Confiner = VirtualPlayerCamera.GetComponent<CinemachineConfiner>();
         }
 
-        public void SetLocation(int LocationIndex, int SpawnPointIndex, int ConfinerIndex)
+        public void SetLocation(int LocationIndex, int SpawnPointIndex, int ConfinerIndex, int MusicIndex = 0)
         {
             var originLocation = LocationTransitions[LocationIndex].OriginLocation;
             var targetLocation = LocationTransitions[LocationIndex].TargetLocation;
@@ -46,6 +50,8 @@ namespace Platformer
             Player.Position = SpawnPoints[SpawnPointIndex].position;
             confiner.gameObject.SetActive(true);
             Confiner.m_BoundingShape2D = confiner;
+
+            AudioManager.PlayMusic(Music[MusicIndex]);
         }
     }
 }

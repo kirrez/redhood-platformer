@@ -6,20 +6,100 @@ namespace Platformer
 {
     public class DynamicsContainer : MonoBehaviour, IDynamicsContainer
     {
-        public Transform Transform => transform;
-        private List<GameObject> Content;
+        [SerializeField]
+        private Transform EnemiesContainer;
 
-        public void AddItem(GameObject entity)
+        [SerializeField]
+        private Transform MainContainer;
+
+        [SerializeField]
+        private Transform MusicContainer;
+
+        [SerializeField]
+        private Transform SoundsContainer;
+
+        [SerializeField]
+        private Transform TemporaryContainer;
+
+        public Transform Enemies => EnemiesContainer;
+        public Transform Main => MainContainer;
+        public Transform Music => MusicContainer;
+        public Transform Sounds => SoundsContainer;
+        public Transform Temporary => TemporaryContainer;
+
+        private List<GameObject> EnemiesContent;
+        private List<GameObject> MainContent;
+        private List<GameObject> MusicContent;
+        private List<GameObject> SoundsContent;
+        private List<GameObject> TemporaryContent;
+
+        public void AddEnemy(GameObject item)
         {
-            if (!Content.Contains(entity))
+            if (!EnemiesContent.Contains(item))
             {
-                Content.Add(entity);
+                EnemiesContent.Add(item);
+                item.transform.SetParent(Enemies, false);
             }
         }
 
-        public void DeactivateAll()
+        public void AddMain(GameObject item)
         {
-            foreach (var item in Content)
+            if (!MainContent.Contains(item))
+            {
+                MainContent.Add(item);
+                item.transform.SetParent(Main, false);
+            }
+        }
+
+        public void AddMusic(GameObject item)
+        {
+            if (!MusicContent.Contains(item))
+            {
+                MusicContent.Add(item);
+
+                item.transform.SetParent(Music, false);
+            }
+        }
+
+        public void AddSound(GameObject item)
+        {
+            if (!SoundsContent.Contains(item))
+            {
+                SoundsContent.Add(item);
+
+                item.transform.SetParent(Sounds, false);
+            }
+        }
+
+        public void AddTemporary(GameObject item)
+        {
+            if (!TemporaryContent.Contains(item))
+            {
+                TemporaryContent.Add(item);
+
+                item.transform.SetParent(Temporary, false);
+            }
+        }
+
+        public void DeactivateEnemies()
+        {
+            foreach (var item in EnemiesContent)
+            {
+                item.SetActive(false);
+            }
+        }
+
+        public void DeactivateMain()
+        {
+            foreach (var item in MainContent)
+            {
+                item.SetActive(false);
+            }
+        }
+
+        public void DeactivateTemporary()
+        {
+            foreach (var item in TemporaryContent)
             {
                 item.SetActive(false);
             }
@@ -27,7 +107,11 @@ namespace Platformer
 
         private void Awake()
         {
-            Content = new List<GameObject>();
+            EnemiesContent = new List<GameObject>();
+            MainContent = new List<GameObject>();
+            MusicContent = new List<GameObject>();
+            SoundsContent = new List<GameObject>();
+            TemporaryContent = new List<GameObject>();
         }
     }
 }

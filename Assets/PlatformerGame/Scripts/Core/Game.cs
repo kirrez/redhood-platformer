@@ -8,9 +8,10 @@ namespace Platformer
     public class Game : MonoBehaviour, IGame
     {
         //private IPlayer Player;
-        private IResourceManager ResourceManager;
+        //private IResourceManager ResourceManager;
         private IProgressManager ProgressManager;
         private IDynamicsContainer DynamicsContainer;
+        private IAudioManager AudioManager;
         private INavigation Navigation;
         private IPlayer Player;
 
@@ -28,14 +29,16 @@ namespace Platformer
 
         private void Awake()
         {
-            ResourceManager = CompositionRoot.GetResourceManager();
-            ProgressManager = CompositionRoot.GetProgressManager();
-            Navigation = CompositionRoot.GetNavigation();
+            //ResourceManager = CompositionRoot.GetResourceManager();
             DynamicsContainer = CompositionRoot.GetDynamicsContainer();
+            ProgressManager = CompositionRoot.GetProgressManager();
+            AudioManager = CompositionRoot.GetAudioManager();
+            Navigation = CompositionRoot.GetNavigation();
 
             var eventSystem = CompositionRoot.GetEventSystem();
             var mainCMCamera = CompositionRoot.GetMainCMCamera();
 
+            //ProgressManager.LoadTestConfig1();
             ProgressManager.LoadTestConfig();
             //ProgressManager.LoadNewGame();
 
@@ -67,6 +70,8 @@ namespace Platformer
         {
             HUDModel.Hide();
             GameOverModel.Show();
+
+            AudioManager.PauseMusic();
         }
 
         private void LoadPlayerLocation()
@@ -82,13 +87,16 @@ namespace Platformer
 
         private void TryAgain()
         {
-            DynamicsContainer.DeactivateAll();
+            DynamicsContainer.DeactivateMain();
+            DynamicsContainer.DeactivateEnemies();
+
             ProgressManager.RefillRenewables();
             LoadPlayerLocation();
 
             GameOverModel.Hide();
             HUDModel.Show();
             Player.Revive();
+            AudioManager.ReplayMusic();
 
             FadeScreenModel.DelayBefore(Color.black, 1f);
             FadeScreenModel.FadeOut(Color.black, 1f);

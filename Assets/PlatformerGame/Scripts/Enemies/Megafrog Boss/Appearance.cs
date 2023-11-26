@@ -155,8 +155,8 @@ namespace Platformer.MegafrogBoss
         {
             var instance = ResourceManager.GetFromPool(GFXs.BlueSplash);
             var position = Megafrog.WaterLevel.position;
-            instance.transform.SetParent(DynamicsContainer.Transform, false);
-            DynamicsContainer.AddItem(instance);
+            //instance.transform.SetParent(DynamicsContainer.Main, false);
+            DynamicsContainer.AddMain(instance);
             position.x = Megafrog.Body.transform.position.x + offsetX;
             instance.transform.position = position;
         }
@@ -165,16 +165,16 @@ namespace Platformer.MegafrogBoss
         {
             var instance = ResourceManager.GetFromPool(Enemies.HeavySpikedBall);
             var marks = Megafrog.Marks;
-            instance.transform.SetParent(DynamicsContainer.Transform, false);
-            DynamicsContainer.AddItem(instance);
+            //instance.transform.SetParent(DynamicsContainer.Temporary, false);
+            DynamicsContainer.AddTemporary(instance);
 
             instance.transform.position = marks[0].position;
             instance.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 25f);
             instance.GetComponent<Rigidbody2D>().AddTorque(10f, ForceMode2D.Impulse);
 
             instance = ResourceManager.GetFromPool(Enemies.HeavySpikedBall);
-            instance.transform.SetParent(DynamicsContainer.Transform, false);
-            DynamicsContainer.AddItem(instance);
+            //instance.transform.SetParent(DynamicsContainer.Transform, false);
+            DynamicsContainer.AddTemporary(instance);
 
             instance.transform.position = marks[1].position;
             instance.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 25f);
@@ -184,8 +184,8 @@ namespace Platformer.MegafrogBoss
         private void LaunchShardDropper()
         {
             var instance = ResourceManager.GetFromPool(GFXs.ShardDropper);
-            instance.transform.SetParent(DynamicsContainer.Transform, false);
-            DynamicsContainer.AddItem(instance);
+            //instance.transform.SetParent(DynamicsContainer.Transform, false);
+            DynamicsContainer.AddTemporary(instance);
 
             ShardDropper dropper = instance.GetComponent<ShardDropper>();
             dropper.Initiate(Megafrog.Body.transform.position);

@@ -6,7 +6,7 @@ namespace Platformer.PlayerStates
 {
     public class StateJumpDown : BaseState
     {
-
+        //This State is no longer in use.....
         public StateJumpDown(IPlayer model)
         {
             Model = model;
@@ -16,13 +16,14 @@ namespace Platformer.PlayerStates
         {
             base.OnEnable(time);
 
-            Model.JumpDown();
+            //Model.JumpDown();
+            //Model.PlayRedhoodSound(EPlayerSounds.Jump);
         }
 
         protected override void OnHealthChanged()
         {
             Model.ChangeHealthUI();
-            Model.JumpDown();
+            //Model.JumpDown();   // what for?
             Model.SetState(EPlayerStates.DamageTaken);
         }
 
@@ -46,7 +47,7 @@ namespace Platformer.PlayerStates
                 if (Timer <= 0)
                 {
                     Model.StandUp();
-                    Model.JumpDown();
+                    //Model.JumpDown();  // ?
                     Model.SetState(EPlayerStates.JumpFalling);
                 }
             }
@@ -56,7 +57,7 @@ namespace Platformer.PlayerStates
             {
                 //Model.UpdateInAir(false);
                 Model.StandUp();
-                Model.JumpDown();
+                //Model.JumpDown();  // ?
                 Model.Animations.Idle();
                 Model.SetState(EPlayerStates.Idle);
             }

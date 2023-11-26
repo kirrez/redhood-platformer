@@ -14,6 +14,7 @@ namespace Platformer
         [SerializeField]
         private int MaxSpawnCount = 2;
 
+        private IDynamicsContainer DynamicsContainer;
         private IResourceManager ResourceManager;
 
         private float Timer = 0f;
@@ -22,6 +23,7 @@ namespace Platformer
 
         private void Awake()
         {
+            DynamicsContainer = CompositionRoot.GetDynamicsContainer();
             ResourceManager = CompositionRoot.GetResourceManager();
         }
 
@@ -73,9 +75,7 @@ namespace Platformer
                 }
 
                 var instance = ResourceManager.GetFromPool(Enemies.EvilBear);
-                var dynamics = CompositionRoot.GetDynamicsContainer();
-                instance.transform.SetParent(dynamics.Transform, false);
-                dynamics.AddItem(instance);
+                DynamicsContainer.AddEnemy(instance);
                 Bear = instance.GetComponent<EvilBear>();
 
                 Bear.Initiate(direction, SpawnPoint.transform.position);

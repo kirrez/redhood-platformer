@@ -9,7 +9,8 @@ namespace Platformer
         Idle,
         Attack,
         JumpRise,
-        JumpFall
+        JumpFall,
+        Death
     }
 
     public class FrogAnimator : MonoBehaviour
@@ -37,6 +38,9 @@ namespace Platformer
         private List<Sprite> JumpFall;
 
         [SerializeField]
+        private List<Sprite> Death;
+
+        [SerializeField]
         private float AnimationPeriod;
 
         [SerializeField]
@@ -46,7 +50,7 @@ namespace Platformer
         private float BlinkEffectDuration; // for BlinkEffectLasting
 
         private float AnimationTimer;
-
+        private float BackupAnimationPeriod;
         private float BlinkTimer;
         private float BlinkEffectLasting;
 
@@ -152,6 +156,13 @@ namespace Platformer
             CurrentState = BlinkAnimation;
         }
 
+        public void StopBlinking()
+        {
+            BlinkTimer = 0f;
+            BlinkEffectLasting = 0f;
+            BlinkRenderer.enabled = false;
+        }
+
         // for Megafrog-boss "Defeat" behaviour
         public void StartEndlessBlinking()
         {
@@ -183,6 +194,10 @@ namespace Platformer
                 case FrogAnimations.JumpFall:
                     CurrentAnimation = JumpFall;
                     break;
+
+                case FrogAnimations.Death:
+                    CurrentAnimation = Death;
+                    break;
             }
 
             Index = 0;
@@ -194,6 +209,20 @@ namespace Platformer
         {
             NormalRenderer.flipX = flip;
             AlignFlips();
+        }
+
+        public void SetNewAnimationPeriod(float period)
+        {
+            BackupAnimationPeriod = AnimationPeriod;
+            AnimationPeriod = period;
+        }
+
+        public void RestoreAnimationPeriod()
+        {
+            if (BackupAnimationPeriod != 0)
+            {
+                AnimationPeriod = BackupAnimationPeriod;
+            }
         }
 
         private void AlignFlips()

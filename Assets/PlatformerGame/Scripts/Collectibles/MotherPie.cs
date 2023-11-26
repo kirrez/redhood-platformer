@@ -5,11 +5,13 @@ namespace Platformer
     public class MotherPie : MonoBehaviour
     {
         private IProgressManager ProgressManager;
+        private IAudioManager AudioManager;
         private Rigidbody2D Rigidbody;
 
         private void OnEnable()
         {
             ProgressManager = CompositionRoot.GetProgressManager();
+            AudioManager = CompositionRoot.GetAudioManager();
             Rigidbody = GetComponent<Rigidbody2D>();
             PhysicsOn(false);
         }
@@ -23,6 +25,7 @@ namespace Platformer
                     ProgressManager.SetQuest(EQuest.MotherPie, 5); // Finishing MotherPie quest
                     ProgressManager.SetQuest(EQuest.MarketElevator, 1); // Unlocking elevator
                 }
+                AudioManager.PlaySound(ESounds.Collect3HealthReplenish);
 
                 gameObject.SetActive(false);
             }

@@ -11,6 +11,7 @@ namespace Platformer
         VirtualPlayerCamera,
         StaticBossCamera,
 
+        AudioManager,
         EventSystemContainer,
         DynamicsContainer,
         Game

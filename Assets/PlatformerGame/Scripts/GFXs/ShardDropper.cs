@@ -41,8 +41,8 @@ namespace Platformer
                 ShardsLeft--;
 
                 var instance = ResourceManager.GetFromPool(GFXs.FallingShard);
-                instance.transform.SetParent(DynamicsContainer.Transform, false);
-                DynamicsContainer.AddItem(instance);
+                //instance.transform.SetParent(DynamicsContainer.Transform, false);
+                DynamicsContainer.AddTemporary(instance);
 
                 var newX = transform.position.x + Random.Range(-4f, 4f);
                 var newPosition = new Vector2(newX, transform.position.y);
