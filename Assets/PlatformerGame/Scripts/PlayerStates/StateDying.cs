@@ -6,10 +6,12 @@ namespace Platformer.PlayerStates
 {
     public class StateDying : BaseState
     {
+        private IAudioManager AudioManager;
 
         public StateDying(IPlayer model)
         {
             Model = model;
+            AudioManager = CompositionRoot.GetAudioManager();
         }
 
         public override void OnEnable(float time = 0f)
@@ -17,7 +19,9 @@ namespace Platformer.PlayerStates
             Timer = time;
             Model.UpdateStateName("Dying");
             Model.Health.HealthChanged = null;
-            Model.PlayRedhoodSound(EPlayerSounds.LifeLost);
+
+            AudioManager.PauseMusic();
+            AudioManager.PlayRedhoodSound(EPlayerSounds.LifeLost);
         }
 
         public override void Update()

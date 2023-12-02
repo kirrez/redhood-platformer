@@ -4,9 +4,12 @@ namespace Platformer.PlayerStates
 {
     public class StateRollDown : BaseState
     {
+        private IAudioManager AudioManager;
+
         public StateRollDown(IPlayer model)
         {
             Model = model;
+            AudioManager = CompositionRoot.GetAudioManager();
         }
 
         public override void OnEnable(float time = 0f)
@@ -17,7 +20,7 @@ namespace Platformer.PlayerStates
 
             Model.ResetVelocity();
             Model.RollDown();
-            Model.PlayRedhoodSound(EPlayerSounds.RollDown);
+            AudioManager.PlayRedhoodSound(EPlayerSounds.RollDown);
         }
 
         public override void Update()

@@ -13,14 +13,16 @@ namespace Platformer
         MushroomsRequired,
         BlackberriesCollected,
         BlackberriesRequired,
+        //
 
-        //Suspension bridge quest
-        SuspensionBridge,
+        SuspensionBridge, //Suspension bridge quest
         Drawbridge,
         UpgradeHealth, // repeating quest, giving health upgrades infinitely
         Blacksmith, // giving GREY key for 3 ore
         PlatformSuspended, //quest in mountains
         WomanCandy, // secret candy in village
+
+        CrippledAxeItem, // appears as collectible item in Western Forest
 
         //Bosses
         Megafrog, //0- battle available, 1- battle won

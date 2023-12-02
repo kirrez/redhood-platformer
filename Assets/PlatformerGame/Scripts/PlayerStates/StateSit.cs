@@ -6,9 +6,12 @@ namespace Platformer.PlayerStates
 {
     public class StateSit : BaseState
     {
+        private IAudioManager AudioManager;
+
         public StateSit(IPlayer model)
         {
             Model = model;
+            AudioManager = CompositionRoot.GetAudioManager();
         }
 
         public override void OnEnable(float time = 0)
@@ -50,7 +53,7 @@ namespace Platformer.PlayerStates
                 Model.HitJump = false;
                 Model.JumpDown();
                 Model.Animations.JumpFalling();
-                Model.PlayRedhoodSound(EPlayerSounds.Jump);
+                AudioManager.PlayRedhoodSound(EPlayerSounds.Jump);
 
                 //Model.SetState(EPlayerStates.JumpDown, Model.JumpDownTime);
                 Model.SetState(EPlayerStates.JumpFalling, 0.75f);
@@ -62,7 +65,7 @@ namespace Platformer.PlayerStates
                 Model.HitJump = false;
                 Model.JumpDown();
                 Model.Animations.JumpFalling();
-                Model.PlayRedhoodSound(EPlayerSounds.Jump);
+                AudioManager.PlayRedhoodSound(EPlayerSounds.Jump);
 
                 Model.SetState(EPlayerStates.JumpFalling, 0.75f);
             }

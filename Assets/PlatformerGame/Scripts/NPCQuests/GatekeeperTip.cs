@@ -32,24 +32,45 @@ namespace Platformer
 
         private void Update()
         {
-            if (ProgressManager.GetQuest(EQuest.KeyGrey) == 1) return;
+            int quest = ProgressManager.GetQuest(EQuest.KeyGrey);
+            //if ( quest == 1) return;
 
-            if (AreaTrigger.bounds.Contains(Player.Position) && !Inside)
+            if (quest < 1)
             {
-                Inside = true;
-                Player.Interaction += OnInteraction;
-                HelpText.gameObject.SetActive(true);
+                if (AreaTrigger.bounds.Contains(Player.Position) && !Inside)
+                {
+                    Inside = true;
+                    Player.Interaction += Gatekeeper1;
+                    HelpText.gameObject.SetActive(true);
+                }
+
+                if (!AreaTrigger.bounds.Contains(Player.Position) && Inside)
+                {
+                    Inside = false;
+                    Player.Interaction -= Gatekeeper1;
+                    HelpText.gameObject.SetActive(false);
+                }
             }
-
-            if (!AreaTrigger.bounds.Contains(Player.Position) && Inside)
+            
+            if (quest >= 1)
             {
-                Inside = false;
-                Player.Interaction -= OnInteraction;
-                HelpText.gameObject.SetActive(false);
+                if (AreaTrigger.bounds.Contains(Player.Position) && !Inside)
+                {
+                    Inside = true;
+                    Player.Interaction += Gatekeeper2;
+                    HelpText.gameObject.SetActive(true);
+                }
+
+                if (!AreaTrigger.bounds.Contains(Player.Position) && Inside)
+                {
+                    Inside = false;
+                    Player.Interaction -= Gatekeeper2;
+                    HelpText.gameObject.SetActive(false);
+                }
             }
         }
 
-        private void OnInteraction()
+        private void Gatekeeper1()
         {
             var Game = CompositionRoot.GetGame();
 
@@ -67,7 +88,30 @@ namespace Platformer
                     Game.Dialogue.Hide();
                     DialoguePhase = 0;
                     HelpText.gameObject.SetActive(false);
-                    Player.Interaction -= OnInteraction;
+                    Player.Interaction -= Gatekeeper1;
+                    break;
+            }
+        }
+
+        private void Gatekeeper2()
+        {
+            var Game = CompositionRoot.GetGame();
+
+            switch (DialoguePhase)
+            {
+                case 0:
+                    Player.HoldByInteraction();
+                    Game.Dialogue.Show();
+                    Game.Dialogue.SetDialogueName(Localization.Text(ETexts.GatekeeperTitle));
+                    Game.Dialogue.ChangeContent(Localization.Text(ETexts.Gatekeeper1_2));
+                    DialoguePhase++;
+                    break;
+                case 1:
+                    Player.ReleasedByInteraction();
+                    Game.Dialogue.Hide();
+                    DialoguePhase = 0;
+                    HelpText.gameObject.SetActive(false);
+                    Player.Interaction -= Gatekeeper2;
                     break;
             }
         }

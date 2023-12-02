@@ -66,6 +66,10 @@ namespace Platformer
             Texts[ETexts.DialoguePie1_5] = "- Sure, I'll do it! See ya )";
             Texts[ETexts.DialoguePie1_6] = "- Be careful, meine Hertz.";
 
+            Texts[ETexts.DialoguePie1_7] = "- Du gebracht mich ";
+            Texts[ETexts.DialoguePie1_8] = " Schrooms und ";
+            Texts[ETexts.DialoguePie1_9] = " Berries! Das ist nicht enough..";
+
             Texts[ETexts.FamilyMonologue] = "* My Wonderful Family *";
             Texts[ETexts.Family_1] = "It's about my mom.";
             Texts[ETexts.Family_2] = "She came from far away country called Stiria, and still didn't get used to local customs. Even couldn't get rid of her foreign accent.";
@@ -79,7 +83,9 @@ namespace Platformer
             Texts[ETexts.Father_4] = "GRRRrrr.";
             Texts[ETexts.Father_5] = "I'm fine. Mom is good too. She's been missing you lately. Come back home soon.";
             Texts[ETexts.Father_6] = "Grwaah, huwaaa.";
-            Texts[ETexts.Father_7] = "Did you fix the bridge? How nice of you! Then I'll better go home, bye!";
+            Texts[ETexts.Father_7] = "Oh, your old axe! Thank you, i'll take it!";
+            Texts[ETexts.Father_8] = "Did you fix the bridge? How nice of you! Then I'll better go home, bye!";
+
 
             Texts[ETexts.PieDialogue2] = "* Ingredients collected *";
             Texts[ETexts.DialoguePie2_1] = "- I've brought you everything you asked for, let's cook (- o -)/";
@@ -114,6 +120,7 @@ namespace Platformer
             Texts[ETexts.Commoner1_2] = "Don't walk around the ruins, it's dangerous!";
             Texts[ETexts.GatekeeperTitle] = "* Gatekeeper *";
             Texts[ETexts.Gatekeeper1_1] = "If you want to pass freely through this gate, go ask the smith to make you a new grey key, since I've lost a spare one.";
+            Texts[ETexts.Gatekeeper1_2] = "Be careful, child!";
             Texts[ETexts.CommonerSecret] = "Psst! There is a secret place in the village. You can only reach it by crushing the cursed wall. You obviousely need a holy weapon for it...";
             Texts[ETexts.WomanCandy] = "Here you are, darling, take this!";
             Texts[ETexts.ShopkeeperTitle] = "* Shopkeeper *";
@@ -149,6 +156,10 @@ namespace Platformer
             Texts[ETexts.DialoguePie1_5] = "- Хорошо, мам, сделаю!";
             Texts[ETexts.DialoguePie1_6] = "- Спасибо, сольнышко.";
 
+            Texts[ETexts.DialoguePie1_7] = "- Тфоя приносить ";
+            Texts[ETexts.DialoguePie1_8] = " Грибов и ";
+            Texts[ETexts.DialoguePie1_9] = " Йагот! Этафа нье достатошно..";
+
             Texts[ETexts.FamilyMonologue] = "* Моя прекрасная семья *";
             Texts[ETexts.Family_1] = "О моей маме..";
             Texts[ETexts.Family_2] = "Она - иностранка, пришла в эти края из далёкой Штирии и всё ещё не может привыкнуть. Даже говорит до сих пор с акцентом. ";
@@ -162,7 +173,8 @@ namespace Platformer
             Texts[ETexts.Father_4] = "ГРРРррр.";
             Texts[ETexts.Father_5] = "Я в порядке, мама тоже. Она по тебе соскучилась, возвращайся скорее!";
             Texts[ETexts.Father_6] = "Грввах, уваах.";
-            Texts[ETexts.Father_7] = "Ты починил мост? Как здорово! Тогда я побегу домой, до встречи!";
+            Texts[ETexts.Father_7] = "О, твой старый топор! Спасибо, я возьму его!";
+            Texts[ETexts.Father_8] = "Ты починил мост? Как здорово! Тогда я побегу домой, до встречи!";
 
             Texts[ETexts.PieDialogue2] = "* Собранные ингредиенты *";
             Texts[ETexts.DialoguePie2_1] = "- Я принесла всё, что ты просила. Давай скорее готовить! (- о -)/";
@@ -197,6 +209,7 @@ namespace Platformer
             Texts[ETexts.Commoner1_2] = "Не играй на развалинах, девочка, там опасно!";
             Texts[ETexts.GatekeeperTitle] = "* Привратник *";
             Texts[ETexts.Gatekeeper1_1] = "Если хочешь свободно пройти через эти ворота, иди попроси кузнеца сделать тебе новый серый ключ, а то я потерял запасной.";
+            Texts[ETexts.Gatekeeper1_2] = "Будь осторожна, девочка!";
             Texts[ETexts.CommonerSecret] = "Эй! В деревне есть тайное место, но добраться до него можно, только разрушив проклятую стену. Для этого тебе понадобится освященное оружие...";
             Texts[ETexts.WomanCandy] = "Вот, возьми конфетку, девочка!";
             Texts[ETexts.ShopkeeperTitle] = "* Продавец *";

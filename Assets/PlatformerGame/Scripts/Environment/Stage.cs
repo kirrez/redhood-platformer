@@ -36,6 +36,7 @@ namespace Platformer
             var originLocation = LocationTransitions[LocationIndex].OriginLocation;
             var targetLocation = LocationTransitions[LocationIndex].TargetLocation;
             var confiner = Confiners[ConfinerIndex];
+            var music = Music[MusicIndex];
 
             for (int i = 0; i < originLocation.Count; i++)
             {
@@ -51,7 +52,7 @@ namespace Platformer
             confiner.gameObject.SetActive(true);
             Confiner.m_BoundingShape2D = confiner;
 
-            AudioManager.PlayMusic(Music[MusicIndex]);
+            AudioManager.PlayMusic(music);
         }
     }
 }

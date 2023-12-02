@@ -19,7 +19,7 @@ namespace Platformer
 
         private Collider2D AreaTrigger;
         private bool Inside = false;
-        private int DialoguePhase = 0;
+        private int DialoguePhase;
 
         private void Awake()
         {
@@ -35,24 +35,47 @@ namespace Platformer
 
         private void Update()
         {
-            if (ProgressManager.GetQuest(EQuest.MotherPie) != 0) return;
+            int quest = ProgressManager.GetQuest(EQuest.MotherPie);
+            //if (quest != 0) return;
 
-            if (AreaTrigger.bounds.Contains(Player.Position) && !Inside)
+            if (quest == 0)
             {
-                Inside = true;
-                Player.Interaction += OnInteraction;
-                HelpText.gameObject.SetActive(true);
+                if (AreaTrigger.bounds.Contains(Player.Position) && !Inside)
+                {
+                    Inside = true;
+                    DialoguePhase = 0;
+                    Player.Interaction += MQ1First;
+                    HelpText.gameObject.SetActive(true);
+                }
+
+                if (!AreaTrigger.bounds.Contains(Player.Position) && Inside)
+                {
+                    Inside = false;
+                    Player.Interaction -= MQ1First;
+                    HelpText.gameObject.SetActive(false);
+                }
             }
-
-            if (!AreaTrigger.bounds.Contains(Player.Position) && Inside)
+            
+            if (quest > 0 && quest < 3)
             {
-                Inside = false;
-                Player.Interaction -= OnInteraction;
-                HelpText.gameObject.SetActive(false);
+                if (AreaTrigger.bounds.Contains(Player.Position) && !Inside)
+                {
+                    Inside = true;
+                    DialoguePhase = 0;
+                    Player.Interaction += MQ1Second;
+                    HelpText.gameObject.SetActive(true);
+                }
+
+                if (!AreaTrigger.bounds.Contains(Player.Position) && Inside)
+                {
+                    Inside = false;
+                    Player.Interaction -= MQ1Second;
+                    HelpText.gameObject.SetActive(false);
+                }
             }
         }
 
-        private void OnInteraction()
+        private void MQ1First()
         {
             var Game = CompositionRoot.GetGame();
 
@@ -90,13 +113,40 @@ namespace Platformer
                     Game.Dialogue.Hide();
                     ProgressManager.SetQuest(EQuest.MotherPie, 1);
                     HelpText.gameObject.SetActive(false);
-                    Player.Interaction -= OnInteraction;
 
                     ProgressManager.SetQuest(EQuest.KeyRed, 0);
                     Spawner.SpawnItem();
+                    Player.Interaction -= MQ1First;
+                    break;
+            }
+        }
+
+        private void MQ1Second()
+        {
+            var Game = CompositionRoot.GetGame();
+
+            var schrooms = ProgressManager.GetQuest(EQuest.MushroomsCollected);
+            var berries = ProgressManager.GetQuest(EQuest.BlackberriesCollected);
+            string phrase = Localization.Text(ETexts.DialoguePie1_7) + schrooms.ToString() + Localization.Text(ETexts.DialoguePie1_8) + berries.ToString() + Localization.Text(ETexts.DialoguePie1_9);
+
+            switch (DialoguePhase)
+            {
+                case 0:
+                    Player.HoldByInteraction();
+                    Game.Dialogue.Show();
+                    Game.Dialogue.SetDialogueName(Localization.Text(ETexts.PieDialogue1));
+                    Game.Dialogue.ChangeContent(phrase);
+                    DialoguePhase++;
+                    break;
+                case 1:
+                    Player.ReleasedByInteraction();
+                    Game.Dialogue.Hide();
+                    HelpText.gameObject.SetActive(false);
+                    Player.Interaction -= MQ1Second;
                     break;
             }
 
         }
+
     }
 }

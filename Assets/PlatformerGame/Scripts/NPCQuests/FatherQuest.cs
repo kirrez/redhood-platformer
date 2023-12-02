@@ -12,6 +12,9 @@ namespace Platformer
         [SerializeField]
         private Transform TargetTransform;
 
+        [SerializeField]
+        private CrippledAxeItemSpawner Spawner;
+
         private IProgressManager ProgressManager;
         private IAudioManager AudioManager;
         private ILocalization Localization;
@@ -94,8 +97,15 @@ namespace Platformer
                 case 6:
                     Game.Dialogue.ChangeContent(Localization.Text(ETexts.Father_7));
                     DialoguePhase++;
+                    //spawn axe here
+                    ProgressManager.SetQuest(EQuest.CrippledAxeItem, 1);
+                    Spawner.SpawnItem();
                     break;
                 case 7:
+                    Game.Dialogue.AddContent(Localization.Text(ETexts.Father_8));
+                    DialoguePhase++;
+                    break;
+                case 8:
                     Player.ReleasedByInteraction();
                     Game.Dialogue.Hide();
                     ProgressManager.SetQuest(EQuest.SuspensionBridge, 2);

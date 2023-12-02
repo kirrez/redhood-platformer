@@ -62,6 +62,7 @@ namespace Platformer
                 ProgressManager.SetQuest(Item, ModifiedValue);
                 Dummy.SetActive(false);
                 Platform.SetActive(true);
+
                 if (EnableDiscoverySound)
                 {
                     AudioManager.PlaySound(ESounds.ElevatorActivated);

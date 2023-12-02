@@ -27,12 +27,17 @@ namespace Platformer
 
         //Quest Dialogues
         PieDialogue1,
+        //MQ1First :
         DialoguePie1_1,
         DialoguePie1_2,
         DialoguePie1_3,
         DialoguePie1_4,
         DialoguePie1_5,
         DialoguePie1_6,
+        //MQ1Second :
+        DialoguePie1_7,
+        DialoguePie1_8,
+        DialoguePie1_9,
 
         FamilyMonologue,
         Family_1,
@@ -48,6 +53,7 @@ namespace Platformer
         Father_5,
         Father_6,
         Father_7,
+        Father_8,
 
         PieDialogue2,
         DialoguePie2_1,
@@ -83,6 +89,7 @@ namespace Platformer
         WomanCandy,
         GatekeeperTitle,
         Gatekeeper1_1,
+        Gatekeeper1_2,
         ShopkeeperTitle,
         Shopkeeper1
     }

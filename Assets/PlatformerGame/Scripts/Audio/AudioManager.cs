@@ -17,6 +17,8 @@ namespace Platformer
 
         private EMusic MusicIndex;
 
+        private int DelayedAction;
+        private float Timer;
 
         private void Awake()
         {
@@ -24,6 +26,28 @@ namespace Platformer
             ResourceManager = CompositionRoot.GetResourceManager();
 
             LoadPlayerSounds();
+        }
+
+        private void Update()
+        {
+            if (DelayedAction > 0)
+            {
+                Timer -= Time.deltaTime;
+                if (Timer <= 0)
+                {
+                    if (DelayedAction == 1)
+                    {
+                        DelayedAction = 0;
+                        UnPauseMusic();
+                    }
+
+                    if (DelayedAction == 2)
+                    {
+                        DelayedAction = 0;
+                        ReplayMusic();
+                    }
+                }
+            }
         }
 
         private AudioSource LoadSound(ESounds sound)
@@ -60,8 +84,11 @@ namespace Platformer
 
             if (index != MusicIndex)
             {
-                CurrentMusic.Stop();
-                CurrentMusic.gameObject.SetActive(false);
+                if (CurrentMusic != null)
+                {
+                    CurrentMusic.Stop();
+                    CurrentMusic.gameObject.SetActive(false);
+                }
                 MusicIndex = index;
             }
 
@@ -72,11 +99,18 @@ namespace Platformer
             CurrentMusic.Play();
         }
 
-        public void PauseMusic()
+        public void PauseMusic(float delay = 0f, bool replay = false)
         {
             if (CurrentMusic != null)
             {
                 CurrentMusic.Pause();
+                if (delay > 0)
+                {
+                    if (replay == false) DelayedAction = 1;
+                    else DelayedAction = 2;
+
+                    Timer = delay;
+                }
             }
         }
 

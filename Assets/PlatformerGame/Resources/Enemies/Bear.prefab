@@ -186,7 +186,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a1f1dc202829a24ab6d9daa34b1f5f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHitPoints: 4
+  MaxHitPoints: 8
   Type: 1
   DamageCooldown: 1
 --- !u!1 &2142857700136309713

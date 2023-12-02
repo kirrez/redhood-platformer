@@ -6,9 +6,9 @@ namespace Platformer
 {
     public enum EMusic
     {
+        TheVillage_DayTime,
+        TheVillage_Night,
         Mountains_1,
         Boss_theme,
-        TheVillage_1,
-        Evergreen,
     }
 }

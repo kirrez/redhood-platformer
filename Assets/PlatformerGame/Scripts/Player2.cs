@@ -481,7 +481,7 @@ namespace Platformer
                 instance.GetComponent<IBaseGFX>().Initiate(FirePoint.position, DirectionX);
 
                 //AudioManager.PlaySound(ESounds.ThrowKnife1);
-                PlayRedhoodSound(EPlayerSounds.ThrowKnife);
+                AudioManager.PlayRedhoodSound(EPlayerSounds.ThrowKnife);
             }
         }
 
@@ -513,7 +513,7 @@ namespace Platformer
                 instance.GetComponent<Rigidbody2D>().velocity = weaponVelocity;
                 instance.GetComponent<IBaseGFX>().Initiate(FirePoint.position, DirectionX);
 
-                PlayRedhoodSound(EPlayerSounds.ThrowAxe);
+                AudioManager.PlayRedhoodSound(EPlayerSounds.ThrowAxe);
             }
 
         }
@@ -544,7 +544,7 @@ namespace Platformer
                 instance.GetComponent<Rigidbody2D>().velocity = weaponVelocity;
                 instance.GetComponent<IBaseGFX>().Initiate(FirePoint.position, DirectionX);
 
-                PlayRedhoodSound(EPlayerSounds.ThrowBottle);
+                AudioManager.PlayRedhoodSound(EPlayerSounds.ThrowBottle);
 
                 //weapon.Disappear += delegate (Transform trans)
                 //{
@@ -738,11 +738,12 @@ namespace Platformer
             SetState(EPlayerStates.Stunned, time);
         }
 
-        public void PlayRedhoodSound(EPlayerSounds key)
+        public void UpdateAllWeaponLevel()
         {
-            AudioManager.PlayRedhoodSound(key);
+            KnifeLevel = ProgressManager.GetQuest(EQuest.KnifeLevel);
+            AxeLevel = ProgressManager.GetQuest(EQuest.AxeLevel);
+            HolyWaterLevel = ProgressManager.GetQuest(EQuest.HolyWaterLevel);
         }
-
 
         private void LoadConfigData()
         {
@@ -759,13 +760,5 @@ namespace Platformer
             AxeCooldown = Config.AxeCooldown;
             HolyWaterCooldown = Config.HolyWaterCooldown;
         }
-
-        private void UpdateAllWeaponLevel()
-        {
-            KnifeLevel = ProgressManager.GetQuest(EQuest.KnifeLevel);
-            AxeLevel = ProgressManager.GetQuest(EQuest.AxeLevel);
-            HolyWaterLevel = ProgressManager.GetQuest(EQuest.HolyWaterLevel);
-        }
-
     }
 }

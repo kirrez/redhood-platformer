@@ -56,7 +56,7 @@ namespace Platformer
         void HoldByInteraction();
         void ReleasedByInteraction();
         void GetStunned(float time);
-        void PlayRedhoodSound(EPlayerSounds key);
+        void UpdateAllWeaponLevel();
 
         //Weapons
         void UpdateAttackTimers();

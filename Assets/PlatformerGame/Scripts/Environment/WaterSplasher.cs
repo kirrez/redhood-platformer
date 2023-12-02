@@ -6,6 +6,7 @@ namespace Platformer
     {
         private IResourceManager ResourceManager;
         private IDynamicsContainer Dynamics;
+        private IAudioManager AudioManager;
         private Collider2D Collider;
         private IPlayer Player;
         private bool Inside;
@@ -14,6 +15,7 @@ namespace Platformer
         {
             ResourceManager = CompositionRoot.GetResourceManager();
             Dynamics = CompositionRoot.GetDynamicsContainer();
+            AudioManager = CompositionRoot.GetAudioManager();
             Collider = GetComponent<Collider2D>();
             Player = CompositionRoot.GetPlayer();
         }
@@ -26,7 +28,7 @@ namespace Platformer
                 var effect = ResourceManager.GetFromPool(GFXs.BlueSplash);
                 //effect.transform.SetParent(Dynamics.Main, false);
                 Dynamics.AddMain(effect);
-                Player.PlayRedhoodSound(EPlayerSounds.WaterSplash);
+                AudioManager.PlayRedhoodSound(EPlayerSounds.WaterSplash);
 
                 effect.transform.position = Player.Position;
                 Inside = true;
@@ -37,7 +39,7 @@ namespace Platformer
                 var effect = ResourceManager.GetFromPool(GFXs.BlueSplash);
                 //effect.transform.SetParent(Dynamics.Transform, false);
                 Dynamics.AddMain(effect);
-                Player.PlayRedhoodSound(EPlayerSounds.WaterSplash);
+                AudioManager.PlayRedhoodSound(EPlayerSounds.WaterSplash);
 
                 effect.transform.position = Player.Position;
                 Inside = false;

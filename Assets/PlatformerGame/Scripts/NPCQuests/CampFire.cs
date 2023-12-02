@@ -29,6 +29,7 @@ namespace Platformer
         Text HelpText;
 
         private IProgressManager ProgressManager;
+        private IAudioManager AudioManager;
         private ILocalization Localization;
         private SpriteRenderer Renderer;
         private IPlayer Player;
@@ -39,6 +40,7 @@ namespace Platformer
         private void Awake()
         {
             ProgressManager = CompositionRoot.GetProgressManager();
+            AudioManager = CompositionRoot.GetAudioManager();
             Localization = CompositionRoot.GetLocalization();
             Renderer = GetComponent<SpriteRenderer>();
             Player = CompositionRoot.GetPlayer();
@@ -88,7 +90,7 @@ namespace Platformer
             ProgressManager.SetQuest(EQuest.Location, LocationIndex);
             ProgressManager.SetQuest(EQuest.Confiner, ConfinerIndex);
             SwitchFire(true);
-            Player.PlayRedhoodSound(EPlayerSounds.LightCampFire);
+            AudioManager.PlayRedhoodSound(EPlayerSounds.LightCampFire);
 
             HelpText.gameObject.SetActive(false);
             Player.Interaction -= OnInteraction;

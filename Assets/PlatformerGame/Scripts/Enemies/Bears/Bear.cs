@@ -67,7 +67,7 @@ namespace Platformer
         private void OnEnable()
         {
             StairTimer = 0.5f;
-            SetMask("EnemySolid");
+            SetMask(LayerNames.EnemySolid);
             UnfreezeBody();
 
             DamageTrigger.enabled = true;
@@ -98,7 +98,7 @@ namespace Platformer
         private void OnHealthChanged()
         {
             Animator.StartBlinking();
-            SetMask("EnemyInactive");
+            SetMask(LayerNames.EnemyInactive);
             DamageTrigger.enabled = false;
 
             AudioManager.PlaySound(ESounds.EnemyDamage2);
@@ -108,7 +108,7 @@ namespace Platformer
         {
             if (Health.GetHitPoints > 0)
             {
-                SetMask("EnemySolid");
+                SetMask(LayerNames.EnemySolid);
                 DamageTrigger.enabled = true;
             }
         }
@@ -139,7 +139,7 @@ namespace Platformer
             Animator.StopBlinking();
             Animator.SetAnimation(BearAnimations.Death);
 
-            SetMask("EnemyInactive");
+            SetMask(LayerNames.EnemyInactive);
             Body.velocity = Vector2.zero;
             FreezeBody();
             DamageTrigger.enabled = false;

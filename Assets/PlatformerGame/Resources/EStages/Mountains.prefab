@@ -507,7 +507,7 @@ MonoBehaviour:
     - {fileID: 7082840183221074347}
     - {fileID: 4581772451462489165}
     OriginLocation: []
-  Music: 00000000
+  Music: 02000000
 --- !u!1 &3372355861346199268
 GameObject:
   m_ObjectHideFlags: 0
@@ -106572,7 +106572,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4080675999212431336, guid: 7ee68d6125ebddd4885cdb36fd58493a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -35
+      value: -32
       objectReference: {fileID: 0}
     - target: {fileID: 4080675999212431336, guid: 7ee68d6125ebddd4885cdb36fd58493a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -106612,7 +106612,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4080675999212431337, guid: 7ee68d6125ebddd4885cdb36fd58493a, type: 3}
       propertyPath: m_Size.x
-      value: 12
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4080675999212431337, guid: 7ee68d6125ebddd4885cdb36fd58493a, type: 3}
       propertyPath: m_Size.y
@@ -108649,11 +108649,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6038003884785610851, guid: b7f797c6f2eca4b4b8bc7c5d64983405, type: 3}
       propertyPath: MaxSpawnCount
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6038003884785610851, guid: b7f797c6f2eca4b4b8bc7c5d64983405, type: 3}
       propertyPath: RespawnCooldown
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7f797c6f2eca4b4b8bc7c5d64983405, type: 3}
@@ -114434,7 +114434,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4080675999212431336, guid: 7ee68d6125ebddd4885cdb36fd58493a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -42
+      value: -40
       objectReference: {fileID: 0}
     - target: {fileID: 4080675999212431336, guid: 7ee68d6125ebddd4885cdb36fd58493a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -114474,7 +114474,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4080675999212431337, guid: 7ee68d6125ebddd4885cdb36fd58493a, type: 3}
       propertyPath: m_Size.x
-      value: 12
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4080675999212431337, guid: 7ee68d6125ebddd4885cdb36fd58493a, type: 3}
       propertyPath: m_Size.y

@@ -75,7 +75,7 @@ namespace Platformer
         private void OnEnable()
         {
             StairTimer = 0.5f;
-            SetMask("EnemySolid");
+            SetMask(LayerNames.EnemySolid);
             UnfreezeBody();
 
             DamageTrigger.enabled = true;
@@ -106,7 +106,7 @@ namespace Platformer
         private void OnHealthChanged()
         {
             Animator.StartBlinking();
-            SetMask("EnemyInactive");
+            SetMask(LayerNames.EnemyInactive);
             DamageTrigger.enabled = false;
 
             AudioManager.PlaySound(ESounds.EnemyDamage2);
@@ -116,7 +116,7 @@ namespace Platformer
         {
             if (Health.GetHitPoints > 0)
             {
-                SetMask("EnemySolid");
+                SetMask(LayerNames.EnemySolid);
                 DamageTrigger.enabled = true;
             }
         }
@@ -147,7 +147,7 @@ namespace Platformer
             Animator.StopBlinking();
             Animator.SetAnimation(BearAnimations.Death);
 
-            SetMask("EnemyInactive");
+            SetMask(LayerNames.EnemyInactive);
             Body.velocity = Vector2.zero;
             FreezeBody();
             DamageTrigger.enabled = false;
@@ -202,8 +202,8 @@ namespace Platformer
         // insurmauntable obstacle
         private bool CheckWall(LayerMask mask)
         {
-            var origin = new Vector2(Collider.bounds.center.x + Collider.bounds.extents.x * DirectionX, Collider.bounds.center.y - Collider.bounds.extents.y + 1.5f);//
-            var boxSize = new Vector2(0.2f, 1.6f);
+            var origin = new Vector2(Collider.bounds.center.x + Collider.bounds.extents.x * DirectionX, Collider.bounds.center.y - Collider.bounds.extents.y + 2f);//
+            var boxSize = new Vector2(0.2f, 0.8f);
             float distance = 0.1f; // Magic number, empirical
             RaycastHit2D WallHit = Physics2D.BoxCast(origin, boxSize, 0f, new Vector2(1f * DirectionX, 0f), distance, mask);
 

@@ -26,7 +26,7 @@ namespace Platformer
             CurrentStage = instance;
         }
 
-        public void SetLocation(int locationIndex = 0, int spawnPointIndex = 0, int confinerIndex = 0)
+        public void SetLocation(int locationIndex, int spawnPointIndex, int confinerIndex, int musicIndex = 0)
         {
             CurrentStage.SetLocation(locationIndex, spawnPointIndex, confinerIndex);
         }

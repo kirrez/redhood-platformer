@@ -39,8 +39,8 @@ namespace Platformer
             var mainCMCamera = CompositionRoot.GetMainCMCamera();
 
             //ProgressManager.LoadTestConfig1();
-            ProgressManager.LoadTestConfig();
-            //ProgressManager.LoadNewGame();
+            //ProgressManager.LoadTestConfig();
+            ProgressManager.LoadNewGame();
 
             GameOverModel = new GameOverModel();
             GameOverModel.TryingAgain += TryAgain;
@@ -70,8 +70,6 @@ namespace Platformer
         {
             HUDModel.Hide();
             GameOverModel.Show();
-
-            AudioManager.PauseMusic();
         }
 
         private void LoadPlayerLocation()
@@ -89,6 +87,7 @@ namespace Platformer
         {
             DynamicsContainer.DeactivateMain();
             DynamicsContainer.DeactivateEnemies();
+            DynamicsContainer.DeactivateTemporary(); // temp
 
             ProgressManager.RefillRenewables();
             LoadPlayerLocation();

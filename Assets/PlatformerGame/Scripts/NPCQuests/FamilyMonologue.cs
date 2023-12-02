@@ -68,7 +68,7 @@ namespace Platformer
                     DialoguePhase++;
                     break;
                 case 2:
-                    Game.Dialogue.AddContent(Localization.Text(ETexts.Family_3));
+                    Game.Dialogue.ChangeContent(Localization.Text(ETexts.Family_3));
                     DialoguePhase++;
                     break;
                 case 3:

@@ -37,33 +37,16 @@ namespace Platformer
 
             SetQuest(EQuest.KeyRed, -1);
             SetQuest(EQuest.KeyGrey, -1);
+            SetQuest(EQuest.KeyGreen, -1);
 
             //Mother's Pie quest
             SetQuest(EQuest.MushroomsRequired, 3);
             SetQuest(EQuest.BlackberriesRequired, 4);
 
+            SetQuest(EQuest.OreCollected, 5);
+
             //Boss data
             SetQuest(EQuest.MegafrogMaxHealth, 90); // 90 (45 * 2, 30 * 3)
-        }
-
-        public void LoadTestConfig1()
-        {
-            LoadNewGame();
-
-            //Left Home
-            SetQuest(EQuest.MotherPie, 2);
-            //Got red key
-            SetQuest(EQuest.KeyRed, 1);
-            //SetQuest(EQuest.SuspensionBridge, 3);
-
-            SetQuest(EQuest.Stage, (int)EStages.WesternForest);
-            SetQuest(EQuest.Location, 0);
-            SetQuest(EQuest.SpawnPoint, 0);
-            SetQuest(EQuest.Confiner, 0);
-
-            SetQuest(EQuest.KnifeLevel, 1);
-            SetQuest(EQuest.AxeLevel, 1);
-            SetQuest(EQuest.HolyWaterLevel, 1);
         }
 
         public void LoadTestConfig()
@@ -88,6 +71,7 @@ namespace Platformer
             //new Player's location
             //CaveLabyrinth Cave8 : Loc. 1, SP : 16, Conf : 8
             //CaveLabyrinth Cave11Boss : L 1, Sp 23, Conf 11
+
             //SetQuest(EQuest.Stage, (int)EStages.CaveLabyrinth);
             //SetQuest(EQuest.Location, 1);
             //SetQuest(EQuest.SpawnPoint, 23);
@@ -95,20 +79,40 @@ namespace Platformer
 
             SetQuest(EQuest.Stage, (int)EStages.Mountains);
             SetQuest(EQuest.Location, 0);
-            SetQuest(EQuest.SpawnPoint, 2);
+            SetQuest(EQuest.SpawnPoint, 1);
             SetQuest(EQuest.Confiner, 0);
 
             SetQuest(EQuest.KnifeLevel, 1);
-            SetQuest(EQuest.AxeLevel, 2);
+            SetQuest(EQuest.AxeLevel, 1);
             SetQuest(EQuest.HolyWaterLevel, 1);
 
             SetQuest(EQuest.MaxLives, 6);
-            SetQuest(EQuest.FoodCollected, 3);
+            SetQuest(EQuest.FoodCollected, 10);
             SetQuest(EQuest.OreCollected, 1);
 
             //Finished Mother's Pie quest will be with mushrooms 3 and berries 4
             SetQuest(EQuest.MushroomsCollected, 3);
             SetQuest(EQuest.BlackberriesCollected, 4);
+        }
+
+        public void LoadTestConfig1()
+        {
+            LoadNewGame();
+
+            //Left Home
+            SetQuest(EQuest.MotherPie, 2);
+            //Got red key
+            SetQuest(EQuest.KeyRed, 1);
+            //SetQuest(EQuest.SuspensionBridge, 3);
+
+            SetQuest(EQuest.Stage, (int)EStages.WesternForest);
+            SetQuest(EQuest.Location, 0);
+            SetQuest(EQuest.SpawnPoint, 0);
+            SetQuest(EQuest.Confiner, 0);
+
+            SetQuest(EQuest.KnifeLevel, 1);
+            SetQuest(EQuest.AxeLevel, 1);
+            SetQuest(EQuest.HolyWaterLevel, 1);
         }
 
         public void RefillRenewables()

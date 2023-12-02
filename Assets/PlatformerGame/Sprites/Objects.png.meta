@@ -4055,6 +4055,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: AxeCrippledItem
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 400
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b18bc52e811df9d49a17c27348400c71
+      internalID: -492996082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -4067,6 +4088,7 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       Anvil: 1114881007
+      AxeCrippledItem: -492996082
       AxeIcon_1: 1986779346
       AxeIcon_2: -1346496552
       AxeIcon_3: -562969194

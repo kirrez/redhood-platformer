@@ -6,17 +6,20 @@ namespace Platformer.PlayerStates
 {
     public class StateDamageTaken : BaseState
     {
+        private IAudioManager AudioManager;
+
         private int HitPoints;
         public StateDamageTaken(IPlayer model)
         {
             Model = model;
+            AudioManager = CompositionRoot.GetAudioManager();
         }
 
         public override void OnEnable(float time = 0f)
         {
             Model.UpdateStateName("Damage Taken");
             Model.Health.HealthChanged = null; //cleaning previous handler
-            Model.PlayRedhoodSound(EPlayerSounds.DamageTaken);
+            AudioManager.PlayRedhoodSound(EPlayerSounds.DamageTaken);
 
             //sitDamageCheck
             if (Model.Ceiled(LayerMasks.Solid) && Model.Grounded(LayerMasks.Solid))

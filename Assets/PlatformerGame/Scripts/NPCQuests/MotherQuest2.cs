@@ -1,7 +1,8 @@
 using UnityEngine.UI;
 using UnityEngine;
 
-// changes Mother's pie from 3 to 4
+// changes MotherPie from 2 to 3 if proper amount of mushrooms and berries collected
+// changes MotherPie from 3 to 4
 
 namespace Platformer
 {
@@ -21,6 +22,9 @@ namespace Platformer
         private bool Inside = false;
         private int DialoguePhase = 0;
 
+        private int Berries;
+        private int Schrooms;
+
         private void Awake()
         {
             ProgressManager = CompositionRoot.GetProgressManager();
@@ -35,20 +39,21 @@ namespace Platformer
 
         private void Update()
         {
+            Berries = ProgressManager.GetQuest(EQuest.BlackberriesCollected);
+            Schrooms = ProgressManager.GetQuest(EQuest.MushroomsCollected);
+
+            if (Berries >= ProgressManager.GetQuest(EQuest.BlackberriesRequired) && Schrooms >= ProgressManager.GetQuest(EQuest.MushroomsRequired) && ProgressManager.GetQuest(EQuest.MotherPie) < 3)
+            {
+                ProgressManager.SetQuest(EQuest.MotherPie, 3);
+            }
+
             if (ProgressManager.GetQuest(EQuest.MotherPie) != 3) return;
 
             if (AreaTrigger.bounds.Contains(Player.Position) && !Inside)
             {
                 Inside = true;
                 HelpText.gameObject.SetActive(true);
-
-                var BerriesEnough = ProgressManager.GetQuest(EQuest.BlackberriesCollected) >= ProgressManager.GetQuest(EQuest.BlackberriesRequired);
-                var MushroomsEnough = ProgressManager.GetQuest(EQuest.MushroomsCollected) >= ProgressManager.GetQuest(EQuest.MushroomsRequired);
-
-                if (BerriesEnough && MushroomsEnough)
-                {
-                    Player.Interaction += OnInteraction;
-                }
+                Player.Interaction += OnInteraction;
             }
 
             if (!AreaTrigger.bounds.Contains(Player.Position) && Inside)
