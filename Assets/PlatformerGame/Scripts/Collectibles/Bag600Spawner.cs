@@ -7,7 +7,7 @@ namespace Platformer
         // base Bag600_00
 
         [SerializeField]
-        [Range(0, 4)]
+        [Range(0, 9)]
         private int ItemIndex;
 
         public bool ItemPhysics;

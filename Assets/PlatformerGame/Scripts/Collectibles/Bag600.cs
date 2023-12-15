@@ -9,7 +9,7 @@ namespace Platformer
         private int CurrencyValue = 600;
 
         [SerializeField]
-        [Range(0, 4)]
+        [Range(0, 9)]
         private int ItemIndex;
 
         private int TargetValue;

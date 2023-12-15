@@ -66,7 +66,7 @@ namespace Platformer
             Texts[ETexts.DialoguePie1_5] = "- Sure, I'll do it! See ya )";
             Texts[ETexts.DialoguePie1_6] = "- Be careful, meine Hertz.";
 
-            Texts[ETexts.DialoguePie1_7] = "- Du gebracht mich ";
+            Texts[ETexts.DialoguePie1_7] = "- Du brought mich ";
             Texts[ETexts.DialoguePie1_8] = " Schrooms und ";
             Texts[ETexts.DialoguePie1_9] = " Berries! Das ist nicht enough..";
 
@@ -100,7 +100,7 @@ namespace Platformer
             Texts[ETexts.UpgradeHealth1_3] = "- Haaa? (my poor candies!) What for on Earth I have to strenghten my health?! I'm healthy enough!";
             Texts[ETexts.UpgradeHealth1_4] = "- Don't be capricious, meine Kinder.";
             Texts[ETexts.UpgradeHealth1_5] = "- Ok, I get it... (T__T)";
-            Texts[ETexts.UpgradeHealth2_1] = "If you hast at least 10 Candies, I'll make it fur dich!";
+            Texts[ETexts.UpgradeHealth2_1] = "If you hast at least 5 Candies, I'll make it fur dich!";
             Texts[ETexts.UpgradeHealth2_2] = "Sehr gut! Here you are!";
             Texts[ETexts.UpgradeHealth2_3] = "Ohh, du hast nicht genug! Bringst mich more )";
 
@@ -189,7 +189,7 @@ namespace Platformer
             Texts[ETexts.UpgradeHealth1_3] = "- Штааа? (мои конфетки!) И зачем это мне укреплять здоровье?! Я и так здоровая!";
             Texts[ETexts.UpgradeHealth1_4] = "- Не капризничайт много, мойо Дитя.";
             Texts[ETexts.UpgradeHealth1_5] = "- Лаадно, я поняла... (T__T)";
-            Texts[ETexts.UpgradeHealth2_1] = "Еслы найдеш хотья бы 10 Конфекты, йа смогу приготофить тебье!";
+            Texts[ETexts.UpgradeHealth2_1] = "Еслы найдеш хотья бы 5 Конфекты, йа смогу приготофить тебье!";
             Texts[ETexts.UpgradeHealth2_2] = "Ошень харашо, фот, возмьи!";
             Texts[ETexts.UpgradeHealth2_3] = "Этого мало, солнышько! Прынеси больще )";
 

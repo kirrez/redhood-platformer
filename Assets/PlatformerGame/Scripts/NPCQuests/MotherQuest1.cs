@@ -127,7 +127,10 @@ namespace Platformer
 
             var schrooms = ProgressManager.GetQuest(EQuest.MushroomsCollected);
             var berries = ProgressManager.GetQuest(EQuest.BlackberriesCollected);
-            string phrase = Localization.Text(ETexts.DialoguePie1_7) + schrooms.ToString() + Localization.Text(ETexts.DialoguePie1_8) + berries.ToString() + Localization.Text(ETexts.DialoguePie1_9);
+            var schroomsRequired = ProgressManager.GetQuest(EQuest.MushroomsRequired);
+            var berriesRequiered = ProgressManager.GetQuest(EQuest.BlackberriesRequired);
+
+            string phrase = Localization.Text(ETexts.DialoguePie1_7) + schrooms.ToString() + "/" + schroomsRequired.ToString() + Localization.Text(ETexts.DialoguePie1_8) + berries.ToString() + "/" + berriesRequiered.ToString() + Localization.Text(ETexts.DialoguePie1_9);
 
             switch (DialoguePhase)
             {

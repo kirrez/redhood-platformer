@@ -23,7 +23,7 @@ namespace Platformer
 
             SetQuest(EQuest.MaxLives, 3);
             SetQuest(EQuest.MaxLivesCap, 8);
-            SetQuest(EQuest.LifeUpgradeCost, 10);
+            SetQuest(EQuest.LifeUpgradeCost, 5);
 
             SetQuest(EQuest.KnifeLevel, 1);
             SetQuest(EQuest.AxeLevel, 0);
@@ -42,8 +42,6 @@ namespace Platformer
             //Mother's Pie quest
             SetQuest(EQuest.MushroomsRequired, 3);
             SetQuest(EQuest.BlackberriesRequired, 4);
-
-            SetQuest(EQuest.OreCollected, 5);
 
             //Boss data
             SetQuest(EQuest.MegafrogMaxHealth, 90); // 90 (45 * 2, 30 * 3)
@@ -87,8 +85,8 @@ namespace Platformer
             SetQuest(EQuest.HolyWaterLevel, 1);
 
             SetQuest(EQuest.MaxLives, 6);
-            SetQuest(EQuest.FoodCollected, 10);
-            SetQuest(EQuest.OreCollected, 1);
+            SetQuest(EQuest.FoodCollected, 3);
+            SetQuest(EQuest.OreCollected, 0);
 
             //Finished Mother's Pie quest will be with mushrooms 3 and berries 4
             SetQuest(EQuest.MushroomsCollected, 3);
