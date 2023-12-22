@@ -1,4 +1,3 @@
-using UnityEngine.UI;
 using UnityEngine;
 
 // changes MotherPie from 2 to 3 if proper amount of mushrooms and berries collected
@@ -12,12 +11,14 @@ namespace Platformer
         MotherPieSpawner Spawner;
 
         [SerializeField]
-        Text HelpText;
+        private Transform MessageTransform;
 
+        private IResourceManager ResourceManager;
         private IProgressManager ProgressManager;
         private ILocalization Localization;
         private IPlayer Player;
 
+        private MessageCanvas Message = null;
         private Collider2D AreaTrigger;
         private bool Inside = false;
         private int DialoguePhase = 0;
@@ -27,14 +28,12 @@ namespace Platformer
 
         private void Awake()
         {
+            ResourceManager = CompositionRoot.GetResourceManager();
             ProgressManager = CompositionRoot.GetProgressManager();
             Localization = CompositionRoot.GetLocalization();
             Player = CompositionRoot.GetPlayer();
 
             AreaTrigger = GetComponent<Collider2D>();
-
-            HelpText.text = Localization.Text(ETexts.TalkToMomAgain);
-            HelpText.gameObject.SetActive(false);
         }
 
         private void Update()
@@ -52,7 +51,7 @@ namespace Platformer
             if (AreaTrigger.bounds.Contains(Player.Position) && !Inside)
             {
                 Inside = true;
-                HelpText.gameObject.SetActive(true);
+                ShowMessage(Localization.Text(ETexts.TalkToMomAgain));
                 Player.Interaction += OnInteraction;
             }
 
@@ -60,7 +59,28 @@ namespace Platformer
             {
                 Inside = false;
                 Player.Interaction -= OnInteraction;
-                HelpText.gameObject.SetActive(false);
+                HideMessage();
+            }
+        }
+
+        private void ShowMessage(string text)
+        {
+            if (Message == null)
+            {
+                var instance = ResourceManager.GetFromPool(EComponents.MessageCanvas);
+                Message = instance.GetComponent<MessageCanvas>();
+                Message.SetPosition(MessageTransform.position);
+                Message.SetMessage(text);
+                Message.SetBlinking(true, 0.5f);
+            }
+        }
+
+        private void HideMessage()
+        {
+            if (Message != null)
+            {
+                Message.gameObject.SetActive(false);
+                Message = null;
             }
         }
 
@@ -72,6 +92,7 @@ namespace Platformer
             {
                 case 0:
                     Player.HoldByInteraction();
+                    Message.StopBlinking();
                     Game.Dialogue.Show();
                     Game.Dialogue.SetDialogueName(Localization.Text(ETexts.PieDialogue2));
                     Game.Dialogue.ChangeContent(Localization.Text(ETexts.DialoguePie2_1));
@@ -100,7 +121,7 @@ namespace Platformer
                 case 6:
                     Player.ReleasedByInteraction();
                     Game.Dialogue.Hide();
-                    HelpText.gameObject.SetActive(false);
+                    HideMessage();
                     Player.Interaction -= OnInteraction;
 
                     ProgressManager.SetQuest(EQuest.MotherPie, 4);

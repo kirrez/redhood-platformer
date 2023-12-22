@@ -30,7 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1427774392025187938}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1681002514849128830
 BoxCollider2D:
@@ -238,6 +238,37 @@ PlatformEffector2D:
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
+--- !u!1 &2966477364982035402
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1929553839896207756}
+  m_Layer: 0
+  m_Name: Canvas Position
+  m_TagString: Untagged
+  m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1929553839896207756
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2966477364982035402}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 8, y: 17, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1427774392025187938}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4693033221567989953
 GameObject:
   m_ObjectHideFlags: 0
@@ -269,7 +300,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1427774392025187938}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6674337070255398761
 SpriteRenderer:
@@ -379,6 +410,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1929553839896207756}
   - {fileID: 6249484130936998333}
   - {fileID: 971980673038635683}
   - {fileID: 8967911960698190635}
@@ -429,6 +461,7 @@ MonoBehaviour:
   TrapCollider: {fileID: 1681002514849128830}
   SwitchOn: {fileID: 876549026, guid: 2d3029c57dfb86b4a87ff8c7f64ee3cb, type: 3}
   SwitchOff: {fileID: 1654182457, guid: 2d3029c57dfb86b4a87ff8c7f64ee3cb, type: 3}
+  MessageTransform: {fileID: 1929553839896207756}
 --- !u!1 &5438575870172851627
 GameObject:
   m_ObjectHideFlags: 0
@@ -544,7 +577,7 @@ Transform:
   - {fileID: 4190753052921653303}
   - {fileID: 2376781405265329515}
   m_Father: {fileID: 1427774392025187938}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &6756990680668208985
 PrefabInstance:

@@ -1,4 +1,3 @@
-using UnityEngine.UI;
 using UnityEngine;
 
 // Changes Blacksmith value from 0 to 1 and then to 2, spawns Grey key
@@ -11,24 +10,24 @@ namespace Platformer
         private KeySpawner Spawner;
         
         [SerializeField]
-        private Text HelpText;
+        private Transform MessageTransform;
 
+        private IResourceManager ResourceManager;
         private IProgressManager ProgressManager;
         private ILocalization Localization;
         private IPlayer Player;
 
+        private MessageCanvas Message;
         private Collider2D AreaTrigger;
         private bool Inside = false;
         private int DialoguePhase = 0;
 
         private void Awake()
         {
+            ResourceManager = CompositionRoot.GetResourceManager();
             ProgressManager = CompositionRoot.GetProgressManager();
             Localization = CompositionRoot.GetLocalization();
             Player = CompositionRoot.GetPlayer();
-
-            HelpText.text = Localization.Text(ETexts.Talk);
-            HelpText.gameObject.SetActive(false);
 
             AreaTrigger = GetComponent<Collider2D>();
         }
@@ -51,8 +50,8 @@ namespace Platformer
                 {
                     Player.Interaction += OnKeyQuestPhase1;
                 }
-                
-                HelpText.gameObject.SetActive(true);
+
+                ShowMessage(Localization.Text(ETexts.Talk));
             }
 
             if (!AreaTrigger.bounds.Contains(Player.Position) && Inside)
@@ -68,7 +67,28 @@ namespace Platformer
                     Player.Interaction -= OnKeyQuestPhase1;
                 }
 
-                HelpText.gameObject.SetActive(false);
+                HideMessage();
+            }
+        }
+
+        private void ShowMessage(string text)
+        {
+            if (Message == null)
+            {
+                var instance = ResourceManager.GetFromPool(EComponents.MessageCanvas);
+                Message = instance.GetComponent<MessageCanvas>();
+                Message.SetPosition(MessageTransform.position);
+                Message.SetMessage(text);
+                Message.SetBlinking(true, 0.5f);
+            }
+        }
+
+        private void HideMessage()
+        {
+            if (Message != null)
+            {
+                Message.gameObject.SetActive(false);
+                Message = null;
             }
         }
 
@@ -80,6 +100,7 @@ namespace Platformer
             {
                 case 0:
                     Player.HoldByInteraction();
+                    Message.StopBlinking();
                     Game.Dialogue.Show();
                     Game.Dialogue.SetDialogueName(Localization.Text(ETexts.BlacksmithTitle1));
                     Game.Dialogue.ChangeContent(Localization.Text(ETexts.Blacksmith1_1));
@@ -105,7 +126,7 @@ namespace Platformer
                     Player.ReleasedByInteraction();
                     Game.Dialogue.Hide();
                     ProgressManager.SetQuest(EQuest.Blacksmith, 1);
-                    HelpText.gameObject.SetActive(false);
+                    HideMessage();
                     Player.Interaction -= OnKeyQuestPhase0;
                     DialoguePhase = 0;
                     break;
@@ -121,6 +142,7 @@ namespace Platformer
             {
                 case 0:
                     Player.HoldByInteraction();
+                    Message.StopBlinking();
                     Game.Dialogue.Show();
                     Game.Dialogue.SetDialogueName(Localization.Text(ETexts.BlacksmithTitle1));
                     Game.Dialogue.ChangeContent(Localization.Text(ETexts.Blacksmith2_1));
@@ -148,7 +170,7 @@ namespace Platformer
                     Player.ReleasedByInteraction();
                     Game.Dialogue.Hide();
                     ProgressManager.SetQuest(EQuest.Blacksmith, 2);
-                    HelpText.gameObject.SetActive(false);
+                    HideMessage();
                     Player.Interaction -= OnKeyQuestPhase1;
 
                     var oreRest = oreAmount - 3;
@@ -167,7 +189,7 @@ namespace Platformer
                 case 11:
                     Player.ReleasedByInteraction();
                     Game.Dialogue.Hide();
-                    HelpText.gameObject.SetActive(false);
+                    HideMessage();
                     Player.Interaction -= OnKeyQuestPhase1;
                     DialoguePhase = 0;
                     break;

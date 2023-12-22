@@ -75,17 +75,18 @@ namespace Platformer
             //SetQuest(EQuest.SpawnPoint, 23);
             //SetQuest(EQuest.Confiner, 11);
 
-            SetQuest(EQuest.Stage, (int)EStages.Mountains);
+            //Cave Labyrinth
+            SetQuest(EQuest.Stage, (int)EStages.CaveLabyrinth);
             SetQuest(EQuest.Location, 0);
-            SetQuest(EQuest.SpawnPoint, 1);
-            SetQuest(EQuest.Confiner, 0);
+            SetQuest(EQuest.SpawnPoint, 0);
+            SetQuest(EQuest.Confiner, 1);
 
             SetQuest(EQuest.KnifeLevel, 1);
             SetQuest(EQuest.AxeLevel, 1);
-            SetQuest(EQuest.HolyWaterLevel, 1);
+            SetQuest(EQuest.HolyWaterLevel, 0);
 
-            SetQuest(EQuest.MaxLives, 6);
-            SetQuest(EQuest.FoodCollected, 3);
+            SetQuest(EQuest.MaxLives, 5);
+            SetQuest(EQuest.FoodCollected, 0);
             SetQuest(EQuest.OreCollected, 0);
 
             //Finished Mother's Pie quest will be with mushrooms 3 and berries 4

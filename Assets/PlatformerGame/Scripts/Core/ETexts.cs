@@ -15,6 +15,13 @@ namespace Platformer
         VillageCommoner,
         UpgradeHealthTip,
         UpgradeHealthTitle,
+        SwitchOn,
+        DestinationTheVillage,
+        DestinationWesternForest,
+        DestinationMountains,
+        DestinationCaveLabyrinth,
+        DestinationLumbermill,
+        DestinationWolfTrail,
 
         //Menu items
         English,

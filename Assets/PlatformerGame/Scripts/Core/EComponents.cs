@@ -6,6 +6,7 @@ namespace Platformer
         Player,
         Player2,
         UIRoot,
+        MessageCanvas,
 
         MainCMCamera,
         VirtualPlayerCamera,

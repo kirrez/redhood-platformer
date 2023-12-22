@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine.UI;
 using UnityEngine;
 
 namespace Platformer
@@ -8,13 +5,13 @@ namespace Platformer
     public class PlatformSuspended : MonoBehaviour
     {
         [SerializeField]
-        Text HelpText;
-
-        [SerializeField]
         GameObject Obstacle;
 
         [SerializeField]
         Transform ShattersPosition;
+
+        [SerializeField]
+        private Transform MessageTransform;
 
         private IProgressManager ProgressManager;
         private IResourceManager ResourceManager;
@@ -22,6 +19,7 @@ namespace Platformer
         private ILocalization Localization;
         private IPlayer Player;
 
+        private MessageCanvas Message = null;
         private Collider2D AreaTrigger;
         private bool Inside = false;
 
@@ -32,9 +30,6 @@ namespace Platformer
             AudioManager = CompositionRoot.GetAudioManager();
             Localization = CompositionRoot.GetLocalization();
             Player = CompositionRoot.GetPlayer();
-
-            HelpText.text = Localization.Text(ETexts.RemoveObstacle);
-            HelpText.gameObject.SetActive(false);
 
             AreaTrigger = GetComponent<Collider2D>();
         }
@@ -52,14 +47,35 @@ namespace Platformer
             {
                 Inside = true;
                 Player.Interaction += OnInteraction;
-                HelpText.gameObject.SetActive(true);
+                ShowMessage(Localization.Text(ETexts.RemoveObstacle));
             }
 
             if (!AreaTrigger.bounds.Contains(Player.Position) && Inside)
             {
                 Inside = false;
                 Player.Interaction -= OnInteraction;
-                HelpText.gameObject.SetActive(false);
+                HideMessage();
+            }
+        }
+
+        private void ShowMessage(string text)
+        {
+            if (Message == null)
+            {
+                var instance = ResourceManager.GetFromPool(EComponents.MessageCanvas);
+                Message = instance.GetComponent<MessageCanvas>();
+                Message.SetPosition(MessageTransform.position);
+                Message.SetMessage(text);
+                Message.SetBlinking(true, 0.5f);
+            }
+        }
+
+        private void HideMessage()
+        {
+            if (Message != null)
+            {
+                Message.gameObject.SetActive(false);
+                Message = null;
             }
         }
 
@@ -80,7 +96,7 @@ namespace Platformer
             AudioManager.PlaySound(ESounds.BlastShort3);
 
             Player.Interaction -= OnInteraction;
-            HelpText.gameObject.SetActive(false);
+            HideMessage();
         }
 
         private void SwitchObstacle()

@@ -1,13 +1,9 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Platformer
 {
     public class WestForestDrawbridge : MonoBehaviour
     {
-        [SerializeField]
-        private Text HelpText;
-
         [SerializeField]
         private GameObject Drawbridge;
 
@@ -17,22 +13,25 @@ namespace Platformer
         [SerializeField]
         private Sprite SwitchOn;
 
+        [SerializeField]
+        private Transform MessageTransform;
+
+        private IResourceManager ResourceManager;
         private IProgressManager ProgressManager;
         private IAudioManager AudioManager;
         private ILocalization Localization;
 
         private IPlayer Player;
+        private MessageCanvas Message = null;
         private SpriteRenderer Renderer;
 
         private void Awake()
         {
+            ResourceManager = CompositionRoot.GetResourceManager();
             ProgressManager = CompositionRoot.GetProgressManager();
             Localization = CompositionRoot.GetLocalization();
             AudioManager = CompositionRoot.GetAudioManager();
             Renderer = GetComponent<SpriteRenderer>();
-
-            HelpText.text = Localization.Text(ETexts.PullLever);
-            HelpText.gameObject.SetActive(false);
         }
 
         private void OnEnable()
@@ -57,7 +56,7 @@ namespace Platformer
             {
                 Player = collision.gameObject.GetComponent<IPlayer>();
                 Player.Interaction += OnQuestCompleted;
-                HelpText.gameObject.SetActive(true);
+                ShowMessage(Localization.Text(ETexts.PullLever));
             }
         }
 
@@ -71,14 +70,35 @@ namespace Platformer
                 {
                     Player.Interaction -= OnQuestCompleted;
                 }
-                HelpText.gameObject.SetActive(false);
+                HideMessage();
+            }
+        }
+
+        private void ShowMessage(string text)
+        {
+            if (Message == null)
+            {
+                var instance = ResourceManager.GetFromPool(EComponents.MessageCanvas);
+                Message = instance.GetComponent<MessageCanvas>();
+                Message.SetPosition(MessageTransform.position);
+                Message.SetMessage(text);
+                Message.SetBlinking(true, 0.5f);
+            }
+        }
+
+        private void HideMessage()
+        {
+            if (Message != null)
+            {
+                Message.gameObject.SetActive(false);
+                Message = null;
             }
         }
 
         private void OnQuestCompleted()
         {
             ProgressManager.SetQuest(EQuest.Drawbridge, 1);
-            HelpText.gameObject.SetActive(false);
+            HideMessage();
             Player.Interaction -= OnQuestCompleted;
 
             Drawbridge.SetActive(true);

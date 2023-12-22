@@ -294,6 +294,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1829580039697941369}
   - {fileID: 2660539408220952395}
   - {fileID: 8804050703537322346}
   m_Father: {fileID: 0}
@@ -342,6 +343,7 @@ MonoBehaviour:
   SwitchCollider: {fileID: 5794379954662371422}
   SwitchOn: {fileID: 876549026, guid: 2d3029c57dfb86b4a87ff8c7f64ee3cb, type: 3}
   SwitchOff: {fileID: 1654182457, guid: 2d3029c57dfb86b4a87ff8c7f64ee3cb, type: 3}
+  MessageTransform: {fileID: 1829580039697941369}
 --- !u!1 &5289025415883956246
 GameObject:
   m_ObjectHideFlags: 0
@@ -373,7 +375,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8116417495050452120}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2275959084476709831
 SpriteRenderer:
@@ -666,7 +668,7 @@ Transform:
   - {fileID: 3765393646997986905}
   - {fileID: 7424622596128633150}
   m_Father: {fileID: 8116417495050452120}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8228865522338523455
 GameObject:
@@ -848,6 +850,37 @@ PlatformEffector2D:
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
+--- !u!1 &8392832389691589277
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1829580039697941369}
+  m_Layer: 0
+  m_Name: Canvas Position
+  m_TagString: Untagged
+  m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1829580039697941369
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8392832389691589277}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.5, y: -4.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8116417495050452120}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1887060783395271436
 PrefabInstance:
   m_ObjectHideFlags: 0

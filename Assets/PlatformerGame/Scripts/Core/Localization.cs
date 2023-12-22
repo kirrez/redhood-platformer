@@ -47,10 +47,18 @@ namespace Platformer
             Texts[ETexts.TalkToMomAgain] = "TALK TO MOM AGAIN";
             Texts[ETexts.PullLever] = "PULL LEVER 'C'";
             Texts[ETexts.VillageCommoner] = "* Village Commoner *";
-            Texts[ETexts.UpgradeHealthTip] = "STRENGTHEN HEALTH";
-            Texts[ETexts.UpgradeHealthTitle] = "* Strengthen Health *";
+            Texts[ETexts.UpgradeHealthTip] = "ENHANCE HEALTH";
+            Texts[ETexts.UpgradeHealthTitle] = "* Enhance Health *";
             Texts[ETexts.KindleFire] = "KINDLE A CAMPFIRE";
-            Texts[ETexts.RemoveObstacle] = "REMOVE OBSTACLE";
+            Texts[ETexts.RemoveObstacle] = "REMOVE AN OBSTACLE";
+            Texts[ETexts.SwitchOn] = "Switch On";
+
+            Texts[ETexts.DestinationTheVillage] = "The Village";
+            Texts[ETexts.DestinationWesternForest] = "Western Forest";
+            Texts[ETexts.DestinationMountains] = "Mountain Pass";
+            Texts[ETexts.DestinationLumbermill] = "Lumbermill";
+            Texts[ETexts.DestinationCaveLabyrinth] = "Cave Labyrinth";
+            Texts[ETexts.DestinationWolfTrail] = "Wolf Trail";
 
             Texts[ETexts.English] = "English";
             Texts[ETexts.Russian] = "Русский";
@@ -141,6 +149,14 @@ namespace Platformer
             Texts[ETexts.UpgradeHealthTitle] = "* Укрепить здоровье *";
             Texts[ETexts.KindleFire] = "РАЗЖЕЧЬ КОСТЁР";
             Texts[ETexts.RemoveObstacle] = "УБРАТЬ ПРЕГРАДУ";
+            Texts[ETexts.SwitchOn] = "Включить";
+
+            Texts[ETexts.DestinationTheVillage] = "Деревня";
+            Texts[ETexts.DestinationWesternForest] = "Западный лес";
+            Texts[ETexts.DestinationMountains] = "Горный перевал";
+            Texts[ETexts.DestinationLumbermill] = "Лесопилка";
+            Texts[ETexts.DestinationCaveLabyrinth] = "Пещерный лабиринт";
+            Texts[ETexts.DestinationWolfTrail] = "Волчья тропа";
 
             Texts[ETexts.English] = "English";
             Texts[ETexts.Russian] = "Русский";

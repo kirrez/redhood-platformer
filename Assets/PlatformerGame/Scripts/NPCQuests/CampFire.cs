@@ -26,33 +26,35 @@ namespace Platformer
         private GameObject Fire;
 
         [SerializeField]
-        Text HelpText;
+        private Transform MessageTransform;
 
+        private IResourceManager ResourceManager;
         private IProgressManager ProgressManager;
         private IAudioManager AudioManager;
         private ILocalization Localization;
         private SpriteRenderer Renderer;
         private IPlayer Player;
 
+        private MessageCanvas Message = null;
         private Collider2D AreaTrigger;
         private bool Inside = false;
 
         private void Awake()
         {
+            ResourceManager = CompositionRoot.GetResourceManager();
             ProgressManager = CompositionRoot.GetProgressManager();
             AudioManager = CompositionRoot.GetAudioManager();
             Localization = CompositionRoot.GetLocalization();
             Renderer = GetComponent<SpriteRenderer>();
             Player = CompositionRoot.GetPlayer();
 
-            HelpText.text = Localization.Text(ETexts.KindleFire);
+            //HelpText.text = Localization.Text(ETexts.KindleFire);
+
             AreaTrigger = GetComponent<Collider2D>();
         }
 
         private void OnEnable()
         {
-            HelpText.gameObject.SetActive(false);
-
             if (ProgressManager.GetQuest(EQuest.SpawnPoint) == SpawnPointIndex)
             {
                 SwitchFire(true);
@@ -71,17 +73,38 @@ namespace Platformer
             {
                 Inside = true;
                 Player.Interaction += OnInteraction;
-                HelpText.gameObject.SetActive(true);
+                ShowMessage(Localization.Text(ETexts.KindleFire));
             }
 
             if (!AreaTrigger.bounds.Contains(Player.Position) && Inside)
             {
                 Inside = false;
                 Player.Interaction -= OnInteraction;
-                HelpText.gameObject.SetActive(false);
+                HideMessage();
             }
 
             SwitchFire(false); //every frame..
+        }
+
+        private void ShowMessage(string text)
+        {
+            if (Message == null)
+            {
+                var instance = ResourceManager.GetFromPool(EComponents.MessageCanvas);
+                Message = instance.GetComponent<MessageCanvas>();
+                Message.SetPosition(MessageTransform.position);
+                Message.SetMessage(text);
+                Message.SetBlinking(true, 0.5f);
+            }
+        }
+
+        private void HideMessage()
+        {
+            if (Message != null)
+            {
+                Message.gameObject.SetActive(false);
+                Message = null;
+            }
         }
 
         private void OnInteraction()
@@ -92,7 +115,7 @@ namespace Platformer
             SwitchFire(true);
             AudioManager.PlayRedhoodSound(EPlayerSounds.LightCampFire);
 
-            HelpText.gameObject.SetActive(false);
+            HideMessage();
             Player.Interaction -= OnInteraction;
         }
 

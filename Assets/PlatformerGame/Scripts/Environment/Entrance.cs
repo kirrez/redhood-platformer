@@ -1,6 +1,3 @@
-using System.Collections.Generic;
-using Cinemachine;
-using UnityEngine.UI;
 using UnityEngine;
 
 namespace Platformer
@@ -8,9 +5,11 @@ namespace Platformer
     public class Entrance : MonoBehaviour
     {
         private IDynamicsContainer DynamicsContainer;
+        private IResourceManager ResourceManager;
         private ILocalization Localization;
         private IAudioManager AudioManager;
         private IPlayer Player;
+        private MessageCanvas Message = null;
 
         [SerializeField]
         private int LocationIndex;
@@ -26,17 +25,14 @@ namespace Platformer
         private int LabelIndex;
 
         [SerializeField]
-        private Text HelpText;
-
+        private Transform MessageTransform;
 
         private ETexts Label;
-        private float Timer;
-        private float BlinkTime = 0.5f;
-        private bool InsideTrigger;
 
         private void Awake()
         {
             DynamicsContainer = CompositionRoot.GetDynamicsContainer();
+            ResourceManager = CompositionRoot.GetResourceManager();
             Localization = CompositionRoot.GetLocalization();
             AudioManager = CompositionRoot.GetAudioManager();
         }
@@ -45,21 +41,31 @@ namespace Platformer
         {
             var targetValue = (int)ETexts.Enter + LabelIndex;
             Label = (ETexts)targetValue;
-            HelpText.text = Localization.Text(Label);
-            Timer = BlinkTime;
-            HelpText.enabled = false;
         }
 
         private void Update()
         {
-            if (InsideTrigger)
+            
+        }
+
+        private void ShowMessage(string text)
+        {
+            if (Message == null)
             {
-                Timer -= Time.deltaTime;
-                if (Timer <= 0)
-                {
-                    Timer = BlinkTime;
-                    HelpText.enabled = !HelpText.enabled;
-                }
+                var instance = ResourceManager.GetFromPool(EComponents.MessageCanvas);
+                Message = instance.GetComponent<MessageCanvas>();
+                Message.SetPosition(MessageTransform.position);
+                Message.SetMessage(text);
+                Message.SetBlinking(true, 0.5f);
+            }
+        }
+
+        private void HideMessage()
+        {
+            if (Message != null)
+            {
+                Message.gameObject.SetActive(false);
+                Message = null;
             }
         }
 
@@ -68,10 +74,8 @@ namespace Platformer
             if (collision.gameObject.CompareTag("Player"))
             {
                 Player = collision.gameObject.GetComponent<IPlayer>();
-                InsideTrigger = true;
-                Timer = BlinkTime;
-                HelpText.enabled = true;
-                // subscribe OnLocationEnter
+                //HelpText.enabled = true;
+                ShowMessage(Localization.Text(Label));
                 Player.Interaction += OnLocationEnter;
             }
         }
@@ -80,18 +84,16 @@ namespace Platformer
         {
             if (collision.gameObject.CompareTag("Player"))
             {
-                InsideTrigger = false;
-                HelpText.enabled = false;
-                // unsubscribe Player's action..
+                //HelpText.enabled = false;
+                HideMessage();
                 Player.Interaction -= OnLocationEnter;
             }
         }
 
         private void OnDisable()
         {
-            // unsubscribe Player's action..
-            InsideTrigger = false;
-            HelpText.enabled = false;
+            //HelpText.enabled = false;
+            HideMessage();
             if (Player != null)
             {
                 Player.Interaction -= OnLocationEnter;

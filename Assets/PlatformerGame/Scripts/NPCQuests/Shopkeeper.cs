@@ -1,4 +1,3 @@
-using UnityEngine.UI;
 using UnityEngine;
 
 namespace Platformer
@@ -6,22 +5,22 @@ namespace Platformer
     public class Shopkeeper : MonoBehaviour
     {
         [SerializeField]
-        Text HelpText;
+        private Transform MessageTransform;
 
+        private IResourceManager ResourceManager;
         private ILocalization Localization;
         private IPlayer Player;
 
+        private MessageCanvas Message = null;
         private Collider2D AreaTrigger;
         private bool Inside = false;
         private int DialoguePhase = 0;
 
         private void Awake()
         {
+            ResourceManager = CompositionRoot.GetResourceManager();
             Localization = CompositionRoot.GetLocalization();
             Player = CompositionRoot.GetPlayer();
-
-            HelpText.text = Localization.Text(ETexts.Talk);
-            HelpText.gameObject.SetActive(false);
 
             AreaTrigger = GetComponent<Collider2D>();
         }
@@ -32,14 +31,35 @@ namespace Platformer
             {
                 Inside = true;
                 Player.Interaction += OnInteraction;
-                HelpText.gameObject.SetActive(true);
+                ShowMessage(Localization.Text(ETexts.Talk));
             }
 
             if (!AreaTrigger.bounds.Contains(Player.Position) && Inside)
             {
                 Inside = false;
                 Player.Interaction -= OnInteraction;
-                HelpText.gameObject.SetActive(false);
+                HideMessage();
+            }
+        }
+
+        private void ShowMessage(string text)
+        {
+            if (Message == null)
+            {
+                var instance = ResourceManager.GetFromPool(EComponents.MessageCanvas);
+                Message = instance.GetComponent<MessageCanvas>();
+                Message.SetPosition(MessageTransform.position);
+                Message.SetMessage(text);
+                Message.SetBlinking(true, 0.5f);
+            }
+        }
+
+        private void HideMessage()
+        {
+            if (Message != null)
+            {
+                Message.gameObject.SetActive(false);
+                Message = null;
             }
         }
 
@@ -51,6 +71,7 @@ namespace Platformer
             {
                 case 0:
                     Player.HoldByInteraction();
+                    Message.StopBlinking();
                     Game.Dialogue.Show();
                     Game.Dialogue.SetDialogueName(Localization.Text(ETexts.ShopkeeperTitle));
                     Game.Dialogue.ChangeContent(Localization.Text(ETexts.Shopkeeper1));
@@ -60,7 +81,7 @@ namespace Platformer
                     Player.ReleasedByInteraction();
                     Game.Dialogue.Hide();
                     DialoguePhase = 0;
-                    HelpText.gameObject.SetActive(false);
+                    HideMessage();
                     Player.Interaction -= OnInteraction;
                     break;
             }
