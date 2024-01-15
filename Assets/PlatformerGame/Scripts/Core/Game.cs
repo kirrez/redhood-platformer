@@ -39,8 +39,8 @@ namespace Platformer
             var mainCMCamera = CompositionRoot.GetMainCMCamera();
 
             //ProgressManager.LoadTestConfig1();
-            //ProgressManager.LoadTestConfig();
-            ProgressManager.LoadNewGame();
+            ProgressManager.LoadTestConfig();
+            //ProgressManager.LoadNewGame();
 
             GameOverModel = new GameOverModel();
             GameOverModel.TryingAgain += TryAgain;
