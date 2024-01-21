@@ -5,8 +5,19 @@ namespace Platformer
 {
     public class TentacleAnimator : MonoBehaviour
     {
+        //
         [SerializeField]
-        private List<Sprite> EmptySprite; // for dead tentacle
+        private SpriteRenderer NormalRenderer;
+
+        [SerializeField]
+        private SpriteRenderer BlinkRenderer;
+
+        [SerializeField]
+        private SpriteMask Mask;
+        //
+
+        [SerializeField]
+        private List<Sprite> EmptyAnimation; // tentacle dead
 
         [SerializeField]
         private List<Sprite> IdleAnimation; // both
@@ -15,7 +26,9 @@ namespace Platformer
         private List<Sprite> AttackAnimation; // both
 
         [SerializeField]
-        private List<Sprite> DyingAnimation; // for dying receptacle
+        private List<Sprite> RespawnAnimation; // tentacle
+
+
 
         [SerializeField]
         private float IdleDelay = 0.15f;
@@ -24,75 +37,195 @@ namespace Platformer
         private float AttackDelay = 0.075f;
 
         [SerializeField]
-        private float DyingDelay = 0.15f;
+        private float RespawnDelay = 0.15f;
+
+        [SerializeField]
+        private float BlinkPeriod; // for BlinkTimer
+
+        [SerializeField]
+        private float BlinkEffectDuration; // for BlinkEffectLasting
 
         private List<Sprite> CurrentAnimation;
 
-        private int AnimationIndex;
-        private float AnimationDelay = 0.075f;
+        private int Index;
+        private float AnimationDelay;
         private float AnimationTimer;
 
-        private SpriteRenderer Renderer;
+        private float BlinkTimer;
+        private float BlinkEffectLasting;
 
-        private void Awake()
-        {
-            Renderer = GetComponent<SpriteRenderer>();
-        }
+        private delegate void State();
+        State CurrentState = () => { };
 
         private void OnEnable()
         {
-            CurrentAnimation = IdleAnimation;
-            AnimationDelay = IdleDelay;
+            CurrentState = Begin;
+        }
+
+        private void OnDisable()
+        {
+            BlinkRenderer.enabled = false;
         }
 
         private void FixedUpdate()
         {
-            PlayAnimation();
+            CurrentState();
         }
 
-        private void PlayAnimation()
+        private void Begin()
         {
-            AnimationTimer += Time.fixedDeltaTime;
+            PlayIdle();
+            BlinkRenderer.enabled = false;
 
-            if (AnimationTimer >= AnimationDelay)
+            CurrentState = NormalAnimation;
+        }
+
+        private void NormalAnimation()
+        {
+            AnimationTimer -= Time.fixedDeltaTime;
+            if (AnimationTimer > 0) return;
+
+            AnimationTimer = AnimationDelay;
+
+            if (Index < CurrentAnimation.Count - 1)
             {
-                AnimationTimer -= AnimationDelay;
+                Index++;
+            }
+            else
+            {
+                Index = 0;
+            }
 
-                if (AnimationIndex == CurrentAnimation.Count - 1)
+            NormalRenderer.sprite = CurrentAnimation[Index];
+        }
+
+        private void BlinkAnimation()
+        {
+            BlinkEffectLasting -= Time.fixedDeltaTime;
+            if (BlinkEffectLasting <= 0)
+            {
+                BlinkRenderer.enabled = false;
+                CurrentState = NormalAnimation;
+                return;
+            }
+
+            AnimationTimer -= Time.fixedDeltaTime;
+
+            if (AnimationTimer <= 0)
+            {
+                AnimationTimer = AnimationDelay;
+
+                if (Index < CurrentAnimation.Count - 1)
                 {
-                    AnimationIndex = 0;
+                    Index++;
                 }
-                else if (AnimationIndex < CurrentAnimation.Count - 1)
+                else
                 {
-                    AnimationIndex++;
+                    Index = 0;
                 }
 
-                Renderer.sprite = CurrentAnimation[AnimationIndex];
+                NormalRenderer.sprite = CurrentAnimation[Index];
+                Mask.sprite = CurrentAnimation[Index];
+            }
+
+            BlinkTimer -= Time.fixedDeltaTime;
+
+            if (BlinkTimer <= 0)
+            {
+                BlinkTimer = BlinkPeriod;
+                BlinkRenderer.enabled = !BlinkRenderer.enabled;
             }
         }
 
-        public void PlayIdle()
+        public void StartBlinking()
+        {
+            BlinkTimer = BlinkPeriod;
+            BlinkEffectLasting = BlinkEffectDuration;
+
+            BlinkRenderer.enabled = true;
+            Mask.sprite = CurrentAnimation[Index];
+
+            CurrentState = BlinkAnimation;
+        }
+
+        public void StopBlinking()
+        {
+            BlinkTimer = 0f;
+            BlinkEffectLasting = 0f;
+            BlinkRenderer.enabled = false;
+        }
+
+        //private void PlayAnimation()
+        //{
+        //    AnimationTimer += Time.fixedDeltaTime;
+
+        //    if (AnimationTimer >= AnimationDelay)
+        //    {
+        //        AnimationTimer -= AnimationDelay;
+
+        //        if (AnimationIndex == CurrentAnimation.Count - 1)
+        //        {
+        //            AnimationIndex = 0;
+        //        }
+        //        else if (AnimationIndex < CurrentAnimation.Count - 1)
+        //        {
+        //            AnimationIndex++;
+        //        }
+
+        //        //Renderer.sprite = CurrentAnimation[AnimationIndex];
+        //    }
+        //}
+
+        public float PlayEmpty()
+        {
+            CurrentAnimation = EmptyAnimation;
+            AnimationDelay = 1f;
+            Index = 0;
+            AnimationTimer = 0f;
+
+            NormalRenderer.sprite = CurrentAnimation[0];
+            Mask.sprite = CurrentAnimation[0];
+
+            return CurrentAnimation.Count * AnimationDelay;
+        }
+
+        public float PlayIdle()
         {
             CurrentAnimation = IdleAnimation;
             AnimationDelay = IdleDelay;
-            AnimationIndex = 0;
+            Index = 0;
             AnimationTimer = 0f;
+
+            NormalRenderer.sprite = CurrentAnimation[0];
+            Mask.sprite = CurrentAnimation[0];
+
+            return (CurrentAnimation.Count - 1) * AnimationDelay;
         }
 
-        public void PlayAttack()
+        public float PlayAttack()
         {
             CurrentAnimation = AttackAnimation;
             AnimationDelay = AttackDelay;
-            AnimationIndex = 0;
+            Index = 0;
             AnimationTimer = 0f;
+
+            NormalRenderer.sprite = CurrentAnimation[0];
+            Mask.sprite = CurrentAnimation[0];
+
+            return (CurrentAnimation.Count - 1) * AnimationDelay;
         }
 
-        public void PlayEmpty()
+        public float PlayRespawn()
         {
-            CurrentAnimation = EmptySprite;
-            AnimationDelay = 0f;
-            AnimationIndex = 0;
+            CurrentAnimation = RespawnAnimation;
+            AnimationDelay = RespawnDelay;
+            Index = 0;
             AnimationTimer = 0f;
+
+            NormalRenderer.sprite = CurrentAnimation[0];
+            Mask.sprite = CurrentAnimation[0];
+
+            return (CurrentAnimation.Count - 1) * AnimationDelay;
         }
     }
 }

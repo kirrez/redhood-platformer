@@ -76,10 +76,16 @@ namespace Platformer
             //SetQuest(EQuest.Confiner, 11);
 
             //Cave Labyrinth
-            SetQuest(EQuest.Stage, (int)EStages.CaveLabyrinth);
+            //SetQuest(EQuest.Stage, (int)EStages.CaveLabyrinth);
+            //SetQuest(EQuest.Location, 0);
+            //SetQuest(EQuest.SpawnPoint, 0);
+            //SetQuest(EQuest.Confiner, 1);
+
+            //Mountains - second camp
+            SetQuest(EQuest.Stage, (int)EStages.Mountains);
             SetQuest(EQuest.Location, 0);
-            SetQuest(EQuest.SpawnPoint, 0);
-            SetQuest(EQuest.Confiner, 1);
+            SetQuest(EQuest.SpawnPoint, 2);
+            SetQuest(EQuest.Confiner, 0);
 
             SetQuest(EQuest.KnifeLevel, 1);
             SetQuest(EQuest.AxeLevel, 1);

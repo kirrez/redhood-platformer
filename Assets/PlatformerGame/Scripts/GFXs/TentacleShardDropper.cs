@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Platformer
 {
-    public class ShardDropper : MonoBehaviour
+    public class TentacleShardDropper : MonoBehaviour
     {
         [SerializeField]
         private int ShardAmount;
@@ -33,26 +33,20 @@ namespace Platformer
         private void FixedUpdate()
         {
             Timer -= Time.fixedDeltaTime;
-            //if (Timer > 0 || ShardsLeft <= 0) return;
-            
+
             if (Timer <= 0 && ShardsLeft > 0)
             {
                 Timer = BaseDelay;
                 ShardsLeft--;
 
-                var instance = ResourceManager.GetFromPool(GFXs.FallingShard);
-                DynamicsContainer.AddTemporary(instance);
+                var instance = ResourceManager.GetFromPool(GFXs.GreenShard);
+                DynamicsContainer.AddMain(instance);
 
-                var newX = transform.position.x + Random.Range(-4f, 4f);
+                var newX = transform.position.x + Random.Range(-0.7f, 0.7f);
                 var newPosition = new Vector2(newX, transform.position.y);
                 var shard = instance.GetComponent<FallingShard>();
                 shard.Initiate(newPosition, Random.Range(-1f, 1f));
             }
-        }
-
-        public void Initiate(Vector2 newPosition)
-        {
-            transform.position = newPosition;
         }
     }
 }

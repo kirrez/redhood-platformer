@@ -13,8 +13,10 @@ namespace Platformer
         BlueSplash,
 
         FallingShard,
+        GreenShard,
         ShardDropper,
         WoodShatter,
+        TentacleShatter,
 
         HolyWaterDisappear,
     }

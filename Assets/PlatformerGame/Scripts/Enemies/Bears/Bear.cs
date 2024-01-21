@@ -273,7 +273,7 @@ namespace Platformer
                 var chance = UnityEngine.Random.Range(0f, 1f);
 
                 // magic number
-                if (chance > 0.4f)
+                if (chance > 0.3f)
                 {
                     Animator.SetAnimation(BearAnimations.Attack);
                     Timer = 0.5f;
