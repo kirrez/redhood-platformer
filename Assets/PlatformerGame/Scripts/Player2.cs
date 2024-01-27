@@ -208,6 +208,7 @@ namespace Platformer
 
             SetState(EPlayerStates.Idle, 0f);
             Animations.Idle();
+
             StandUp();
 
             StandingFirePointX = StandingFirePoint.transform.localPosition.x;
@@ -366,7 +367,18 @@ namespace Platformer
         {
             // direction from Health ))
             float direction = Health.DamageDirection;
-            Horizontal = direction;
+            
+            if (direction != 0)
+            {
+                Horizontal = direction;
+            }
+
+            if (direction == 0)
+            {
+                direction = DirectionX * -1f;
+                Horizontal = direction;
+            }
+
             DirectionCheck();
             // magic numbers, no need to take out into config.. 2.3f / 1.75f
             Rigidbody.AddForce(new Vector2(HorizontalSpeed / 2.3f * direction, JumpForce / 1.75f));
@@ -480,7 +492,6 @@ namespace Platformer
                 instance.GetComponent<Rigidbody2D>().velocity = weaponVelocity;
                 instance.GetComponent<IBaseGFX>().Initiate(FirePoint.position, DirectionX);
 
-                //AudioManager.PlaySound(ESounds.ThrowKnife1);
                 AudioManager.PlayRedhoodSound(EPlayerSounds.ThrowKnife);
             }
         }

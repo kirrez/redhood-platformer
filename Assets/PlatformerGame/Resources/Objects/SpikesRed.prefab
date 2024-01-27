@@ -132,7 +132,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.6, y: 0.6}
+  m_Size: {x: 0.9, y: 0.6}
   m_EdgeRadius: 0
 --- !u!114 &3255610500443667516
 MonoBehaviour:
@@ -151,7 +151,6 @@ MonoBehaviour:
   VerticalVelocity: 0
   TargetType: 0
   Durability: 0
-  LifeTime: 0
   CanPenetrateWalls: 1
   Moving: 0
-  HitDirection: 1
+  HitDirection: 0

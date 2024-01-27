@@ -54,8 +54,6 @@ namespace Platformer.PlayerStates
                 if (Model.Grounded(LayerMasks.Walkable))
                 {
                     // Dying, if HP <= 0
-                    Model.Horizontal *= -1;
-                    Model.DirectionCheck();
 
                     if (HitPoints <= 0)
                     {
@@ -65,6 +63,10 @@ namespace Platformer.PlayerStates
                     }
                     else
                     {
+                        //inverting direction in purpose of better view
+                        Model.Horizontal *= -1;
+                        Model.DirectionCheck();
+
                         Model.Animations.Idle();
                         Model.SetState(EPlayerStates.Idle);
                     }

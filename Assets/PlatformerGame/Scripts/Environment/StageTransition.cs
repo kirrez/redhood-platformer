@@ -59,6 +59,7 @@ namespace Platformer
                     ProgressManager.SetQuest(EQuest.Stage, (int)Stage);
                     ProgressManager.SetQuest(EQuest.Location, LocationIndex);
                     ProgressManager.SetQuest(EQuest.SpawnPoint, SpawnPointIndex);
+                    ProgressManager.SetQuest(EQuest.Confiner, ConfinerIndex);
                 }
             }
         }

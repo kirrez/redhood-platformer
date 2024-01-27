@@ -8,6 +8,7 @@ namespace Platformer
     {
         private Rigidbody2D Rigidbody;
         private SpriteRenderer Renderer;
+        private Vector3 OldScale;
 
         private float Torque;
 
@@ -15,6 +16,7 @@ namespace Platformer
         {
             Rigidbody = GetComponent<Rigidbody2D>();
             Renderer = GetComponent<SpriteRenderer>();
+            OldScale = transform.localScale;
         }
 
         private void OnEnable()
@@ -22,8 +24,11 @@ namespace Platformer
             Torque = Random.Range(100f, 250f);
             Torque *= Random.Range(0f, 1f) < 0.5f ? 1f : -1f;
 
-            var scale = Random.Range(0.5f, 1f);
-            transform.localScale = new Vector2(scale, scale);
+            var newScale = OldScale;
+            var ratio = Random.Range(0.5f, 1.2f);
+            newScale *= ratio;
+
+            transform.localScale = newScale;
         }
         private void FixedUpdate()
         {

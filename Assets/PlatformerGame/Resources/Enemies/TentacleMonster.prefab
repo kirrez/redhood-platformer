@@ -151,7 +151,7 @@ MonoBehaviour:
   Durability: 0
   CanPenetrateWalls: 1
   Moving: 0
-  HitDirection: 1
+  HitDirection: 0
 --- !u!60 &8376789377579580646
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -777,6 +777,10 @@ MonoBehaviour:
   - {fileID: 2036214993, guid: fcf2bde612fb43949bacc144b3e2a1df, type: 3}
   - {fileID: 742071533, guid: fcf2bde612fb43949bacc144b3e2a1df, type: 3}
   ClosingAnimation:
+  - {fileID: 2137301554, guid: fcf2bde612fb43949bacc144b3e2a1df, type: 3}
+  - {fileID: 2137301554, guid: fcf2bde612fb43949bacc144b3e2a1df, type: 3}
+  - {fileID: 2137301554, guid: fcf2bde612fb43949bacc144b3e2a1df, type: 3}
+  - {fileID: 2137301554, guid: fcf2bde612fb43949bacc144b3e2a1df, type: 3}
   - {fileID: 2137301554, guid: fcf2bde612fb43949bacc144b3e2a1df, type: 3}
   - {fileID: 848480314, guid: fcf2bde612fb43949bacc144b3e2a1df, type: 3}
   - {fileID: 1735282807, guid: fcf2bde612fb43949bacc144b3e2a1df, type: 3}

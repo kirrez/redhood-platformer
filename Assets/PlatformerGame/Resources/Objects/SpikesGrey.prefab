@@ -151,7 +151,6 @@ MonoBehaviour:
   VerticalVelocity: 0
   TargetType: 0
   Durability: 0
-  LifeTime: 0
   CanPenetrateWalls: 1
   Moving: 0
-  HitDirection: 1
+  HitDirection: 0

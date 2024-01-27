@@ -42,7 +42,7 @@ namespace Platformer
                 var instance = ResourceManager.GetFromPool(GFXs.GreenShard);
                 DynamicsContainer.AddMain(instance);
 
-                var newX = transform.position.x + Random.Range(-0.7f, 0.7f);
+                var newX = transform.position.x + Random.Range(-0.5f, 0.5f);
                 var newPosition = new Vector2(newX, transform.position.y);
                 var shard = instance.GetComponent<FallingShard>();
                 shard.Initiate(newPosition, Random.Range(-1f, 1f));

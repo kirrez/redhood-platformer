@@ -35,7 +35,7 @@ namespace Platformer
         {
             var originLocation = LocationTransitions[LocationIndex].OriginLocation;
             var targetLocation = LocationTransitions[LocationIndex].TargetLocation;
-            var confiner = Confiners[ConfinerIndex];
+            var confiners = Confiners;
             var music = Music[MusicIndex];
 
             for (int i = 0; i < originLocation.Count; i++)
@@ -48,9 +48,14 @@ namespace Platformer
                 targetLocation[i].SetActive(true);
             }
 
+            for (int i = 0; i < confiners.Count; i++)
+            {
+                confiners[i].gameObject.SetActive(false);
+            }
+
             Player.Position = SpawnPoints[SpawnPointIndex].position;
-            confiner.gameObject.SetActive(true);
-            Confiner.m_BoundingShape2D = confiner;
+            confiners[ConfinerIndex].gameObject.SetActive(true);
+            Confiner.m_BoundingShape2D = confiners[ConfinerIndex];
 
             AudioManager.PlayMusic(music);
         }

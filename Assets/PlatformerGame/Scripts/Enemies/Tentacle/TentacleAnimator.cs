@@ -155,27 +155,6 @@ namespace Platformer
             BlinkRenderer.enabled = false;
         }
 
-        //private void PlayAnimation()
-        //{
-        //    AnimationTimer += Time.fixedDeltaTime;
-
-        //    if (AnimationTimer >= AnimationDelay)
-        //    {
-        //        AnimationTimer -= AnimationDelay;
-
-        //        if (AnimationIndex == CurrentAnimation.Count - 1)
-        //        {
-        //            AnimationIndex = 0;
-        //        }
-        //        else if (AnimationIndex < CurrentAnimation.Count - 1)
-        //        {
-        //            AnimationIndex++;
-        //        }
-
-        //        //Renderer.sprite = CurrentAnimation[AnimationIndex];
-        //    }
-        //}
-
         public float PlayEmpty()
         {
             CurrentAnimation = EmptyAnimation;

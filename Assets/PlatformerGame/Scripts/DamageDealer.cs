@@ -33,7 +33,7 @@ namespace Platformer
         private bool Moving = false;
 
         [SerializeField]
-        private float HitDirection = 1f;
+        private float HitDirection;
         private float LastX;
 
         
@@ -82,6 +82,11 @@ namespace Platformer
                 if (transform.position.x < LastX)
                 {
                     HitDirection = -1f;
+                }
+
+                if (transform.position.x == LastX)
+                {
+                    HitDirection = 0f;
                 }
 
                 LastX = transform.position.x;
