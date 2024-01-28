@@ -10,6 +10,7 @@ namespace Platformer
     {
         private static IGame Game;
         private static IUIRoot UIRoot;
+        private static IStorage Storage;
         private static GameObject MainCMCamera;
         private static INavigation Navigation;
         private static IAudioManager AudioManager;
@@ -24,6 +25,16 @@ namespace Platformer
         private static IResourceManager ResourceManager;
         private static IProgressManager ProgressManager;
         private static ILocalization Localization;
+
+        public static IStorage GetStorage()
+        {
+            if (Storage == null)
+            {
+                Storage = new Storage();
+            }
+
+            return Storage;
+        }
 
         public static IAudioManager GetAudioManager()
         {
