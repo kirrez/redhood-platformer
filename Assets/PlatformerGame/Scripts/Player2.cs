@@ -157,6 +157,8 @@ namespace Platformer
         private void OnEnable()
         {
             LoadConfigData();
+            StandingFirePointX = StandingFirePoint.transform.localPosition.x;
+            SittingFirePointX = SittingFirePoint.transform.localPosition.x;
         }
 
         private void Update()
@@ -201,9 +203,7 @@ namespace Platformer
         {
             UpdateAllWeaponLevel();
             Game.HUD.UpdateWeaponIcons();
-
             UpdateMaxLives();
-
             InactivateCollider(false);
 
             SetState(EPlayerStates.Idle, 0f);
@@ -211,8 +211,7 @@ namespace Platformer
 
             StandUp();
 
-            StandingFirePointX = StandingFirePoint.transform.localPosition.x;
-            SittingFirePointX = SittingFirePoint.transform.localPosition.x;
+            SetPlayerDirection(true);
         }
 
         public void SetState(EPlayerStates state, float time = 0f)
@@ -278,33 +277,41 @@ namespace Platformer
         // also returns "1" if player faces right and "-1" if left )) for external checks in spawners etc.
         public float DirectionCheck()
         {
-            Vector2 newPosition;
             // Changes Renderer and weapon's directions
             if (Horizontal > 0)
             {
-                Renderer.flipX = false;
-                DirectionX = 1f;
-
-                newPosition = new Vector2(StandingFirePointX, StandingFirePoint.localPosition.y);
-                StandingFirePoint.localPosition = newPosition;
-
-                newPosition = new Vector2(SittingFirePointX, SittingFirePoint.localPosition.y);
-                SittingFirePoint.localPosition = newPosition;
+                SetPlayerDirection(true);
                 return 1f;
             }
             if (Horizontal < 0)
             {
-                Renderer.flipX = true;
-                DirectionX = -1f;
-
-                newPosition = new Vector2(-StandingFirePointX, StandingFirePoint.localPosition.y);
-                StandingFirePoint.localPosition = newPosition;
-
-                newPosition = new Vector2(-SittingFirePointX, SittingFirePoint.localPosition.y);
-                SittingFirePoint.localPosition = newPosition;
+                SetPlayerDirection(false);
                 return -1f;
             }
             return DirectionX;
+        }
+
+        private void SetPlayerDirection(bool faceRight)
+        {
+            Vector2 newPosition;
+
+            Renderer.flipX = !faceRight;
+
+            if (faceRight == true)
+            {
+                DirectionX = 1f;
+            }
+
+            if (faceRight == false)
+            {
+                DirectionX = -1f;
+            }
+
+            newPosition = new Vector2(StandingFirePointX * DirectionX, StandingFirePoint.localPosition.y);
+            StandingFirePoint.localPosition = newPosition;
+
+            newPosition = new Vector2(SittingFirePointX * DirectionX, SittingFirePoint.localPosition.y);
+            SittingFirePoint.localPosition = newPosition;
         }
 
         // for Double Jump??

@@ -76,7 +76,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHitPoints: 10
   Type: 0
-  DamageCooldown: 2
+  DamageCooldown: 1.5
 --- !u!212 &8522719760752516165
 SpriteRenderer:
   m_ObjectHideFlags: 0
