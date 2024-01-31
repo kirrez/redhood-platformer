@@ -17,6 +17,8 @@ namespace Platformer
         SpikedBullet,
         HeavySpikedBall,
         ToadDrop,
-        ToadLaunch
+        ToadLaunch,
+        EggBomb,
+        EagleStationary,
     }
 }

@@ -1,9 +1,12 @@
+using System;
 using UnityEngine;
 
 namespace Platformer
 {
     public class DamageDealer : MonoBehaviour
     {
+        public Action Destructed;
+
         public Vector2 Velocity
         {
             get { return new Vector2(HorizontalVelocity, VerticalVelocity); }
@@ -58,9 +61,11 @@ namespace Platformer
                 // the same goes if LifeTime drains to 0
                 // the same if enemy with durability > 0 (and CurrentDurability < 0) hits player
                 myHealth.Killed();
+
             }
             else
             {
+                Destructed?.Invoke();
                 this.gameObject.SetActive(false); // pooled in RM
             }
         }

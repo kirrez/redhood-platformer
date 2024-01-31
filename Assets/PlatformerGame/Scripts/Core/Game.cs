@@ -156,22 +156,23 @@ namespace Platformer
             //CaveLabyrinth Cave8 : Loc. 1, SP : 16, Conf : 8
             //CaveLabyrinth Cave11Boss : L 1, Sp 23, Conf 11
 
+            // Megafrog Boss :
             //SetQuest(EQuest.Stage, (int)EStages.CaveLabyrinth);
             //SetQuest(EQuest.Location, 1);
             //SetQuest(EQuest.SpawnPoint, 23);
             //SetQuest(EQuest.Confiner, 11);
 
-            //Cave Labyrinth
-            //SetQuest(EQuest.Stage, (int)EStages.CaveLabyrinth);
-            //SetQuest(EQuest.Location, 0);
-            //SetQuest(EQuest.SpawnPoint, 0);
-            //SetQuest(EQuest.Confiner, 1);
-
-            //Mountains - second camp
-            playerState.SetQuest(EQuest.Stage, (int)EStages.Mountains);
+            // Cave Labyrinth, start
+            playerState.SetQuest(EQuest.Stage, (int)EStages.CaveLabyrinth);
             playerState.SetQuest(EQuest.Location, 0);
-            playerState.SetQuest(EQuest.SpawnPoint, 2);
-            playerState.SetQuest(EQuest.Confiner, 0);
+            playerState.SetQuest(EQuest.SpawnPoint, 0);
+            playerState.SetQuest(EQuest.Confiner, 1);
+
+            // Mountains
+            //playerState.SetQuest(EQuest.Stage, (int)EStages.Mountains);
+            //playerState.SetQuest(EQuest.Location, 0);
+            //playerState.SetQuest(EQuest.SpawnPoint, 0);
+            //playerState.SetQuest(EQuest.Confiner, 0);
 
             playerState.SetQuest(EQuest.KnifeLevel, 1);
             playerState.SetQuest(EQuest.AxeLevel, 1);
