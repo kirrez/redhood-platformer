@@ -171,7 +171,7 @@ namespace Platformer
             // Mountains
             //playerState.SetQuest(EQuest.Stage, (int)EStages.Mountains);
             //playerState.SetQuest(EQuest.Location, 0);
-            //playerState.SetQuest(EQuest.SpawnPoint, 0);
+            //playerState.SetQuest(EQuest.SpawnPoint, 2); // 2
             //playerState.SetQuest(EQuest.Confiner, 0);
 
             playerState.SetQuest(EQuest.KnifeLevel, 1);

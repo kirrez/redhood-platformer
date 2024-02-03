@@ -51,5 +51,8 @@ namespace Platformer
         Quack1,
         BulletShot1,
         FrogJump,
+        EagleScream,
+        EggCrush,
+        EggDrop,
     }
 }

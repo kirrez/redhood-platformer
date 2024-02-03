@@ -19,6 +19,7 @@ namespace Platformer
         ToadDrop,
         ToadLaunch,
         EggBomb,
+        EagleMoving,
         EagleStationary,
     }
 }

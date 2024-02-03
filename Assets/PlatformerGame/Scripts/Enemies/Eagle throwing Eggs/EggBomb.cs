@@ -133,8 +133,36 @@ namespace Platformer
             Body.AddForce((Player.Position - transform.position).normalized * 7.5f, ForceMode2D.Impulse);
         }
 
+        private void PlayDestructionVisual()
+        {
+            var newPosition = transform.position;
+            newPosition.y -= 0.5f;
+            var instance = ResourceManager.GetFromPool(GFXs.DeathFlameShort);
+            DynamicsContainer.AddMain(instance);
+            var effect = instance.GetComponent<DeathFlameEffect>();
+            effect.Initiate(newPosition, new Vector2(1f, 1f));
+
+            var amount = Random.Range(3, 7);
+
+            for (int i = 0; i < amount; i++)
+            {
+                var shatter = ResourceManager.GetFromPool(GFXs.EggShell);
+                DynamicsContainer.AddMain(shatter);
+                shatter.GetComponent<WoodShatter>().Initiate(transform.position);
+            }
+        }
+
         private void OnDestruction()
         {
+            AudioManager.PlaySound(ESounds.EggCrush);
+            AudioManager.PlaySound(ESounds.Slash2);
+
+            gameObject.SetActive(false);
+        }
+
+        private void OnDisable()
+        {
+            PlayDestructionVisual();
             gameObject.SetActive(false);
         }
     }

@@ -167,7 +167,6 @@ MonoBehaviour:
   Health: {fileID: 6884098248608503364}
   FirePoint: {fileID: 6884098247973022975}
   FacePlayer: 1
-  RespawnTime: 3
   ThrowCooldown: 4
 --- !u!114 &6884098248162332403
 MonoBehaviour:
@@ -186,7 +185,22 @@ MonoBehaviour:
   - {fileID: -57745022, guid: 77be50fe74ae82d449d5d1450be1a492, type: 3}
   - {fileID: 1006673341, guid: 77be50fe74ae82d449d5d1450be1a492, type: 3}
   - {fileID: -57745022, guid: 77be50fe74ae82d449d5d1450be1a492, type: 3}
+  Dying:
+  - {fileID: -1381695007, guid: 77be50fe74ae82d449d5d1450be1a492, type: 3}
+  - {fileID: -1381695007, guid: 77be50fe74ae82d449d5d1450be1a492, type: 3}
+  - {fileID: -118612402, guid: 77be50fe74ae82d449d5d1450be1a492, type: 3}
+  - {fileID: 1362502307, guid: 77be50fe74ae82d449d5d1450be1a492, type: 3}
+  - {fileID: -100276908, guid: 77be50fe74ae82d449d5d1450be1a492, type: 3}
+  - {fileID: -100276908, guid: 77be50fe74ae82d449d5d1450be1a492, type: 3}
+  Spawning:
+  - {fileID: 1578711618, guid: 77be50fe74ae82d449d5d1450be1a492, type: 3}
+  - {fileID: -1205490113, guid: 77be50fe74ae82d449d5d1450be1a492, type: 3}
+  - {fileID: -1044731820, guid: 77be50fe74ae82d449d5d1450be1a492, type: 3}
+  - {fileID: -280494038, guid: 77be50fe74ae82d449d5d1450be1a492, type: 3}
+  - {fileID: 465653200, guid: 77be50fe74ae82d449d5d1450be1a492, type: 3}
   IdleDelay: 0.2
+  DyingDelay: 0.25
+  SpawningDelay: 0.25
 --- !u!1 &6884098248483579111
 GameObject:
   m_ObjectHideFlags: 0

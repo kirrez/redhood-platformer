@@ -6,6 +6,7 @@ namespace Platformer
     {
         HitEffect,
         DeathFlameEffect,
+        DeathFlameShort,
         
         BloodBlast,
         BombBlast,
@@ -17,6 +18,8 @@ namespace Platformer
         ShardDropper,
         WoodShatter,
         TentacleShatter,
+        FeatherParticle,
+        EggShell,
 
         HolyWaterDisappear,
     }

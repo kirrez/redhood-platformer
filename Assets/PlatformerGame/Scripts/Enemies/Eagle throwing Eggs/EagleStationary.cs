@@ -57,11 +57,6 @@ namespace Platformer
             Health.Killed += OnKilled;
         }
 
-        private void OnEnable()
-        {
-            
-        }
-
         private void FixedUpdate()
         {
             CurrentState();
@@ -72,7 +67,7 @@ namespace Platformer
             Detector = detector;
             transform.position = newPosition.position;
 
-            CurrentState = StateSpawn;
+            CurrentState = StateStartSpawning;
         }
 
         private void CheckDetector()
@@ -93,12 +88,56 @@ namespace Platformer
             }
         }
 
-        private void StateSpawn()
+        private void SetMask(string mask)
+        {
+            Body.gameObject.layer = LayerMask.NameToLayer(mask);
+        }
+
+        private void StateStartSpawning()
+        {
+            Timer = Animator.PlaySpawning();
+            DamageTrigger.enabled = false;
+            SetMask(LayerNames.EnemyInactive);
+
+            CurrentState = StateProgressSpawning;
+        }
+
+        private void StateProgressSpawning()
+        {
+            Timer -= Time.fixedDeltaTime;
+
+            if (Timer <= 0)
+            {
+                CurrentState = StateFinishSpawning;
+            }
+        }
+
+        private void StateFinishSpawning()
         {
             Animator.PlayIdle();
             Health.RefillHealth();
+            DamageTrigger.enabled = true;
+            SetMask(LayerNames.EnemySolid);
+            Timer = 2f;
 
-            CurrentState = StateIdle;
+            CurrentState = StateRestAfterSpawn;
+        }
+
+        private void StateRestAfterSpawn()
+        {
+            Timer -= Time.fixedDeltaTime;
+
+            CheckDetector();
+
+            if (InsideDetector && FacePlayer)
+            {
+                ChangeFaceDirection();
+            }
+
+            if (Timer <= 0)
+            {
+                CurrentState = StateIdle;
+            }
         }
 
         private void StateIdle()
@@ -124,6 +163,8 @@ namespace Platformer
             egg.transform.position = FirePoint.position;
             egg.Throw();
 
+            AudioManager.PlaySound(ESounds.EggDrop);
+
             Timer = ThrowCooldown;
             CurrentState = StateRestAfterThrow;
         }
@@ -148,24 +189,52 @@ namespace Platformer
             }
         }
 
-        //private void StateWaitRespawn()
-        //{
-        //    Timer -= Time.fixedDeltaTime;
+        private void StateStartDying()
+        {
+            var newPosition = Body.transform.position;
+            newPosition.y += 2f;
+            var instance = ResourceManager.GetFromPool(GFXs.DeathFlameEffect);
+            DynamicsContainer.AddMain(instance);
+            instance.GetComponent<DeathFlameEffect>().Initiate(newPosition, new Vector2(2f, 2f));
 
-        //    if (Timer <= 0)
-        //    {
-        //        CurrentState = StateSpawn;
-        //    }
-        //}
+            var amount = UnityEngine.Random.Range(8, 15);
+            newPosition.y += 1f;
+            for (int i = 0; i < amount; i++)
+            {
+                var feather = ResourceManager.GetFromPool(GFXs.FeatherParticle);
+                DynamicsContainer.AddMain(feather);
+                feather.GetComponent<FeatherParticle>().Initiate(newPosition);
+            }
+
+            AudioManager.PlaySound(ESounds.EagleScream);
+            AudioManager.PlaySound(ESounds.EnemyDying5);
+
+            Timer = Animator.PlayDying();
+
+            CurrentState = StateProgressDying;
+        }
+
+        private void StateProgressDying()
+        {
+            Timer -= Time.fixedDeltaTime;
+
+            if (Timer <= 0)
+            {
+                CurrentState = StateFinishDying;
+            }
+        }
+
+        private void StateFinishDying()
+        {
+            Animator.PlaySpawning();
+            Animator.Stop();
+            EagleKilled?.Invoke();
+            gameObject.SetActive(false);
+        }
 
         private void OnKilled()
         {
-            Animator.Stop();
-            EagleKilled?.Invoke();
-
-            gameObject.SetActive(false);
-            //Timer = RespawnTime;
-            //CurrentState = StateWaitRespawn;
+            CurrentState = StateStartDying;
         }
 
         private void OnDisable()

@@ -83,6 +83,7 @@ GameObject:
   - component: {fileID: 726972958025336953}
   - component: {fileID: 726972958025336952}
   - component: {fileID: 726972958025336957}
+  - component: {fileID: -2473841483464580236}
   m_Layer: 16
   m_Name: EggBomb
   m_TagString: Untagged
@@ -238,3 +239,16 @@ MonoBehaviour:
   DamageTrigger: {fileID: 726972957865278538}
   DamageDealer: {fileID: 726972957865278537}
   Body: {fileID: 726972958025336955}
+--- !u!114 &-2473841483464580236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 726972958025336839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86ebf221a646c464689b82439aaec91b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Duration: 3

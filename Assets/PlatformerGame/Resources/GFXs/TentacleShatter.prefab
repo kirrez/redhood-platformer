@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7031218254661138447}
   - component: {fileID: 7031218254661138432}
   - component: {fileID: 7031218254661138433}
+  - component: {fileID: -6874862777831391118}
   - component: {fileID: 7031218254661138434}
   m_Layer: 16
   m_Name: TentacleShatter
@@ -67,8 +68,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84615f5834377f84497ba6f3f25e76ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LifeSpan: 2.5
   Amplitude: 34
+--- !u!114 &-6874862777831391118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7031218254661138435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86ebf221a646c464689b82439aaec91b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MinDuration: 1.5
+  Duration: 2.5
 --- !u!212 &7031218254661138434
 SpriteRenderer:
   m_ObjectHideFlags: 0

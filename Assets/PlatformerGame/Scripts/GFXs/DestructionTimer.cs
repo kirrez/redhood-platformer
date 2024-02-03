@@ -7,13 +7,23 @@ namespace Platformer
     public class DestructionTimer : MonoBehaviour
     {
         [SerializeField]
+        private float MinDuration = -1f;
+
+        [SerializeField]
         private float Duration;
 
         private float Timer;
 
         private void OnEnable()
         {
-            Timer = Duration;
+            if (MinDuration >= 0)
+            {
+                Timer = Random.Range(MinDuration, Duration);
+            }
+            else
+            {
+                Timer = Duration;
+            }
         }
 
         private void FixedUpdate()
