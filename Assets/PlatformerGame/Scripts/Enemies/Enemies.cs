@@ -9,6 +9,7 @@ namespace Platformer
         Bat,
         RedFrog,
         Bear,
+        BearCub,
         EvilBear,
         BubbleBullet,
         BearSlash,

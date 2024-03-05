@@ -13,6 +13,7 @@ namespace Platformer
         private float RespawnCooldown = 3f;
         [SerializeField]
         private int MaxSpawnCount = 2;
+        
 
         private IDynamicsContainer DynamicsContainer;
         private IResourceManager ResourceManager;

@@ -10,6 +10,7 @@ namespace Platformer
         public static readonly LayerMask Slope = LayerMask.GetMask("GroundSlope");
         public static readonly LayerMask OneWay = LayerMask.GetMask("OneWay");
         public static readonly LayerMask PlatformOneWay = LayerMask.GetMask("PlatformOneWay");
+        public static readonly LayerMask EnemyBorder = LayerMask.GetMask("EnemyBorder");
 
         public static readonly LayerMask Solid = Ground + Slope;
 

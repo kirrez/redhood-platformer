@@ -98,6 +98,13 @@ namespace Platformer
         Gatekeeper1_1,
         Gatekeeper1_2,
         ShopkeeperTitle,
-        Shopkeeper1
+        Shopkeeper1,
+
+        HermitTitle,
+        Hermit1_1,
+        Hermit1_2,
+        Hermit1_3,
+        Hermit1_4,
+        Hermit2,
     }
 }

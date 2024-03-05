@@ -133,6 +133,14 @@ namespace Platformer
             Texts[ETexts.WomanCandy] = "Here you are, darling, take this!";
             Texts[ETexts.ShopkeeperTitle] = "* Shopkeeper *";
             Texts[ETexts.Shopkeeper1] = "Oh, young lady! If you happen to find this shiny circles, don't throw them out. I can give you something really useful in exchange!";
+
+            Texts[ETexts.HermitTitle] = "* Hermit *";
+            Texts[ETexts.Hermit1_1] = "- Who decided to visit me today? My eyes can't see... but you may come closer, child.";
+            Texts[ETexts.Hermit1_2] = "- Hello! How do you live in such a secluded place? By the way, do you happen to know...";
+            Texts[ETexts.Hermit1_3] = "- Oh, I know a lot! There is a holy place here, but there is only one correct path: it is Fire, Mine, Water, Statues, Bones and Fire again. Perhaps you'll find there what you're looking for.";
+            Texts[ETexts.Hermit1_4] = "- Well, actually, thank you! That is what I really need ))";
+            Texts[ETexts.Hermit2] = "- Don't you forget, the right path is Fire, Mine, Water, Statues, Bones and Fire again!";
+
         }
 
         private void LoadRussian()
@@ -230,6 +238,13 @@ namespace Platformer
             Texts[ETexts.WomanCandy] = "Вот, возьми конфетку, девочка!";
             Texts[ETexts.ShopkeeperTitle] = "* Продавец *";
             Texts[ETexts.Shopkeeper1] = "О, юная леди! Если вам случится найти эти блестящие кружочки, не выбрасывайте их. Взамен я могу дать вам что-то действительно полезное!";
+
+            Texts[ETexts.HermitTitle] = "* Отшельник *";
+            Texts[ETexts.Hermit1_1] = "- Кто решил прийти ко мне в гости сегодня? Мои глаза не видят... но ты можешь подойти ближе, дитя.";
+            Texts[ETexts.Hermit1_2] = "- Здравствуйте! Как вам живется в таком уединенном месте? Кстати, случайно не знаете...";
+            Texts[ETexts.Hermit1_3] = "- О, я знаю многое! Здесь есть святое место, но правильный путь только один : это Огонь, Шахта, Вода, Статуи, Кости и снова Огонь. Может быть ты найдешь там то, что ищешь.";
+            Texts[ETexts.Hermit1_4] = "- Ну, на самом деле, спасибо вам! Это то, что мне действительно нужно ))";
+            Texts[ETexts.Hermit2] = "- Не забывай, дитя, верная дорога - это Огонь, Шахта, Вода, Статуи, Кости и снова Огонь!";
         }
     }
 }

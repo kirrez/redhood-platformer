@@ -21,6 +21,7 @@ namespace Platformer
         Blacksmith, // giving GREY key for 3 ore
         PlatformSuspended, //quest in mountains
         WomanCandy, // secret candy in village
+        Hermit, // tells about way to forsaken church
 
         CrippledAxeItem, // appears as collectible item in Western Forest
 

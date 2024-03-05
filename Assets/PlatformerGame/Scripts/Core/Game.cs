@@ -129,10 +129,6 @@ namespace Platformer
 
         }
 
-
-
-
-
         public IPlayerState LoadTestConfig()
         {
             var playerState = ProgressManager.CreateState(1, "test");
@@ -165,7 +161,7 @@ namespace Platformer
             // Cave Labyrinth, start
             playerState.SetQuest(EQuest.Stage, (int)EStages.CaveLabyrinth);
             playerState.SetQuest(EQuest.Location, 0);
-            playerState.SetQuest(EQuest.SpawnPoint, 0);
+            playerState.SetQuest(EQuest.SpawnPoint, 24); // - bear cub
             playerState.SetQuest(EQuest.Confiner, 1);
 
             // Mountains

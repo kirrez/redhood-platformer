@@ -35,7 +35,6 @@ namespace Platformer
 
         private float Timer;
         private float DirectionX = 1f;
-        private float DeltaY;
         private float AttackCycle = 2f;
         private float AttackTimer;
         private Vector3 LastPosition;
@@ -84,7 +83,7 @@ namespace Platformer
 
         private void FixedUpdate()
         {
-            DeltaY = Body.transform.position.y - LastPosition.y;
+            //DeltaY = Body.transform.position.y - LastPosition.y;
             LastPosition = Body.transform.position;
 
             CurrentState();
@@ -172,26 +171,6 @@ namespace Platformer
             CurrentState = StateInitial;
         }
 
-        private void MoveHorizontal()
-        {
-            Body.velocity = new Vector2(DirectionX * Time.fixedDeltaTime * HorizontalSpeed, Body.velocity.y);
-            //delay between stair rises
-            StairTimer -= Time.fixedDeltaTime;
-
-            if (CheckWall(LayerMasks.Ground))
-            {
-                DirectionX *= -1;
-                CheckDirection();
-            }
-
-            if (CheckStair(LayerMasks.Ground) && StairTimer <= 0)
-            {
-                Body.velocity = new Vector2(Body.velocity.x, Body.velocity.y + 6.5f);
-                StairTimer = 0.5f;
-            }
-
-        }
-
         // insurmauntable obstacle
         private bool CheckWall(LayerMask mask)
         {
@@ -257,7 +236,21 @@ namespace Platformer
 
         private void StateRoaming()
         {
-            MoveHorizontal();
+            Body.velocity = new Vector2(DirectionX * Time.fixedDeltaTime * HorizontalSpeed, Body.velocity.y);
+            //delay between stair rises
+            StairTimer -= Time.fixedDeltaTime;
+
+            if (CheckWall(LayerMasks.Ground + LayerMasks.EnemyBorder))
+            {
+                DirectionX *= -1;
+                CheckDirection();
+            }
+
+            if (CheckStair(LayerMasks.Ground) && StairTimer <= 0)
+            {
+                Body.velocity = new Vector2(Body.velocity.x, Body.velocity.y + 6.5f);
+                StairTimer = 0.5f;
+            }
 
             var distance = Player.Position.x - Body.transform.position.x;
             var height = Player.Position.y - Body.transform.position.y;
