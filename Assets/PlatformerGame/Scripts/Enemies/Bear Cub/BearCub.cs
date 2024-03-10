@@ -67,6 +67,7 @@ namespace Platformer
         private void OnDisable()
         {
             IsRoamingState = true;
+            JumpCooldown = 0f;
             Killed();
         }
 

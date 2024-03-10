@@ -540,7 +540,6 @@ namespace Platformer
         {
             var holyWaterLevel = ProgressManager.GetQuest(EQuest.HolyWaterLevel);
             GameObject instance = null;
-            //GameObject disappearEffect = null;
 
             switch (holyWaterLevel)
             {
@@ -563,15 +562,6 @@ namespace Platformer
                 instance.GetComponent<IBaseGFX>().Initiate(FirePoint.position, DirectionX);
 
                 AudioManager.PlayRedhoodSound(EPlayerSounds.ThrowBottle);
-
-                //weapon.Disappear += delegate (Transform trans)
-                //{
-                //    disappearEffect = ResourceManager.GetFromPool(GFXs.HolyWaterDisappear);
-                //    dynamics.AddItem(disappearEffect);
-                //    disappearEffect.transform.SetParent(dynamics.Transform, false);
-                //    disappearEffect.transform.position = trans.position;
-                //};
-
             }
         }
 

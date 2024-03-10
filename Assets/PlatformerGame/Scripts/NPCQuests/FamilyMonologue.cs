@@ -39,6 +39,7 @@ namespace Platformer
             {
                 Inside = true;
                 Player.Interaction += OnInteraction;
+                // instant beginning
                 OnInteraction();
             }
 

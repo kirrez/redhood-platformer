@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Platformer
 {
-    public class KitchenKnife : BaseGFX
+    public class KitchenKnife : KnifeWeapon
     {
         
     }

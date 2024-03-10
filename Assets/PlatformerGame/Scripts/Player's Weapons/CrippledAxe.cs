@@ -4,8 +4,8 @@ using UnityEngine;
 
 namespace Platformer
 {
-    public class CrippledAxe : BaseGFX
+    public class CrippledAxe : AxeWeapon
     {
-
+        
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Platformer
 {
-    public class StrongHolyWater : BaseGFX
+    public class StrongHolyWater : HolyWaterWeapon
     {
         
     }

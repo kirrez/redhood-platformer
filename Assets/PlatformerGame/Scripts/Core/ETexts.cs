@@ -16,6 +16,8 @@ namespace Platformer
         UpgradeHealthTip,
         UpgradeHealthTitle,
         SwitchOn,
+        Repair,
+
         DestinationTheVillage,
         DestinationWesternForest,
         DestinationMountains,
@@ -106,5 +108,12 @@ namespace Platformer
         Hermit1_3,
         Hermit1_4,
         Hermit2,
+
+        BrokenLeverTip_Title,
+        BrokenLeverTip1,
+        BrokenLeverInCave_Title,
+        BrokenLeverInCave1,
+        BrokenLeverInCave_HandleNotFound,
+        BrokenLeverInCave_HandleFound,
     }
 }

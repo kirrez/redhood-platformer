@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 830021847348928814}
   - component: {fileID: 830021847348928801}
   - component: {fileID: 830021847348928800}
-  - component: {fileID: 830021847348928813}
   - component: {fileID: 3235715989247153901}
-  - component: {fileID: 4718537311808336463}
+  - component: {fileID: 830021847348928813}
+  - component: {fileID: 7124261703228720464}
   - component: {fileID: 4164185749781874874}
   - component: {fileID: 1837237026950019800}
   - component: {fileID: 2637141876486280004}
@@ -129,6 +129,18 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.45
+--- !u!114 &3235715989247153901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 830021847348928812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d20f617eec2b40e4499a44e2aafc9777, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &830021847348928813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,7 +161,7 @@ MonoBehaviour:
   CanPenetrateWalls: 1
   Moving: 1
   HitDirection: 1
---- !u!114 &3235715989247153901
+--- !u!114 &7124261703228720464
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -158,21 +170,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 830021847348928812}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d20f617eec2b40e4499a44e2aafc9777, type: 3}
+  m_Script: {fileID: 11500000, guid: 0c9789edadfed0940b0742ddce1caffa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &4718537311808336463
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 830021847348928812}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86ebf221a646c464689b82439aaec91b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  MinDuration: -1
   Duration: 1.35
 --- !u!114 &4164185749781874874
 MonoBehaviour:

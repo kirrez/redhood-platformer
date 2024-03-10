@@ -935,7 +935,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -956,7 +956,7 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -977,7 +977,7 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -998,7 +998,7 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1019,7 +1019,7 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1040,7 +1040,7 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1061,7 +1061,7 @@ TextureImporter:
         width: 16
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1082,7 +1082,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1090,6 +1090,111 @@ TextureImporter:
       bones: []
       spriteID: 2a944ceb48800454dae7cbf057c141d7
       internalID: 1728023930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HolyBlast_0
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27b550a3f8fbbbf42b866f4b9f935382
+      internalID: -1061333650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HolyBlast_1
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b1c8405c54fcfb489414ce787cb1b89
+      internalID: 926613188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HolyBlast_2
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e253d6da772a6eb4ab2703d511a32ee0
+      internalID: -443084998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HolyBlast_3
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7099dfa881ac5c2439805d84a3fc534b
+      internalID: -354551202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HolyBlast_4
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a00056c2f0ecaf40b3b59f22e1c37f5
+      internalID: 211161965
       vertices: []
       indices: 
       edges: []
@@ -1105,52 +1210,57 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      SharpenedAxe_1: -1794736886
-      CrippledAxe_5: -2091085743
-      Axe_6: -1629154577
-      CrippledAxe_6: 1209073822
-      CrippledAxe_7: 1144453508
-      CrippledAxe_1: -446269027
       Axe_0: 1382595906
+      Axe_1: 1999972499
       Axe_2: 464706208
-      SharpenedAxe_5: 1413011823
-      SturdyAxe_6: -1501636515
-      SharpenedAxe_2: -785134249
-      SturdyAxe_2: 872296835
-      Axe_5: -777991471
-      CrippledAxe_4: -1105100714
-      HWDisappear_1: 1037604004
-      SturdyAxe_1: -1825665702
-      Knife_0: -1724497479
-      StrongHolyWater: -1397007925
-      FarmerKnife: -1337023898
-      CrippledAxe_3: 285079235
-      HWDisappear_2: 352635053
-      WeakHolyWater: 329063915
-      SturdyAxe_4: -452996109
-      HWDisappear_3: -1511959216
-      HWDisappear_5: 728798006
       Axe_3: 878374143
       Axe_4: -2020755596
-      HWDisappear_6: 353387895
-      Axe_1: 1999972499
-      SturdyAxe_0: -1440161989
-      CrippledAxe_2: 320908324
-      SharpenedAxe_0: 1202019176
-      SharpenedAxe_3: 794295384
+      Axe_5: -777991471
+      Axe_6: -1629154577
       Axe_7: 817774063
-      SharpenedAxe_4: -1026884941
-      SturdyAxe_3: 845829346
-      HWDisappear_4: 1326037964
-      HWDisappear_7: 1728023930
-      SharpenedAxe_7: -1737146645
-      HunterKnife: -2099779392
-      HWDisappear_0: 1711377829
-      SturdyAxe_5: -1957616367
-      SturdyAxe_7: 1647257150
       CrippledAxe_0: -1186497615
-      SharpenedAxe_6: 495838639
+      CrippledAxe_1: -446269027
+      CrippledAxe_2: 320908324
+      CrippledAxe_3: 285079235
+      CrippledAxe_4: -1105100714
+      CrippledAxe_5: -2091085743
+      CrippledAxe_6: 1209073822
+      CrippledAxe_7: 1144453508
+      FarmerKnife: -1337023898
+      HWDisappear_0: 1711377829
+      HWDisappear_1: 1037604004
+      HWDisappear_2: 352635053
+      HWDisappear_3: -1511959216
+      HWDisappear_4: 1326037964
+      HWDisappear_5: 728798006
+      HWDisappear_6: 353387895
+      HWDisappear_7: 1728023930
+      HolyBlast_0: -1061333650
+      HolyBlast_1: 926613188
+      HolyBlast_2: -443084998
+      HolyBlast_3: -354551202
+      HolyBlast_4: 211161965
+      HunterKnife: -2099779392
       KitchenKnife: -1429272787
+      Knife_0: -1724497479
+      SharpenedAxe_0: 1202019176
+      SharpenedAxe_1: -1794736886
+      SharpenedAxe_2: -785134249
+      SharpenedAxe_3: 794295384
+      SharpenedAxe_4: -1026884941
+      SharpenedAxe_5: 1413011823
+      SharpenedAxe_6: 495838639
+      SharpenedAxe_7: -1737146645
+      StrongHolyWater: -1397007925
+      SturdyAxe_0: -1440161989
+      SturdyAxe_1: -1825665702
+      SturdyAxe_2: 872296835
+      SturdyAxe_3: 845829346
+      SturdyAxe_4: -452996109
+      SturdyAxe_5: -1957616367
+      SturdyAxe_6: -1501636515
+      SturdyAxe_7: 1647257150
+      WeakHolyWater: 329063915
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

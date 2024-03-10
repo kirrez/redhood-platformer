@@ -27,7 +27,6 @@ namespace Platformer
 
         private void Awake()
         {
-            //ResourceManager = CompositionRoot.GetResourceManager();
             DynamicsContainer = CompositionRoot.GetDynamicsContainer();
             ProgressManager = CompositionRoot.GetProgressManager();
             AudioManager = CompositionRoot.GetAudioManager();
@@ -58,12 +57,13 @@ namespace Platformer
             //var playerStateToSave = ProgressManager.PlayerState;
             //Storage.Save(playerStateToSave);
 
+            // Only this for "LOAD TEST CONFIG"
             var playerState = LoadTestConfig();
             ProgressManager.SetState(playerState);
 
-            //ProgressManager.LoadTestConfig1();
-            //ProgressManager.LoadTestConfig();
-            //ProgressManager.LoadNewGame();
+            // Only for "START NEW GAME"
+            //var playerState = ProgressManager.CreateState(1, "name");
+            //ProgressManager.SetState(playerState);
 
             GameOverModel = new GameOverModel();
             GameOverModel.TryingAgain += TryAgain;
@@ -134,7 +134,7 @@ namespace Platformer
             var playerState = ProgressManager.CreateState(1, "test");
 
             //Testing game mode
-            playerState.SetQuest(EQuest.GameMode, 1);// normal, few tries
+            playerState.SetQuest(EQuest.GameMode, 0);// normal, few tries
             playerState.SetQuest(EQuest.TriesLeft, 2);
 
             //Visited WF, took the pie
@@ -148,21 +148,32 @@ namespace Platformer
             //Repaired bridge (BearQuest, Suspension bridge)
             playerState.SetQuest(EQuest.SuspensionBridge, 3);
 
-            //new Player's location
             //CaveLabyrinth Cave8 : Loc. 1, SP : 16, Conf : 8
             //CaveLabyrinth Cave11Boss : L 1, Sp 23, Conf 11
 
-            // Megafrog Boss :
-            //SetQuest(EQuest.Stage, (int)EStages.CaveLabyrinth);
-            //SetQuest(EQuest.Location, 1);
-            //SetQuest(EQuest.SpawnPoint, 23);
-            //SetQuest(EQuest.Confiner, 11);
-
             // Cave Labyrinth, start
+            //playerState.SetQuest(EQuest.Stage, (int)EStages.CaveLabyrinth);
+            //playerState.SetQuest(EQuest.Location, 0);
+            //playerState.SetQuest(EQuest.SpawnPoint, 24); // test
+            //playerState.SetQuest(EQuest.Confiner, 1);
+
+            // Cave Labyrinth, Campfire boss
+            //playerState.SetQuest(EQuest.Stage, (int)EStages.CaveLabyrinth);
+            //playerState.SetQuest(EQuest.Location, 2);
+            //playerState.SetQuest(EQuest.SpawnPoint, 24); // - test
+            //playerState.SetQuest(EQuest.Confiner, 10);
+
+            // Cave Labyrinth, Chapel
+            //playerState.SetQuest(EQuest.Stage, (int)EStages.CaveLabyrinth);
+            //playerState.SetQuest(EQuest.Location, 0);
+            //playerState.SetQuest(EQuest.SpawnPoint, 24);
+            //playerState.SetQuest(EQuest.Confiner, 1);
+
+            // Cave Labyrinth, Lever quest
             playerState.SetQuest(EQuest.Stage, (int)EStages.CaveLabyrinth);
-            playerState.SetQuest(EQuest.Location, 0);
-            playerState.SetQuest(EQuest.SpawnPoint, 24); // - bear cub
-            playerState.SetQuest(EQuest.Confiner, 1);
+            playerState.SetQuest(EQuest.Location, 1);
+            playerState.SetQuest(EQuest.SpawnPoint, 24); // - test
+            playerState.SetQuest(EQuest.Confiner, 12);
 
             // Mountains
             //playerState.SetQuest(EQuest.Stage, (int)EStages.Mountains);
@@ -172,7 +183,7 @@ namespace Platformer
 
             playerState.SetQuest(EQuest.KnifeLevel, 1);
             playerState.SetQuest(EQuest.AxeLevel, 1);
-            playerState.SetQuest(EQuest.HolyWaterLevel, 0);
+            playerState.SetQuest(EQuest.HolyWaterLevel, 1);
 
             playerState.SetQuest(EQuest.MaxLives, 5);
             playerState.SetQuest(EQuest.FoodCollected, 0);

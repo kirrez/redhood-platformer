@@ -66,7 +66,8 @@ namespace Platformer
             else
             {
                 Destructed?.Invoke();
-                this.gameObject.SetActive(false); // pooled in RM
+
+                //this.gameObject.SetActive(false); // pooled in RM
             }
         }
 

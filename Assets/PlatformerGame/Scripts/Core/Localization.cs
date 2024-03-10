@@ -52,6 +52,7 @@ namespace Platformer
             Texts[ETexts.KindleFire] = "KINDLE A CAMPFIRE";
             Texts[ETexts.RemoveObstacle] = "REMOVE AN OBSTACLE";
             Texts[ETexts.SwitchOn] = "Switch On";
+            Texts[ETexts.Repair] = "REPAIR";
 
             Texts[ETexts.DestinationTheVillage] = "The Village";
             Texts[ETexts.DestinationWesternForest] = "Western Forest";
@@ -137,10 +138,16 @@ namespace Platformer
             Texts[ETexts.HermitTitle] = "* Hermit *";
             Texts[ETexts.Hermit1_1] = "- Who decided to visit me today? My eyes can't see... but you may come closer, child.";
             Texts[ETexts.Hermit1_2] = "- Hello! How do you live in such a secluded place? By the way, do you happen to know...";
-            Texts[ETexts.Hermit1_3] = "- Oh, I know a lot! There is a holy place here, but there is only one correct path: it is Fire, Mine, Water, Statues, Bones and Fire again. Perhaps you'll find there what you're looking for.";
+            Texts[ETexts.Hermit1_3] = "- Oh, I know a lot! There is a holy place here, but there is only one correct path: it is Fire, Mine, Water, Statues, Bones, Fire and Water. Perhaps you'll find there what you're looking for.";
             Texts[ETexts.Hermit1_4] = "- Well, actually, thank you! That is what I really need ))";
-            Texts[ETexts.Hermit2] = "- Don't you forget, the right path is Fire, Mine, Water, Statues, Bones and Fire again!";
+            Texts[ETexts.Hermit2] = "- Don't you forget, the right path is Fire, Mine, Water, Statues, Bones, Fire and Water!";
 
+            Texts[ETexts.BrokenLeverTip_Title] = "* Curious Find *";
+            Texts[ETexts.BrokenLeverTip1] = "What is this thing? Seems like a part of some mechanism. Might be useful!";
+            Texts[ETexts.BrokenLeverInCave_Title] = "* Door With A Switch *";
+            Texts[ETexts.BrokenLeverInCave1] = "This is a door with broken switch! Hmm... I must find a way to fix it if I want to go in (*__*)";
+            Texts[ETexts.BrokenLeverInCave_HandleNotFound] = "I still don't have the right thing to fix it..";
+            Texts[ETexts.BrokenLeverInCave_HandleFound] = "Yay! It fits! That stuff's operable now!";
         }
 
         private void LoadRussian()
@@ -158,6 +165,7 @@ namespace Platformer
             Texts[ETexts.KindleFire] = "РАЗЖЕЧЬ КОСТЁР";
             Texts[ETexts.RemoveObstacle] = "УБРАТЬ ПРЕГРАДУ";
             Texts[ETexts.SwitchOn] = "Включить";
+            Texts[ETexts.Repair] = "ПОЧИНИТЬ";
 
             Texts[ETexts.DestinationTheVillage] = "Деревня";
             Texts[ETexts.DestinationWesternForest] = "Западный лес";
@@ -242,9 +250,16 @@ namespace Platformer
             Texts[ETexts.HermitTitle] = "* Отшельник *";
             Texts[ETexts.Hermit1_1] = "- Кто решил прийти ко мне в гости сегодня? Мои глаза не видят... но ты можешь подойти ближе, дитя.";
             Texts[ETexts.Hermit1_2] = "- Здравствуйте! Как вам живется в таком уединенном месте? Кстати, случайно не знаете...";
-            Texts[ETexts.Hermit1_3] = "- О, я знаю многое! Здесь есть святое место, но правильный путь только один : это Огонь, Шахта, Вода, Статуи, Кости и снова Огонь. Может быть ты найдешь там то, что ищешь.";
+            Texts[ETexts.Hermit1_3] = "- О, я знаю многое! Здесь есть святое место, но правильный путь только один : это Огонь, Шахта, Вода, Статуи, Кости, Огонь и Вода. Может быть ты найдешь там то, что ищешь.";
             Texts[ETexts.Hermit1_4] = "- Ну, на самом деле, спасибо вам! Это то, что мне действительно нужно ))";
-            Texts[ETexts.Hermit2] = "- Не забывай, дитя, верная дорога - это Огонь, Шахта, Вода, Статуи, Кости и снова Огонь!";
+            Texts[ETexts.Hermit2] = "- Не забывай, дитя, верная дорога - это Огонь, Шахта, Вода, Статуи, Кости, Огонь и Вода!";
+
+            Texts[ETexts.BrokenLeverTip_Title] = "* Любопытная находка *";
+            Texts[ETexts.BrokenLeverTip1] = "Что это за штука такая? Похожа на детальку от какого-то механизма. Пригодится!";
+            Texts[ETexts.BrokenLeverInCave_Title] = "* Дверь с переключателем *";
+            Texts[ETexts.BrokenLeverInCave1] = "Это дверь со сломанным выключателем! Хмм.. мне нужно как-то починить выключатель, чтобы попасть внутрь (*__*)";
+            Texts[ETexts.BrokenLeverInCave_HandleNotFound] = "У меня нет нужной вещи для ремонта..";
+            Texts[ETexts.BrokenLeverInCave_HandleFound] = "Ура, подходит! Эта штука теперь работает!";
         }
     }
 }

@@ -948,7 +948,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SwitchOff
+      name: Switch_Off
       rect:
         serializedVersion: 2
         x: 384
@@ -969,7 +969,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SwitchOn
+      name: Switch_On
       rect:
         serializedVersion: 2
         x: 400
@@ -4076,6 +4076,132 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Suspendable_block_1
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 440
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 054693df304d9e84fa3c5488a7f45571
+      internalID: 1810511746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fake_oneWay
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 424
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39266bf3c1e8958449ae1bfd7cc9a1bd
+      internalID: -527980808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WeakHolyWaterItem
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 384
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 059c35f10419bc1439ab7795ff594cab
+      internalID: 150875352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StrongHolyWaterItem
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 368
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 492777bc5d75c654bb0877daad1ef39a
+      internalID: -1649759692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Switch_Broken
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 496
+        width: 16
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58b6104cef369f34099df776cfa86e9f
+      internalID: -2024387269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Switch_Handle
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 434
+        width: 18
+        height: 14
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eac4dde938b0081468f4ce4f717cce49
+      internalID: -1171171332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -4172,6 +4298,7 @@ TextureImporter:
       DoorRed_1: 729713761
       DoorRed_2: -1579968724
       ExitZone: 1976855063
+      Fake_oneWay: -527980808
       Fall_0: -628325260
       Fall_1: 2073561585
       Fall_2: 1255714272
@@ -4276,10 +4403,15 @@ TextureImporter:
       Stream_1: 855704516
       Stream_2: -309486281
       Stream_3: -1190808691
+      StrongHolyWaterItem: -1649759692
+      Suspendable_block_1: 1810511746
+      Suspendable_block_shadow: 33946843
       SuspensionHolder_Left: 133505279
       SuspensionHolder_Right: 834547123
-      SwitchOff: 1425627654
-      SwitchOn: -1816534046
+      Switch_Broken: -2024387269
+      Switch_Handle: -1171171332
+      Switch_Off: 1425627654
+      Switch_On: -1816534046
       ToadBlueLaunch: 964546093
       ToadGreenLaunch: -384571671
       ToadPinkLaunch: 2073867044
@@ -4311,6 +4443,7 @@ TextureImporter:
       WaterfallDarkTop_0: 985770286
       WaterfallDarkTop_1: -1978122356
       WaterfallDarkTop_2: 660868015
+      WeakHolyWaterItem: 150875352
       WeaponEmpty: 1594718321
       WeaponFrame: 1830880056
       WomanBlue_0: 1539828992

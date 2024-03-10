@@ -11,6 +11,8 @@ namespace Platformer
         ThrowKnife2,
         ThrowAxe1,
         ThrowAxe2,
+        BottleCrush1,
+
         MCDamage3,
         RollDown2,
         Splash1,

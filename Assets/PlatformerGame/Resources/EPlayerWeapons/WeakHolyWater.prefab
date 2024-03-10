@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 6965970566619243594}
   - component: {fileID: 6965970566619243595}
   - component: {fileID: 4875388971155285446}
-  - component: {fileID: 6965970566619243597}
   - component: {fileID: -6877529453234064721}
-  - component: {fileID: -2705950485178840671}
+  - component: {fileID: 6965970566619243597}
+  - component: {fileID: 2134680335247596107}
   - component: {fileID: 2630417090939009033}
   - component: {fileID: 1008244296699906627}
   m_Layer: 12
@@ -128,6 +128,18 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0.1}
   serializedVersion: 2
   m_Radius: 0.33
+--- !u!114 &-6877529453234064721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6965970566619243598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f49d6938919570449ffdd1557192c79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &6965970566619243597
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,7 +160,7 @@ MonoBehaviour:
   CanPenetrateWalls: 0
   Moving: 1
   HitDirection: 1
---- !u!114 &-6877529453234064721
+--- !u!114 &2134680335247596107
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -157,21 +169,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6965970566619243598}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f49d6938919570449ffdd1557192c79, type: 3}
+  m_Script: {fileID: 11500000, guid: 0c9789edadfed0940b0742ddce1caffa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-2705950485178840671
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6965970566619243598}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86ebf221a646c464689b82439aaec91b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  MinDuration: -1
   Duration: 1.2
 --- !u!114 &2630417090939009033
 MonoBehaviour:

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Platformer
 {
-    public class SharpenedAxe : BaseGFX
+    public class SharpenedAxe : AxeWeapon
     {
 
     }
