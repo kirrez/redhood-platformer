@@ -12,8 +12,6 @@ namespace Platformer
             var wave = effect.GetComponent<HolyWaterWave>();
             wave.Initiate(transform.position, 18, 3f);
             DynamicsContainer.AddMain(effect);
-            
-            wave.LaunchParticles();
 
             base.OnDestructed();
         }

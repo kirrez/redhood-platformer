@@ -22,5 +22,8 @@ namespace Platformer
         EggBomb,
         EagleMoving,
         EagleStationary,
+
+        // Undead
+        VengefulSpirit,
     }
 }

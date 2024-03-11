@@ -194,7 +194,6 @@ namespace Platformer
             return (CurrentAnimation.Count - 1) * Delay;
         }
 
-
         private void Begin()
         {
             PlayWalk();
