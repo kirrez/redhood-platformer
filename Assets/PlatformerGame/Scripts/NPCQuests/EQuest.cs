@@ -24,6 +24,7 @@ namespace Platformer
         Hermit, // tells about way to forsaken church
         BrokenLeverInCaves, // chain for opening door to abandoned chapel in cave labyrinth
         BrokenLeverTip, // tells us about found item
+        VengefulSpiritDisturbed, // spirit appears right after acquairing of Weak Holy Water
 
         SwitchHandleItem, // item accessible after defeating Megafrog, for broken lever repair
         CrippledAxeItem, // appears as collectible item in Western Forest

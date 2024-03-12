@@ -52,5 +52,6 @@ namespace Platformer
             VengefulSpirit spirit = instance.GetComponent<VengefulSpirit>();
             spirit.Initiate(SpawnPoint.position, Trigger);
         }
+
     }
 }

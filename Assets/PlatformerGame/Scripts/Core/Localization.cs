@@ -148,6 +148,12 @@ namespace Platformer
             Texts[ETexts.BrokenLeverInCave1] = "This is a door with broken switch! Hmm... I must find a way to fix it if I want to go in (*__*)";
             Texts[ETexts.BrokenLeverInCave_HandleNotFound] = "I still don't have the right thing to fix it..";
             Texts[ETexts.BrokenLeverInCave_HandleFound] = "Yay! It fits! That stuff's operable now!";
+
+            Texts[ETexts.DisturbSpirit_Title] = "* Uneasy Suspense *";
+            Texts[ETexts.DisturbSpirit1] = "...";
+            Texts[ETexts.DisturbSpirit2] = "Who's there?";
+            Texts[ETexts.DisturbSpirit3] = "!!!";
+            Texts[ETexts.DisturbSpirit4] = "Eeeek! gotta get out of here really quick!";
         }
 
         private void LoadRussian()
@@ -260,6 +266,12 @@ namespace Platformer
             Texts[ETexts.BrokenLeverInCave1] = "Это дверь со сломанным выключателем! Хмм.. мне нужно как-то починить выключатель, чтобы попасть внутрь (*__*)";
             Texts[ETexts.BrokenLeverInCave_HandleNotFound] = "У меня нет нужной вещи для ремонта..";
             Texts[ETexts.BrokenLeverInCave_HandleFound] = "Ура, подходит! Эта штука теперь работает!";
+
+            Texts[ETexts.DisturbSpirit_Title] = "* Дурное предчуствие *";
+            Texts[ETexts.DisturbSpirit1] = "...";
+            Texts[ETexts.DisturbSpirit2] = "Кто здесь?";
+            Texts[ETexts.DisturbSpirit3] = "!!!";
+            Texts[ETexts.DisturbSpirit4] = "Ааай! нужно поскорее убираться отсюда!";
         }
     }
 }

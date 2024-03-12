@@ -45,6 +45,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8661101e0de46a342bb9b0f4c54f981e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ParticleAmount: 18
+  ParticleForce: 2.5
+  EffectDuration: 1
   Collider: {fileID: 2990849193155491604}
 --- !u!1 &6379259710878738140
 GameObject:
@@ -93,4 +96,4 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 3
+  m_Radius: 0.5

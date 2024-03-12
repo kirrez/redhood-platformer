@@ -10,7 +10,7 @@ namespace Platformer
         {
             var effect = ResourceManager.GetFromPool(GFXs.HolyWaterWave);
             var wave = effect.GetComponent<HolyWaterWave>();
-            wave.Initiate(transform.position, 18, 3f);
+            wave.Initiate(transform.position, 4f, 2.6f);
             DynamicsContainer.AddMain(effect);
 
             base.OnDestructed();

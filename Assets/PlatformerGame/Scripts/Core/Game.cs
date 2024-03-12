@@ -171,9 +171,9 @@ namespace Platformer
 
             // Cave Labyrinth, Lever quest
             playerState.SetQuest(EQuest.Stage, (int)EStages.CaveLabyrinth);
-            playerState.SetQuest(EQuest.Location, 1);
+            playerState.SetQuest(EQuest.Location, 0);
             playerState.SetQuest(EQuest.SpawnPoint, 24); // - test
-            playerState.SetQuest(EQuest.Confiner, 12);
+            playerState.SetQuest(EQuest.Confiner, 1);
 
             // Mountains
             //playerState.SetQuest(EQuest.Stage, (int)EStages.Mountains);
@@ -183,7 +183,7 @@ namespace Platformer
 
             playerState.SetQuest(EQuest.KnifeLevel, 1);
             playerState.SetQuest(EQuest.AxeLevel, 1);
-            playerState.SetQuest(EQuest.HolyWaterLevel, 1);
+            playerState.SetQuest(EQuest.HolyWaterLevel, 0);
 
             playerState.SetQuest(EQuest.MaxLives, 5);
             playerState.SetQuest(EQuest.FoodCollected, 0);

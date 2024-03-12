@@ -7,19 +7,24 @@ namespace Platformer
     public class HolyWaterWave : MonoBehaviour
     {
         [SerializeField]
+        private int ParticleAmount;
+
+        [SerializeField]
+        private float ParticleForce;
+
+        [SerializeField]
+        private float EffectDuration;
+
+        [SerializeField]
         private CircleCollider2D Collider;
 
         private IDynamicsContainer DynamicsContainer;
         private IResourceManager ResourceManager;
 
         private Vector2 SpawnPosition;
-        private int Amount;
-        private float Amplitude;
 
         private float Timer;
-        private float Duration = 1f;
-
-        private float FreezeDuration = 3f;
+        private float FreezeDuration;
 
         RaycastHit2D[] Hits;
 
@@ -37,13 +42,13 @@ namespace Platformer
             CurrentState();
         }
 
-        public void Initiate(Vector2 spawnPosition, int amount, float amplitude)
+        public void Initiate(Vector2 spawnPosition, float duration, float radius)
         {
             SpawnPosition = spawnPosition;
-            Amount = amount;
-            Amplitude = amplitude;
+            FreezeDuration = duration;
+            Collider.radius = radius;
 
-            Timer = Duration;
+            Timer = EffectDuration;
             Collider.enabled = true;
 
             LaunchParticles();
@@ -55,12 +60,12 @@ namespace Platformer
         {
             Collider.transform.position = SpawnPosition;
 
-            for (int i = 0; i < Amount; i++)
+            for (int i = 0; i < ParticleAmount; i++)
             {
                 var particle = ResourceManager.GetFromPool(GFXs.HolyStarParticle);
                 particle.transform.position = SpawnPosition;
                 var rigidbody = particle.GetComponent<Rigidbody2D>();
-                rigidbody.AddForce(Random.insideUnitCircle.normalized * Amplitude, ForceMode2D.Impulse);
+                rigidbody.AddForce(Random.insideUnitCircle.normalized * ParticleForce, ForceMode2D.Impulse);
                 rigidbody.angularVelocity = Random.Range(100f, 200f);
 
                 DynamicsContainer.AddMain(particle);
@@ -77,7 +82,7 @@ namespace Platformer
                 CurrentState = StateRest;
             }
 
-            Hits = Physics2D.CircleCastAll(Collider.bounds.center, Collider.radius, new Vector2(0.1f, 0f));
+            Hits = Physics2D.CircleCastAll(Collider.bounds.center, Collider.radius, new Vector2(0f, 0f));
 
             if (Hits.Length > 0) 
                 foreach (var hit in Hits)

@@ -48,7 +48,8 @@ namespace Platformer
         Slash7, //Bear
         EnemyDamage2,
         EnemyDying5,
-        VoiceBeastUuu,
+        VoiceBeastUuu, // Bear killed
+        VoiceEvilLaughter, // spirit appears
         Splash2,
         Quack1,
         BulletShot1,
@@ -56,5 +57,6 @@ namespace Platformer
         EagleScream,
         EggCrush,
         EggDrop,
+        Flames2, // spirit pursuing
     }
 }

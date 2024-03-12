@@ -97,6 +97,9 @@ MonoBehaviour:
   NormalRenderer: {fileID: 6339317747356607862}
   FreezeRenderer: {fileID: 6339317746372447205}
   Mask: {fileID: 6339317746313288851}
+  FreezeColors:
+  - {fileID: -1611015878, guid: 555915baeacece14da870643bd5e5563, type: 3}
+  - {fileID: 802315147, guid: 555915baeacece14da870643bd5e5563, type: 3}
   Floating:
   - {fileID: 1088718323, guid: 555915baeacece14da870643bd5e5563, type: 3}
   - {fileID: 80723107, guid: 555915baeacece14da870643bd5e5563, type: 3}
@@ -204,7 +207,7 @@ GameObject:
   - component: {fileID: 6339317746372447204}
   - component: {fileID: 6339317746372447205}
   m_Layer: 0
-  m_Name: FreezeImage
+  m_Name: FreezeColor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -367,7 +370,7 @@ GameObject:
   - component: {fileID: 6339317747321390036}
   - component: {fileID: 6339317747321390037}
   - component: {fileID: 1464988622259778826}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -404,7 +407,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 0.33
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}

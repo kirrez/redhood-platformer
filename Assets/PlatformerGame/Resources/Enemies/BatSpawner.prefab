@@ -57,7 +57,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 15, y: 10}
+  m_Size: {x: 38, y: 20}
   m_EdgeRadius: 0
 --- !u!114 &5249199676886265346
 MonoBehaviour:
@@ -75,3 +75,4 @@ MonoBehaviour:
   CurrentDirection: 1
   RespawnCooldown: 1
   BatSpeed: 300
+  SpawnDistance: 15

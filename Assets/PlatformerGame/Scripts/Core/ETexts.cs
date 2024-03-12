@@ -115,5 +115,11 @@ namespace Platformer
         BrokenLeverInCave1,
         BrokenLeverInCave_HandleNotFound,
         BrokenLeverInCave_HandleFound,
+
+        DisturbSpirit_Title,
+        DisturbSpirit1,
+        DisturbSpirit2,
+        DisturbSpirit3,
+        DisturbSpirit4,
     }
 }
