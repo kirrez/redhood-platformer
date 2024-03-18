@@ -49,6 +49,7 @@ namespace Platformer
             ColorIndex = 0;
 
             FreezeRenderer.enabled = true;
+            Mask.enabled = true;
             Mask.sprite = CurrentAnimation[Index];
             FreezeRenderer.sprite = FreezeColors[ColorIndex];
 
@@ -74,6 +75,7 @@ namespace Platformer
         {
             //need to load some sprites first
             FreezeRenderer.enabled = false;
+            Mask.enabled = false;
             CurrentState = NormalAnimation;
         }
 
@@ -108,6 +110,7 @@ namespace Platformer
             if (FreezeTimer <= 0)
             {
                 FreezeRenderer.enabled = false;
+                Mask.enabled = false;
                 CurrentState = NormalAnimation;
             }
 

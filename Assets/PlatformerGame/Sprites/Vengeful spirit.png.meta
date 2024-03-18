@@ -347,6 +347,69 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: MummyBrown_0
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 640
+        width: 24
+        height: 40
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6e788b83ce75e349ae1e3840af2c52f
+      internalID: -668371854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MummyBrown_1
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 640
+        width: 24
+        height: 40
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b741a453dcf7e9e48a3e483144a7021d
+      internalID: 1326302142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MummyBrown_2
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 640
+        width: 24
+        height: 40
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64c0259da25f02b4784c06fbee0cb05f
+      internalID: -531300647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -360,6 +423,9 @@ TextureImporter:
     nameFileIdTable:
       FreezeMask_0: -1611015878
       FreezeMask_1: 802315147
+      MummyBrown_0: -668371854
+      MummyBrown_1: 1326302142
+      MummyBrown_2: -531300647
       Vengeful spirit_0: 1088718323
       Vengeful spirit_1: 80723107
       Vengeful spirit_2: -175918691

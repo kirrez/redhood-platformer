@@ -43,6 +43,11 @@ namespace Platformer
             }
         }
 
+        private void OnPerished()
+        {
+            IsSpawned = false;
+        }
+
         public void Spawn()
         {
             IsSpawned = true;
@@ -51,6 +56,9 @@ namespace Platformer
             DynamicsContainer.AddEnemy(instance);
             VengefulSpirit spirit = instance.GetComponent<VengefulSpirit>();
             spirit.Initiate(SpawnPoint.position, Trigger);
+
+            spirit.Perished -= OnPerished;
+            spirit.Perished += OnPerished;
         }
 
     }

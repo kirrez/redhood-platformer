@@ -18,9 +18,10 @@ namespace Platformer
         SwitchOn,
         Repair,
 
+        // Destination Sign
         DestinationTheVillage,
         DestinationWesternForest,
-        DestinationMountains,
+        DestinationMountainPass,
         DestinationCaveLabyrinth,
         DestinationLumbermill,
         DestinationWolfTrail,
@@ -121,5 +122,19 @@ namespace Platformer
         DisturbSpirit2,
         DisturbSpirit3,
         DisturbSpirit4,
+
+        HollyMolly,
+        HollyMolly_Title,
+        HollyMolly1_1,
+        HollyMolly1_2,
+        HollyMolly1_3,
+        HollyMolly1_4,
+        HollyMolly1_5,
+        HollyMolly1_6,
+        HollyMolly1_7,
+        HollyMolly1_8,
+        HollyMolly1_9,
+        HollyMolly1_10,
+        HollyMolly1_11,
     }
 }

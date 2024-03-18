@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+п»їusing System.Collections.Generic;
 using System;
 
 namespace Platformer
@@ -37,6 +37,8 @@ namespace Platformer
             }
         }
 
+        //в†ђв™Ґв†‘в†’в†“
+
         private void LoadEnglish()
         {
             Texts[ETexts.Enter] = "ENTER 'C'";
@@ -56,13 +58,15 @@ namespace Platformer
 
             Texts[ETexts.DestinationTheVillage] = "The Village";
             Texts[ETexts.DestinationWesternForest] = "Western Forest";
-            Texts[ETexts.DestinationMountains] = "Mountain Pass";
+            Texts[ETexts.DestinationMountainPass] = "Mountain Pass";
             Texts[ETexts.DestinationLumbermill] = "Lumbermill";
             Texts[ETexts.DestinationCaveLabyrinth] = "Cave Labyrinth";
             Texts[ETexts.DestinationWolfTrail] = "Wolf Trail";
 
+            Texts[ETexts.HollyMolly] = "Holly & Molly";
+
             Texts[ETexts.English] = "English";
-            Texts[ETexts.Russian] = "Русский";
+            Texts[ETexts.Russian] = "Р СѓСЃСЃРєРёР№";
 
             Texts[ETexts.TryAgain] = "Try Again";
             Texts[ETexts.ToMenu] = "Menu";
@@ -105,7 +109,7 @@ namespace Platformer
             Texts[ETexts.DialoguePie2_6] = "- Yay!";
 
             Texts[ETexts.UpgradeHealth1_1] = "- Ich weise how you liebst sweet, but if you findest any Candies, eat them nicht! Das ist definitively a Witch's Bait fur Kinder.";
-            Texts[ETexts.UpgradeHealth1_2] = "Besser du bringst them to me und ich cooke something gut fur strengthening deinе Health.";
+            Texts[ETexts.UpgradeHealth1_2] = "BesserВ du bringst them to me und ich cooke something gut fur strengthening deinРµ Health.";
             Texts[ETexts.UpgradeHealth1_3] = "- Haaa? (my poor candies!) What for on Earth I have to strenghten my health?! I'm healthy enough!";
             Texts[ETexts.UpgradeHealth1_4] = "- Don't be capricious, meine Kinder.";
             Texts[ETexts.UpgradeHealth1_5] = "- Ok, I get it... (T__T)";
@@ -154,124 +158,149 @@ namespace Platformer
             Texts[ETexts.DisturbSpirit2] = "Who's there?";
             Texts[ETexts.DisturbSpirit3] = "!!!";
             Texts[ETexts.DisturbSpirit4] = "Eeeek! gotta get out of here really quick!";
+
+            Texts[ETexts.HollyMolly_Title] = "* Holly & Molly *";
+            Texts[ETexts.HollyMolly1_1] = "- Holey-moley, what a charming duet of lovely musicians! I wanna musick, play, play, play! (X o X)/";
+            Texts[ETexts.HollyMolly1_2] = "- Oh, girl, have we ever met before? But of course we did! ";
+            Texts[ETexts.HollyMolly1_3] = "(Psst! Molly, she's our fan! в™Ґ)";
+            Texts[ETexts.HollyMolly1_4] = "- Ahem, (*in a declaring posture*) We are generous for gifts of joy and willing to amuse ye, folks, but also we would really appreciate you showing us some of your generosity back.";
+            Texts[ETexts.HollyMolly1_5] = "...";
+            Texts[ETexts.HollyMolly1_6] = "- So, do you have any charmed candies perchance? Give us 3 of them and you won't regret it, swear! (for us to brew love potions out of them, ha-ha!)";
+            Texts[ETexts.HollyMolly1_7] = "- So, do you have any charmed candies perchance? Give us 3 of them and you won't regret it, swear!";
+            Texts[ETexts.HollyMolly1_8] = "Just talk to us again if you want the show ))"; //finishes the first chain of conversation
+            Texts[ETexts.HollyMolly1_9] = "- I'll be back really soon!";
+            Texts[ETexts.HollyMolly1_10] = "- Sure, take it!";
+            Texts[ETexts.HollyMolly1_11] = "- Perform your show again!.. since I'm your biggest fan!";
         }
 
         private void LoadRussian()
         {
-            Texts[ETexts.Enter] = "ВНУТРЬ 'C'";
-            Texts[ETexts.Exit] = "НАРУЖУ 'C'";
-            Texts[ETexts.Next] = "Дальше 'C'";
-            Texts[ETexts.Talk] = "ГОВОРИТЬ 'C'";
-            Texts[ETexts.TalkToMom] = "ОТВЕТИТЬ МАМЕ 'C''";
-            Texts[ETexts.TalkToMomAgain] = "СНОВА ПОГОВОРИТЬ С МАМОЙ";
-            Texts[ETexts.PullLever] = "ДЕРНУТЬ РЫЧАГ 'C'";
-            Texts[ETexts.VillageCommoner] = "* Деревенский житель *";
-            Texts[ETexts.UpgradeHealthTip] = "УКРЕПИТЬ ЗДОРОВЬЕ";
-            Texts[ETexts.UpgradeHealthTitle] = "* Укрепить здоровье *";
-            Texts[ETexts.KindleFire] = "РАЗЖЕЧЬ КОСТЁР";
-            Texts[ETexts.RemoveObstacle] = "УБРАТЬ ПРЕГРАДУ";
-            Texts[ETexts.SwitchOn] = "Включить";
-            Texts[ETexts.Repair] = "ПОЧИНИТЬ";
+            Texts[ETexts.Enter] = "Р’РќРЈРўР Р¬ 'C'";
+            Texts[ETexts.Exit] = "РќРђР РЈР–РЈ 'C'";
+            Texts[ETexts.Next] = "Р”Р°Р»СЊС€Рµ 'C'";
+            Texts[ETexts.Talk] = "Р“РћР’РћР РРўР¬ 'C'";
+            Texts[ETexts.TalkToMom] = "РћРўР’Р•РўРРўР¬ РњРђРњР• 'C''";
+            Texts[ETexts.TalkToMomAgain] = "РЎРќРћР’Рђ РџРћР“РћР’РћР РРўР¬ РЎ РњРђРњРћР™";
+            Texts[ETexts.PullLever] = "Р”Р•Р РќРЈРўР¬ Р Р«Р§РђР“ 'C'";
+            Texts[ETexts.VillageCommoner] = "* Р”РµСЂРµРІРµРЅСЃРєРёР№ Р¶РёС‚РµР»СЊ *";
+            Texts[ETexts.UpgradeHealthTip] = "РЈРљР Р•РџРРўР¬ Р—Р”РћР РћР’Р¬Р•";
+            Texts[ETexts.UpgradeHealthTitle] = "* РЈРєСЂРµРїРёС‚СЊ Р·РґРѕСЂРѕРІСЊРµ *";
+            Texts[ETexts.KindleFire] = "Р РђР—Р–Р•Р§Р¬ РљРћРЎРўРЃР ";
+            Texts[ETexts.RemoveObstacle] = "РЈР‘Р РђРўР¬ РџР Р•Р“Р РђР”РЈ";
+            Texts[ETexts.SwitchOn] = "Р’РєР»СЋС‡РёС‚СЊ";
+            Texts[ETexts.Repair] = "РџРћР§РРќРРўР¬";
 
-            Texts[ETexts.DestinationTheVillage] = "Деревня";
-            Texts[ETexts.DestinationWesternForest] = "Западный лес";
-            Texts[ETexts.DestinationMountains] = "Горный перевал";
-            Texts[ETexts.DestinationLumbermill] = "Лесопилка";
-            Texts[ETexts.DestinationCaveLabyrinth] = "Пещерный лабиринт";
-            Texts[ETexts.DestinationWolfTrail] = "Волчья тропа";
+            Texts[ETexts.DestinationTheVillage] = "Р”РµСЂРµРІРЅСЏ";
+            Texts[ETexts.DestinationWesternForest] = "Р—Р°РїР°РґРЅС‹Р№ Р»РµСЃ";
+            Texts[ETexts.DestinationMountainPass] = "Р“РѕСЂРЅС‹Р№ РїРµСЂРµРІР°Р»";
+            Texts[ETexts.DestinationLumbermill] = "Р›РµСЃРѕРїРёР»РєР°";
+            Texts[ETexts.DestinationCaveLabyrinth] = "РџРµС‰РµСЂРЅС‹Р№ Р»Р°Р±РёСЂРёРЅС‚";
+            Texts[ETexts.DestinationWolfTrail] = "Р’РѕР»С‡СЊСЏ С‚СЂРѕРїР°";
 
             Texts[ETexts.English] = "English";
-            Texts[ETexts.Russian] = "Русский";
+            Texts[ETexts.Russian] = "Р СѓСЃСЃРєРёР№";
 
-            Texts[ETexts.TryAgain] = "Ещё разок";
-            Texts[ETexts.ToMenu] = "В меню";
+            Texts[ETexts.TryAgain] = "Р•С‰С‘ СЂР°Р·РѕРє";
+            Texts[ETexts.ToMenu] = "Р’ РјРµРЅСЋ";
 
-            Texts[ETexts.PieDialogue1] = "* Пирог для Бабули *";
-            Texts[ETexts.DialoguePie1_1] = "- Привет, мама!";
-            Texts[ETexts.DialoguePie1_2] = "- Добрий дэн, мой радост.";
-            Texts[ETexts.DialoguePie1_3] = "- Ты.. звала меня? ))";
-            Texts[ETexts.DialoguePie1_4] = "- О, да! У менья ест Просба к тебье. Приносить мнье грыбы та ягоды для вкусный Пирог?";
-            Texts[ETexts.DialoguePie1_5] = "- Хорошо, мам, сделаю!";
-            Texts[ETexts.DialoguePie1_6] = "- Спасибо, сольнышко.";
+            Texts[ETexts.PieDialogue1] = "* РџРёСЂРѕРі РґР»СЏ Р‘Р°Р±СѓР»Рё *";
+            Texts[ETexts.DialoguePie1_1] = "- РџСЂРёРІРµС‚, РјР°РјР°!";
+            Texts[ETexts.DialoguePie1_2] = "- Р”РѕР±СЂРёР№ РґСЌРЅ, РјРѕР№ СЂР°РґРѕСЃС‚.";
+            Texts[ETexts.DialoguePie1_3] = "- РўС‹.. Р·РІР°Р»Р° РјРµРЅСЏ? ))";
+            Texts[ETexts.DialoguePie1_4] = "- Рћ, РґР°! РЈ РјРµРЅСЊСЏ РµСЃС‚ РџСЂРѕСЃР±Р° Рє С‚РµР±СЊРµ. РџСЂРёРЅРѕСЃРёС‚СЊ РјРЅСЊРµ РіСЂС‹Р±С‹ С‚Р° СЏРіРѕРґС‹ РґР»СЏ РІРєСѓСЃРЅС‹Р№ РџРёСЂРѕРі?";
+            Texts[ETexts.DialoguePie1_5] = "- РҐРѕСЂРѕС€Рѕ, РјР°Рј, СЃРґРµР»Р°СЋ!";
+            Texts[ETexts.DialoguePie1_6] = "- РЎРїР°СЃРёР±Рѕ, СЃРѕР»СЊРЅС‹С€РєРѕ.";
 
-            Texts[ETexts.DialoguePie1_7] = "- Тфоя приносить ";
-            Texts[ETexts.DialoguePie1_8] = " Грибов и ";
-            Texts[ETexts.DialoguePie1_9] = " Йагот! Этафа нье достатошно..";
+            Texts[ETexts.DialoguePie1_7] = "- РўС„РѕСЏ РїСЂРёРЅРѕСЃРёС‚СЊ ";
+            Texts[ETexts.DialoguePie1_8] = " Р“СЂРёР±РѕРІ Рё ";
+            Texts[ETexts.DialoguePie1_9] = " Р™Р°РіРѕС‚! Р­С‚Р°С„Р° РЅСЊРµ РґРѕСЃС‚Р°С‚РѕС€РЅРѕ..";
 
-            Texts[ETexts.FamilyMonologue] = "* Моя прекрасная семья *";
-            Texts[ETexts.Family_1] = "О моей маме..";
-            Texts[ETexts.Family_2] = "Она - иностранка, пришла в эти края из далёкой Штирии и всё ещё не может привыкнуть. Даже говорит до сих пор с акцентом. ";
-            Texts[ETexts.Family_3] = "Хоть она и ведёт себя странно иногда, и порой не может отличить своего мужа от медведя в лесу (люблю тебя, папуля!), она замечательная женщина! ";
-            Texts[ETexts.Family_4] = "Сегодня мне нужно собрать кое-что для пирога, который мама будет печь для бабушки. Надеюсь встретить там и папочку тоже ))";
+            Texts[ETexts.FamilyMonologue] = "* РњРѕСЏ РїСЂРµРєСЂР°СЃРЅР°СЏ СЃРµРјСЊСЏ *";
+            Texts[ETexts.Family_1] = "Рћ РјРѕРµР№ РјР°РјРµ..";
+            Texts[ETexts.Family_2] = "РћРЅР° - РёРЅРѕСЃС‚СЂР°РЅРєР°, РїСЂРёС€Р»Р° РІ СЌС‚Рё РєСЂР°СЏ РёР· РґР°Р»С‘РєРѕР№ РЁС‚РёСЂРёРё Рё РІСЃС‘ РµС‰С‘ РЅРµ РјРѕР¶РµС‚ РїСЂРёРІС‹РєРЅСѓС‚СЊ. Р”Р°Р¶Рµ РіРѕРІРѕСЂРёС‚ РґРѕ СЃРёС… РїРѕСЂ СЃ Р°РєС†РµРЅС‚РѕРј. ";
+            Texts[ETexts.Family_3] = "РҐРѕС‚СЊ РѕРЅР° Рё РІРµРґС‘С‚ СЃРµР±СЏ СЃС‚СЂР°РЅРЅРѕ РёРЅРѕРіРґР°, Рё РїРѕСЂРѕР№ РЅРµ РјРѕР¶РµС‚ РѕС‚Р»РёС‡РёС‚СЊ СЃРІРѕРµРіРѕ РјСѓР¶Р° РѕС‚ РјРµРґРІРµРґСЏ РІ Р»РµСЃСѓ (Р»СЋР±Р»СЋ С‚РµР±СЏ, РїР°РїСѓР»СЏ!), РѕРЅР° Р·Р°РјРµС‡Р°С‚РµР»СЊРЅР°СЏ Р¶РµРЅС‰РёРЅР°! ";
+            Texts[ETexts.Family_4] = "РЎРµРіРѕРґРЅСЏ РјРЅРµ РЅСѓР¶РЅРѕ СЃРѕР±СЂР°С‚СЊ РєРѕРµ-С‡С‚Рѕ РґР»СЏ РїРёСЂРѕРіР°, РєРѕС‚РѕСЂС‹Р№ РјР°РјР° Р±СѓРґРµС‚ РїРµС‡СЊ РґР»СЏ Р±Р°Р±СѓС€РєРё. РќР°РґРµСЋСЃСЊ РІСЃС‚СЂРµС‚РёС‚СЊ С‚Р°Рј Рё РїР°РїРѕС‡РєСѓ С‚РѕР¶Рµ ))";
 
-            Texts[ETexts.FatherDialogue] = "* Неожиданная встреча *";
-            Texts[ETexts.Father_1] = "ГРРРРРррр !!";
-            Texts[ETexts.Father_2] = "Уваа !!";
-            Texts[ETexts.Father_3] = "Привееет, пап!";
-            Texts[ETexts.Father_4] = "ГРРРррр.";
-            Texts[ETexts.Father_5] = "Я в порядке, мама тоже. Она по тебе соскучилась, возвращайся скорее!";
-            Texts[ETexts.Father_6] = "Грввах, уваах.";
-            Texts[ETexts.Father_7] = "О, твой старый топор! Спасибо, я возьму его!";
-            Texts[ETexts.Father_8] = "Ты починил мост? Как здорово! Тогда я побегу домой, до встречи!";
+            Texts[ETexts.FatherDialogue] = "* РќРµРѕР¶РёРґР°РЅРЅР°СЏ РІСЃС‚СЂРµС‡Р° *";
+            Texts[ETexts.Father_1] = "Р“Р Р Р Р Р СЂСЂСЂ !!";
+            Texts[ETexts.Father_2] = "РЈРІР°Р° !!";
+            Texts[ETexts.Father_3] = "РџСЂРёРІРµРµРµС‚, РїР°Рї!";
+            Texts[ETexts.Father_4] = "Р“Р Р Р СЂСЂСЂ.";
+            Texts[ETexts.Father_5] = "РЇ РІ РїРѕСЂСЏРґРєРµ, РјР°РјР° С‚РѕР¶Рµ. РћРЅР° РїРѕ С‚РµР±Рµ СЃРѕСЃРєСѓС‡РёР»Р°СЃСЊ, РІРѕР·РІСЂР°С‰Р°Р№СЃСЏ СЃРєРѕСЂРµРµ!";
+            Texts[ETexts.Father_6] = "Р“СЂРІРІР°С…, СѓРІР°Р°С….";
+            Texts[ETexts.Father_7] = "Рћ, С‚РІРѕР№ СЃС‚Р°СЂС‹Р№ С‚РѕРїРѕСЂ! РЎРїР°СЃРёР±Рѕ, СЏ РІРѕР·СЊРјСѓ РµРіРѕ!";
+            Texts[ETexts.Father_8] = "РўС‹ РїРѕС‡РёРЅРёР» РјРѕСЃС‚? РљР°Рє Р·РґРѕСЂРѕРІРѕ! РўРѕРіРґР° СЏ РїРѕР±РµРіСѓ РґРѕРјРѕР№, РґРѕ РІСЃС‚СЂРµС‡Рё!";
 
-            Texts[ETexts.PieDialogue2] = "* Собранные ингредиенты *";
-            Texts[ETexts.DialoguePie2_1] = "- Я принесла всё, что ты просила. Давай скорее готовить! (- о -)/";
-            Texts[ETexts.DialoguePie2_2] = "- Ох, спасьибо, радост мойа! Отдохнуть ньемного, пока я готовит пирог.";
-            Texts[ETexts.DialoguePie2_3] = "(Тебье точшно понравится, старущка Берта, просто подожди ещо ньемного)";
-            Texts[ETexts.DialoguePie2_4] = "- Мам, ты что-то сказала?";
-            Texts[ETexts.DialoguePie2_5] = "- Ой, это ничьего, просто бормочу. Пирог уше готов, можеш его сабрать.";
-            Texts[ETexts.DialoguePie2_6] = "- Ураа!";
+            Texts[ETexts.PieDialogue2] = "* РЎРѕР±СЂР°РЅРЅС‹Рµ РёРЅРіСЂРµРґРёРµРЅС‚С‹ *";
+            Texts[ETexts.DialoguePie2_1] = "- РЇ РїСЂРёРЅРµСЃР»Р° РІСЃС‘, С‡С‚Рѕ С‚С‹ РїСЂРѕСЃРёР»Р°. Р”Р°РІР°Р№ СЃРєРѕСЂРµРµ РіРѕС‚РѕРІРёС‚СЊ! (- Рѕ -)/";
+            Texts[ETexts.DialoguePie2_2] = "- РћС…, СЃРїР°СЃСЊРёР±Рѕ, СЂР°РґРѕСЃС‚ РјРѕР№Р°! РћС‚РґРѕС…РЅСѓС‚СЊ РЅСЊРµРјРЅРѕРіРѕ, РїРѕРєР° СЏ РіРѕС‚РѕРІРёС‚ РїРёСЂРѕРі.";
+            Texts[ETexts.DialoguePie2_3] = "(РўРµР±СЊРµ С‚РѕС‡С€РЅРѕ РїРѕРЅСЂР°РІРёС‚СЃСЏ, СЃС‚Р°СЂСѓС‰РєР° Р‘РµСЂС‚Р°, РїСЂРѕСЃС‚Рѕ РїРѕРґРѕР¶РґРё РµС‰Рѕ РЅСЊРµРјРЅРѕРіРѕ)";
+            Texts[ETexts.DialoguePie2_4] = "- РњР°Рј, С‚С‹ С‡С‚Рѕ-С‚Рѕ СЃРєР°Р·Р°Р»Р°?";
+            Texts[ETexts.DialoguePie2_5] = "- РћР№, СЌС‚Рѕ РЅРёС‡СЊРµРіРѕ, РїСЂРѕСЃС‚Рѕ Р±РѕСЂРјРѕС‡Сѓ. РџРёСЂРѕРі СѓС€Рµ РіРѕС‚РѕРІ, РјРѕР¶РµС€ РµРіРѕ СЃР°Р±СЂР°С‚СЊ.";
+            Texts[ETexts.DialoguePie2_6] = "- РЈСЂР°Р°!";
 
-            Texts[ETexts.UpgradeHealth1_1] = "- Йа знайт, как ты любиш сладкое, но если найдешь Конфекты, кушай их найн! Они тошно ест Федьмина Наживкой для Детей.";
-            Texts[ETexts.UpgradeHealth1_2] = "Лучше приноси их ко мнье, и я приготовлю што-нибуйт полезный тля укреплений тфоего Здоровя.";
-            Texts[ETexts.UpgradeHealth1_3] = "- Штааа? (мои конфетки!) И зачем это мне укреплять здоровье?! Я и так здоровая!";
-            Texts[ETexts.UpgradeHealth1_4] = "- Не капризничайт много, мойо Дитя.";
-            Texts[ETexts.UpgradeHealth1_5] = "- Лаадно, я поняла... (T__T)";
-            Texts[ETexts.UpgradeHealth2_1] = "Еслы найдеш хотья бы 5 Конфекты, йа смогу приготофить тебье!";
-            Texts[ETexts.UpgradeHealth2_2] = "Ошень харашо, фот, возмьи!";
-            Texts[ETexts.UpgradeHealth2_3] = "Этого мало, солнышько! Прынеси больще )";
+            Texts[ETexts.UpgradeHealth1_1] = "- Р™Р° Р·РЅР°Р№С‚, РєР°Рє С‚С‹ Р»СЋР±РёС€ СЃР»Р°РґРєРѕРµ, РЅРѕ РµСЃР»Рё РЅР°Р№РґРµС€СЊ РљРѕРЅС„РµРєС‚С‹, РєСѓС€Р°Р№ РёС… РЅР°Р№РЅ! РћРЅРё С‚РѕС€РЅРѕ РµСЃС‚ Р¤РµРґСЊРјРёРЅР° РќР°Р¶РёРІРєРѕР№ РґР»СЏ Р”РµС‚РµР№.";
+            Texts[ETexts.UpgradeHealth1_2] = "Р›СѓС‡С€Рµ РїСЂРёРЅРѕСЃРё РёС… РєРѕ РјРЅСЊРµ, Рё СЏ РїСЂРёРіРѕС‚РѕРІР»СЋ С€С‚Рѕ-РЅРёР±СѓР№С‚ РїРѕР»РµР·РЅС‹Р№ С‚Р»СЏ СѓРєСЂРµРїР»РµРЅРёР№ С‚С„РѕРµРіРѕ Р—РґРѕСЂРѕРІСЏ.";
+            Texts[ETexts.UpgradeHealth1_3] = "- РЁС‚Р°Р°Р°? (РјРѕРё РєРѕРЅС„РµС‚РєРё!) Р Р·Р°С‡РµРј СЌС‚Рѕ РјРЅРµ СѓРєСЂРµРїР»СЏС‚СЊ Р·РґРѕСЂРѕРІСЊРµ?! РЇ Рё С‚Р°Рє Р·РґРѕСЂРѕРІР°СЏ!";
+            Texts[ETexts.UpgradeHealth1_4] = "- РќРµ РєР°РїСЂРёР·РЅРёС‡Р°Р№С‚ РјРЅРѕРіРѕ, РјРѕР№Рѕ Р”РёС‚СЏ.";
+            Texts[ETexts.UpgradeHealth1_5] = "- Р›Р°Р°РґРЅРѕ, СЏ РїРѕРЅСЏР»Р°... (T__T)";
+            Texts[ETexts.UpgradeHealth2_1] = "Р•СЃР»С‹ РЅР°Р№РґРµС€ С…РѕС‚СЊСЏ Р±С‹ 5 РљРѕРЅС„РµРєС‚С‹, Р№Р° СЃРјРѕРіСѓ РїСЂРёРіРѕС‚РѕС„РёС‚СЊ С‚РµР±СЊРµ!";
+            Texts[ETexts.UpgradeHealth2_2] = "РћС€РµРЅСЊ С…Р°СЂР°С€Рѕ, С„РѕС‚, РІРѕР·РјСЊРё!";
+            Texts[ETexts.UpgradeHealth2_3] = "Р­С‚РѕРіРѕ РјР°Р»Рѕ, СЃРѕР»РЅС‹С€СЊРєРѕ! РџСЂС‹РЅРµСЃРё Р±РѕР»СЊС‰Рµ )";
 
-            Texts[ETexts.BlacksmithTitle1] = "* Просьба Кузнеца *";
-            Texts[ETexts.Blacksmith1_1] = "- Мэтр Кузнец! Пожалуйста, сделайте мне новый блестящий серый ключик!";
-            Texts[ETexts.Blacksmith1_2] = "- Попридержи коней, девочка. Я, знаешь ли, очень занят. Мне еще нужно отполировать наковальню...";
-            Texts[ETexts.Blacksmith1_3] = "- Ну пожалста, пожалстапожалстапазязяяя!";
-            Texts[ETexts.Blacksmith1_4] = "- Хорошо, хорошо! Зачем так шуметь? Я сделаю тебе ключ, но ты должна мне принести, скажем, три куска железной руды, по рукам?";
-            Texts[ETexts.Blacksmith1_5] = "- Я принесу вам руду!";
+            Texts[ETexts.BlacksmithTitle1] = "* РџСЂРѕСЃСЊР±Р° РљСѓР·РЅРµС†Р° *";
+            Texts[ETexts.Blacksmith1_1] = "- РњСЌС‚СЂ РљСѓР·РЅРµС†! РџРѕР¶Р°Р»СѓР№СЃС‚Р°, СЃРґРµР»Р°Р№С‚Рµ РјРЅРµ РЅРѕРІС‹Р№ Р±Р»РµСЃС‚СЏС‰РёР№ СЃРµСЂС‹Р№ РєР»СЋС‡РёРє!";
+            Texts[ETexts.Blacksmith1_2] = "- РџРѕРїСЂРёРґРµСЂР¶Рё РєРѕРЅРµР№, РґРµРІРѕС‡РєР°. РЇ, Р·РЅР°РµС€СЊ Р»Рё, РѕС‡РµРЅСЊ Р·Р°РЅСЏС‚. РњРЅРµ РµС‰Рµ РЅСѓР¶РЅРѕ РѕС‚РїРѕР»РёСЂРѕРІР°С‚СЊ РЅР°РєРѕРІР°Р»СЊРЅСЋ...";
+            Texts[ETexts.Blacksmith1_3] = "- РќСѓ РїРѕР¶Р°Р»СЃС‚Р°, РїРѕР¶Р°Р»СЃС‚Р°РїРѕР¶Р°Р»СЃС‚Р°РїР°Р·СЏР·СЏСЏСЏ!";
+            Texts[ETexts.Blacksmith1_4] = "- РҐРѕСЂРѕС€Рѕ, С…РѕСЂРѕС€Рѕ! Р—Р°С‡РµРј С‚Р°Рє С€СѓРјРµС‚СЊ? РЇ СЃРґРµР»Р°СЋ С‚РµР±Рµ РєР»СЋС‡, РЅРѕ С‚С‹ РґРѕР»Р¶РЅР° РјРЅРµ РїСЂРёРЅРµСЃС‚Рё, СЃРєР°Р¶РµРј, С‚СЂРё РєСѓСЃРєР° Р¶РµР»РµР·РЅРѕР№ СЂСѓРґС‹, РїРѕ СЂСѓРєР°Рј?";
+            Texts[ETexts.Blacksmith1_5] = "- РЇ РїСЂРёРЅРµСЃСѓ РІР°Рј СЂСѓРґСѓ!";
 
-            Texts[ETexts.Blacksmith2_1] = "- Итак, ты нашла, что я просил?";
-            Texts[ETexts.Blacksmith2_2] = "- Конечно, возьмите! (дурацкие булыжники!)";
-            Texts[ETexts.Blacksmith2_3] = "- Хорошо, вот твой ключ, я как раз его закончил.";
-            Texts[ETexts.Blacksmith2_4] = "- Эмм... нет, но я стараюсь!";
+            Texts[ETexts.Blacksmith2_1] = "- РС‚Р°Рє, С‚С‹ РЅР°С€Р»Р°, С‡С‚Рѕ СЏ РїСЂРѕСЃРёР»?";
+            Texts[ETexts.Blacksmith2_2] = "- РљРѕРЅРµС‡РЅРѕ, РІРѕР·СЊРјРёС‚Рµ! (РґСѓСЂР°С†РєРёРµ Р±СѓР»С‹Р¶РЅРёРєРё!)";
+            Texts[ETexts.Blacksmith2_3] = "- РҐРѕСЂРѕС€Рѕ, РІРѕС‚ С‚РІРѕР№ РєР»СЋС‡, СЏ РєР°Рє СЂР°Р· РµРіРѕ Р·Р°РєРѕРЅС‡РёР».";
+            Texts[ETexts.Blacksmith2_4] = "- Р­РјРј... РЅРµС‚, РЅРѕ СЏ СЃС‚Р°СЂР°СЋСЃСЊ!";
 
-            Texts[ETexts.Commoner1_1] = "Лифт на рынке сейчас не работает, приходи позже.";
-            Texts[ETexts.Commoner1_2] = "Не играй на развалинах, девочка, там опасно!";
-            Texts[ETexts.GatekeeperTitle] = "* Привратник *";
-            Texts[ETexts.Gatekeeper1_1] = "Если хочешь свободно пройти через эти ворота, иди попроси кузнеца сделать тебе новый серый ключ, а то я потерял запасной.";
-            Texts[ETexts.Gatekeeper1_2] = "Будь осторожна, девочка!";
-            Texts[ETexts.CommonerSecret] = "Эй! В деревне есть тайное место, но добраться до него можно, только разрушив проклятую стену. Для этого тебе понадобится освященное оружие...";
-            Texts[ETexts.WomanCandy] = "Вот, возьми конфетку, девочка!";
-            Texts[ETexts.ShopkeeperTitle] = "* Продавец *";
-            Texts[ETexts.Shopkeeper1] = "О, юная леди! Если вам случится найти эти блестящие кружочки, не выбрасывайте их. Взамен я могу дать вам что-то действительно полезное!";
+            Texts[ETexts.Commoner1_1] = "Р›РёС„С‚ РЅР° СЂС‹РЅРєРµ СЃРµР№С‡Р°СЃ РЅРµ СЂР°Р±РѕС‚Р°РµС‚, РїСЂРёС…РѕРґРё РїРѕР·Р¶Рµ.";
+            Texts[ETexts.Commoner1_2] = "РќРµ РёРіСЂР°Р№ РЅР° СЂР°Р·РІР°Р»РёРЅР°С…, РґРµРІРѕС‡РєР°, С‚Р°Рј РѕРїР°СЃРЅРѕ!";
+            Texts[ETexts.GatekeeperTitle] = "* РџСЂРёРІСЂР°С‚РЅРёРє *";
+            Texts[ETexts.Gatekeeper1_1] = "Р•СЃР»Рё С…РѕС‡РµС€СЊ СЃРІРѕР±РѕРґРЅРѕ РїСЂРѕР№С‚Рё С‡РµСЂРµР· СЌС‚Рё РІРѕСЂРѕС‚Р°, РёРґРё РїРѕРїСЂРѕСЃРё РєСѓР·РЅРµС†Р° СЃРґРµР»Р°С‚СЊ С‚РµР±Рµ РЅРѕРІС‹Р№ СЃРµСЂС‹Р№ РєР»СЋС‡, Р° С‚Рѕ СЏ РїРѕС‚РµСЂСЏР» Р·Р°РїР°СЃРЅРѕР№.";
+            Texts[ETexts.Gatekeeper1_2] = "Р‘СѓРґСЊ РѕСЃС‚РѕСЂРѕР¶РЅР°, РґРµРІРѕС‡РєР°!";
+            Texts[ETexts.CommonerSecret] = "Р­Р№! Р’ РґРµСЂРµРІРЅРµ РµСЃС‚СЊ С‚Р°Р№РЅРѕРµ РјРµСЃС‚Рѕ, РЅРѕ РґРѕР±СЂР°С‚СЊСЃСЏ РґРѕ РЅРµРіРѕ РјРѕР¶РЅРѕ, С‚РѕР»СЊРєРѕ СЂР°Р·СЂСѓС€РёРІ РїСЂРѕРєР»СЏС‚СѓСЋ СЃС‚РµРЅСѓ. Р”Р»СЏ СЌС‚РѕРіРѕ С‚РµР±Рµ РїРѕРЅР°РґРѕР±РёС‚СЃСЏ РѕСЃРІСЏС‰РµРЅРЅРѕРµ РѕСЂСѓР¶РёРµ...";
+            Texts[ETexts.WomanCandy] = "Р’РѕС‚, РІРѕР·СЊРјРё РєРѕРЅС„РµС‚РєСѓ, РґРµРІРѕС‡РєР°!";
+            Texts[ETexts.ShopkeeperTitle] = "* РџСЂРѕРґР°РІРµС† *";
+            Texts[ETexts.Shopkeeper1] = "Рћ, СЋРЅР°СЏ Р»РµРґРё! Р•СЃР»Рё РІР°Рј СЃР»СѓС‡РёС‚СЃСЏ РЅР°Р№С‚Рё СЌС‚Рё Р±Р»РµСЃС‚СЏС‰РёРµ РєСЂСѓР¶РѕС‡РєРё, РЅРµ РІС‹Р±СЂР°СЃС‹РІР°Р№С‚Рµ РёС…. Р’Р·Р°РјРµРЅ СЏ РјРѕРіСѓ РґР°С‚СЊ РІР°Рј С‡С‚Рѕ-С‚Рѕ РґРµР№СЃС‚РІРёС‚РµР»СЊРЅРѕ РїРѕР»РµР·РЅРѕРµ!";
 
-            Texts[ETexts.HermitTitle] = "* Отшельник *";
-            Texts[ETexts.Hermit1_1] = "- Кто решил прийти ко мне в гости сегодня? Мои глаза не видят... но ты можешь подойти ближе, дитя.";
-            Texts[ETexts.Hermit1_2] = "- Здравствуйте! Как вам живется в таком уединенном месте? Кстати, случайно не знаете...";
-            Texts[ETexts.Hermit1_3] = "- О, я знаю многое! Здесь есть святое место, но правильный путь только один : это Огонь, Шахта, Вода, Статуи, Кости, Огонь и Вода. Может быть ты найдешь там то, что ищешь.";
-            Texts[ETexts.Hermit1_4] = "- Ну, на самом деле, спасибо вам! Это то, что мне действительно нужно ))";
-            Texts[ETexts.Hermit2] = "- Не забывай, дитя, верная дорога - это Огонь, Шахта, Вода, Статуи, Кости, Огонь и Вода!";
+            Texts[ETexts.HermitTitle] = "* РћС‚С€РµР»СЊРЅРёРє *";
+            Texts[ETexts.Hermit1_1] = "- РљС‚Рѕ СЂРµС€РёР» РїСЂРёР№С‚Рё РєРѕ РјРЅРµ РІ РіРѕСЃС‚Рё СЃРµРіРѕРґРЅСЏ? РњРѕРё РіР»Р°Р·Р° РЅРµ РІРёРґСЏС‚... РЅРѕ С‚С‹ РјРѕР¶РµС€СЊ РїРѕРґРѕР№С‚Рё Р±Р»РёР¶Рµ, РґРёС‚СЏ.";
+            Texts[ETexts.Hermit1_2] = "- Р—РґСЂР°РІСЃС‚РІСѓР№С‚Рµ! РљР°Рє РІР°Рј Р¶РёРІРµС‚СЃСЏ РІ С‚Р°РєРѕРј СѓРµРґРёРЅРµРЅРЅРѕРј РјРµСЃС‚Рµ? РљСЃС‚Р°С‚Рё, СЃР»СѓС‡Р°Р№РЅРѕ РЅРµ Р·РЅР°РµС‚Рµ...";
+            Texts[ETexts.Hermit1_3] = "- Рћ, СЏ Р·РЅР°СЋ РјРЅРѕРіРѕРµ! Р—РґРµСЃСЊ РµСЃС‚СЊ СЃРІСЏС‚РѕРµ РјРµСЃС‚Рѕ, РЅРѕ РїСЂР°РІРёР»СЊРЅС‹Р№ РїСѓС‚СЊ С‚РѕР»СЊРєРѕ РѕРґРёРЅ : СЌС‚Рѕ РћРіРѕРЅСЊ, РЁР°С…С‚Р°, Р’РѕРґР°, РЎС‚Р°С‚СѓРё, РљРѕСЃС‚Рё, РћРіРѕРЅСЊ Рё Р’РѕРґР°. РњРѕР¶РµС‚ Р±С‹С‚СЊ С‚С‹ РЅР°Р№РґРµС€СЊ С‚Р°Рј С‚Рѕ, С‡С‚Рѕ РёС‰РµС€СЊ.";
+            Texts[ETexts.Hermit1_4] = "- РќСѓ, РЅР° СЃР°РјРѕРј РґРµР»Рµ, СЃРїР°СЃРёР±Рѕ РІР°Рј! Р­С‚Рѕ С‚Рѕ, С‡С‚Рѕ РјРЅРµ РґРµР№СЃС‚РІРёС‚РµР»СЊРЅРѕ РЅСѓР¶РЅРѕ ))";
+            Texts[ETexts.Hermit2] = "- РќРµ Р·Р°Р±С‹РІР°Р№, РґРёС‚СЏ, РІРµСЂРЅР°СЏ РґРѕСЂРѕРіР° - СЌС‚Рѕ РћРіРѕРЅСЊ, РЁР°С…С‚Р°, Р’РѕРґР°, РЎС‚Р°С‚СѓРё, РљРѕСЃС‚Рё, РћРіРѕРЅСЊ Рё Р’РѕРґР°!";
 
-            Texts[ETexts.BrokenLeverTip_Title] = "* Любопытная находка *";
-            Texts[ETexts.BrokenLeverTip1] = "Что это за штука такая? Похожа на детальку от какого-то механизма. Пригодится!";
-            Texts[ETexts.BrokenLeverInCave_Title] = "* Дверь с переключателем *";
-            Texts[ETexts.BrokenLeverInCave1] = "Это дверь со сломанным выключателем! Хмм.. мне нужно как-то починить выключатель, чтобы попасть внутрь (*__*)";
-            Texts[ETexts.BrokenLeverInCave_HandleNotFound] = "У меня нет нужной вещи для ремонта..";
-            Texts[ETexts.BrokenLeverInCave_HandleFound] = "Ура, подходит! Эта штука теперь работает!";
+            Texts[ETexts.BrokenLeverTip_Title] = "* Р›СЋР±РѕРїС‹С‚РЅР°СЏ РЅР°С…РѕРґРєР° *";
+            Texts[ETexts.BrokenLeverTip1] = "Р§С‚Рѕ СЌС‚Рѕ Р·Р° С€С‚СѓРєР° С‚Р°РєР°СЏ? РџРѕС…РѕР¶Р° РЅР° РґРµС‚Р°Р»СЊРєСѓ РѕС‚ РєР°РєРѕРіРѕ-С‚Рѕ РјРµС…Р°РЅРёР·РјР°. РџСЂРёРіРѕРґРёС‚СЃСЏ!";
+            Texts[ETexts.BrokenLeverInCave_Title] = "* Р”РІРµСЂСЊ СЃ РїРµСЂРµРєР»СЋС‡Р°С‚РµР»РµРј *";
+            Texts[ETexts.BrokenLeverInCave1] = "Р­С‚Рѕ РґРІРµСЂСЊ СЃРѕ СЃР»РѕРјР°РЅРЅС‹Рј РІС‹РєР»СЋС‡Р°С‚РµР»РµРј! РҐРјРј.. РјРЅРµ РЅСѓР¶РЅРѕ РєР°Рє-С‚Рѕ РїРѕС‡РёРЅРёС‚СЊ РІС‹РєР»СЋС‡Р°С‚РµР»СЊ, С‡С‚РѕР±С‹ РїРѕРїР°СЃС‚СЊ РІРЅСѓС‚СЂСЊ (*__*)";
+            Texts[ETexts.BrokenLeverInCave_HandleNotFound] = "РЈ РјРµРЅСЏ РЅРµС‚ РЅСѓР¶РЅРѕР№ РІРµС‰Рё РґР»СЏ СЂРµРјРѕРЅС‚Р°..";
+            Texts[ETexts.BrokenLeverInCave_HandleFound] = "РЈСЂР°, РїРѕРґС…РѕРґРёС‚! Р­С‚Р° С€С‚СѓРєР° С‚РµРїРµСЂСЊ СЂР°Р±РѕС‚Р°РµС‚!";
 
-            Texts[ETexts.DisturbSpirit_Title] = "* Дурное предчуствие *";
+            Texts[ETexts.DisturbSpirit_Title] = "* Р”СѓСЂРЅРѕРµ РїСЂРµРґС‡СѓСЃС‚РІРёРµ *";
             Texts[ETexts.DisturbSpirit1] = "...";
-            Texts[ETexts.DisturbSpirit2] = "Кто здесь?";
+            Texts[ETexts.DisturbSpirit2] = "РљС‚Рѕ Р·РґРµСЃСЊ?";
             Texts[ETexts.DisturbSpirit3] = "!!!";
-            Texts[ETexts.DisturbSpirit4] = "Ааай! нужно поскорее убираться отсюда!";
+            Texts[ETexts.DisturbSpirit4] = "РђР°Р°Р№! РЅСѓР¶РЅРѕ РїРѕСЃРєРѕСЂРµРµ СѓР±РёСЂР°С‚СЊСЃСЏ РѕС‚СЃСЋРґР°!";
+
+            Texts[ETexts.HollyMolly_Title] = "* РЃР»РєР° Рё РџР°Р»РєР° *";
+            Texts[ETexts.HollyMolly1_1] = "- РЃР»РєРё-РїР°Р»РєРё, РєР°РєРёРµ РјРёР»С‹Рµ Р°РєС‚СЂРёСЃС‹! РҐРѕС‡Сѓ СѓСЃР»С‹С€Р°С‚СЊ РјСѓР·С‹РєСѓ, РјСѓР·С‹РєСѓ, РјСѓР·С‹РєСѓСѓСѓ! (РҐ Рѕ РҐ)/";
+            Texts[ETexts.HollyMolly1_2] = "- Рћ, РґРµРІРѕС‡РєР°! Р Р°Р·РІРµ РјС‹ Р·РЅР°РєРѕРјС‹? РҐРѕС‚СЏ.. РєРѕРЅРµС‡РЅРѕ Р¶Рµ Р·РЅР°РєРѕРјС‹!";
+            Texts[ETexts.HollyMolly1_3] = "(Р­Р№, РџР°Р»РєР°! РѕРЅР° - РЅР°С€Р° РїРѕРєР»РѕРЅРЅРёС†Р° в™Ґ)";
+            Texts[ETexts.HollyMolly1_4] = "- РљС…Рј, (*СЃ РІС‹СЂР°Р¶РµРЅРёРµРј РЅР° РїСѓР±Р»РёРєСѓ*) We are generous for gifts of joy and willing to amuse ye, folks, but also we would really appreciate you showing us some of your generosity back.";
+            Texts[ETexts.HollyMolly1_5] = "...";
+            Texts[ETexts.HollyMolly1_6] = "- So, do you have any charmed candies perchance? Give us 3 of them and you won't regret it, swear! "; //also begins the chain where they start to play
+            Texts[ETexts.HollyMolly1_7] = "Just talk to us again if you want the show ))"; //finishes the first chain of conversation
+            Texts[ETexts.HollyMolly1_8] = "- I'll be back really soon!";
+            Texts[ETexts.HollyMolly1_9] = "- Sure, take it!";
+            Texts[ETexts.HollyMolly1_10] = "- Perform your show again!.. since I'm your biggest fan!"; //repeats the show, for free ))
         }
     }
 }

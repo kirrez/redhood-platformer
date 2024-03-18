@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using System;
 
@@ -165,7 +163,7 @@ namespace Platformer
                 if (AgressionTrigger.bounds.Contains(Player.Position) == true)
                 {
                     var chance = UnityEngine.Random.value;
-                    if (chance <= 0.7f)
+                    if (chance <= 0.75f)
                     {
                         Animator.PlayPursuing();
                         AudioManager.PlaySound(ESounds.Flames2);

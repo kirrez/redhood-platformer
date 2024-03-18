@@ -111689,6 +111689,10 @@ PrefabInstance:
       propertyPath: Label
       value: 16
       objectReference: {fileID: 0}
+    - target: {fileID: 1841207258020178944, guid: 3dc2c6e65ec76fc4b86dd00928675cae, type: 3}
+      propertyPath: DestinationIndex
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1841207258020178945, guid: 3dc2c6e65ec76fc4b86dd00928675cae, type: 3}
       propertyPath: m_RootOrder
       value: 3
