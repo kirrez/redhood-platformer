@@ -64,7 +64,9 @@ namespace Platformer
         private void OnEnable()
         {
             LastPosition.y = Body.transform.position.y;
-            Animator.SetAnimation(FrogAnimations.JumpRise);
+            Animator.PlayJumpRise();
+            Animator.Begin();
+
             UnfreezeBody();
 
             DamageTrigger.enabled = true;
@@ -118,7 +120,7 @@ namespace Platformer
 
             Animator.StopBlinking();
             Animator.SetNewAnimationPeriod(0.25f);
-            Animator.SetAnimation(FrogAnimations.Death);
+            Animator.PlayDeath();
 
             SetMask("EnemyInactive");
             Body.velocity = Vector2.zero;
@@ -210,7 +212,7 @@ namespace Platformer
         {
             SetMask("EnemyTransparent");
             SwitchColliderPaths(false);
-            Animator.SetAnimation(FrogAnimations.JumpRise);
+            Animator.PlayJumpRise();
             Body.AddForce(new Vector2(0f, VeryHighJumpForce));
             Timer = 0f;
 
@@ -223,7 +225,7 @@ namespace Platformer
 
             if (DeltaY < 0f)
             {
-                Animator.SetAnimation(FrogAnimations.JumpFall);
+                Animator.PlayJumpFall();
                 CurrentState = StateJumpFalling;
             }
         }
@@ -248,7 +250,7 @@ namespace Platformer
 
             if (Grounded(LayerMasks.Solid + LayerMasks.OneWay))
             {
-                Animator.SetAnimation(FrogAnimations.Idle);
+                Animator.PlayIdle();
                 SwitchColliderPaths(true);
                 SetMask("EnemySolid");
                 Timer = 1f; // waiting for next move
@@ -261,7 +263,7 @@ namespace Platformer
         // Behaviours in Idle
         private void AttackBehaviour()
         {
-            Animator.SetAnimation(FrogAnimations.Attack);
+            Animator.PlayAttack();
             CurrentState = StateAttack;
             Timer = 0.5f;
         }
@@ -277,7 +279,7 @@ namespace Platformer
                 Body.AddForce(new Vector2(0f, HighJumpForce));
             }
 
-            Animator.SetAnimation(FrogAnimations.JumpRise);
+            Animator.PlayJumpRise();
             SwitchColliderPaths(false);
             CurrentState = StateJumpRising;
             Timer = 1f;
@@ -394,7 +396,7 @@ namespace Platformer
                     DisappearTimer += Time.fixedDeltaTime;
                     if (DisappearTimer >= 4f)
                     {
-                        Animator.SetAnimation(FrogAnimations.JumpRise);
+                        Animator.PlayJumpRise();
                         SwitchColliderPaths(false);
                         SetMask("EnemyTransparent");
                         Body.AddForce(new Vector2(0f, HighJumpForce));
@@ -410,7 +412,7 @@ namespace Platformer
 
             if (DeltaY < 0f)
             {
-                Animator.SetAnimation(FrogAnimations.JumpFall);
+                Animator.PlayJumpFall();
                 CurrentState = StateLeaveJumpFalling;
             }
         }
@@ -443,7 +445,7 @@ namespace Platformer
             if (Timer <= 0)
             {
                 //switch to Rest
-                Animator.SetAnimation(FrogAnimations.Idle);
+                Animator.PlayIdle();
                 Timer = 1f;
                 AudioManager.PlaySound(ESounds.Quack1);
 

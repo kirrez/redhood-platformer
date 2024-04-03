@@ -7,16 +7,13 @@ namespace Platformer
     public class UndeadAnimator : MonoBehaviour
     {
         [SerializeField]
-        protected SpriteRenderer NormalRenderer;
+        protected SpriteRenderer Renderer;
 
         [SerializeField]
-        protected SpriteRenderer FreezeRenderer;
+        protected Color BlinkMain; // magenta
 
         [SerializeField]
-        protected SpriteMask Mask;
-
-        [SerializeField]
-        protected List<Sprite> FreezeColors;
+        protected Color BlinkExtra; // cyan
 
         protected List<Sprite> CurrentAnimation;
 
@@ -28,15 +25,12 @@ namespace Platformer
         protected float BlinkTimer;
         protected float BlinkDelay = 0.1f;
         protected float BlinkDuration = 1f;
-        protected int ColorIndex;
+        protected bool IsBlinkColor;
+        protected Color NoColor = new Color(1f, 1f, 1f, 0f);
+        protected string TextureName = "_BlendColor";
 
         protected delegate void State();
         protected State CurrentState = () => { };
-
-        protected void OnDisable()
-        {
-            FreezeRenderer.enabled = false;
-        }
 
         protected void FixedUpdate()
         {
@@ -46,36 +40,20 @@ namespace Platformer
         public void StartFreeze(float duration)
         {
             FreezeTimer = duration;
-            ColorIndex = 0;
-
-            FreezeRenderer.enabled = true;
-            Mask.enabled = true;
-            Mask.sprite = CurrentAnimation[Index];
-            FreezeRenderer.sprite = FreezeColors[ColorIndex];
+            IsBlinkColor = false;
+            Renderer.material.SetColor(TextureName, BlinkMain);
 
             CurrentState = FreezeAnimation;
         }
 
         public void SetFlip(bool flip)
         {
-            NormalRenderer.flipX = flip;
-
-            if (NormalRenderer.flipX == true)
-            {
-                Mask.transform.localScale = new Vector3(-1f, 1f, 1f);
-            }
-
-            if (NormalRenderer.flipX == false)
-            {
-                Mask.transform.localScale = new Vector3(1f, 1f, 1f);
-            }
+            Renderer.flipX = flip;
         }
 
         public void Begin()
         {
-            //need to load some sprites first
-            FreezeRenderer.enabled = false;
-            Mask.enabled = false;
+            Renderer.material.SetColor(TextureName, NoColor);
             CurrentState = NormalAnimation;
         }
 
@@ -100,7 +78,7 @@ namespace Platformer
                 Index = 0;
             }
 
-            NormalRenderer.sprite = CurrentAnimation[Index];
+            Renderer.sprite = CurrentAnimation[Index];
         }
 
         protected void FreezeAnimation()
@@ -109,9 +87,11 @@ namespace Platformer
 
             if (FreezeTimer <= 0)
             {
-                FreezeRenderer.enabled = false;
-                Mask.enabled = false;
+                //back to normal color
+                Renderer.material.SetColor(TextureName, NoColor);
+
                 CurrentState = NormalAnimation;
+                return;
             }
 
             // Blinking effect in final part of Freeze state
@@ -121,16 +101,16 @@ namespace Platformer
 
                 if (BlinkTimer <= 0)
                 {
-                    if (ColorIndex < FreezeColors.Count - 1)
+                    IsBlinkColor = !IsBlinkColor;
+                    if (IsBlinkColor == false)
                     {
-                        ColorIndex++;
+                        Renderer.material.SetColor(TextureName, BlinkMain);
                     }
-                    else
+                    if (IsBlinkColor == true)
                     {
-                        ColorIndex = 0;
+                        Renderer.material.SetColor(TextureName, BlinkExtra);
                     }
 
-                    FreezeRenderer.sprite = FreezeColors[ColorIndex];
                     BlinkTimer = BlinkDelay;
                 }
             }

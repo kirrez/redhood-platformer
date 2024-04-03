@@ -4,27 +4,8 @@ using UnityEngine;
 
 namespace Platformer
 {
-    public enum FrogAnimations
+    public class FrogAnimator : BlinkAnimator
     {
-        Idle,
-        Attack,
-        JumpRise,
-        JumpFall,
-        Death
-    }
-
-    public class FrogAnimator : MonoBehaviour
-    {
-        [SerializeField]
-        private SpriteRenderer NormalRenderer;
-
-        [SerializeField]
-        private SpriteRenderer BlinkRenderer;
-
-        [SerializeField]
-        private SpriteMask Mask;
-
-
         [SerializeField]
         private List<Sprite> Idle;
 
@@ -41,201 +22,98 @@ namespace Platformer
         private List<Sprite> Death;
 
         [SerializeField]
-        private float AnimationPeriod;
+        private float AnimationDelay;
 
-        [SerializeField]
-        private float BlinkPeriod; // for BlinkTimer
-
-        [SerializeField]
-        private float BlinkEffectDuration; // for BlinkEffectLasting
-
-        private float AnimationTimer;
-        private float BackupAnimationPeriod;
-        private float BlinkTimer;
-        private float BlinkEffectLasting;
-
-        private int Index;
-
-        private List<Sprite> CurrentAnimation;
-
-        private delegate void State();
-        State CurrentState= () => { };
+        private float BackupAnimationPeriod; //Megafrog ?
 
         private void OnEnable()
         {
-            CurrentState = Begin;
-        }
-
-        private void OnDisable()
-        {
-            BlinkRenderer.enabled = false;
-        }
-
-        private void FixedUpdate()
-        {
-            CurrentState();
-        }
-
-        private void Begin()
-        {
-            Index = 0;
-            AnimationTimer = AnimationPeriod;
-            SetAnimation(FrogAnimations.JumpRise);
-            Mask.sprite = CurrentAnimation[0];
-            BlinkRenderer.enabled = false;
-
-            CurrentState = NormalAnimation;
-        }
-
-        private void NormalAnimation()
-        {
-            AnimationTimer -= Time.fixedDeltaTime;
-            if (AnimationTimer > 0) return;
-
-            AnimationTimer = AnimationPeriod;
-
-            if (Index < CurrentAnimation.Count - 1)
-            {
-                Index++;
-            }
-            else
-            {
-                Index = 0;
-            }
-
-            NormalRenderer.sprite = CurrentAnimation[Index];
-        }
-
-        private void BlinkAnimation()
-        {
-            BlinkEffectLasting -= Time.fixedDeltaTime;
-            if (BlinkEffectLasting <= 0)
-            {
-                BlinkRenderer.enabled = false;
-                CurrentState = NormalAnimation;
-                return;
-            }
-
-            AnimationTimer -= Time.fixedDeltaTime;
-
-            if (AnimationTimer <= 0)
-            {
-                AnimationTimer = AnimationPeriod;
-
-                if (Index < CurrentAnimation.Count - 1)
-                {
-                    Index++;
-                }
-                else
-                {
-                    Index = 0;
-                }
-
-                NormalRenderer.sprite = CurrentAnimation[Index];
-                Mask.sprite = CurrentAnimation[Index];
-            }
-
-            BlinkTimer -= Time.fixedDeltaTime;
-
-            if (BlinkTimer <= 0)
-            {
-                BlinkTimer = BlinkPeriod;
-                BlinkRenderer.enabled = !BlinkRenderer.enabled;
-            }
-        }
-
-
-        public void StartBlinking()
-        {
-            BlinkTimer = BlinkPeriod;
-            BlinkEffectLasting = BlinkEffectDuration;
-
-            BlinkRenderer.enabled = true;
-            Mask.sprite = CurrentAnimation[Index];
-
-            CurrentState = BlinkAnimation;
-        }
-
-        public void StopBlinking()
-        {
-            BlinkTimer = 0f;
-            BlinkEffectLasting = 0f;
-            BlinkRenderer.enabled = false;
+            //CurrentState = Begin;
         }
 
         // for Megafrog-boss "Defeat" behaviour
         public void StartEndlessBlinking()
         {
-            BlinkTimer = BlinkPeriod;
-            BlinkEffectLasting = 30f;
+            BlinkTimer = BlinkDelay;
+            EffectDuration = 30f;
 
-            BlinkRenderer.enabled = true;
-            Mask.sprite = CurrentAnimation[Index];
-
-            CurrentState = BlinkAnimation;
+            StartBlinking();
         }
 
-        public void SetAnimation(FrogAnimations animation)
+        public float PlayIdle()
         {
-            switch (animation)
-            {
-                case FrogAnimations.Idle:
-                    CurrentAnimation = Idle;
-                    break;
+            CurrentAnimation = Idle;
+            Renderer.sprite = CurrentAnimation[0];
 
-                case FrogAnimations.Attack:
-                    CurrentAnimation = Attack;
-                    break;
-
-                case FrogAnimations.JumpRise:
-                    CurrentAnimation = JumpRise;
-                    break;
-
-                case FrogAnimations.JumpFall:
-                    CurrentAnimation = JumpFall;
-                    break;
-
-                case FrogAnimations.Death:
-                    CurrentAnimation = Death;
-                    break;
-            }
-
+            Delay = AnimationDelay;
+            Timer = Delay;
             Index = 0;
-            NormalRenderer.sprite = CurrentAnimation[Index];
-            Mask.sprite = CurrentAnimation[Index];
+
+            return (CurrentAnimation.Count - 1) * Delay;
         }
 
-        public void SetFlip(bool flip)
+        public float PlayAttack()
         {
-            NormalRenderer.flipX = flip;
-            AlignFlips();
+            CurrentAnimation = Attack;
+            Renderer.sprite = CurrentAnimation[0];
+
+            Delay = AnimationDelay;
+            Timer = Delay;
+            Index = 0;
+
+            return (CurrentAnimation.Count - 1) * Delay;
         }
+
+        public float PlayJumpRise()
+        {
+            CurrentAnimation = JumpRise;
+            Renderer.sprite = CurrentAnimation[0];
+
+            Delay = AnimationDelay;
+            Timer = Delay;
+            Index = 0;
+
+            return (CurrentAnimation.Count - 1) * Delay;
+        }
+
+        public float PlayJumpFall()
+        {
+            CurrentAnimation = JumpFall;
+            Renderer.sprite = CurrentAnimation[0];
+
+            Delay = AnimationDelay;
+            Timer = Delay;
+            Index = 0;
+
+            return (CurrentAnimation.Count - 1) * Delay;
+        }
+
+        public float PlayDeath()
+        {
+            CurrentAnimation = Death;
+            Renderer.sprite = CurrentAnimation[0];
+
+            Delay = AnimationDelay;
+            Timer = Delay;
+            Index = 0;
+
+            return (CurrentAnimation.Count - 1) * Delay;
+        }
+
 
         public void SetNewAnimationPeriod(float period)
         {
-            BackupAnimationPeriod = AnimationPeriod;
-            AnimationPeriod = period;
+            BackupAnimationPeriod = AnimationDelay;
+            AnimationDelay = period;
         }
 
         public void RestoreAnimationPeriod()
         {
             if (BackupAnimationPeriod != 0)
             {
-                AnimationPeriod = BackupAnimationPeriod;
+                AnimationDelay = BackupAnimationPeriod;
             }
         }
 
-        private void AlignFlips()
-        {
-            if (NormalRenderer.flipX)
-            {
-                Mask.transform.localScale = new Vector3(-1f, 1f, 1f);
-            }
-            
-            if (!NormalRenderer.flipX)
-            {
-                Mask.transform.localScale = new Vector3(1f, 1f, 1f);
-            }
-        }
     }
 }

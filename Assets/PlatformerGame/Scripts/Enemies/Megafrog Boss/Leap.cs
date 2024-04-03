@@ -45,7 +45,7 @@ namespace Platformer.MegafrogBoss
             Megafrog.ChangeDirection();
 
             Megafrog.Body.AddForce(new Vector2(LeapHorizontal * DirectionX, LeapVertical));
-            Megafrog.SetAnimation(FrogAnimations.JumpRise);
+            Megafrog.FrogAnimator.PlayJumpRise();
 
             SetState(JumpRising);
         }
@@ -53,7 +53,7 @@ namespace Platformer.MegafrogBoss
         public void StartShot()
         {
             Megafrog.FacePlayer();
-            Megafrog.SetAnimation(FrogAnimations.Attack);
+            Megafrog.FrogAnimator.PlayAttack();
             Megafrog.HitBox.Show();
             Timer = 1.5f;
 
@@ -76,7 +76,7 @@ namespace Platformer.MegafrogBoss
             Timer -= Time.fixedDeltaTime;
             if (Timer > 0) return;
 
-            Megafrog.SetAnimation(FrogAnimations.Idle);
+            Megafrog.FrogAnimator.PlayIdle();
             Megafrog.HitBox.Hide();
             SetState(StartLeap);
         }
@@ -86,7 +86,7 @@ namespace Platformer.MegafrogBoss
             if (Megafrog.DeltaY < 0)
             {
                 Megafrog.SetMask("EnemySolid");
-                Megafrog.SetAnimation(FrogAnimations.JumpFall);
+                Megafrog.FrogAnimator.PlayJumpFall();
 
                 SetState(JumpFalling);
             }
@@ -97,7 +97,7 @@ namespace Platformer.MegafrogBoss
             if (Megafrog.IsGrounded(LayerMasks.Solid))
             {
                 Megafrog.Phase++;
-                Megafrog.SetAnimation(FrogAnimations.Idle);
+                Megafrog.FrogAnimator.PlayIdle();
                 Timer = 1f;
 
                 if (Megafrog.Phase == 3)
@@ -115,7 +115,7 @@ namespace Platformer.MegafrogBoss
             Timer -= Time.fixedDeltaTime;
             if (Timer > 0) return;
 
-            Megafrog.SetAnimation(FrogAnimations.Attack);
+            Megafrog.FrogAnimator.PlayAttack();
             Megafrog.HitBox.Show();
             Timer = 1.5f;
 
@@ -127,7 +127,7 @@ namespace Platformer.MegafrogBoss
             Timer -= Time.fixedDeltaTime;
             if (Timer > 0) return;
 
-            Megafrog.SetAnimation(FrogAnimations.Idle);
+            Megafrog.FrogAnimator.PlayIdle();
             Megafrog.HitBox.Hide();
             Timer = 1f;
 

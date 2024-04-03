@@ -52,7 +52,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 74b2cade54ea1814491df36732357f86, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -162,7 +162,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Body: {fileID: 6884098248608503366}
-  Renderer: {fileID: 6884098247950838956}
   DamageTrigger: {fileID: 6884098248483579106}
   Health: {fileID: 6884098248608503364}
   FirePoint: {fileID: 6884098247973022975}
@@ -180,6 +179,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08f5d94949c4fca47b26b7f09cdedb6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Renderer: {fileID: 6884098247950838956}
+  BlinkMain: {r: 1, g: 1, b: 1, a: 0.7058824}
+  EffectDuration: 1
+  BlinkDelay: 0.1
   Idle:
   - {fileID: -1874361843, guid: 77be50fe74ae82d449d5d1450be1a492, type: 3}
   - {fileID: -57745022, guid: 77be50fe74ae82d449d5d1450be1a492, type: 3}

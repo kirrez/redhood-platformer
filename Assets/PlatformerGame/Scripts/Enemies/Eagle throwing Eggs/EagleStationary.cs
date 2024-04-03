@@ -13,9 +13,6 @@ namespace Platformer
         private Rigidbody2D Body;
 
         [SerializeField]
-        private SpriteRenderer Renderer;
-
-        [SerializeField]
         private Collider2D DamageTrigger;
 
         [SerializeField]
@@ -52,8 +49,6 @@ namespace Platformer
             Animator = GetComponent<EagleAnimator>();
             Player = CompositionRoot.GetPlayer();
 
-            Animator.Initiate(Renderer);
-
             Health.Killed += OnKilled;
         }
 
@@ -79,12 +74,12 @@ namespace Platformer
         {
             if (Player.Position.x <= transform.position.x)
             {
-                Renderer.flipX = true;
+                Animator.SetFlip(true);
             }
 
             if (Player.Position.x > transform.position.x)
             {
-                Renderer.flipX = false;
+                Animator.SetFlip(false);
             }
         }
 
@@ -115,6 +110,8 @@ namespace Platformer
         private void StateFinishSpawning()
         {
             Animator.PlayIdle();
+            Animator.Begin();
+
             Health.RefillHealth();
             DamageTrigger.enabled = true;
             SetMask(LayerNames.EnemySolid);
@@ -175,12 +172,12 @@ namespace Platformer
 
             if (Player.Position.x <= transform.position.x)
             {
-                Renderer.flipX = true;
+                Animator.SetFlip(true);
             }
 
             if (Player.Position.x > transform.position.x)
             {
-                Renderer.flipX = false;
+                Animator.SetFlip(false);
             }
 
             if (Timer <= 0)
@@ -228,6 +225,7 @@ namespace Platformer
         {
             Animator.PlaySpawning();
             Animator.Stop();
+
             EagleKilled?.Invoke();
             gameObject.SetActive(false);
         }

@@ -15,8 +15,7 @@ namespace Platformer
         public float PlayWalking()
         {
             CurrentAnimation = Walking;
-            NormalRenderer.sprite = CurrentAnimation[0];
-            Mask.sprite = CurrentAnimation[0];
+            Renderer.sprite = CurrentAnimation[0];
 
             Delay = AnimationDelay;
             Timer = Delay;

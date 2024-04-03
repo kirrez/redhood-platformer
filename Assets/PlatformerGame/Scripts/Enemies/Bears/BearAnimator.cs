@@ -4,24 +4,8 @@ using UnityEngine;
 
 namespace Platformer
 {
-    public enum BearAnimations
+    public class BearAnimator : BlinkAnimator
     {
-        Idle,
-        Walk,
-        Attack,
-        Death
-    }
-    public class BearAnimator : MonoBehaviour
-    {
-        [SerializeField]
-        private SpriteRenderer NormalRenderer;
-
-        [SerializeField]
-        private SpriteRenderer BlinkRenderer;
-
-        [SerializeField]
-        private SpriteMask Mask;
-
         [SerializeField]
         private List<Sprite> Idle;
 
@@ -32,174 +16,57 @@ namespace Platformer
         private List<Sprite> Attack;
 
         [SerializeField]
-        private List<Sprite> Death;
+        private List<Sprite> Dying;
 
         [SerializeField]
-        private float AnimationPeriod;
+        private float AnimationDelay;
 
-        [SerializeField]
-        private float BlinkPeriod; // for BlinkTimer
-
-        [SerializeField]
-        private float BlinkEffectDuration; // for BlinkEffectLasting
-
-        private float AnimationTimer;
-
-        private float BlinkTimer;
-        private float BlinkEffectLasting;
-
-        private int Index;
-
-        private List<Sprite> CurrentAnimation;
-
-        private delegate void State();
-        State CurrentState = () => { };
-
-        private void OnEnable()
+        public float PlayIdle()
         {
-            CurrentState = Begin;
-        }
+            CurrentAnimation = Idle;
+            Renderer.sprite = CurrentAnimation[0];
 
-        private void OnDisable()
-        {
-            BlinkRenderer.enabled = false;
-        }
-
-        private void FixedUpdate()
-        {
-            CurrentState();
-        }
-
-        private void Begin()
-        {
+            Delay = AnimationDelay;
+            Timer = Delay;
             Index = 0;
-            AnimationTimer = AnimationPeriod;
-            SetAnimation(BearAnimations.Walk);
-            Mask.sprite = CurrentAnimation[0];
-            BlinkRenderer.enabled = false;
 
-            CurrentState = NormalAnimation;
+            return (CurrentAnimation.Count - 1) * Delay;
         }
 
-        private void NormalAnimation()
+        public float PlayWalk()
         {
-            AnimationTimer -= Time.fixedDeltaTime;
-            if (AnimationTimer > 0) return;
+            CurrentAnimation = Walk;
+            Renderer.sprite = CurrentAnimation[0];
 
-            AnimationTimer = AnimationPeriod;
-
-            if (Index < CurrentAnimation.Count - 1)
-            {
-                Index++;
-            }
-            else
-            {
-                Index = 0;
-            }
-
-            NormalRenderer.sprite = CurrentAnimation[Index];
-        }
-
-        private void BlinkAnimation()
-        {
-            BlinkEffectLasting -= Time.fixedDeltaTime;
-            if (BlinkEffectLasting <= 0)
-            {
-                BlinkRenderer.enabled = false;
-                CurrentState = NormalAnimation;
-                return;
-            }
-
-            AnimationTimer -= Time.fixedDeltaTime;
-
-            if (AnimationTimer <= 0)
-            {
-                AnimationTimer = AnimationPeriod;
-
-                if (Index < CurrentAnimation.Count - 1)
-                {
-                    Index++;
-                }
-                else
-                {
-                    Index = 0;
-                }
-
-                NormalRenderer.sprite = CurrentAnimation[Index];
-                Mask.sprite = CurrentAnimation[Index];
-            }
-
-            BlinkTimer -= Time.fixedDeltaTime;
-
-            if (BlinkTimer <= 0)
-            {
-                BlinkTimer = BlinkPeriod;
-                BlinkRenderer.enabled = !BlinkRenderer.enabled;
-            }
-        }
-
-
-        public void StartBlinking()
-        {
-            BlinkTimer = BlinkPeriod;
-            BlinkEffectLasting = BlinkEffectDuration;
-
-            BlinkRenderer.enabled = true;
-            Mask.sprite = CurrentAnimation[Index];
-
-            CurrentState = BlinkAnimation;
-        }
-
-        public void StopBlinking()
-        {
-            BlinkTimer = 0f;
-            BlinkEffectLasting = 0f;
-            BlinkRenderer.enabled = false;
-        }
-
-        public void SetAnimation(BearAnimations animation)
-        {
-            switch (animation)
-            {
-                case BearAnimations.Idle:
-                    CurrentAnimation = Idle;
-                    break;
-
-                case BearAnimations.Walk:
-                    CurrentAnimation = Walk;
-                    break;
-
-                case BearAnimations.Attack:
-                    CurrentAnimation = Attack;
-                    break;
-
-                case BearAnimations.Death:
-                    CurrentAnimation = Death;
-                    break;
-            }
-
+            Delay = AnimationDelay;
+            Timer = Delay;
             Index = 0;
-            NormalRenderer.sprite = CurrentAnimation[Index];
-            Mask.sprite = CurrentAnimation[Index];
+
+            return (CurrentAnimation.Count - 1) * Delay;
         }
 
-        public void SetFlip(bool flip)
+        public float PlayAttack()
         {
-            NormalRenderer.flipX = flip;
-            AlignFlips();
+            CurrentAnimation = Attack;
+            Renderer.sprite = CurrentAnimation[0];
+
+            Delay = AnimationDelay;
+            Timer = Delay;
+            Index = 0;
+
+            return (CurrentAnimation.Count - 1) * Delay;
         }
 
-        private void AlignFlips()
+        public float PlayDying()
         {
-            if (NormalRenderer.flipX)
-            {
-                Mask.transform.localScale = new Vector3(-1f, 1f, 1f);
-            }
+            CurrentAnimation = Dying;
+            Renderer.sprite = CurrentAnimation[0];
 
-            if (!NormalRenderer.flipX)
-            {
-                Mask.transform.localScale = new Vector3(1f, 1f, 1f);
-            }
+            Delay = AnimationDelay;
+            Timer = Delay;
+            Index = 0;
+
+            return (CurrentAnimation.Count - 1) * Delay;
         }
     }
 }

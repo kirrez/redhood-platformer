@@ -51,7 +51,9 @@ namespace Platformer
         {
             Body.transform.position = startPosition;
             DirectionX = 1f;
+
             Animator.PlayWalk();
+            Animator.Begin();
 
             if (DirectionX == 1f) Animator.SetFlip(false);
             if (DirectionX == -1f) Animator.SetFlip(true);
@@ -66,6 +68,7 @@ namespace Platformer
 
         private void OnDisable()
         {
+            Animator.StopBlinking();
             IsRoamingState = true;
             JumpCooldown = 0f;
             Killed();
@@ -112,6 +115,7 @@ namespace Platformer
         private void OnKilled()
         {
             IsRoamingState = false;
+            Animator.StopBlinking();
             CurrentState = StateDying;
         }
 

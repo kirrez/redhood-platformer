@@ -21,8 +21,7 @@ namespace Platformer
         public float PlayFloating()
         {
             CurrentAnimation = Floating;
-            NormalRenderer.sprite = CurrentAnimation[0];
-            Mask.sprite = CurrentAnimation[0];
+            Renderer.sprite = CurrentAnimation[0];
 
             Delay = AnimationDelay;
             Timer = Delay;
@@ -34,8 +33,7 @@ namespace Platformer
         public float PlayCautious()
         {
             CurrentAnimation = Cautious;
-            NormalRenderer.sprite = CurrentAnimation[0];
-            Mask.sprite = CurrentAnimation[0];
+            Renderer.sprite = CurrentAnimation[0];
 
             Delay = AnimationDelay;
             Timer = Delay;
@@ -47,8 +45,7 @@ namespace Platformer
         public float PlayPursuing()
         {
             CurrentAnimation = Pursuing;
-            NormalRenderer.sprite = CurrentAnimation[0];
-            Mask.sprite = CurrentAnimation[0];
+            Renderer.sprite = CurrentAnimation[0];
 
             Delay = AnimationDelay;
             Timer = Delay;

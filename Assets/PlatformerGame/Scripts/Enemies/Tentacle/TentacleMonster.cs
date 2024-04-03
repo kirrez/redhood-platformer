@@ -79,6 +79,12 @@ namespace Platformer
             StartPosition1 = NewPath[1];
             StartPosition2 = NewPath[2];
             Dropper.gameObject.SetActive(false);
+            
+            //Animators' first run
+            Tentacles.PlayIdle();
+            Tentacles.Begin();
+            Cap.PlayIdle();
+            Cap.Begin();
 
             CurrentState = StateAwait;
         }

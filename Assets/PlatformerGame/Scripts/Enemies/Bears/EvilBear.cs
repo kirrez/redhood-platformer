@@ -83,6 +83,7 @@ namespace Platformer
 
         private void OnDisable()
         {
+            Animator.StopBlinking();
             if (!WasSlain)
             {
                 Killed();
@@ -144,8 +145,8 @@ namespace Platformer
 
             instance.GetComponent<DeathFlameEffect>().Initiate(newPosition, new Vector2(2f, 3f));
 
+            Animator.PlayDying();
             Animator.StopBlinking();
-            Animator.SetAnimation(BearAnimations.Death);
 
             SetMask(LayerNames.EnemyInactive);
             Body.velocity = Vector2.zero;
@@ -220,7 +221,8 @@ namespace Platformer
         private void StateInitial()
         {
             Timer = 0f;
-            Animator.SetAnimation(BearAnimations.Walk);
+            Animator.PlayWalk();
+            Animator.Begin();
             CurrentState = StateRoaming;
         }
 
@@ -291,7 +293,7 @@ namespace Platformer
                 {
                     Rage = 0f;
                     RageText.text = Rage.ToString("0.00");
-                    Animator.SetAnimation(BearAnimations.Attack);
+                    Animator.PlayAttack();
                     Timer = 0.5f;
                     CurrentState = StateAttack;
 
@@ -318,7 +320,7 @@ namespace Platformer
 
                 Timer = 2f;
 
-                Animator.SetAnimation(BearAnimations.Idle);
+                Animator.PlayIdle();
                 CurrentState = StateRest;
             }
         }
@@ -329,7 +331,7 @@ namespace Platformer
 
             if (Timer <= 0)
             {
-                Animator.SetAnimation(BearAnimations.Walk);
+                Animator.PlayWalk();
                 CurrentState = StateRoaming;
             }
         }

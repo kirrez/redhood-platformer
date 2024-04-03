@@ -71,11 +71,6 @@ namespace Platformer
             CurrentState = state;
         }
 
-        public void SetAnimation(FrogAnimations animation)
-        {
-            FrogAnimator.SetAnimation(animation);
-        }
-
         public void SetDirectionX(float direction)
         {
             DirectionX = direction;

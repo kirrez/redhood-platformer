@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Platformer
 {
-    public class CapAnimator : MonoBehaviour
+    public class CapAnimator : BlinkAnimator
     {
         [SerializeField]
         private List<Sprite> IdleAnimation;
@@ -20,7 +20,6 @@ namespace Platformer
         private List<Sprite> HybernatingAnimation; // while tentacle dead
 
 
-
         [SerializeField]
         private float IdleDelay = 0.15f;
 
@@ -33,89 +32,53 @@ namespace Platformer
         [SerializeField]
         private float HybernatingDelay = 0.15f;
 
-        private List<Sprite> CurrentAnimation;
-
-        private int Index;
-        private float AnimationDelay;
-        private float AnimationTimer;
-
-        private SpriteRenderer Renderer;
-
-        private void Awake()
-        {
-            Renderer = GetComponent<SpriteRenderer>();
-        }
-
-        private void OnEnable()
-        {
-            PlayIdle();
-        }
-
-        private void FixedUpdate()
-        {
-            PlayAnimation();
-        }
-
-        private void PlayAnimation()
-        {
-            AnimationTimer += Time.fixedDeltaTime;
-
-            if (AnimationTimer >= AnimationDelay)
-            {
-                AnimationTimer -= AnimationDelay;
-
-                if (Index == CurrentAnimation.Count - 1)
-                {
-                    Index = 0;
-                }
-
-                else if (Index < CurrentAnimation.Count - 1)
-                {
-                    Index++;
-                }
-
-                Renderer.sprite = CurrentAnimation[Index];
-            }
-        }
 
         public float PlayIdle()
         {
             CurrentAnimation = IdleAnimation;
-            AnimationDelay = IdleDelay;
-            Index = 0;
-            AnimationTimer = 0f;
+            Renderer.sprite = CurrentAnimation[0];
 
-            return (CurrentAnimation.Count - 1) * AnimationDelay;
+            Delay = IdleDelay;
+            Timer = Delay;
+            Index = 0;
+
+            return (CurrentAnimation.Count - 1) * Delay;
         }
 
         public float PlayClosing()
         {
             CurrentAnimation = ClosingAnimation;
-            AnimationDelay = ClosingDelay;
-            Index = 0;
-            AnimationTimer = 0f;
+            Renderer.sprite = CurrentAnimation[0];
 
-            return (CurrentAnimation.Count - 1) * AnimationDelay;
+            Delay = ClosingDelay;
+            Timer = Delay;
+            Index = 0;
+
+            return (CurrentAnimation.Count - 1) * Delay;
         }
 
         public float PlayOpening()
         {
             CurrentAnimation = OpeningAnimation;
-            AnimationDelay = OpeningDelay;
-            Index = 0;
-            AnimationTimer = 0f;
+            Renderer.sprite = CurrentAnimation[0];
 
-            return (CurrentAnimation.Count - 1) * AnimationDelay;
+            Delay = OpeningDelay;
+            Timer = Delay;
+            Index = 0;
+
+            return (CurrentAnimation.Count - 1) * Delay;
         }
 
         public float PlayHybernating()
         {
             CurrentAnimation = HybernatingAnimation;
-            AnimationDelay = HybernatingDelay;
-            Index = 0;
-            AnimationTimer = 0f;
+            Renderer.sprite = CurrentAnimation[0];
 
-            return (CurrentAnimation.Count - 1) * AnimationDelay;
+            Delay = HybernatingDelay;
+            Timer = Delay;
+            Index = 0;
+
+            return (CurrentAnimation.Count - 1) * Delay;
         }
     }
 }

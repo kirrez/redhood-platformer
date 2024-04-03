@@ -38,7 +38,7 @@ namespace Platformer.MegafrogBoss
 
             Megafrog.FacePlayer();
             Megafrog.SetMask("EnemySolid");
-            Megafrog.SetAnimation(FrogAnimations.JumpFall);
+            Megafrog.FrogAnimator.PlayJumpFall();
             Timer = 1.2f;
 
             LaunchShardDropper();
@@ -61,7 +61,7 @@ namespace Platformer.MegafrogBoss
         {
             if (Megafrog.IsGrounded(LayerMasks.Solid))
             {
-                Megafrog.SetAnimation(FrogAnimations.Idle);
+                Megafrog.FrogAnimator.PlayIdle();
                 Megafrog.Phase++;
                 Timer = 1f;
 
@@ -89,7 +89,7 @@ namespace Platformer.MegafrogBoss
 
             Megafrog.FacePlayer();
             Megafrog.SetMask("EnemyTransparent");
-            Megafrog.SetAnimation(FrogAnimations.JumpRise);
+            Megafrog.FrogAnimator.PlayJumpRise();
 
             Megafrog.UpdateLastBodyPosition();
 
@@ -107,7 +107,9 @@ namespace Platformer.MegafrogBoss
 
             Megafrog.FacePlayer();
             Megafrog.SetMask("EnemyTransparent");
-            Megafrog.SetAnimation(FrogAnimations.JumpRise);
+            Megafrog.FrogAnimator.PlayJumpRise();
+            Megafrog.FrogAnimator.Begin(); // first animator run
+
             Megafrog.HitBox.Hide();
 
             Megafrog.UpdateLastBodyPosition();
@@ -145,7 +147,7 @@ namespace Platformer.MegafrogBoss
             if (Megafrog.DeltaY < 0)
             {
                 Megafrog.SetMask("EnemySolid");
-                Megafrog.SetAnimation(FrogAnimations.JumpFall);
+                Megafrog.FrogAnimator.PlayJumpFall();
 
                 SetState(JumpFalling);
             }

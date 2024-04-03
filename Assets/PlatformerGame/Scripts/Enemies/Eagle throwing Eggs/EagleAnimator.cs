@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Platformer
 {
-    public class EagleAnimator : MonoBehaviour
+    public class EagleAnimator : BlinkAnimator
     {
         [SerializeField]
         private List<Sprite> Idle;
@@ -24,26 +24,6 @@ namespace Platformer
         [SerializeField]
         private float SpawningDelay = 0.25f;
 
-        private List<Sprite> CurrentAnimation;
-        private SpriteRenderer Renderer;
-
-        private float Timer;
-        private float Delay;
-        private int Index;
-
-        private delegate void State();
-        State CurrentState = () => { };
-
-        private void FixedUpdate()
-        {
-            CurrentState();
-        }
-
-        public void Initiate(SpriteRenderer renderer)
-        {
-            Renderer = renderer;
-        }
-
         public float PlayIdle()
         {
             CurrentAnimation = Idle;
@@ -53,7 +33,6 @@ namespace Platformer
 
             Renderer.sprite = CurrentAnimation[Index];
 
-            CurrentState = PlayAnimation;
             return CurrentAnimation.Count * Delay;
         }
 
@@ -66,7 +45,6 @@ namespace Platformer
 
             Renderer.sprite = CurrentAnimation[Index];
 
-            CurrentState = PlayAnimation;
             return CurrentAnimation.Count * Delay;
         }
 
@@ -79,34 +57,7 @@ namespace Platformer
 
             Renderer.sprite = CurrentAnimation[Index];
 
-            CurrentState = PlayAnimation;
             return CurrentAnimation.Count * Delay;
-        }
-
-        public void Stop()
-        {
-            CurrentState = () => { };
-        }
-
-        private void PlayAnimation()
-        {
-            Timer -= Time.fixedDeltaTime;
-
-            if (Timer <= 0)
-            {
-                Timer = Delay;
-
-                if (Index == CurrentAnimation.Count - 1)
-                {
-                    Index = 0;
-                }
-                else if (Index < CurrentAnimation.Count - 1)
-                {
-                    Index++;
-                }
-
-                Renderer.sprite = CurrentAnimation[Index];
-            }
         }
     }
 }

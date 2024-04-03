@@ -26,5 +26,6 @@ namespace Platformer
         // Undead
         VengefulSpirit,
         MummyWalker,
+        Zombie,
     }
 }
