@@ -27,6 +27,9 @@ namespace Platformer
         [SerializeField]
         private Transform MessageTransform;
 
+        [SerializeField]
+        private bool NoDynamicsReload;
+
         private ETexts Label;
 
         private void Awake()
@@ -41,6 +44,7 @@ namespace Platformer
         {
             var targetValue = (int)ETexts.Enter + LabelIndex;
             Label = (ETexts)targetValue;
+            // i have to fix this )))
         }
 
         private void Update()
@@ -103,9 +107,12 @@ namespace Platformer
         private void OnLocationEnter()
         {
             var navigation = CompositionRoot.GetNavigation();
-            DynamicsContainer.DeactivateMain();
-            DynamicsContainer.DeactivateEnemies();
-            DynamicsContainer.DeactivateTemporary(); // temporary ))
+            if (NoDynamicsReload == false)
+            {
+                DynamicsContainer.DeactivateMain();
+                DynamicsContainer.DeactivateEnemies();
+                DynamicsContainer.DeactivateTemporary(); // temporary ))
+            }
 
             navigation.SetLocation(LocationIndex, SpawnPointIndex, ConfinerIndex);
             AudioManager.PlaySound(ESounds.StairSteps);
