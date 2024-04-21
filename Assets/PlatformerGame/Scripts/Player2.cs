@@ -14,6 +14,12 @@ namespace Platformer
 
         public Transform Transform => transform;
 
+        public Rigidbody2D Body
+        { 
+            get { return Rigidbody; }
+            set { Rigidbody = value; }
+        }
+
         public Vector3 Position
         {
             get { return transform.position; }
@@ -272,7 +278,6 @@ namespace Platformer
             }
             CurrentState.OnEnable(time);
         }
-
 
         // also returns "1" if player faces right and "-1" if left )) for external checks in spawners etc.
         public float DirectionCheck()

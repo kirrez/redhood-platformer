@@ -12,6 +12,9 @@ namespace Platformer
         event Action Interaction;
 
         Transform Transform { get; }
+
+        Rigidbody2D Body { get; set; }
+
         Vector3 Position { get; set; }
 
         //Inputs
