@@ -169,11 +169,11 @@ namespace Platformer
             //playerState.SetQuest(EQuest.SpawnPoint, 24);
             //playerState.SetQuest(EQuest.Confiner, 1);
 
-            // Cave Labyrinth, Lever quest
+            // Cave Labyrinth
             playerState.SetQuest(EQuest.Stage, (int)EStages.CaveLabyrinth);
-            playerState.SetQuest(EQuest.Location, 1);
+            playerState.SetQuest(EQuest.Location, 2);
             playerState.SetQuest(EQuest.SpawnPoint, 24); // - test
-            playerState.SetQuest(EQuest.Confiner, 15);
+            playerState.SetQuest(EQuest.Confiner, 10);
 
             // Mountains
             //playerState.SetQuest(EQuest.Stage, (int)EStages.Mountains);

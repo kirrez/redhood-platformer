@@ -174,6 +174,16 @@ namespace Platformer
 
             Texts[ETexts.ForsakenCamp_Title] = "* Forsaken Camp *";
             Texts[ETexts.ForsakenCamp_1] = "Oh my! I must be lost here! At least I can always come back and have some rest..";
+
+            Texts[ETexts.Assistant_Title] = "* Mysterious Assistant *";
+            Texts[ETexts.Assistant_frog1] = "I'm here to assist the brave souls, who find this foul beast too difficult to be dealt with.";
+            Texts[ETexts.Assistant_frog2_1] = "I can sell you strong amphibian poison, which halvens it's strength. For a reasonable price, ofcourse! Talk to me again and bring along ";
+            Texts[ETexts.Assistant_frog2_2] = " shiny circles with you so we can make a deal!";
+            Texts[ETexts.Assistant_frog3] = "That's it, pour the poison into the pond! I wish you a good luck with your daring effort, ha-ha!";
+            Texts[ETexts.Assistant_frog4] = "Let's see.. you don't have enough shiny circles! Sorry, no charity, lass.";
+            Texts[ETexts.Assistant_frog5] = "I belive you can do it!";
+            Texts[ETexts.Assistant_frog6] = "Oh, you did it! Way to go, my dear!";
+            Texts[ETexts.Assistant_frog7] = "I see, you've managed this problem somehow. My congratulations, he-he!";
         }
 
         private void LoadRussian()
@@ -307,6 +317,16 @@ namespace Platformer
 
             Texts[ETexts.ForsakenCamp_Title] = "* Заброшенный лагерь *";
             Texts[ETexts.ForsakenCamp_1] = "Oh my! I must be lost here! At least I can always come back and have some rest..";
+
+            Texts[ETexts.Assistant_Title] = "* Mysterious Assistant *";
+            Texts[ETexts.Assistant_frog1] = "I'm here to assist the brave souls, who find this foul beast too difficult to be dealt with.";
+            Texts[ETexts.Assistant_frog2_1] = "I can sell you strong amphibian poison, which halvens it's strength. For a reasonable price, ofcourse! Talk to me again and bring along ";
+            Texts[ETexts.Assistant_frog2_2] = " shiny circles with you so we can make a deal!";
+            Texts[ETexts.Assistant_frog3] = "That's it, pour the poison into the pond! I wish you a good luck with your daring effort, ha-ha!";
+            Texts[ETexts.Assistant_frog4] = "Let's see.. you don't have enough shiny circles! Sorry, no charity, lass.";
+            Texts[ETexts.Assistant_frog5] = "I belive you can do it!";
+            Texts[ETexts.Assistant_frog6] = "Oh, you did it! Way to go, my dear!";
+            Texts[ETexts.Assistant_frog7] = "I see, you've managed this problem somehow. My congratulations, he-he!";
         }
     }
 }

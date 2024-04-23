@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 434605865097938152}
-  - component: {fileID: 434605865097938155}
   - component: {fileID: 7235652071924805288}
   m_Layer: 0
   m_Name: GatekeeperTip
@@ -31,16 +30,63 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6515271475129321211}
+  - {fileID: 8412664396888295741}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &434605865097938155
-BoxCollider2D:
+--- !u!114 &7235652071924805288
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 434605865097938153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f5f1b4f12a757e4180a11bf993675ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MessageTransform: {fileID: 6515271475129321211}
+  Trigger: {fileID: 7542077399079821588}
+--- !u!1 &2869367608225058336
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8412664396888295741}
+  - component: {fileID: 7542077399079821588}
+  m_Layer: 0
+  m_Name: Trigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8412664396888295741
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2869367608225058336}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 434605865097938152}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &7542077399079821588
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2869367608225058336}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -60,19 +106,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 5, y: 3}
   m_EdgeRadius: 0
---- !u!114 &7235652071924805288
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 434605865097938153}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f5f1b4f12a757e4180a11bf993675ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MessageTransform: {fileID: 6515271475129321211}
 --- !u!1 &3012726434666402061
 GameObject:
   m_ObjectHideFlags: 0
@@ -83,7 +116,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6515271475129321211}
   m_Layer: 0
-  m_Name: Canvas Position
+  m_Name: Message
   m_TagString: Untagged
   m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0

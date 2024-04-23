@@ -139,5 +139,15 @@ namespace Platformer
 
         ForsakenCamp_Title,
         ForsakenCamp_1,
+
+        Assistant_Title,
+        Assistant_frog1,
+        Assistant_frog2_1,
+        Assistant_frog2_2,
+        Assistant_frog3,
+        Assistant_frog4,
+        Assistant_frog5,
+        Assistant_frog6,
+        Assistant_frog7,
     }
 }

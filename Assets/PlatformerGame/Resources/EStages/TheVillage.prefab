@@ -133973,6 +133973,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58910fb8564c2814885f94487a6891b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MessageTransform: {fileID: 6354726397664109252}
+  Trigger: {fileID: 5979951357656025409}
   Spawner: {fileID: 2533744549338712737}
   Wanderer: {fileID: 6354726397664109255}
 --- !u!4 &6354726397664109252 stripped

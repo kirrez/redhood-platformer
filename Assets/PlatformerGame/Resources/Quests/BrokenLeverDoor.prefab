@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8022603455456476208}
   m_Layer: 0
-  m_Name: MessagePosition
+  m_Name: Message
   m_TagString: Untagged
   m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -29,7 +29,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1908970093511360835}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2066075680819378484
 GameObject:
@@ -61,7 +61,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1908970093511360835}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &704805726365504456
 BoxCollider2D:
@@ -118,9 +118,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 8022603455456476208}
   - {fileID: 503652781281243541}
   - {fileID: 8957122492670909840}
-  - {fileID: 8022603455456476208}
   - {fileID: 381530538694058485}
   - {fileID: 7744677790821238353}
   m_Father: {fileID: 0}
@@ -138,9 +138,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af59d2f7cd4fb264db71b88a6725f319, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  QuestTrigger: {fileID: 3422597666984420278}
-  LeverTrigger: {fileID: 704805726365504456}
   MessageTransform: {fileID: 8022603455456476208}
+  Trigger: {fileID: 3422597666984420278}
+  LeverTrigger: {fileID: 704805726365504456}
   DoorBlock: {fileID: 5865758904310206233}
   LeverSprite: {fileID: 6911719929148838409}
   Sprites:
@@ -373,7 +373,7 @@ GameObject:
   - component: {fileID: 503652781281243541}
   - component: {fileID: 3422597666984420278}
   m_Layer: 0
-  m_Name: QuestTrigger
+  m_Name: Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -392,7 +392,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1908970093511360835}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &3422597666984420278
 BoxCollider2D:
