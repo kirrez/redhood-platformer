@@ -136,5 +136,8 @@ namespace Platformer
         HollyMolly1_9,
         HollyMolly1_10,
         HollyMolly1_11,
+
+        ForsakenCamp_Title,
+        ForsakenCamp_1,
     }
 }

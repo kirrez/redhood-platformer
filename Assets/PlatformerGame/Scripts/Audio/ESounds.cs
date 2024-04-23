@@ -18,6 +18,7 @@ namespace Platformer
         Splash1,
         LifeLost1,
         Collect7CampFire,
+        CursedCampFire,
         PlayerJump,
         PlayerLanding,
 
@@ -44,7 +45,8 @@ namespace Platformer
         //Enemies
         BatStart,
         Hit1,
-        Slash2,
+        Hit7, // ShootingMask
+        Slash2, // Death Flame Effect
         Slash7, //Bear
         EnemyDamage2,
         EnemyDying5,

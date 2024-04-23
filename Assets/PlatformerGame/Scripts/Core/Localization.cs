@@ -171,6 +171,9 @@ namespace Platformer
             Texts[ETexts.HollyMolly1_9] = "- I'll be back really soon!";
             Texts[ETexts.HollyMolly1_10] = "- Sure, take it!";
             Texts[ETexts.HollyMolly1_11] = "- Perform your show again!.. since I'm your biggest fan!";
+
+            Texts[ETexts.ForsakenCamp_Title] = "* Forsaken Camp *";
+            Texts[ETexts.ForsakenCamp_1] = "Oh my! I must be lost here! At least I can always come back and have some rest..";
         }
 
         private void LoadRussian()
@@ -301,6 +304,9 @@ namespace Platformer
             Texts[ETexts.HollyMolly1_8] = "- I'll be back really soon!";
             Texts[ETexts.HollyMolly1_9] = "- Sure, take it!";
             Texts[ETexts.HollyMolly1_10] = "- Perform your show again!.. since I'm your biggest fan!"; //repeats the show, for free ))
+
+            Texts[ETexts.ForsakenCamp_Title] = "* Заброшенный лагерь *";
+            Texts[ETexts.ForsakenCamp_1] = "Oh my! I must be lost here! At least I can always come back and have some rest..";
         }
     }
 }

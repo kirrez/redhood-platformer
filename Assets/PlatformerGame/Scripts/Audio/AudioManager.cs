@@ -71,6 +71,7 @@ namespace Platformer
             PlayerSounds.Add(EPlayerSounds.DamageTaken, LoadSound(ESounds.MCDamage3));
             PlayerSounds.Add(EPlayerSounds.LifeLost, LoadSound(ESounds.LifeLost1));
             PlayerSounds.Add(EPlayerSounds.LightCampFire, LoadSound(ESounds.Collect7CampFire));
+            PlayerSounds.Add(EPlayerSounds.LightCursedCampFire, LoadSound(ESounds.CursedCampFire));
         }
 
         public void PlayRedhoodSound(EPlayerSounds key)

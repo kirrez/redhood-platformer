@@ -23,6 +23,8 @@ namespace Platformer
         EagleMoving,
         EagleStationary,
 
+        MaskBulletRed,
+
         // Undead
         VengefulSpirit,
         MummyWalker,

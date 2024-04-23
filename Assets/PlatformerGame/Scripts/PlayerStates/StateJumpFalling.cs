@@ -72,6 +72,15 @@ namespace Platformer.PlayerStates
                 Model.SetState(EPlayerStates.Walk);
             }
 
+            // State JumpRising, happens after mushroom jump
+
+            if (Model.DeltaY > 0)
+            {
+                Model.Animations.JumpRising();
+
+                Model.SetState(EPlayerStates.JumpRising);
+            }
+
             // Attack Checks. Animations could be different, but they are not ))
             if (Model.IsAxeAttack())
             {

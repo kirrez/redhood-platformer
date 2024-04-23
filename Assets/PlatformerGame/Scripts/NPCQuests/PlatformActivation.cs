@@ -6,7 +6,7 @@ namespace Platformer
     {
         // base - WFFirstElevator
         [SerializeField]
-        [Range(0, 7)]
+        [Range(0, 8)]
         private int ItemIndex;
 
         [SerializeField]

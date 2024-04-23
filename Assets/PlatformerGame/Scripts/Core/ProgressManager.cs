@@ -28,7 +28,7 @@ namespace Platformer
 
             playerState.SetQuest(EQuest.KeyRed, -1);
             playerState.SetQuest(EQuest.KeyGrey, -1);
-            playerState.SetQuest(EQuest.KeyGreen, -1);
+            playerState.SetQuest(EQuest.KeyGreen, 0);
 
             //Mother's Pie quest
             playerState.SetQuest(EQuest.MushroomsRequired, 3);

@@ -783,7 +783,7 @@ TextureImporter:
       name: Spikes_grey
       rect:
         serializedVersion: 2
-        x: 304
+        x: 296
         y: 440
         width: 16
         height: 16
@@ -4244,6 +4244,342 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: CampCursed_Off
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 8
+        width: 64
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61538a6de990a8b4d9cd8f7032ccd896
+      internalID: 1349332186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CampCursed_On
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 32
+        width: 64
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88e86aba007a54942975a3b5797d28f8
+      internalID: 2000868101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireplaceCursed_0
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 408
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6556d9cbe2ef3ca48b9d4216d0fcbe88
+      internalID: 1100978021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireplaceCursed_1
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 408
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da7d2b44674778443a082878bccf7945
+      internalID: 1509096475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireplaceCursed_2
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 408
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d8c9548bac9ce84a926b6b4c572b930
+      internalID: 1355433341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WreckingBall
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 152
+        width: 33
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 732880cdf2af8e4428685a66abf30c7d
+      internalID: 1601156388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spikes_Violet
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 440
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6e7474ef4802a545a0ec9aaa959a0ca
+      internalID: 694855733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CandleBlue_0
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 360
+        width: 8
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d64f7ab12a6d7ba489a9632b614027c3
+      internalID: -49569315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CandleBlue_1
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 360
+        width: 8
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9716f98d583026e498dfb1ca8382a0f7
+      internalID: 450891949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShootingMask_grey
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 112
+        width: 33
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04f84d6a2259aff4fa38eae0a23c7e81
+      internalID: 223023099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShootingMask_blue
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 112
+        width: 33
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cf37cb6c428cd0448f1507028e066e1
+      internalID: 624509136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShootingMask_green
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 80
+        width: 33
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 790f45807252cdb4e9dd1b757eb496de
+      internalID: 450195709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bullet_red
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 184
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d9ae9e6d4786f3438cafa64c79d7ff2
+      internalID: 1970577547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bullet_green
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 184
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b4f9172622d1fd45ba67c79e4eafc6c
+      internalID: 1303427449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bullet_blue
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 184
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad79e3f8ab8fbd94ea8f8c176ab99313
+      internalID: -359413688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BulletBig_Red
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 185
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f36beab5785180d4390270c6cae59687
+      internalID: -1259388441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -4288,10 +4624,18 @@ TextureImporter:
       BridgeLeft: -479444781
       BridgeRight: 27038073
       Bubble: -631682307
+      BulletBig_Red: -1259388441
+      Bullet_blue: -359413688
+      Bullet_green: 1303427449
+      Bullet_red: 1970577547
       ButtonOff: 1654182457
       ButtonOn: 876549026
+      CampCursed_Off: 1349332186
+      CampCursed_On: 2000868101
       Camp_Off: 601563294
       Camp_On: -2025242477
+      CandleBlue_0: -49569315
+      CandleBlue_1: 450891949
       Candle_0: -387247735
       Candle_1: 1892384369
       Chain: -1271331200
@@ -4353,6 +4697,9 @@ TextureImporter:
       Firebowl_0: 267164088
       Firebowl_1: -388648844
       Firebowl_2: 456338429
+      FireplaceCursed_0: 1100978021
+      FireplaceCursed_1: 1509096475
+      FireplaceCursed_2: 1355433341
       Fireplace_0: -630716480
       Fireplace_1: -1024916941
       Fireplace_2: 1631699850
@@ -4432,10 +4779,14 @@ TextureImporter:
       Ropes_1: 2084056853
       Ropes_2: 2037492357
       Ropes_3: 860458067
+      ShootingMask_blue: 624509136
+      ShootingMask_green: 450195709
+      ShootingMask_grey: 223023099
       Soldier_0: 390478329
       Soldier_1: -1451179720
       SpikeBullet: 1601082217
       SpikesRed: 1164528437
+      Spikes_Violet: 694855733
       Spikes_grey: -1018720058
       StatueBelnadesBlue: 478016404
       StatueBelnadesGrey: -1018311449
@@ -4497,6 +4848,7 @@ TextureImporter:
       WomanRed_0: -1234947266
       WomanRed_1: 1779097657
       WoodShatter: -2086196866
+      WreckingBall: 1601156388
       Z: -431745278
   spritePackingTag: 
   pSDRemoveMatte: 0

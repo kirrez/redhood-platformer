@@ -86,6 +86,8 @@ namespace Platformer
             Cap.PlayIdle();
             Cap.Begin();
 
+            //should i add myself to DynamicsContainer.Enemies ???
+
             CurrentState = StateAwait;
         }
 

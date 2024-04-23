@@ -67,8 +67,6 @@ namespace Platformer
 
         private void StateWaitPlayer()
         {
-            //Trigger.bounds.Contains(Player.Position)
-
             if (CheckCollision())
             {
                 var newVelocity = Player.Body.velocity;

@@ -69,6 +69,7 @@ namespace Platformer
         MountainsElevator2,
         Cave1Platform,
         Cave6Platform,
+        KeyCave3Platform,
 
         Mushroom0,
         Mushroom1,

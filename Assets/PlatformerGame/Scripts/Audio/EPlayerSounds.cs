@@ -11,6 +11,7 @@ namespace Platformer
         RollDown,
         WaterSplash,
         LightCampFire,
+        LightCursedCampFire,
         Jump,
         Landing,
 
