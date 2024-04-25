@@ -175,11 +175,11 @@ namespace Platformer
                     DialoguePhase = 0;
 
                     ProgressManager.SetQuest(EQuest.AssistantMegafrog, 3);
-                    var health = ProgressManager.GetQuest(EQuest.MegafrogMaxHealth);
-                    health = 3;
-                    ProgressManager.SetQuest(EQuest.MegafrogMaxHealth, health);
-                    ProgressManager.AddValue(EQuest.Money, -PoisonPrice);
 
+                    var health = Mathf.CeilToInt(ProgressManager.GetQuest(EQuest.MegafrogMaxHealth) / 2);
+                    ProgressManager.SetQuest(EQuest.MegafrogMaxHealth, health);
+
+                    ProgressManager.AddValue(EQuest.Money, -PoisonPrice);
                     Game.HUD.UpdateResourceAmount(); // show new money
 
                     AudioManager.PlaySound(ESounds.CursedCampFire);

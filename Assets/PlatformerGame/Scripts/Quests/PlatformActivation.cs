@@ -49,11 +49,16 @@ namespace Platformer
         {
             if (ProgressManager.GetQuest(Item) == 0 && collision.gameObject.CompareTag("Player"))
             {
-                ProgressManager.SetQuest(Item, 1);
-                Dummy.SetActive(false);
-                Platform.SetActive(true);
-                AudioManager.PlaySound(ESounds.ElevatorActivated);
+                Activate();
             }
+        }
+
+        public void Activate()
+        {
+            ProgressManager.SetQuest(Item, 1);
+            Dummy.SetActive(false);
+            Platform.SetActive(true);
+            AudioManager.PlaySound(ESounds.ElevatorActivated);
         }
     }
 }

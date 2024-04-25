@@ -184,6 +184,21 @@ namespace Platformer
             Texts[ETexts.Assistant_frog5] = "I belive you can do it!";
             Texts[ETexts.Assistant_frog6] = "Oh, you did it! Way to go, my dear!";
             Texts[ETexts.Assistant_frog7] = "I see, you've managed this problem somehow. My congratulations, he-he!";
+
+            Texts[ETexts.Assistant_tower1] = "I'm here to assist curious travellers, who find this tower too difficult to traverse.";
+            Texts[ETexts.Assistant_tower2_1] = "I can switch on this old rusty platform elevator. For a reasonable price, ofcourse! Talk to me again and bring along ";
+            Texts[ETexts.Assistant_tower2_2] = " shiny circles with you so we can make a deal!";
+            Texts[ETexts.Assistant_tower3] = "That's it! OPEN SESAME! Et voila.. ";
+            Texts[ETexts.Assistant_tower4] = "Let's see.. you don't have enough shiny circles! Sorry, no charity, lass.";
+            Texts[ETexts.Assistant_tower5] = "Feel free to use it any time you need.";
+            Texts[ETexts.Assistant_tower6] = "Hmm, another boring day in a middle of nowhere..";
+
+            Texts[ETexts.Guide_v01_Title] = "* Guide v 0.1 *";
+            Texts[ETexts.Guide_v01_1] = "Hello, my dear! I'm here to guide you right to the final part of your adventure in this version of game. The best thing you can do for now is to visit your mother's house and come back to me.";
+            Texts[ETexts.Guide_v01_2] = "I also have gifts for you! Try to use your new axe to deal with these tangled roots, blocking your way. Have fun exploring the Cave Labyrinth location.";
+            Texts[ETexts.Guide_v01_3] = "I hope you liked this oldschool platformer and look forward for to the full story, which is under active development ))) Follow the upgrades and thank you for playing!";
+
+            Texts[ETexts.Commoner3] = "My Klaus is hunting on the Wolf Trail, deep in the forest. He's brave and experienced, but I'm still worried for him.";
         }
 
         private void LoadRussian()
@@ -327,6 +342,16 @@ namespace Platformer
             Texts[ETexts.Assistant_frog5] = "I belive you can do it!";
             Texts[ETexts.Assistant_frog6] = "Oh, you did it! Way to go, my dear!";
             Texts[ETexts.Assistant_frog7] = "I see, you've managed this problem somehow. My congratulations, he-he!";
+
+            Texts[ETexts.Assistant_tower1] = "I'm here to assist curious travellers, who find this tower too difficult to traverse.";
+            Texts[ETexts.Assistant_tower2_1] = "I can switch on this old rusty platform elevator. For a reasonable price, ofcourse! Talk to me again and bring along ";
+            Texts[ETexts.Assistant_tower2_2] = " shiny circles with you so we can make a deal!";
+            Texts[ETexts.Assistant_tower3] = "That's it! OPEN SESAME! Et voila.. ";
+            Texts[ETexts.Assistant_tower4] = "Let's see.. you don't have enough shiny circles! Sorry, no charity, lass.";
+            Texts[ETexts.Assistant_tower5] = "Feel free to use it any time you need.";
+            Texts[ETexts.Assistant_tower6] = "Hmm, another boring day in a middle of nowhere..";
+
+            Texts[ETexts.Commoner3] = "Мой Клаус охотится на волчьей тропе далеко в лесу. Он смелый и опытный, но я все равно волнуюсь за него.";
         }
     }
 }

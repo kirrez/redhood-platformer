@@ -15,6 +15,7 @@ namespace Platformer
 
         private IAudioManager AudioManager;
         private IResourceManager ResourceManager;
+        private IDynamicsContainer DynamicsContainer;
 
         private float DirectionX = 1f;
         private float OriginY;
@@ -22,6 +23,7 @@ namespace Platformer
 
         private void Awake()
         {
+            DynamicsContainer = CompositionRoot.GetDynamicsContainer();
             ResourceManager = CompositionRoot.GetResourceManager();
             AudioManager = CompositionRoot.GetAudioManager();
             Animation = GetComponent<SimpleAnimation>();
@@ -29,11 +31,6 @@ namespace Platformer
             Health = GetComponent<Health>();
 
             Health.Killed += OnKilled;
-        }
-
-        private void OnEnable()
-        {
-            
         }
 
         private void OnDisable()
@@ -74,9 +71,7 @@ namespace Platformer
             var collider = gameObject.GetComponent<Collider2D>();
             var newPosition = new Vector2(collider.bounds.center.x, collider.bounds.center.y);
             var instance = ResourceManager.GetFromPool(GFXs.BloodBlast);
-            var dynamics = CompositionRoot.GetDynamicsContainer();
-            instance.transform.SetParent(dynamics.Main, false);
-            dynamics.AddMain(instance.gameObject);
+            DynamicsContainer.AddMain(instance);
             instance.GetComponent<BloodBlast>().Initiate(newPosition, - Rigidbody.velocity.x);
 
             gameObject.SetActive(false);

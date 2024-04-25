@@ -25,11 +25,15 @@ namespace Platformer
         BrokenLeverInCaves, // chain for opening door to abandoned chapel in cave labyrinth
         BrokenLeverTip, // tells us about found item
         VengefulSpiritDisturbed, // spirit appears right after acquairing of Weak Holy Water
-        AssistantMegafrog, // assists with lowering Megafrog's HP for money. In future will wor on EASY level.
+        AssistantMegafrog, // assists with lowering Megafrog's HP for money. In future will work on EASY level.
+        AssistantTower, // assists with tower in WesternForest for money, mentioned to be used on EASY level.
+        Guide_v01, // character with explanation in v 0.1
 
         SwitchHandleItem, // item accessible after defeating Megafrog, for broken lever repair
         CrippledAxeItem, // appears as collectible item in Western Forest
         WeakHolyWaterItem, // appears in Abandoned Chapel in Cave Labyrinth
+        SharpenedAxeItem, // appears in Mountain Pass in v 0.1
+        FarmerKnifeItem, // appears in Mountain Pass in v 0.1
 
         //Bosses
         Megafrog, //0- battle available, 1- battle won
@@ -200,4 +204,3 @@ namespace Platformer
         Bag1500_09,
     }
 }
-

@@ -102,6 +102,7 @@ namespace Platformer
         Gatekeeper1_2,
         ShopkeeperTitle,
         Shopkeeper1,
+        Commoner3, //Klaus' wife
 
         HermitTitle,
         Hermit1_1,
@@ -149,5 +150,18 @@ namespace Platformer
         Assistant_frog5,
         Assistant_frog6,
         Assistant_frog7,
+
+        Assistant_tower1,
+        Assistant_tower2_1,
+        Assistant_tower2_2,
+        Assistant_tower3,
+        Assistant_tower4,
+        Assistant_tower5,
+        Assistant_tower6,
+
+        Guide_v01_Title,
+        Guide_v01_1,
+        Guide_v01_2,
+        Guide_v01_3,
     }
 }

@@ -4568,7 +4568,7 @@ TextureImporter:
         width: 11
         height: 11
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -4576,6 +4576,90 @@ TextureImporter:
       bones: []
       spriteID: f36beab5785180d4390270c6cae59687
       internalID: -1259388441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedPriest_0
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 336
+        width: 16
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8913baef38540e4f9c8dc73d6fe4e2b
+      internalID: 445479758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedPriest_1
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 336
+        width: 16
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b2daf940db55054598678dfcb687e2e
+      internalID: 16463591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AxeSharpenedItem
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 400
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdb6b14558143fe47a6e98318741f16d
+      internalID: -1022229367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnifeFarmerItem
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 384
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75c4cf0e04eeba541afada9be3acdca7
+      internalID: -1178790904
       vertices: []
       indices: 
       edges: []
@@ -4596,6 +4680,7 @@ TextureImporter:
       AxeIcon_1: 1986779346
       AxeIcon_2: -1346496552
       AxeIcon_3: -562969194
+      AxeSharpenedItem: -1022229367
       Backpack: -392845782
       Bag1500: -1140358114
       Bag250: -1046768469
@@ -4738,6 +4823,7 @@ TextureImporter:
       Key_Green: 2089127135
       Key_Grey: -6393119
       Key_Red: 1805074571
+      KnifeFarmerItem: -1178790904
       KnifeIcon_1: -1823561205
       KnifeIcon_2: -250723437
       KnifeIcon_3: -1734167671
@@ -4772,6 +4858,8 @@ TextureImporter:
       Platform_4: 933978366
       Priest_0: 703090300
       Priest_1: -654608740
+      RedPriest_0: 445479758
+      RedPriest_1: 16463591
       RopeCenter: -1307795433
       RopeSlopeLeft: 1691112775
       RopeSlopeRight: -151934057

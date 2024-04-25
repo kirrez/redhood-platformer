@@ -21,48 +21,50 @@ namespace Platformer
         [SerializeField]
         private float SpawnDistance = 15f;
 
+        private IPlayer Player;
         private IAudioManager AudioManager;
         private IResourceManager ResourceManager;
+        private IDynamicsContainer DynamicsContainer;
+
+        private Collider2D Trigger;
 
         private float Timer = 0f;
-        private bool isActive;
+        private bool Inside;
         private bool BatSpawned;
         private float StartY;
         private float StartX;
-        private IPlayer Player;
         private Bat Bat;
 
         private void Awake()
         {
+            DynamicsContainer = CompositionRoot.GetDynamicsContainer();
             ResourceManager = CompositionRoot.GetResourceManager();
             AudioManager = CompositionRoot.GetAudioManager();
             Player = CompositionRoot.GetPlayer();
+
+            Trigger = GetComponent<Collider2D>();
         }
 
-        private void OnTriggerEnter2D(Collider2D collision)
+        private void TriggerCheck()
         {
-            if (collision.gameObject.CompareTag("Player"))
+            if (Trigger.bounds.Contains(Player.Position) == true)
             {
-                isActive = true;
+                Inside = true;
+            }
+
+            if (Trigger.bounds.Contains(Player.Position) == false)
+            {
+                Inside = false;
             }
         }
 
-        private void OnTriggerExit2D(Collider2D collision)
-        {
-            if (collision.gameObject.CompareTag("Player"))
-            {
-                isActive = false;
-            }
-        }
-
-        private void Update()
+        private void Spawn()
         {
             float direction;
             Timer -= Time.deltaTime;
 
-            if (isActive && !BatSpawned && Timer <= 0f)
+            if (Inside && !BatSpawned && Timer <= 0f)
             {
-                //Debug.Log("Bat Spawned!");
                 BatSpawned = true;
 
                 StartY = Player.Position.y + 2f;
@@ -75,7 +77,7 @@ namespace Platformer
 
                 if (!CurrentDirection)
                 {
-                    StartX -= SpawnDistance; // magic number
+                    StartX -= SpawnDistance;
                     direction = 1;
                 }
                 else
@@ -85,18 +87,21 @@ namespace Platformer
                 }
 
                 var instance = ResourceManager.GetFromPool(Enemies.Bat);
-                var dynamics = CompositionRoot.GetDynamicsContainer();
-                instance.transform.SetParent(dynamics.Main, false);
-                dynamics.AddMain(instance);
+                DynamicsContainer.AddEnemy(instance);
                 Bat = instance.GetComponent<Bat>();
                 Bat.Initiate(direction, new Vector2(StartX, StartY), BatSpeed);
-                // keep only one active "OnBatKilled"
+
                 Bat.Killed -= OnBatKilled;
                 Bat.Killed += OnBatKilled;
 
                 AudioManager.PlaySound(ESounds.BatStart);
             }
+        }
 
+        private void Update()
+        {
+            TriggerCheck();
+            Spawn();
         }
 
         public void OnBatKilled()

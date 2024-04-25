@@ -170,20 +170,20 @@ namespace Platformer
             //playerState.SetQuest(EQuest.Confiner, 1);
 
             // Cave Labyrinth
-            playerState.SetQuest(EQuest.Stage, (int)EStages.CaveLabyrinth);
-            playerState.SetQuest(EQuest.Location, 2);
-            playerState.SetQuest(EQuest.SpawnPoint, 24); // - test
-            playerState.SetQuest(EQuest.Confiner, 10);
+            //playerState.SetQuest(EQuest.Stage, (int)EStages.CaveLabyrinth);
+            //playerState.SetQuest(EQuest.Location, 2);
+            //playerState.SetQuest(EQuest.SpawnPoint, 24); // - test
+            //playerState.SetQuest(EQuest.Confiner, 10);
 
             // Mountains
-            //playerState.SetQuest(EQuest.Stage, (int)EStages.Mountains);
-            //playerState.SetQuest(EQuest.Location, 0);
-            //playerState.SetQuest(EQuest.SpawnPoint, 2); // 2
-            //playerState.SetQuest(EQuest.Confiner, 0);
+            playerState.SetQuest(EQuest.Stage, (int)EStages.Mountains);
+            playerState.SetQuest(EQuest.Location, 0);
+            playerState.SetQuest(EQuest.SpawnPoint, 2); // 2
+            playerState.SetQuest(EQuest.Confiner, 0);
 
             playerState.SetQuest(EQuest.KnifeLevel, 1);
             playerState.SetQuest(EQuest.AxeLevel, 1);
-            playerState.SetQuest(EQuest.HolyWaterLevel, 1);
+            playerState.SetQuest(EQuest.HolyWaterLevel, 0);
 
             playerState.SetQuest(EQuest.MaxLives, 5);
             playerState.SetQuest(EQuest.FoodCollected, 0);

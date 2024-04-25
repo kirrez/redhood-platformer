@@ -4,6 +4,9 @@ namespace Platformer
 {
     public class CrippledAxeItemSpawner : MonoBehaviour
     {
+        [SerializeField]
+        private Vector2 JumpForce;
+
         private IProgressManager ProgressManager;
         private IResourceManager ResourceManager;
 
@@ -28,7 +31,7 @@ namespace Platformer
                 instance.PhysicsOn(true);
 
                 instance.transform.SetParent(gameObject.transform, false);
-                instance.GetComponent<Rigidbody2D>().AddForce(new Vector2(-7f, 3f), ForceMode2D.Impulse);
+                instance.GetComponent<Rigidbody2D>().AddForce(JumpForce, ForceMode2D.Impulse);
 
                 IsSpawned = true;
             }
