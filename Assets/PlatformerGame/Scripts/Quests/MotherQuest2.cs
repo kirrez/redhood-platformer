@@ -28,7 +28,7 @@ namespace Platformer
             if (Trigger.bounds.Contains(Player.Position) && !Inside)
             {
                 Inside = true;
-                ShowMessage(Localization.Text(ETexts.TalkToMomAgain));
+                ShowMessage(Localization.Text(ETexts.TalkToMomAgain_Label));
                 Player.Interaction += OnInteraction;
             }
 
@@ -50,7 +50,7 @@ namespace Platformer
                     Player.HoldByInteraction();
                     Message.StopBlinking();
                     Game.Dialogue.Show();
-                    Game.Dialogue.SetDialogueName(Localization.Text(ETexts.PieDialogue2));
+                    Game.Dialogue.SetDialogueName(Localization.Text(ETexts.PieDialogue2_Title));
                     Game.Dialogue.ChangeContent(Localization.Text(ETexts.DialoguePie2_1));
                     DialoguePhase++;
                     break;

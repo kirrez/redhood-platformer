@@ -15,6 +15,7 @@ namespace Platformer
         SturdyAxe,
 
         WeakHolyWater,
-        StrongHolyWater
+        StrongHolyWater,
+        TutorialCheese, // v 0.1
     }
 }

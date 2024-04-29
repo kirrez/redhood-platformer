@@ -7,6 +7,12 @@ namespace Platformer
 {
     public class Player2 : MonoBehaviour, IPlayer
     {
+        const string HorizontalInput = "Horizontal";
+        const string VerticalInput = "Vertical";
+        const string JumpInput = "Jump";
+        const string Fire1Input = "Fire1";
+        const string Fire2Input = "Fire2";
+
         public Health Health { get; private set; }
         public IPlayerAnimations Animations { get; private set; }
 
@@ -419,8 +425,6 @@ namespace Platformer
         {
             if (KnifeTimer <= 0)
             {
-                //KnifeTimer = KnifeCooldown;
-
                 if (HitAttack && Vertical < 1f)
                 {
                     KnifeTimer = KnifeCooldown;
@@ -439,8 +443,6 @@ namespace Platformer
         {
             if (AxeTimer <= 0)
             {
-                //AxeTimer = AxeCooldown;
-
                 if (HitAttack && Vertical == 1f)
                 {
                     AxeTimer = AxeCooldown;
@@ -459,9 +461,8 @@ namespace Platformer
         {
             if (HolyWaterTimer <= 0)
             {
-                //HolyWaterTimer = HolyWaterCooldown;
-
-                if (HitInteraction && Vertical == 1)
+                //if (HitInteraction && Vertical == 1) // I don't want "up+C" anymore, instead just "C" 
+                if (HitInteraction == true)
                 {
                     HolyWaterTimer = HolyWaterCooldown;
                     HitInteraction = false;
@@ -553,6 +554,9 @@ namespace Platformer
                     break;
                 case 2:
                     instance = ResourceManager.GetFromPool(EPlayerWeapons.StrongHolyWater);
+                    break;
+                case 3:
+                    instance = ResourceManager.GetFromPool(EPlayerWeapons.TutorialCheese);
                     break;
             }
 
@@ -698,39 +702,38 @@ namespace Platformer
 
         public void GetInput()
         {
-            Horizontal = Input.GetAxisRaw("Horizontal");
-            Vertical = Input.GetAxisRaw("Vertical");
+            Horizontal = Input.GetAxisRaw(HorizontalInput);
+            Vertical = Input.GetAxisRaw(VerticalInput);
 
-            if (HitJump && Input.GetButtonUp("Jump"))
+            if (HitJump && Input.GetButtonUp(JumpInput))
             {
                 HitJump = false;
             }
 
-            if (!HitJump && Input.GetButtonDown("Jump"))
+            if (!HitJump && Input.GetButtonDown(JumpInput))
             {
                 HitJump = true;
             }
 
-            if (!HitAttack && Input.GetButtonDown("Fire1"))
+            if (!HitAttack && Input.GetButtonDown(Fire1Input))
             {
                 HitAttack = true;
             }
 
-            GetInteractionInput();
+            if (!HitInteraction && Input.GetButtonDown(Fire2Input))
+            {
+                HitInteraction = true;
+            }
 
+            GetInteractionInput();
         }
 
         public void GetInteractionInput()
         {
             //for interaction with objects and dialogues
-            if (Input.GetButtonDown("Fire2"))
+            if (Input.GetButtonDown(Fire2Input))
             {
                 Interaction();
-            }
-
-            if (!HitInteraction && Input.GetButtonDown("Fire2"))
-            {
-                HitInteraction = true;
             }
         }
 
@@ -744,6 +747,7 @@ namespace Platformer
             SetState(EPlayerStates.Idle);
             Animations.Idle();
             InactivateCollider(false);
+            HolyWaterTimer = HolyWaterCooldown; //new feature to prevent throwing HW after interaction
         }
 
         public void GetStunned(float time)

@@ -6,6 +6,8 @@ namespace Platformer
     public class Localization : ILocalization
     {
         private Dictionary<ETexts, string> Texts = new Dictionary<ETexts, string>();
+        private Dictionary<EDestinationNames, string> Destinations = new Dictionary<EDestinationNames, string>();
+        private Dictionary<ETutorialTexts, string> Tutorials = new Dictionary<ETutorialTexts, string>();
 
         public Localization()
         {
@@ -15,6 +17,18 @@ namespace Platformer
                 Texts.Add(item, "");
             }
 
+            type = typeof(EDestinationNames);
+            foreach (EDestinationNames item in Enum.GetValues(type))
+            {
+                Destinations.Add(item, "");
+            }
+
+            type = typeof(ETutorialTexts);
+            foreach (ETutorialTexts item in Enum.GetValues(type))
+            {
+                Tutorials.Add(item, "");
+            }
+
             LoadLocalization(ELocalizations.English);
             //LoadLocalization(ELocalizations.Russian);
         }
@@ -22,6 +36,16 @@ namespace Platformer
         public string Text(ETexts key)
         {
             return Texts[key];
+        }
+
+        public string Destination(EDestinationNames key)
+        {
+            return Destinations[key];
+        }
+
+        public string Tutorial(ETutorialTexts key)
+        {
+            return Tutorials[key];
         }
 
         public void LoadLocalization(ELocalizations localization)
@@ -41,29 +65,42 @@ namespace Platformer
 
         private void LoadEnglish()
         {
-            Texts[ETexts.Enter] = "ENTER 'C'";
-            Texts[ETexts.Exit] = "EXIT 'C'";
-            Texts[ETexts.Next] = "Next 'C'";
-            Texts[ETexts.Talk] = "TALK 'C'";
-            Texts[ETexts.TalkToMom] = "TALK TO MOM 'C'";
-            Texts[ETexts.TalkToMomAgain] = "TALK TO MOM AGAIN";
-            Texts[ETexts.PullLever] = "PULL LEVER 'C'";
-            Texts[ETexts.VillageCommoner] = "* Village Commoner *";
-            Texts[ETexts.UpgradeHealthTip] = "ENHANCE HEALTH";
-            Texts[ETexts.UpgradeHealthTitle] = "* Enhance Health *";
-            Texts[ETexts.KindleFire] = "KINDLE A CAMPFIRE";
-            Texts[ETexts.RemoveObstacle] = "REMOVE AN OBSTACLE";
-            Texts[ETexts.SwitchOn] = "Switch On";
-            Texts[ETexts.Repair] = "REPAIR";
+            Destinations[EDestinationNames.TheVillage] = "The Village";
+            Destinations[EDestinationNames.WesternForest] = "Western Forest";
+            Destinations[EDestinationNames.MountainPass] = "Mountain Pass";
+            Destinations[EDestinationNames.CaveLabyrinth] = "Cave Labyrinth";
+            Destinations[EDestinationNames.Lumbermill] = "Lumbermill";
+            Destinations[EDestinationNames.WolfTrail] = "Wolf Trail";
 
-            Texts[ETexts.DestinationTheVillage] = "The Village";
-            Texts[ETexts.DestinationWesternForest] = "Western Forest";
-            Texts[ETexts.DestinationMountainPass] = "Mountain Pass";
-            Texts[ETexts.DestinationLumbermill] = "Lumbermill";
-            Texts[ETexts.DestinationCaveLabyrinth] = "Cave Labyrinth";
-            Texts[ETexts.DestinationWolfTrail] = "Wolf Trail";
+            Tutorials[ETutorialTexts.UseArrowsToMove] = "Use ← → to move around (alt. A, D)";
+            Tutorials[ETutorialTexts.PressZToJump] = "Press 'Z' to jump (alt. Space)";
+            Tutorials[ETutorialTexts.HoldDownAndZ] = "Hold ↓ and press 'Z' to jump down from a one-way platform";
+            Tutorials[ETutorialTexts.Crouch] = "Hold ↓ and use ← → to crouch";
+            Tutorials[ETutorialTexts.Slide] = "Press 'Z' while holding ↓ to slide";
+            Tutorials[ETutorialTexts.ThrowKnife] = "Press 'X' to throw a knife (alt. LMB)";
+            Tutorials[ETutorialTexts.ThrowAxe] = "Hold ↑ and press 'X' to throw an axe";
+            Tutorials[ETutorialTexts.Interact] = "Press 'C' when you encounter characters or interactable objects (alt. RMB)";
+            Tutorials[ETutorialTexts.SecondSubweapon] = "Press 'C' to throw second sub-weapon";
+            Tutorials[ETutorialTexts.Final] = "This completes the basic tutorial, intended to cover some unclear parts in control mechanics!";
 
-            Texts[ETexts.HollyMolly] = "Holly & Molly";
+            Texts[ETexts.Enter_Label] = "ENTER 'C'";
+            Texts[ETexts.Exit_Label] = "EXIT 'C'";
+            Texts[ETexts.Next_Label] = "Next 'C'";
+            Texts[ETexts.Talk_Label] = "TALK 'C'";
+            Texts[ETexts.TalkToMom_Label] = "TALK TO MOM 'C'";
+            Texts[ETexts.TalkToMomAgain_Label] = "TALK TO MOM AGAIN";
+            Texts[ETexts.PullLever_Label] = "PULL LEVER 'C'";
+            Texts[ETexts.Commoner_Title] = "* Village Commoner *";
+            Texts[ETexts.UpgradeHealth_Label] = "ENHANCE HEALTH";
+            Texts[ETexts.UpgradeHealth_Title] = "* Enhance Health *";
+            Texts[ETexts.KindleAFire_Label] = "KINDLE A CAMPFIRE";
+            Texts[ETexts.RemoveAnObstacle_Label] = "REMOVE AN OBSTACLE";
+            Texts[ETexts.SwitchOn_Label] = "Switch On";
+            Texts[ETexts.Repair_Label] = "REPAIR";
+
+            Texts[ETexts.StartGameNoTutorial] = "Start Game\nno tutorial";
+            Texts[ETexts.PlayTutorialFirst] = "Play tutorial first";
+
 
             Texts[ETexts.English] = "English";
             Texts[ETexts.Russian] = "Русский";
@@ -71,7 +108,7 @@ namespace Platformer
             Texts[ETexts.TryAgain] = "Try Again";
             Texts[ETexts.ToMenu] = "Menu";
 
-            Texts[ETexts.PieDialogue1] = "* A Pie for a Grandma *";
+            Texts[ETexts.PieDialogue1_Title] = "* A Pie for a Grandma *";
             Texts[ETexts.DialoguePie1_1] = "- Hello, mom!";
             Texts[ETexts.DialoguePie1_2] = "- Guten Tag, meine Dear.";
             Texts[ETexts.DialoguePie1_3] = "- You.. called me? ))";
@@ -83,13 +120,13 @@ namespace Platformer
             Texts[ETexts.DialoguePie1_8] = " Schrooms und ";
             Texts[ETexts.DialoguePie1_9] = " Berries! Das ist nicht enough..";
 
-            Texts[ETexts.FamilyMonologue] = "* My Wonderful Family *";
+            Texts[ETexts.FamilyMonologue_Title] = "* My Wonderful Family *";
             Texts[ETexts.Family_1] = "It's about my mom.";
             Texts[ETexts.Family_2] = "She came from far away country called Stiria, and still didn't get used to local customs. Even couldn't get rid of her foreign accent.";
             Texts[ETexts.Family_3] = "Though sometimes she behave weird, and doesn't even distinguish her own husband from a mere bear in the forest (I love you, dad!), she is a nice person!";
             Texts[ETexts.Family_4] = "Today I'm going to collect some stuff for my mother to make a treat for Granny! Hope to meet there daddy too ))";
 
-            Texts[ETexts.FatherDialogue] = "* Unexpected Encounter *";
+            Texts[ETexts.FatherDialogue_Title] = "* Unexpected Encounter *";
             Texts[ETexts.Father_1] = "GRRRRRRRrrr !!";
             Texts[ETexts.Father_2] = "Uwaaa !!";
             Texts[ETexts.Father_3] = "Helllooo, daddy !";
@@ -100,7 +137,7 @@ namespace Platformer
             Texts[ETexts.Father_8] = "Did you fix the bridge? How nice of you! Then I'll better go home, bye!";
 
 
-            Texts[ETexts.PieDialogue2] = "* Ingredients collected *";
+            Texts[ETexts.PieDialogue2_Title] = "* Ingredients collected *";
             Texts[ETexts.DialoguePie2_1] = "- I've brought you everything you asked for, let's cook (- o -)/";
             Texts[ETexts.DialoguePie2_2] = "- Ah, danke, meine Dear! Hast du some Rest wilst I bake a Pie..";
             Texts[ETexts.DialoguePie2_3] = "(You'll sure be liking it, old Berta, just wait a little bit more)";
@@ -117,7 +154,7 @@ namespace Platformer
             Texts[ETexts.UpgradeHealth2_2] = "Sehr gut! Here you are!";
             Texts[ETexts.UpgradeHealth2_3] = "Ohh, du hast nicht genug! Bringst mich more )";
 
-            Texts[ETexts.BlacksmithTitle1] = "* Blacksmith's Errand *";
+            Texts[ETexts.Blacksmith_Title1] = "* Blacksmith's Errand *";
             Texts[ETexts.Blacksmith1_1] = "- Meister Schmied! Please, craft a new shiny grey key for me!";
             Texts[ETexts.Blacksmith1_2] = "- Don't you rush, young lady. I'm pretty busy right now, have to polish my anvil...";
             Texts[ETexts.Blacksmith1_3] = "- Please, please, pleasepleasepleasee!";
@@ -131,15 +168,15 @@ namespace Platformer
 
             Texts[ETexts.Commoner1_1] = "Market elevator is not working now, come back later.";
             Texts[ETexts.Commoner1_2] = "Don't walk around the ruins, it's dangerous!";
-            Texts[ETexts.GatekeeperTitle] = "* Gatekeeper *";
+            Texts[ETexts.Gatekeeper_Title] = "* Gatekeeper *";
             Texts[ETexts.Gatekeeper1_1] = "If you want to pass freely through this gate, go ask the smith to make you a new grey key, since I've lost a spare one.";
             Texts[ETexts.Gatekeeper1_2] = "Be careful, child!";
             Texts[ETexts.CommonerSecret] = "Psst! There is a secret place in the village. You can only reach it by crushing the cursed wall. You obviousely need a holy weapon for it...";
             Texts[ETexts.WomanCandy] = "Here you are, darling, take this!";
-            Texts[ETexts.ShopkeeperTitle] = "* Shopkeeper *";
+            Texts[ETexts.Shopkeeper_Title] = "* Shopkeeper *";
             Texts[ETexts.Shopkeeper1] = "Oh, young lady! If you happen to find this shiny circles, don't throw them out. I can give you something really useful in exchange!";
 
-            Texts[ETexts.HermitTitle] = "* Hermit *";
+            Texts[ETexts.Hermit_Title] = "* Hermit *";
             Texts[ETexts.Hermit1_1] = "- Who decided to visit me today? My eyes can't see... but you may come closer, child.";
             Texts[ETexts.Hermit1_2] = "- Hello! How do you live in such a secluded place? By the way, do you happen to know...";
             Texts[ETexts.Hermit1_3] = "- Oh, I know a lot! There is a holy place here, but there is only one correct path: it is Fire, Mine, Water, Statues, Bones, Fire and Water. Perhaps you'll find there what you're looking for.";
@@ -159,6 +196,7 @@ namespace Platformer
             Texts[ETexts.DisturbSpirit3] = "!!!";
             Texts[ETexts.DisturbSpirit4] = "Eeeek! gotta get out of here really quick!";
 
+            Texts[ETexts.HollyMolly_Label] = "Holly & Molly";
             Texts[ETexts.HollyMolly_Title] = "* Holly & Molly *";
             Texts[ETexts.HollyMolly1_1] = "- Holey-moley, what a charming duet of lovely musicians! I wanna musick, play, play, play! (X o X)/";
             Texts[ETexts.HollyMolly1_2] = "- Oh, girl, have we ever met before? But of course we did! ";
@@ -203,27 +241,30 @@ namespace Platformer
 
         private void LoadRussian()
         {
-            Texts[ETexts.Enter] = "ВНУТРЬ 'C'";
-            Texts[ETexts.Exit] = "НАРУЖУ 'C'";
-            Texts[ETexts.Next] = "Дальше 'C'";
-            Texts[ETexts.Talk] = "ГОВОРИТЬ 'C'";
-            Texts[ETexts.TalkToMom] = "ОТВЕТИТЬ МАМЕ 'C''";
-            Texts[ETexts.TalkToMomAgain] = "СНОВА ПОГОВОРИТЬ С МАМОЙ";
-            Texts[ETexts.PullLever] = "ДЕРНУТЬ РЫЧАГ 'C'";
-            Texts[ETexts.VillageCommoner] = "* Деревенский житель *";
-            Texts[ETexts.UpgradeHealthTip] = "УКРЕПИТЬ ЗДОРОВЬЕ";
-            Texts[ETexts.UpgradeHealthTitle] = "* Укрепить здоровье *";
-            Texts[ETexts.KindleFire] = "РАЗЖЕЧЬ КОСТЁР";
-            Texts[ETexts.RemoveObstacle] = "УБРАТЬ ПРЕГРАДУ";
-            Texts[ETexts.SwitchOn] = "Включить";
-            Texts[ETexts.Repair] = "ПОЧИНИТЬ";
+            Destinations[EDestinationNames.TheVillage] = "Деревня";
+            Destinations[EDestinationNames.WesternForest] = "Западный лес";
+            Destinations[EDestinationNames.MountainPass] = "Горный перевал";
+            Destinations[EDestinationNames.CaveLabyrinth] = "Пещерный лабиринт";
+            Destinations[EDestinationNames.Lumbermill] = "Лесопилка";
+            Destinations[EDestinationNames.WolfTrail] = "Волчья тропа";
 
-            Texts[ETexts.DestinationTheVillage] = "Деревня";
-            Texts[ETexts.DestinationWesternForest] = "Западный лес";
-            Texts[ETexts.DestinationMountainPass] = "Горный перевал";
-            Texts[ETexts.DestinationLumbermill] = "Лесопилка";
-            Texts[ETexts.DestinationCaveLabyrinth] = "Пещерный лабиринт";
-            Texts[ETexts.DestinationWolfTrail] = "Волчья тропа";
+            Texts[ETexts.Enter_Label] = "ВНУТРЬ 'C'";
+            Texts[ETexts.Exit_Label] = "НАРУЖУ 'C'";
+            Texts[ETexts.Next_Label] = "Дальше 'C'";
+            Texts[ETexts.Talk_Label] = "ГОВОРИТЬ 'C'";
+            Texts[ETexts.TalkToMom_Label] = "ОТВЕТИТЬ МАМЕ 'C''";
+            Texts[ETexts.TalkToMomAgain_Label] = "СНОВА ПОГОВОРИТЬ С МАМОЙ";
+            Texts[ETexts.PullLever_Label] = "ДЕРНУТЬ РЫЧАГ 'C'";
+            Texts[ETexts.Commoner_Title] = "* Деревенский житель *";
+            Texts[ETexts.UpgradeHealth_Label] = "УКРЕПИТЬ ЗДОРОВЬЕ";
+            Texts[ETexts.UpgradeHealth_Title] = "* Укрепить здоровье *";
+            Texts[ETexts.KindleAFire_Label] = "РАЗЖЕЧЬ КОСТЁР";
+            Texts[ETexts.RemoveAnObstacle_Label] = "УБРАТЬ ПРЕГРАДУ";
+            Texts[ETexts.SwitchOn_Label] = "Включить";
+            Texts[ETexts.Repair_Label] = "ПОЧИНИТЬ";
+
+            Texts[ETexts.StartGameNoTutorial] = "Начать игру\nбез обучения";
+            Texts[ETexts.PlayTutorialFirst] = "Сперва пройти обучение";
 
             Texts[ETexts.English] = "English";
             Texts[ETexts.Russian] = "Русский";
@@ -231,7 +272,7 @@ namespace Platformer
             Texts[ETexts.TryAgain] = "Ещё разок";
             Texts[ETexts.ToMenu] = "В меню";
 
-            Texts[ETexts.PieDialogue1] = "* Пирог для Бабули *";
+            Texts[ETexts.PieDialogue1_Title] = "* Пирог для Бабули *";
             Texts[ETexts.DialoguePie1_1] = "- Привет, мама!";
             Texts[ETexts.DialoguePie1_2] = "- Добрий дэн, мой радост.";
             Texts[ETexts.DialoguePie1_3] = "- Ты.. звала меня? ))";
@@ -243,13 +284,13 @@ namespace Platformer
             Texts[ETexts.DialoguePie1_8] = " Грибов и ";
             Texts[ETexts.DialoguePie1_9] = " Йагот! Этафа нье достатошно..";
 
-            Texts[ETexts.FamilyMonologue] = "* Моя прекрасная семья *";
+            Texts[ETexts.FamilyMonologue_Title] = "* Моя прекрасная семья *";
             Texts[ETexts.Family_1] = "О моей маме..";
             Texts[ETexts.Family_2] = "Она - иностранка, пришла в эти края из далёкой Штирии и всё ещё не может привыкнуть. Даже говорит до сих пор с акцентом. ";
             Texts[ETexts.Family_3] = "Хоть она и ведёт себя странно иногда, и порой не может отличить своего мужа от медведя в лесу (люблю тебя, папуля!), она замечательная женщина! ";
             Texts[ETexts.Family_4] = "Сегодня мне нужно собрать кое-что для пирога, который мама будет печь для бабушки. Надеюсь встретить там и папочку тоже ))";
 
-            Texts[ETexts.FatherDialogue] = "* Неожиданная встреча *";
+            Texts[ETexts.FatherDialogue_Title] = "* Неожиданная встреча *";
             Texts[ETexts.Father_1] = "ГРРРРРррр !!";
             Texts[ETexts.Father_2] = "Уваа !!";
             Texts[ETexts.Father_3] = "Привееет, пап!";
@@ -259,7 +300,7 @@ namespace Platformer
             Texts[ETexts.Father_7] = "О, твой старый топор! Спасибо, я возьму его!";
             Texts[ETexts.Father_8] = "Ты починил мост? Как здорово! Тогда я побегу домой, до встречи!";
 
-            Texts[ETexts.PieDialogue2] = "* Собранные ингредиенты *";
+            Texts[ETexts.PieDialogue2_Title] = "* Собранные ингредиенты *";
             Texts[ETexts.DialoguePie2_1] = "- Я принесла всё, что ты просила. Давай скорее готовить! (- о -)/";
             Texts[ETexts.DialoguePie2_2] = "- Ох, спасьибо, радост мойа! Отдохнуть ньемного, пока я готовит пирог.";
             Texts[ETexts.DialoguePie2_3] = "(Тебье точшно понравится, старущка Берта, просто подожди ещо ньемного)";
@@ -276,7 +317,7 @@ namespace Platformer
             Texts[ETexts.UpgradeHealth2_2] = "Ошень харашо, фот, возмьи!";
             Texts[ETexts.UpgradeHealth2_3] = "Этого мало, солнышько! Прынеси больще )";
 
-            Texts[ETexts.BlacksmithTitle1] = "* Просьба Кузнеца *";
+            Texts[ETexts.Blacksmith_Title1] = "* Просьба Кузнеца *";
             Texts[ETexts.Blacksmith1_1] = "- Мэтр Кузнец! Пожалуйста, сделайте мне новый блестящий серый ключик!";
             Texts[ETexts.Blacksmith1_2] = "- Попридержи коней, девочка. Я, знаешь ли, очень занят. Мне еще нужно отполировать наковальню...";
             Texts[ETexts.Blacksmith1_3] = "- Ну пожалста, пожалстапожалстапазязяяя!";
@@ -290,15 +331,15 @@ namespace Platformer
 
             Texts[ETexts.Commoner1_1] = "Лифт на рынке сейчас не работает, приходи позже.";
             Texts[ETexts.Commoner1_2] = "Не играй на развалинах, девочка, там опасно!";
-            Texts[ETexts.GatekeeperTitle] = "* Привратник *";
+            Texts[ETexts.Gatekeeper_Title] = "* Привратник *";
             Texts[ETexts.Gatekeeper1_1] = "Если хочешь свободно пройти через эти ворота, иди попроси кузнеца сделать тебе новый серый ключ, а то я потерял запасной.";
             Texts[ETexts.Gatekeeper1_2] = "Будь осторожна, девочка!";
             Texts[ETexts.CommonerSecret] = "Эй! В деревне есть тайное место, но добраться до него можно, только разрушив проклятую стену. Для этого тебе понадобится освященное оружие...";
             Texts[ETexts.WomanCandy] = "Вот, возьми конфетку, девочка!";
-            Texts[ETexts.ShopkeeperTitle] = "* Продавец *";
+            Texts[ETexts.Shopkeeper_Title] = "* Продавец *";
             Texts[ETexts.Shopkeeper1] = "О, юная леди! Если вам случится найти эти блестящие кружочки, не выбрасывайте их. Взамен я могу дать вам что-то действительно полезное!";
 
-            Texts[ETexts.HermitTitle] = "* Отшельник *";
+            Texts[ETexts.Hermit_Title] = "* Отшельник *";
             Texts[ETexts.Hermit1_1] = "- Кто решил прийти ко мне в гости сегодня? Мои глаза не видят... но ты можешь подойти ближе, дитя.";
             Texts[ETexts.Hermit1_2] = "- Здравствуйте! Как вам живется в таком уединенном месте? Кстати, случайно не знаете...";
             Texts[ETexts.Hermit1_3] = "- О, я знаю многое! Здесь есть святое место, но правильный путь только один : это Огонь, Шахта, Вода, Статуи, Кости, Огонь и Вода. Может быть ты найдешь там то, что ищешь.";

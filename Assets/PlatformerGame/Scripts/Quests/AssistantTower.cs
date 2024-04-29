@@ -23,7 +23,7 @@ namespace Platformer
             if (Trigger.bounds.Contains(Player.Position) == true && !Inside)
             {
                 Inside = true;
-                ShowMessage(Localization.Text(ETexts.Talk));
+                ShowMessage(Localization.Text(ETexts.Talk_Label));
 
                 if (quest == 0)
                 {

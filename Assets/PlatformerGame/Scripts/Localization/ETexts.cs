@@ -3,40 +3,30 @@ namespace Platformer
 {
     public enum ETexts
     {
-        Enter,
-        Exit,
-        Next,
-        PullLever,
-        KindleFire,
-        RemoveObstacle,
-        Talk,
-        TalkToMom,
-        TalkToMomAgain,
-        VillageCommoner,
-        UpgradeHealthTip,
-        UpgradeHealthTitle,
-        SwitchOn,
-        Repair,
+        Enter_Label,
+        Exit_Label,
+        Next_Label,
+        PullLever_Label,
+        KindleAFire_Label,
+        RemoveAnObstacle_Label,
+        Talk_Label,
+        TalkToMom_Label,
+        TalkToMomAgain_Label,
+        SwitchOn_Label,
+        Repair_Label,
 
-        // Destination Sign
-        DestinationTheVillage,
-        DestinationWesternForest,
-        DestinationMountainPass,
-        DestinationCaveLabyrinth,
-        DestinationLumbermill,
-        DestinationWolfTrail,
-
+        StartGameNoTutorial,
+        PlayTutorialFirst,
         //Menu items
         English,
         Russian,
-
         LifeSpentMessage,
         GameOverMessage,
         TryAgain,
         ToMenu,
 
         //Quest Dialogues
-        PieDialogue1,
+        PieDialogue1_Title,
         //MQ1First :
         DialoguePie1_1,
         DialoguePie1_2,
@@ -49,13 +39,13 @@ namespace Platformer
         DialoguePie1_8,
         DialoguePie1_9,
 
-        FamilyMonologue,
+        FamilyMonologue_Title,
         Family_1,
         Family_2,
         Family_3,
         Family_4,
 
-        FatherDialogue,
+        FatherDialogue_Title,
         Father_1,
         Father_2,
         Father_3,
@@ -65,7 +55,7 @@ namespace Platformer
         Father_7,
         Father_8,
 
-        PieDialogue2,
+        PieDialogue2_Title,
         DialoguePie2_1,
         DialoguePie2_2,
         DialoguePie2_3,
@@ -73,6 +63,8 @@ namespace Platformer
         DialoguePie2_5,
         DialoguePie2_6,
 
+        UpgradeHealth_Label,
+        UpgradeHealth_Title,
         UpgradeHealth1_1,
         UpgradeHealth1_2,
         UpgradeHealth1_3,
@@ -82,7 +74,7 @@ namespace Platformer
         UpgradeHealth2_2,
         UpgradeHealth2_3,
 
-        BlacksmithTitle1,
+        Blacksmith_Title1,
         Blacksmith1_1,
         Blacksmith1_2,
         Blacksmith1_3,
@@ -93,18 +85,19 @@ namespace Platformer
         Blacksmith2_3,
         Blacksmith2_4,
 
+        Commoner_Title,
         Commoner1_1,
         Commoner1_2,
         CommonerSecret,
         WomanCandy,
-        GatekeeperTitle,
+        Gatekeeper_Title,
         Gatekeeper1_1,
         Gatekeeper1_2,
-        ShopkeeperTitle,
+        Shopkeeper_Title,
         Shopkeeper1,
         Commoner3, //Klaus' wife
 
-        HermitTitle,
+        Hermit_Title,
         Hermit1_1,
         Hermit1_2,
         Hermit1_3,
@@ -124,7 +117,7 @@ namespace Platformer
         DisturbSpirit3,
         DisturbSpirit4,
 
-        HollyMolly,
+        HollyMolly_Label,
         HollyMolly_Title,
         HollyMolly1_1,
         HollyMolly1_2,

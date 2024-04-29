@@ -33,6 +33,9 @@ namespace Platformer
         CrippledAxeItem, // appears as collectible item in Western Forest
         WeakHolyWaterItem, // appears in Abandoned Chapel in Cave Labyrinth
         SharpenedAxeItem, // appears in Mountain Pass in v 0.1
+        KitchenKnifeItem, // tutorial
+        TutorialAxeItem, // tutorial
+        TutorialCheeseItem, // tutorial
         FarmerKnifeItem, // appears in Mountain Pass in v 0.1
 
         //Bosses

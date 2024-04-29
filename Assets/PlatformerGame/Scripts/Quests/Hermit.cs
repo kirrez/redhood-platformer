@@ -16,7 +16,7 @@ namespace Platformer
                 {
                     Inside = true;
                     Player.Interaction += Hermit1;
-                    ShowMessage(Localization.Text(ETexts.Talk));
+                    ShowMessage(Localization.Text(ETexts.Talk_Label));
                 }
 
                 if (!Trigger.bounds.Contains(Player.Position) && Inside)
@@ -33,7 +33,7 @@ namespace Platformer
                 {
                     Inside = true;
                     Player.Interaction += Hermit2;
-                    ShowMessage(Localization.Text(ETexts.Talk));
+                    ShowMessage(Localization.Text(ETexts.Talk_Label));
                 }
 
                 if (!Trigger.bounds.Contains(Player.Position) && Inside)
@@ -56,7 +56,7 @@ namespace Platformer
                     Message.StopBlinking();
                     
                     Game.Dialogue.Show();
-                    Game.Dialogue.SetDialogueName(Localization.Text(ETexts.HermitTitle));
+                    Game.Dialogue.SetDialogueName(Localization.Text(ETexts.Hermit_Title));
                     Game.Dialogue.ChangeContent(Localization.Text(ETexts.Hermit1_1));
                     DialoguePhase++;
                     break;
@@ -94,7 +94,7 @@ namespace Platformer
                     Player.HoldByInteraction();
                     Message.StopBlinking();
                     Game.Dialogue.Show();
-                    Game.Dialogue.SetDialogueName(Localization.Text(ETexts.HermitTitle));
+                    Game.Dialogue.SetDialogueName(Localization.Text(ETexts.Hermit_Title));
                     Game.Dialogue.ChangeContent(Localization.Text(ETexts.Hermit2));
                     DialoguePhase++;
                     break;

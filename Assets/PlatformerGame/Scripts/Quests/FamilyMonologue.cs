@@ -48,7 +48,7 @@ namespace Platformer
                 case 0:
                     Player.HoldByInteraction();
                     Game.Dialogue.Show();
-                    Game.Dialogue.SetDialogueName(Localization.Text(ETexts.FamilyMonologue));
+                    Game.Dialogue.SetDialogueName(Localization.Text(ETexts.FamilyMonologue_Title));
                     Game.Dialogue.ChangeContent(Localization.Text(ETexts.Family_1));
                     DialoguePhase++;
                     break;

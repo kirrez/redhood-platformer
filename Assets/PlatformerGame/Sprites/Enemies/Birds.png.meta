@@ -599,6 +599,69 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Birdman_0
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 368
+        width: 32
+        height: 40
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d2a5d7b80f5ce3479177603c8ee26e6
+      internalID: 94192569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Birdman_1
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 368
+        width: 32
+        height: 40
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30f408bd55a159c46b77ddb58c5a4b55
+      internalID: -1432337404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Birdman_2
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 368
+        width: 32
+        height: 40
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8e58eb9a8feca441a392cdc41d00ae9
+      internalID: 1599598113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -610,6 +673,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      Birdman_0: 94192569
+      Birdman_1: -1432337404
+      Birdman_2: 1599598113
       Dying_0: -1381695007
       Dying_1: -118612402
       Dying_2: 1362502307

@@ -38,7 +38,7 @@ namespace Platformer
             {
                 Inside = true;
                 Player.Interaction += OnQuestCompleted;
-                ShowMessage(Localization.Text(ETexts.PullLever));
+                ShowMessage(Localization.Text(ETexts.PullLever_Label));
             }
 
             if (!Trigger.bounds.Contains(Player.Position) && Inside)

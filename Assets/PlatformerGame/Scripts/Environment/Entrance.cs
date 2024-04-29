@@ -42,7 +42,7 @@ namespace Platformer
 
         private void OnEnable()
         {
-            var targetValue = (int)ETexts.Enter + LabelIndex;
+            var targetValue = (int)ETexts.Enter_Label + LabelIndex;
             Label = (ETexts)targetValue;
             // i have to fix this )))
         }

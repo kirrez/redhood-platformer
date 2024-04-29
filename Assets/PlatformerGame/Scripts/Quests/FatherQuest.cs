@@ -49,7 +49,7 @@ namespace Platformer
                     Player.HoldByInteraction();
                     PlayerCamera.Follow = TargetTransform;
                     Game.Dialogue.Show();
-                    Game.Dialogue.SetDialogueName(Localization.Text(ETexts.FatherDialogue));
+                    Game.Dialogue.SetDialogueName(Localization.Text(ETexts.FatherDialogue_Title));
                     Game.Dialogue.ChangeContent(Localization.Text(ETexts.Father_1));
                     AudioManager.PlaySound(ESounds.VoiceBeastUuu);
                     DialoguePhase++;

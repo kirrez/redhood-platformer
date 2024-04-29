@@ -15,7 +15,7 @@ namespace Platformer
                 {
                     Inside = true;
                     Player.Interaction += Gatekeeper1;
-                    ShowMessage(Localization.Text(ETexts.Talk));
+                    ShowMessage(Localization.Text(ETexts.Talk_Label));
                 }
 
                 if (!Trigger.bounds.Contains(Player.Position) && Inside)
@@ -32,7 +32,7 @@ namespace Platformer
                 {
                     Inside = true;
                     Player.Interaction += Gatekeeper2;
-                    ShowMessage(Localization.Text(ETexts.Talk));
+                    ShowMessage(Localization.Text(ETexts.Talk_Label));
                 }
 
                 if (!Trigger.bounds.Contains(Player.Position) && Inside)
@@ -54,7 +54,7 @@ namespace Platformer
                     Player.HoldByInteraction();
                     Message.StopBlinking();
                     Game.Dialogue.Show();
-                    Game.Dialogue.SetDialogueName(Localization.Text(ETexts.GatekeeperTitle));
+                    Game.Dialogue.SetDialogueName(Localization.Text(ETexts.Gatekeeper_Title));
                     Game.Dialogue.ChangeContent(Localization.Text(ETexts.Gatekeeper1_1));
                     DialoguePhase++;
                     break;
@@ -78,7 +78,7 @@ namespace Platformer
                     Player.HoldByInteraction();
                     Message.StopBlinking();
                     Game.Dialogue.Show();
-                    Game.Dialogue.SetDialogueName(Localization.Text(ETexts.GatekeeperTitle));
+                    Game.Dialogue.SetDialogueName(Localization.Text(ETexts.Gatekeeper_Title));
                     Game.Dialogue.ChangeContent(Localization.Text(ETexts.Gatekeeper1_2));
                     DialoguePhase++;
                     break;

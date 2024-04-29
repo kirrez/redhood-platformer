@@ -3605,6 +3605,7 @@ MonoBehaviour:
   - {fileID: 1594718321, guid: 2d3029c57dfb86b4a87ff8c7f64ee3cb, type: 3}
   - {fileID: 818119534, guid: 2d3029c57dfb86b4a87ff8c7f64ee3cb, type: 3}
   - {fileID: -111287172, guid: 2d3029c57dfb86b4a87ff8c7f64ee3cb, type: 3}
+  - {fileID: -682211345, guid: 2d3029c57dfb86b4a87ff8c7f64ee3cb, type: 3}
   FoodAmount: {fileID: 5436589872452669016}
   OreAmount: {fileID: 7448084474708058005}
   MoneyAmount: {fileID: 548939752528562739}

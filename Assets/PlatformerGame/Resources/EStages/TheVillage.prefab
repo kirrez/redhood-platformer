@@ -96934,7 +96934,7 @@ TilemapRenderer:
   m_SortingLayer: -1
   m_SortingOrder: 1
   m_ChunkSize: {x: 32, y: 32, z: 32}
-  m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
+  m_ChunkCullingBounds: {x: 0.5, y: 2, z: 0}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 0
@@ -124106,6 +124106,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1841207258020178944, guid: 3dc2c6e65ec76fc4b86dd00928675cae, type: 3}
+      propertyPath: Name
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1841207258020178944, guid: 3dc2c6e65ec76fc4b86dd00928675cae, type: 3}
       propertyPath: Label
       value: 14
       objectReference: {fileID: 0}
@@ -125223,6 +125227,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1841207258020178944, guid: 3dc2c6e65ec76fc4b86dd00928675cae, type: 3}
+      propertyPath: Name
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1841207258020178944, guid: 3dc2c6e65ec76fc4b86dd00928675cae, type: 3}
       propertyPath: Label
       value: 17
       objectReference: {fileID: 0}
@@ -126085,6 +126093,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1841207258020178944, guid: 3dc2c6e65ec76fc4b86dd00928675cae, type: 3}
+      propertyPath: Name
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1841207258020178944, guid: 3dc2c6e65ec76fc4b86dd00928675cae, type: 3}
       propertyPath: Label
       value: 15
       objectReference: {fileID: 0}
@@ -126138,7 +126150,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1841207258020178951, guid: 3dc2c6e65ec76fc4b86dd00928675cae, type: 3}
       propertyPath: m_Name
-      value: DestinationSign Mountains
+      value: DestinationSign MountainPass
       objectReference: {fileID: 0}
     - target: {fileID: 1841207258056092287, guid: 3dc2c6e65ec76fc4b86dd00928675cae, type: 3}
       propertyPath: m_Size.x
@@ -130045,6 +130057,10 @@ PrefabInstance:
     - target: {fileID: 1841207257019298353, guid: 3dc2c6e65ec76fc4b86dd00928675cae, type: 3}
       propertyPath: m_LocalPosition.y
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1841207258020178944, guid: 3dc2c6e65ec76fc4b86dd00928675cae, type: 3}
+      propertyPath: Name
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1841207258020178944, guid: 3dc2c6e65ec76fc4b86dd00928675cae, type: 3}
       propertyPath: Label

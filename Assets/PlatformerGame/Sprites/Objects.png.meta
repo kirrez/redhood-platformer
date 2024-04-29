@@ -1581,10 +1581,10 @@ TextureImporter:
       name: WeaponEmpty
       rect:
         serializedVersion: 2
-        x: 494
-        y: 440
-        width: 16
-        height: 16
+        x: 456
+        y: 505
+        width: 4
+        height: 4
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4664,6 +4664,111 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: KnifeKitchenItem
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 384
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b261a859aa0ceb42b24c4d512369c56
+      internalID: -1767418743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnifeDecoy
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 152
+        width: 24
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1439b14bf0946c1488d3d00c121bb4e8
+      internalID: -953049333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AxeDecoy
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 152
+        width: 17
+        height: 17
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a30046807580014ba4ace19bda82251
+      internalID: 1376474939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CheeseItem
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 368
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dffce7c422fea6446a1827438cb9c061
+      internalID: -363379187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CheeseIcon
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 440
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd6b243914c1fe148aeeb593538f2e22
+      internalID: -682211345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -4677,6 +4782,7 @@ TextureImporter:
     nameFileIdTable:
       Anvil: 1114881007
       AxeCrippledItem: -492996082
+      AxeDecoy: 1376474939
       AxeIcon_1: 1986779346
       AxeIcon_2: -1346496552
       AxeIcon_3: -562969194
@@ -4725,6 +4831,8 @@ TextureImporter:
       Candle_1: 1892384369
       Chain: -1271331200
       Chain2: 149674829
+      CheeseIcon: -682211345
+      CheeseItem: -363379187
       Cloacked_0: -1755142945
       Cloacked_1: 1650267948
       Coin: -1532539009
@@ -4823,10 +4931,12 @@ TextureImporter:
       Key_Green: 2089127135
       Key_Grey: -6393119
       Key_Red: 1805074571
+      KnifeDecoy: -953049333
       KnifeFarmerItem: -1178790904
       KnifeIcon_1: -1823561205
       KnifeIcon_2: -250723437
       KnifeIcon_3: -1734167671
+      KnifeKitchenItem: -1767418743
       LightCloud_1: 1968002318
       LightCloud_2: -1223994109
       LightCloud_3: 1974901377

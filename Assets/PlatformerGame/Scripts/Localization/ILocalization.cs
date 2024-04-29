@@ -6,7 +6,12 @@ namespace Platformer
 {
     public interface ILocalization
     {
-        string Text(ETexts text);
+        string Text(ETexts name);
+
+        string Destination(EDestinationNames name);
+
+        string Tutorial(ETutorialTexts name);
+
         void LoadLocalization(ELocalizations localization);
     }
 }

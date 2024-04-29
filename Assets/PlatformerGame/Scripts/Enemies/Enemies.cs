@@ -29,5 +29,8 @@ namespace Platformer
         VengefulSpirit,
         MummyWalker,
         Zombie,
+
+        //Tutorial
+        BirdmanTutorial
     }
 }

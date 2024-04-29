@@ -7,6 +7,8 @@ namespace Platformer
         WesternForest,
         Mountains,
         Lumbermill,
-        CaveLabyrinth
+        CaveLabyrinth,
+        StartOrTutorial,
+        Tutorial,
     }
 }

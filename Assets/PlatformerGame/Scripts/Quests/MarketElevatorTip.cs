@@ -12,7 +12,7 @@ namespace Platformer
             {
                 Inside = true;
                 Player.Interaction += OnInteraction;
-                ShowMessage(Localization.Text(ETexts.Talk));
+                ShowMessage(Localization.Text(ETexts.Talk_Label));
             }
 
             if (!Trigger.bounds.Contains(Player.Position) && Inside)
@@ -33,7 +33,7 @@ namespace Platformer
                     Player.HoldByInteraction();
                     Message.StopBlinking();
                     Game.Dialogue.Show();
-                    Game.Dialogue.SetDialogueName(Localization.Text(ETexts.VillageCommoner));
+                    Game.Dialogue.SetDialogueName(Localization.Text(ETexts.Commoner_Title));
                     Game.Dialogue.ChangeContent(Localization.Text(ETexts.Commoner1_1));
                     DialoguePhase++;
                     break;

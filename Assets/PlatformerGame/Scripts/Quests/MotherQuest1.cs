@@ -21,7 +21,7 @@ namespace Platformer
                     DialoguePhase = 0;
                     Player.Interaction += MQ1First;
 
-                    ShowMessage(Localization.Text(ETexts.TalkToMom));
+                    ShowMessage(Localization.Text(ETexts.TalkToMom_Label));
                 }
 
                 if (!Trigger.bounds.Contains(Player.Position) && Inside)
@@ -41,7 +41,7 @@ namespace Platformer
                     DialoguePhase = 0;
                     Player.Interaction += MQ1Second;
 
-                    ShowMessage(Localization.Text(ETexts.TalkToMom));
+                    ShowMessage(Localization.Text(ETexts.TalkToMom_Label));
                 }
 
                 if (!Trigger.bounds.Contains(Player.Position) && Inside)
@@ -64,7 +64,7 @@ namespace Platformer
                     Player.HoldByInteraction();
                     Message.StopBlinking();
                     Game.Dialogue.Show();
-                    Game.Dialogue.SetDialogueName(Localization.Text(ETexts.PieDialogue1));
+                    Game.Dialogue.SetDialogueName(Localization.Text(ETexts.PieDialogue1_Title));
                     Game.Dialogue.ChangeContent(Localization.Text(ETexts.DialoguePie1_1));
                     DialoguePhase++;
                     break;
@@ -119,7 +119,7 @@ namespace Platformer
                     Player.HoldByInteraction();
                     Message.StopBlinking();
                     Game.Dialogue.Show();
-                    Game.Dialogue.SetDialogueName(Localization.Text(ETexts.PieDialogue1));
+                    Game.Dialogue.SetDialogueName(Localization.Text(ETexts.PieDialogue1_Title));
                     Game.Dialogue.ChangeContent(phrase);
                     DialoguePhase++;
                     break;

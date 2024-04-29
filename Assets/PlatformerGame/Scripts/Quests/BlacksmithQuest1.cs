@@ -28,7 +28,7 @@ namespace Platformer
                     Player.Interaction += OnKeyQuestPhase1;
                 }
 
-                ShowMessage(Localization.Text(ETexts.Talk));
+                ShowMessage(Localization.Text(ETexts.Talk_Label));
             }
 
             if (!Trigger.bounds.Contains(Player.Position) && Inside)
@@ -58,7 +58,7 @@ namespace Platformer
                     Player.HoldByInteraction();
                     Message.StopBlinking();
                     Game.Dialogue.Show();
-                    Game.Dialogue.SetDialogueName(Localization.Text(ETexts.BlacksmithTitle1));
+                    Game.Dialogue.SetDialogueName(Localization.Text(ETexts.Blacksmith_Title1));
                     Game.Dialogue.ChangeContent(Localization.Text(ETexts.Blacksmith1_1));
                     DialoguePhase++;
                     break;
@@ -100,7 +100,7 @@ namespace Platformer
                     Player.HoldByInteraction();
                     Message.StopBlinking();
                     Game.Dialogue.Show();
-                    Game.Dialogue.SetDialogueName(Localization.Text(ETexts.BlacksmithTitle1));
+                    Game.Dialogue.SetDialogueName(Localization.Text(ETexts.Blacksmith_Title1));
                     Game.Dialogue.ChangeContent(Localization.Text(ETexts.Blacksmith2_1));
 
                     if (oreAmount >= 3)

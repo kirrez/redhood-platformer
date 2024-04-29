@@ -36,7 +36,7 @@ namespace Platformer
                 case 0:
                     Player.HoldByInteraction();
                     Game.Dialogue.Show();
-                    Game.Dialogue.SetDialogueName(Localization.Text(ETexts.VillageCommoner));
+                    Game.Dialogue.SetDialogueName(Localization.Text(ETexts.Commoner_Title));
                     Game.Dialogue.ChangeContent(Localization.Text(ETexts.WomanCandy));
                     ProgressManager.SetQuest(EQuest.WomanCandy, 1);
                     Wanderer.Stun(true);

@@ -6,15 +6,8 @@ namespace Platformer
 {
     public class DestinationSign : MonoBehaviour
     {
-        //[SerializeField]
-        //private ETexts Label;
-
         [SerializeField]
-        [Range(0, 5)]
-        private int DestinationIndex;
-
-        private int TargetValue;
-        private ETexts Item;
+        private EDestinationNames Name;
 
         [SerializeField]
         private Transform MessageTransform;
@@ -34,16 +27,13 @@ namespace Platformer
             ResourceManager = CompositionRoot.GetResourceManager();
             Localization = CompositionRoot.GetLocalization();
             Player = CompositionRoot.GetPlayer();
-
-            TargetValue = (int)ETexts.DestinationTheVillage + DestinationIndex;
-            Item = (ETexts)TargetValue;
         }
 
         private void Update()
         {
             if (Trigger.bounds.Contains(Player.Position) && Inside == false)
             {
-                ShowMessage(Localization.Text(Item));
+                ShowMessage(Localization.Destination(Name));
                 Inside = true;
             }
 

@@ -77,7 +77,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3806c8f3f5970084cae54f3baba1b0b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Label: 13
+  DestinationIndex: 0
   MessageTransform: {fileID: 1841207257019298353}
   Trigger: {fileID: 1841207258056092287}
 --- !u!1 &1841207258056092286

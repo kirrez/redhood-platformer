@@ -16,12 +16,12 @@ namespace Platformer
             playerState.SetQuest(EQuest.MaxLivesCap, 8);
             playerState.SetQuest(EQuest.LifeUpgradeCost, 5);
 
-            playerState.SetQuest(EQuest.KnifeLevel, 1);
+            playerState.SetQuest(EQuest.KnifeLevel, 0);
             playerState.SetQuest(EQuest.AxeLevel, 0);
             playerState.SetQuest(EQuest.HolyWaterLevel, 0);
 
             //Start Player's location
-            playerState.SetQuest(EQuest.Stage, (int)EStages.TheVillage);
+            playerState.SetQuest(EQuest.Stage, (int)EStages.StartOrTutorial);
             playerState.SetQuest(EQuest.Location, 0);
             playerState.SetQuest(EQuest.SpawnPoint, 0);
             playerState.SetQuest(EQuest.Confiner, 0);
@@ -29,6 +29,10 @@ namespace Platformer
             playerState.SetQuest(EQuest.KeyRed, -1);
             playerState.SetQuest(EQuest.KeyGrey, -1);
             playerState.SetQuest(EQuest.KeyGreen, 0);
+
+            playerState.SetQuest(EQuest.KitchenKnifeItem, 1); //tutorial item
+            playerState.SetQuest(EQuest.TutorialAxeItem, 1); //tutorial item
+            playerState.SetQuest(EQuest.TutorialCheeseItem, 1); //tutorial item
 
             //Mother's Pie quest
             playerState.SetQuest(EQuest.MushroomsRequired, 3);
