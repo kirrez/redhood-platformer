@@ -6,6 +6,7 @@ namespace Platformer
 {
     public enum ETutorialTexts
     {
+        //Order sensitive
         UseArrowsToMove,
         PressZToJump,
         HoldDownAndZ,
@@ -15,6 +16,8 @@ namespace Platformer
         ThrowAxe,
         Interact,
         SecondSubweapon,
-        Final
+        Final,
+        StartGameNoTutorial,
+        PlayTutorialFirst,
     }
 }

@@ -32,7 +32,7 @@ namespace Platformer
             {
                 Player.Interaction += OnSwitchPulled;
                 Inside = true;
-                ShowMessage(Localization.Text(ETexts.SwitchOn_Label));
+                ShowMessage(Localization.Label(ELabels.SwitchOn));
             }
 
             if (!SwitchTrigger.bounds.Contains(Player.Position) && Inside)

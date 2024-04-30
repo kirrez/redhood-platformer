@@ -23,7 +23,7 @@ namespace Platformer
 
         private void OnEnable()
         {
-            Tip.text = Localization.Text(ETexts.Next_Label);
+            Tip.text = Localization.Label(ELabels.Next);
         }
 
         public void SetDialogueName(string name)

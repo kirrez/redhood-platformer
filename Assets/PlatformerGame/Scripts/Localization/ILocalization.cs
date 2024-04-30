@@ -12,6 +12,10 @@ namespace Platformer
 
         string Tutorial(ETutorialTexts name);
 
+        string Utilitary(EUtilitary name);
+
+        string Label(ELabels name);
+
         void LoadLocalization(ELocalizations localization);
     }
 }

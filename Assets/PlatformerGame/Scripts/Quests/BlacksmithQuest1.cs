@@ -28,7 +28,7 @@ namespace Platformer
                     Player.Interaction += OnKeyQuestPhase1;
                 }
 
-                ShowMessage(Localization.Text(ETexts.Talk_Label));
+                ShowMessage(Localization.Label(ELabels.Talk));
             }
 
             if (!Trigger.bounds.Contains(Player.Position) && Inside)

@@ -28,7 +28,7 @@ namespace Platformer
                     Player.HoldByInteraction();
                     Game.Dialogue.Show();
                     Game.Dialogue.SetDialogueName(Localization.Text(ETexts.BrokenLeverTip_Title));
-                    Game.Dialogue.ChangeContent(Localization.Text(ETexts.BrokenLeverTip1));
+                    Game.Dialogue.ChangeContent(Localization.Text(ETexts.BrokenLever1));
                     DialoguePhase++;
                     break;
                 case 1:

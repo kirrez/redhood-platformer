@@ -10,7 +10,7 @@ namespace Platformer
             {
                 Inside = true;
                 Player.Interaction += OnInteraction;
-                ShowMessage(Localization.Text(ETexts.Talk_Label));
+                ShowMessage(Localization.Label(ELabels.Talk));
             }
 
             if (!Trigger.bounds.Contains(Player.Position) && Inside)

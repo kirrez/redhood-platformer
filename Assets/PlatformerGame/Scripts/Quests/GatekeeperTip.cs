@@ -15,7 +15,7 @@ namespace Platformer
                 {
                     Inside = true;
                     Player.Interaction += Gatekeeper1;
-                    ShowMessage(Localization.Text(ETexts.Talk_Label));
+                    ShowMessage(Localization.Label(ELabels.Talk));
                 }
 
                 if (!Trigger.bounds.Contains(Player.Position) && Inside)
@@ -32,7 +32,7 @@ namespace Platformer
                 {
                     Inside = true;
                     Player.Interaction += Gatekeeper2;
-                    ShowMessage(Localization.Text(ETexts.Talk_Label));
+                    ShowMessage(Localization.Label(ELabels.Talk));
                 }
 
                 if (!Trigger.bounds.Contains(Player.Position) && Inside)

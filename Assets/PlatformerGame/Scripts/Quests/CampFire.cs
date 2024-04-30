@@ -48,7 +48,7 @@ namespace Platformer
             {
                 Inside = true;
                 Player.Interaction += OnInteraction;
-                ShowMessage(Localization.Text(ETexts.KindleAFire_Label));
+                ShowMessage(Localization.Label(ELabels.KindleAFire));
             }
 
             if (Trigger.bounds.Contains(Player.Position) == false && Inside)

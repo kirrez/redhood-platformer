@@ -23,7 +23,7 @@ namespace Platformer
             {
                 Inside = true;
                 Player.Interaction += OnInteraction;
-                ShowMessage(Localization.Text(ETexts.RemoveAnObstacle_Label));
+                ShowMessage(Localization.Label(ELabels.RemoveAnObstacle));
             }
 
             if (!Trigger.bounds.Contains(Player.Position) && Inside)

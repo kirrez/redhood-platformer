@@ -2,17 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EUtilitary : MonoBehaviour
+namespace Platformer
 {
-    // Start is called before the first frame update
-    void Start()
+    public enum EUtilitary
     {
-        
-    }
+        TryAgain,
+        ToMenu,
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        English,
+        Russian,
     }
 }

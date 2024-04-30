@@ -16,7 +16,7 @@ namespace Platformer
                 {
                     Inside = true;
                     Player.Interaction += Hermit1;
-                    ShowMessage(Localization.Text(ETexts.Talk_Label));
+                    ShowMessage(Localization.Label(ELabels.Talk));
                 }
 
                 if (!Trigger.bounds.Contains(Player.Position) && Inside)
@@ -33,7 +33,7 @@ namespace Platformer
                 {
                     Inside = true;
                     Player.Interaction += Hermit2;
-                    ShowMessage(Localization.Text(ETexts.Talk_Label));
+                    ShowMessage(Localization.Label(ELabels.Talk));
                 }
 
                 if (!Trigger.bounds.Contains(Player.Position) && Inside)

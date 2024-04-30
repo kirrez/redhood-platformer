@@ -8,6 +8,8 @@ namespace Platformer
         private Dictionary<ETexts, string> Texts = new Dictionary<ETexts, string>();
         private Dictionary<EDestinationNames, string> Destinations = new Dictionary<EDestinationNames, string>();
         private Dictionary<ETutorialTexts, string> Tutorials = new Dictionary<ETutorialTexts, string>();
+        private Dictionary<EUtilitary, string> Utilitaries = new Dictionary<EUtilitary, string>();
+        private Dictionary<ELabels, string> Labels = new Dictionary<ELabels, string>();
 
         public Localization()
         {
@@ -29,8 +31,20 @@ namespace Platformer
                 Tutorials.Add(item, "");
             }
 
-            LoadLocalization(ELocalizations.English);
-            //LoadLocalization(ELocalizations.Russian);
+            type = typeof(EUtilitary);
+            foreach (EUtilitary item in Enum.GetValues(type))
+            {
+                Utilitaries.Add(item, "");
+            }
+
+            type = typeof(ELabels);
+            foreach (ELabels item in Enum.GetValues(type))
+            {
+                Labels.Add(item, "");
+            }
+
+            //LoadLocalization(ELocalizations.English);
+            LoadLocalization(ELocalizations.Russian);
         }
 
         public string Text(ETexts key)
@@ -46,6 +60,16 @@ namespace Platformer
         public string Tutorial(ETutorialTexts key)
         {
             return Tutorials[key];
+        }
+
+        public string Utilitary(EUtilitary key)
+        {
+            return Utilitaries[key];
+        }
+
+        public string Label(ELabels key)
+        {
+            return Labels[key];
         }
 
         public void LoadLocalization(ELocalizations localization)
@@ -78,35 +102,28 @@ namespace Platformer
             Tutorials[ETutorialTexts.Crouch] = "Hold ↓ and use ← → to crouch";
             Tutorials[ETutorialTexts.Slide] = "Press 'Z' while holding ↓ to slide";
             Tutorials[ETutorialTexts.ThrowKnife] = "Press 'X' to throw a knife (alt. LMB)";
-            Tutorials[ETutorialTexts.ThrowAxe] = "Hold ↑ and press 'X' to throw an axe";
+            Tutorials[ETutorialTexts.ThrowAxe] = "Hold ↑ and press 'X' to throw an axe above";
             Tutorials[ETutorialTexts.Interact] = "Press 'C' when you encounter characters or interactable objects (alt. RMB)";
             Tutorials[ETutorialTexts.SecondSubweapon] = "Press 'C' to throw second sub-weapon";
-            Tutorials[ETutorialTexts.Final] = "This completes the basic tutorial, intended to cover some unclear parts in control mechanics!";
+            Tutorials[ETutorialTexts.Final] = "These are the basics of control, the rest you can easily master on your own, have fun!";
+            Tutorials[ETutorialTexts.StartGameNoTutorial] = "Start Game\nno tutorial";
+            Tutorials[ETutorialTexts.PlayTutorialFirst] = "Play tutorial first";
 
-            Texts[ETexts.Enter_Label] = "ENTER 'C'";
-            Texts[ETexts.Exit_Label] = "EXIT 'C'";
-            Texts[ETexts.Next_Label] = "Next 'C'";
-            Texts[ETexts.Talk_Label] = "TALK 'C'";
-            Texts[ETexts.TalkToMom_Label] = "TALK TO MOM 'C'";
-            Texts[ETexts.TalkToMomAgain_Label] = "TALK TO MOM AGAIN";
-            Texts[ETexts.PullLever_Label] = "PULL LEVER 'C'";
-            Texts[ETexts.Commoner_Title] = "* Village Commoner *";
-            Texts[ETexts.UpgradeHealth_Label] = "ENHANCE HEALTH";
-            Texts[ETexts.UpgradeHealth_Title] = "* Enhance Health *";
-            Texts[ETexts.KindleAFire_Label] = "KINDLE A CAMPFIRE";
-            Texts[ETexts.RemoveAnObstacle_Label] = "REMOVE AN OBSTACLE";
-            Texts[ETexts.SwitchOn_Label] = "Switch On";
-            Texts[ETexts.Repair_Label] = "REPAIR";
+            Labels[ELabels.Enter] = "ENTER";
+            Labels[ELabels.Exit] = "EXIT";
+            Labels[ELabels.Next] = "Next 'C'";
+            Labels[ELabels.Talk] = "TALK";
+            Labels[ELabels.TalkToMom] = "TALK TO MOM";
+            Labels[ELabels.PullLever] = "PULL LEVER";
+            Labels[ELabels.SwitchOn] = "SWITCH ON";
+            Labels[ELabels.Repair] = "REPAIR";
+            Labels[ELabels.UpgradeHealth] = "UPGRADE HEALTH";
+            Labels[ELabels.KindleAFire] = "KINDLE A FIRE";
+            Labels[ELabels.RemoveAnObstacle] = "REMOVE AN OBSTACLE";
+            Labels[ELabels.HollyMolly] = "Holly & Molly";
 
-            Texts[ETexts.StartGameNoTutorial] = "Start Game\nno tutorial";
-            Texts[ETexts.PlayTutorialFirst] = "Play tutorial first";
-
-
-            Texts[ETexts.English] = "English";
-            Texts[ETexts.Russian] = "Русский";
-
-            Texts[ETexts.TryAgain] = "Try Again";
-            Texts[ETexts.ToMenu] = "Menu";
+            Utilitaries[EUtilitary.TryAgain] = "Try Again";
+            Utilitaries[EUtilitary.ToMenu] = "Menu";
 
             Texts[ETexts.PieDialogue1_Title] = "* A Pie for a Grandma *";
             Texts[ETexts.DialoguePie1_1] = "- Hello, mom!";
@@ -145,6 +162,7 @@ namespace Platformer
             Texts[ETexts.DialoguePie2_5] = "- What? Oh, das ist nicht, der Pie ist ready. Go, take it.";
             Texts[ETexts.DialoguePie2_6] = "- Yay!";
 
+            Texts[ETexts.UpgradeHealth_Title] = "* Enhance Health *";
             Texts[ETexts.UpgradeHealth1_1] = "- Ich weise how you liebst sweet, but if you findest any Candies, eat them nicht! Das ist definitively a Witch's Bait fur Kinder.";
             Texts[ETexts.UpgradeHealth1_2] = "Besser du bringst them to me und ich cooke something gut fur strengthening deinе Health.";
             Texts[ETexts.UpgradeHealth1_3] = "- Haaa? (my poor candies!) What for on Earth I have to strenghten my health?! I'm healthy enough!";
@@ -166,14 +184,15 @@ namespace Platformer
             Texts[ETexts.Blacksmith2_3] = "- Ok, here is your key, i just finished it.";
             Texts[ETexts.Blacksmith2_4] = "- Emm.. still working on it!";
 
+            Texts[ETexts.Commoner_Title] = "* Village Commoner *";
+            Texts[ETexts.Gatekeeper_Title] = "* Gatekeeper *";
+            Texts[ETexts.Shopkeeper_Title] = "* Shopkeeper *";
             Texts[ETexts.Commoner1_1] = "Market elevator is not working now, come back later.";
             Texts[ETexts.Commoner1_2] = "Don't walk around the ruins, it's dangerous!";
-            Texts[ETexts.Gatekeeper_Title] = "* Gatekeeper *";
             Texts[ETexts.Gatekeeper1_1] = "If you want to pass freely through this gate, go ask the smith to make you a new grey key, since I've lost a spare one.";
             Texts[ETexts.Gatekeeper1_2] = "Be careful, child!";
             Texts[ETexts.CommonerSecret] = "Psst! There is a secret place in the village. You can only reach it by crushing the cursed wall. You obviousely need a holy weapon for it...";
             Texts[ETexts.WomanCandy] = "Here you are, darling, take this!";
-            Texts[ETexts.Shopkeeper_Title] = "* Shopkeeper *";
             Texts[ETexts.Shopkeeper1] = "Oh, young lady! If you happen to find this shiny circles, don't throw them out. I can give you something really useful in exchange!";
 
             Texts[ETexts.Hermit_Title] = "* Hermit *";
@@ -184,7 +203,7 @@ namespace Platformer
             Texts[ETexts.Hermit2] = "- Don't you forget, the right path is Fire, Mine, Water, Statues, Bones, Fire and Water!";
 
             Texts[ETexts.BrokenLeverTip_Title] = "* Curious Find *";
-            Texts[ETexts.BrokenLeverTip1] = "What is this thing? Seems like a part of some mechanism. Might be useful!";
+            Texts[ETexts.BrokenLever1] = "What is this thing? Seems like a part of some mechanism. Might be useful!";
             Texts[ETexts.BrokenLeverInCave_Title] = "* Door With A Switch *";
             Texts[ETexts.BrokenLeverInCave1] = "This is a door with broken switch! Hmm... I must find a way to fix it if I want to go in (*__*)";
             Texts[ETexts.BrokenLeverInCave_HandleNotFound] = "I still don't have the right thing to fix it..";
@@ -196,7 +215,6 @@ namespace Platformer
             Texts[ETexts.DisturbSpirit3] = "!!!";
             Texts[ETexts.DisturbSpirit4] = "Eeeek! gotta get out of here really quick!";
 
-            Texts[ETexts.HollyMolly_Label] = "Holly & Molly";
             Texts[ETexts.HollyMolly_Title] = "* Holly & Molly *";
             Texts[ETexts.HollyMolly1_1] = "- Holey-moley, what a charming duet of lovely musicians! I wanna musick, play, play, play! (X o X)/";
             Texts[ETexts.HollyMolly1_2] = "- Oh, girl, have we ever met before? But of course we did! ";
@@ -248,29 +266,34 @@ namespace Platformer
             Destinations[EDestinationNames.Lumbermill] = "Лесопилка";
             Destinations[EDestinationNames.WolfTrail] = "Волчья тропа";
 
-            Texts[ETexts.Enter_Label] = "ВНУТРЬ 'C'";
-            Texts[ETexts.Exit_Label] = "НАРУЖУ 'C'";
-            Texts[ETexts.Next_Label] = "Дальше 'C'";
-            Texts[ETexts.Talk_Label] = "ГОВОРИТЬ 'C'";
-            Texts[ETexts.TalkToMom_Label] = "ОТВЕТИТЬ МАМЕ 'C''";
-            Texts[ETexts.TalkToMomAgain_Label] = "СНОВА ПОГОВОРИТЬ С МАМОЙ";
-            Texts[ETexts.PullLever_Label] = "ДЕРНУТЬ РЫЧАГ 'C'";
-            Texts[ETexts.Commoner_Title] = "* Деревенский житель *";
-            Texts[ETexts.UpgradeHealth_Label] = "УКРЕПИТЬ ЗДОРОВЬЕ";
-            Texts[ETexts.UpgradeHealth_Title] = "* Укрепить здоровье *";
-            Texts[ETexts.KindleAFire_Label] = "РАЗЖЕЧЬ КОСТЁР";
-            Texts[ETexts.RemoveAnObstacle_Label] = "УБРАТЬ ПРЕГРАДУ";
-            Texts[ETexts.SwitchOn_Label] = "Включить";
-            Texts[ETexts.Repair_Label] = "ПОЧИНИТЬ";
+            Tutorials[ETutorialTexts.UseArrowsToMove] = "Нажимайте ← →, чтобы ходить (или A, D)"; // ok
+            Tutorials[ETutorialTexts.PressZToJump] = "Нажмите 'Z' для прыжка (или Пробел)"; // ok
+            Tutorials[ETutorialTexts.HoldDownAndZ] = "Зажмите ↓, затем 'Z' для того, чтобы упасть с платформы"; //
+            Tutorials[ETutorialTexts.Crouch] = "Зажмите ↓ и используйте ← →, чтобы ползти"; // ok
+            Tutorials[ETutorialTexts.Slide] = "Нажмите 'Z', пока ползете, чтобы подкатиться"; // ok
+            Tutorials[ETutorialTexts.ThrowKnife] = "Нажмите 'X', чтобы бросить ножик (или щелкните ЛКМ)"; // ok
+            Tutorials[ETutorialTexts.ThrowAxe] = "Зажмите ↑ и нажмите 'X', чтобы бросить топорик"; // ok
+            Tutorials[ETutorialTexts.Interact] = "Нажмите 'C', чтобы общаться с жителями или использовать объекты (или ПКМ)";
+            Tutorials[ETutorialTexts.SecondSubweapon] = "Нажмите 'C', чтобы использовать второе дополнительное оружие"; // ok
+            Tutorials[ETutorialTexts.Final] = "Это необходимые основы управления, остальное без труда сможете освоить самостоятельно, удачи!"; // ok
+            Tutorials[ETutorialTexts.StartGameNoTutorial] = "Начать игру\nбез обучения";
+            Tutorials[ETutorialTexts.PlayTutorialFirst] = "Сперва пройти обучение";
 
-            Texts[ETexts.StartGameNoTutorial] = "Начать игру\nбез обучения";
-            Texts[ETexts.PlayTutorialFirst] = "Сперва пройти обучение";
+            Labels[ELabels.Enter] = "ВХОД";
+            Labels[ELabels.Exit] = "ВЫХОД";
+            Labels[ELabels.Next] = "Далее 'C'";
+            Labels[ELabels.Talk] = "ПОГОВОРИТЬ";
+            Labels[ELabels.TalkToMom] = "ПОГОВОРИТЬ С МАМОЙ";
+            Labels[ELabels.PullLever] = "ПОТЯНУТЬ РЫЧАГ";
+            Labels[ELabels.SwitchOn] = "ВКЛЮЧИТЬ";
+            Labels[ELabels.Repair] = "ПОЧИНИТЬ";
+            Labels[ELabels.UpgradeHealth] = "УКРЕПИТЬ ЗДОРОВЬЕ";
+            Labels[ELabels.KindleAFire] = "РАЗЖЕЧЬ ОГОНЬ";
+            Labels[ELabels.RemoveAnObstacle] = "УБРАТЬ ПРЕПЯТСТВИЕ";
+            Labels[ELabels.HollyMolly] = "ЁЛКА и ПАЛКА";
 
-            Texts[ETexts.English] = "English";
-            Texts[ETexts.Russian] = "Русский";
-
-            Texts[ETexts.TryAgain] = "Ещё разок";
-            Texts[ETexts.ToMenu] = "В меню";
+            Utilitaries[EUtilitary.TryAgain] = "Ещё разок";
+            Utilitaries[EUtilitary.ToMenu] = "В меню";
 
             Texts[ETexts.PieDialogue1_Title] = "* Пирог для Бабули *";
             Texts[ETexts.DialoguePie1_1] = "- Привет, мама!";
@@ -347,7 +370,7 @@ namespace Platformer
             Texts[ETexts.Hermit2] = "- Не забывай, дитя, верная дорога - это Огонь, Шахта, Вода, Статуи, Кости, Огонь и Вода!";
 
             Texts[ETexts.BrokenLeverTip_Title] = "* Любопытная находка *";
-            Texts[ETexts.BrokenLeverTip1] = "Что это за штука такая? Похожа на детальку от какого-то механизма. Пригодится!";
+            Texts[ETexts.BrokenLever1] = "Что это за штука такая? Похожа на детальку от какого-то механизма. Пригодится!";
             Texts[ETexts.BrokenLeverInCave_Title] = "* Дверь с переключателем *";
             Texts[ETexts.BrokenLeverInCave1] = "Это дверь со сломанным выключателем! Хмм.. мне нужно как-то починить выключатель, чтобы попасть внутрь (*__*)";
             Texts[ETexts.BrokenLeverInCave_HandleNotFound] = "У меня нет нужной вещи для ремонта..";

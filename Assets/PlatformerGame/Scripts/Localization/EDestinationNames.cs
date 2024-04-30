@@ -6,6 +6,7 @@ namespace Platformer
 {
     public enum EDestinationNames
     {
+        //Order sensitive
         TheVillage,
         WesternForest,
         MountainPass,

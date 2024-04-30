@@ -24,7 +24,7 @@ namespace Platformer
             var localization = CompositionRoot.GetLocalization();
 
             TryAgainButton.onClick.AddListener(OnTryAgainClick);
-            TryAgainText.text = localization.Text(ETexts.TryAgain);
+            TryAgainText.text = localization.Utilitary(EUtilitary.TryAgain);
         }
     }
 }

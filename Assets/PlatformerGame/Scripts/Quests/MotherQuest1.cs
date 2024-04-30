@@ -21,7 +21,7 @@ namespace Platformer
                     DialoguePhase = 0;
                     Player.Interaction += MQ1First;
 
-                    ShowMessage(Localization.Text(ETexts.TalkToMom_Label));
+                    ShowMessage(Localization.Label(ELabels.TalkToMom));
                 }
 
                 if (!Trigger.bounds.Contains(Player.Position) && Inside)
@@ -41,7 +41,7 @@ namespace Platformer
                     DialoguePhase = 0;
                     Player.Interaction += MQ1Second;
 
-                    ShowMessage(Localization.Text(ETexts.TalkToMom_Label));
+                    ShowMessage(Localization.Label(ELabels.TalkToMom));
                 }
 
                 if (!Trigger.bounds.Contains(Player.Position) && Inside)

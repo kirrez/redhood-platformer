@@ -28,23 +28,24 @@ namespace Platformer
         AssistantMegafrog, // assists with lowering Megafrog's HP for money. In future will work on EASY level.
         AssistantTower, // assists with tower in WesternForest for money, mentioned to be used on EASY level.
         Guide_v01, // character with explanation in v 0.1
+        StartGameWeaponsReset, // configurates weapons right after tutorial in "TheVillage" stage
 
         SwitchHandleItem, // item accessible after defeating Megafrog, for broken lever repair
         CrippledAxeItem, // appears as collectible item in Western Forest
         WeakHolyWaterItem, // appears in Abandoned Chapel in Cave Labyrinth
         SharpenedAxeItem, // appears in Mountain Pass in v 0.1
+        FarmerKnifeItem, // appears in Mountain Pass in v 0.1
         KitchenKnifeItem, // tutorial
         TutorialAxeItem, // tutorial
         TutorialCheeseItem, // tutorial
-        FarmerKnifeItem, // appears in Mountain Pass in v 0.1
 
         //Bosses
         Megafrog, //0- battle available, 1- battle won
         MegafrogMaxHealth,
 
         KnifeLevel, // 0-none, 1-KitchenKnife, 2-FarmerKnife, 3-HunterKnife
-        AxeLevel, // 0-none, 1-CrippledAxe(no WoodBreaker), 2-OldAxe(+WoodBreaker), 3-SharpenedAxe, 4-SturdyAxe ?????
-        HolyWaterLevel, // 0-none, 1-WeakHolyWater(Undead Stun only), 2-StrongHolyWater(+ normal damage)
+        AxeLevel, // 0-none, 1-CrippledAxe(no WoodBreaker), 2-SharpenedAxe (+WB), 3-SturdyAxe
+        HolyWaterLevel, // 0-none, 1-WeakHolyWater(Undead Stun only), 2-StrongHolyWater(+ normal damage) 3 - Cheese Bomb (tutorial in v 0.1 and real in v 1.0)
 
         FarmerKnifeCost,
         HunterKnifeCost,

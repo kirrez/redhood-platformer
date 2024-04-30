@@ -105,7 +105,7 @@ namespace Platformer
                 InsideLeverTrigger = true;
                 var leverItem = ProgressManager.GetQuest(EQuest.SwitchHandleItem);
 
-                ShowMessage(Localization.Text(ETexts.Repair_Label));
+                ShowMessage(Localization.Label(ELabels.Repair));
 
                 if (leverItem == 0)
                 {
@@ -193,7 +193,7 @@ namespace Platformer
             if (LeverTrigger.bounds.Contains(Player.Position) == true && InsideLeverTrigger == false)
             {
                 InsideLeverTrigger = true;
-                ShowMessage(Localization.Text(ETexts.PullLever_Label));
+                ShowMessage(Localization.Label(ELabels.PullLever));
                 Player.Interaction += SwitchOn;
             }
 

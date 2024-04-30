@@ -3,38 +3,13 @@ namespace Platformer
 {
     public enum ETexts
     {
-        Enter_Label,
-        Exit_Label,
-        Next_Label,
-        PullLever_Label,
-        KindleAFire_Label,
-        RemoveAnObstacle_Label,
-        Talk_Label,
-        TalkToMom_Label,
-        TalkToMomAgain_Label,
-        SwitchOn_Label,
-        Repair_Label,
-
-        StartGameNoTutorial,
-        PlayTutorialFirst,
-        //Menu items
-        English,
-        Russian,
-        LifeSpentMessage,
-        GameOverMessage,
-        TryAgain,
-        ToMenu,
-
-        //Quest Dialogues
         PieDialogue1_Title,
-        //MQ1First :
         DialoguePie1_1,
         DialoguePie1_2,
         DialoguePie1_3,
         DialoguePie1_4,
         DialoguePie1_5,
         DialoguePie1_6,
-        //MQ1Second :
         DialoguePie1_7,
         DialoguePie1_8,
         DialoguePie1_9,
@@ -63,7 +38,6 @@ namespace Platformer
         DialoguePie2_5,
         DialoguePie2_6,
 
-        UpgradeHealth_Label,
         UpgradeHealth_Title,
         UpgradeHealth1_1,
         UpgradeHealth1_2,
@@ -105,7 +79,7 @@ namespace Platformer
         Hermit2,
 
         BrokenLeverTip_Title,
-        BrokenLeverTip1,
+        BrokenLever1,
         BrokenLeverInCave_Title,
         BrokenLeverInCave1,
         BrokenLeverInCave_HandleNotFound,
@@ -117,7 +91,6 @@ namespace Platformer
         DisturbSpirit3,
         DisturbSpirit4,
 
-        HollyMolly_Label,
         HollyMolly_Title,
         HollyMolly1_1,
         HollyMolly1_2,

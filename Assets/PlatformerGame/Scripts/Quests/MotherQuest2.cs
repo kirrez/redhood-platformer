@@ -28,7 +28,7 @@ namespace Platformer
             if (Trigger.bounds.Contains(Player.Position) && !Inside)
             {
                 Inside = true;
-                ShowMessage(Localization.Text(ETexts.TalkToMomAgain_Label));
+                ShowMessage(Localization.Label(ELabels.TalkToMom));
                 Player.Interaction += OnInteraction;
             }
 

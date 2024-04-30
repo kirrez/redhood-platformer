@@ -27,7 +27,7 @@ namespace Platformer
                     Player.Interaction += OnInteraction;
                 }
 
-                ShowMessage(Localization.Text(ETexts.UpgradeHealth_Label));
+                ShowMessage(Localization.Label(ELabels.UpgradeHealth));
             }
 
             if (!Trigger.bounds.Contains(Player.Position) && Inside)

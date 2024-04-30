@@ -5,7 +5,7 @@ namespace Platformer
     {
         TheVillage,
         WesternForest,
-        Mountains,
+        MountainPass,
         Lumbermill,
         CaveLabyrinth,
         StartOrTutorial,

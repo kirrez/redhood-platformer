@@ -21,8 +21,7 @@ namespace Platformer
         private int ConfinerIndex;
 
         [SerializeField]
-        [Range(0, 3)]
-        private int LabelIndex;
+        private ELabels Name;
 
         [SerializeField]
         private Transform MessageTransform;
@@ -30,26 +29,12 @@ namespace Platformer
         [SerializeField]
         private bool NoDynamicsReload;
 
-        private ETexts Label;
-
         private void Awake()
         {
             DynamicsContainer = CompositionRoot.GetDynamicsContainer();
             ResourceManager = CompositionRoot.GetResourceManager();
             Localization = CompositionRoot.GetLocalization();
             AudioManager = CompositionRoot.GetAudioManager();
-        }
-
-        private void OnEnable()
-        {
-            var targetValue = (int)ETexts.Enter_Label + LabelIndex;
-            Label = (ETexts)targetValue;
-            // i have to fix this )))
-        }
-
-        private void Update()
-        {
-            
         }
 
         private void ShowMessage(string text)
@@ -78,8 +63,7 @@ namespace Platformer
             if (collision.gameObject.CompareTag("Player"))
             {
                 Player = collision.gameObject.GetComponent<IPlayer>();
-                //HelpText.enabled = true;
-                ShowMessage(Localization.Text(Label));
+                ShowMessage(Localization.Label(Name));
                 Player.Interaction += OnLocationEnter;
             }
         }
@@ -88,7 +72,6 @@ namespace Platformer
         {
             if (collision.gameObject.CompareTag("Player"))
             {
-                //HelpText.enabled = false;
                 HideMessage();
                 Player.Interaction -= OnLocationEnter;
             }
@@ -96,7 +79,6 @@ namespace Platformer
 
         private void OnDisable()
         {
-            //HelpText.enabled = false;
             HideMessage();
             if (Player != null)
             {

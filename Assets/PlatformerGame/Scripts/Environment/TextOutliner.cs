@@ -11,13 +11,12 @@ namespace Platformer
         private Text Text;
 
         [SerializeField]
-        private ETexts Label;
+        private ETutorialTexts Name;
 
         [SerializeField]
         private Outline Outline;
 
-
-
+        private IAudioManager AudioManager;
         private ILocalization Localization;
         private IPlayer Player;
 
@@ -27,6 +26,7 @@ namespace Platformer
 
         private void Awake()
         {
+            AudioManager = CompositionRoot.GetAudioManager();
             Localization = CompositionRoot.GetLocalization();
             Player = CompositionRoot.GetPlayer();
 
@@ -35,7 +35,7 @@ namespace Platformer
 
         private void OnEnable()
         {
-            Text.text = Localization.Text(Label);
+            Text.text = Localization.Tutorial(Name);
             Outline.enabled = false;
         }
 
@@ -45,6 +45,7 @@ namespace Platformer
             {
                 Inside = true;
                 Outline.enabled = true;
+                AudioManager.PlaySound(ESounds.BatStart);
             }
 
             if (Trigger.bounds.Contains(Player.Position) == false && Inside == true)

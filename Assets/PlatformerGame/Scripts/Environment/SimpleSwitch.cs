@@ -46,7 +46,7 @@ namespace Platformer
             if (collision.gameObject.CompareTag("Player") && !Inside && !Interacted)
             {
                 Inside = true;
-                ShowMessage(Localization.Text(ETexts.PullLever_Label));
+                ShowMessage(Localization.Label(ELabels.SwitchOn));
                 Player.Interaction += OnInteraction;
             }
         }
