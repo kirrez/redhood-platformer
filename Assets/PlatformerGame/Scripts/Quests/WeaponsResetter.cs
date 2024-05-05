@@ -32,11 +32,11 @@ namespace Platformer
             ProgressManager.SetQuest(EQuest.StartGameWeaponsReset, 1);
 
             ProgressManager.SetQuest(EQuest.KnifeLevel, 1);      // 1
-            ProgressManager.SetQuest(EQuest.AxeLevel, 1);        // 0
+            ProgressManager.SetQuest(EQuest.AxeLevel, 0);        // 0
             ProgressManager.SetQuest(EQuest.HolyWaterLevel, 0);  // 0
 
-            //ProgressManager.SetQuest(EQuest.MaxLives, 3); // 3
-            //Player.UpdateMaxLives();
+            ProgressManager.SetQuest(EQuest.MaxLives, 4); // 3
+            Player.UpdateMaxLives();
 
             Player.UpdateAllWeaponLevel();
             Game.HUD.UpdateWeaponIcons();

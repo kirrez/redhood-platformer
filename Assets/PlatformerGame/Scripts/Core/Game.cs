@@ -58,12 +58,12 @@ namespace Platformer
             //Storage.Save(playerStateToSave);
 
             // Only this for "LOAD TEST CONFIG"
-            var playerState = LoadTestConfig();
-            ProgressManager.SetState(playerState);
+            //var playerState = LoadTestConfig();
+            //ProgressManager.SetState(playerState);
 
             // Only for "START NEW GAME"
-            //var playerState = ProgressManager.CreateState(1, "name");
-            //ProgressManager.SetState(playerState);
+            var playerState = ProgressManager.CreateState(1, "name");
+            ProgressManager.SetState(playerState);
 
             GameOverModel = new GameOverModel();
             GameOverModel.TryingAgain += TryAgain;
