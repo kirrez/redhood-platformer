@@ -7,7 +7,7 @@ namespace Platformer
         // base Food00
 
         [SerializeField]
-        [Range(0, 19)]
+        [Range(0, 30)]
         private int ItemIndex;
 
         public bool ItemPhysics;

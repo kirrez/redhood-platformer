@@ -87,11 +87,18 @@ namespace Platformer
             if (Hits.Length > 0) 
                 foreach (var hit in Hits)
                 {
+                    // All Undead enemies
                     Undead target = hit.collider.GetComponentInParent<Undead>();
-                    
                     if (target != null)
                     {
                         target.Freezing(FreezeDuration);
+                    }
+
+                    // Cursed Walls and Flames
+                    CursedObstacle obstacle = hit.collider.GetComponentInParent<CursedObstacle>();
+                    if (obstacle != null)
+                    {
+                        obstacle.Dispel();
                     }
                 }
         }

@@ -94,6 +94,7 @@ namespace Platformer
                     ProgressManager.SetQuest(EQuest.BrokenLeverInCaves, 1);
                     Player.Interaction -= Consideration;
                     CurrentState = StatePhase1;
+                    Inside = false;
                     break;
             }
         }
@@ -154,8 +155,9 @@ namespace Platformer
                     Player.ReleasedByInteraction();
                     Game.Dialogue.Hide();
                     DialoguePhase = 0;
-                    Message.SetBlinking(true, 0.5f);
+                    HideMessage();
                     Player.Interaction -= HandleNotFound;
+                    Inside = false;
                     break;
             }
         }
@@ -177,6 +179,7 @@ namespace Platformer
                 case 1:
                     Player.ReleasedByInteraction();
                     Game.Dialogue.Hide();
+                    HideMessage();
                     DialoguePhase = 0;
 
                     ProgressManager.SetQuest(EQuest.BrokenLeverInCaves, 2);
@@ -184,6 +187,7 @@ namespace Platformer
                     InsideLeverTrigger = false;
                     LeverSprite.sprite = Sprites[1];
                     CurrentState = StatePhase2;
+                    Inside = false;
                     break;
             }
         }
@@ -207,6 +211,7 @@ namespace Platformer
 
         private void SwitchOn()
         {
+            Player.HoldByInteraction();
             ProgressManager.SetQuest(EQuest.BrokenLeverInCaves, 3);
             LeverSprite.sprite = Sprites[2];
             DoorBlock.SetActive(false);
@@ -214,6 +219,7 @@ namespace Platformer
             CurrentState = () => { };
 
             AudioManager.PlaySound(ESounds.DoorHeavy);
+            Player.ReleasedByInteraction();
             Player.Interaction -= SwitchOn;
         }
     }

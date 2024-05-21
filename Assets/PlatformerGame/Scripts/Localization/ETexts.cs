@@ -60,8 +60,9 @@ namespace Platformer
         Blacksmith2_4,
 
         Commoner_Title,
-        Commoner1_1,
-        Commoner1_2,
+        VillageElevator_1,
+        VillageElevator_2,
+        GatekeeperWarning,
         CommonerSecret,
         WomanCandy,
         Gatekeeper_Title,
@@ -129,5 +130,6 @@ namespace Platformer
         Guide_v01_1,
         Guide_v01_2,
         Guide_v01_3,
+        Guide_v01_remind,
     }
 }

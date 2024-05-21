@@ -62,13 +62,16 @@ namespace Platformer
 
         private void OnInteraction()
         {
+            Player.HoldByInteraction();
             ProgressManager.SetQuest(EQuest.SpawnPoint, SpawnPointIndex);
             ProgressManager.SetQuest(EQuest.Location, LocationIndex);
             ProgressManager.SetQuest(EQuest.Confiner, ConfinerIndex);
             SwitchFire(true);
             AudioManager.PlayRedhoodSound(EPlayerSounds.LightCampFire);
+            Player.UpdateMaxLives(); //refills health and updates HUD..
 
             HideMessage();
+            Player.ReleasedByInteraction();
             Player.Interaction -= OnInteraction;
         }
 

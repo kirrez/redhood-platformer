@@ -15,6 +15,9 @@ namespace Platformer
         [SerializeField]
         private SharpenedAxeItemSpawner AxeSpawner;
 
+        [SerializeField]
+        private KeySpawner KeySpawner;
+
         protected override void RequirementsCheck()
         {
             if (ProgressManager.GetQuest(EQuest.Guide_v01) > 0) return;
@@ -55,6 +58,11 @@ namespace Platformer
                     KnifeSpawner.SpawnItem();
                     AxeSpawner.SpawnItem();
 
+                    //just in case you forget about key
+                    ProgressManager.SetQuest(EQuest.Blacksmith, 2);
+                    ProgressManager.SetQuest(EQuest.KeyGrey, 0);
+                    KeySpawner.SpawnItem();
+
                     break;
                 case 2:
                     Game.Dialogue.ChangeContent(Localization.Text(ETexts.Guide_v01_3));
@@ -62,7 +70,10 @@ namespace Platformer
                     break;
                 case 3:
                     Player.ReleasedByInteraction();
+                    DialoguePhase = 0;
                     Game.Dialogue.Hide();
+                    HideMessage();
+                    Inside = false;
                     ProgressManager.SetQuest(EQuest.Guide_v01, 1);
                     Player.Interaction -= OnInteraction;
                     break;

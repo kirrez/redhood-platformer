@@ -41,6 +41,7 @@ namespace Platformer
                     DialoguePhase = 0;
                     HideMessage();
                     Player.Interaction -= OnInteraction;
+                    Inside = false;
                     break;
             }
         }

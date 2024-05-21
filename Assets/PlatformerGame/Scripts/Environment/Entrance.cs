@@ -89,6 +89,7 @@ namespace Platformer
         private void OnLocationEnter()
         {
             var navigation = CompositionRoot.GetNavigation();
+            Player.HoldByInteraction();
             if (NoDynamicsReload == false)
             {
                 DynamicsContainer.DeactivateMain();
@@ -102,6 +103,7 @@ namespace Platformer
             var game = CompositionRoot.GetGame();
             game.FadeScreen.DelayBefore(Color.black, 0.5f);
             game.FadeScreen.FadeOut(Color.black, 1f);
+            Player.ReleasedByInteraction();
         }
 
     }

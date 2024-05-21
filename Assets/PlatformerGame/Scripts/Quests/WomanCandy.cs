@@ -49,6 +49,7 @@ namespace Platformer
                     Player.Interaction -= OnInteraction;
                     Spawner.gameObject.SetActive(true);
                     Wanderer.Stun(false);
+                    Inside = false;
                     break;
             }
         }

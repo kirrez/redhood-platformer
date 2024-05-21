@@ -98,6 +98,7 @@ namespace Platformer
                     ProgressManager.SetQuest(EQuest.KeyRed, 0);
                     Spawner.SpawnItem();
                     Player.Interaction -= MQ1First;
+                    Inside = false;
                     break;
             }
         }
@@ -130,6 +131,7 @@ namespace Platformer
                     HideMessage();
 
                     Player.Interaction -= MQ1Second;
+                    Inside = false;
                     break;
             }
 

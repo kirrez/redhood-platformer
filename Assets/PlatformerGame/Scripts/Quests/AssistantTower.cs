@@ -108,11 +108,13 @@ namespace Platformer
                     break;
                 case 1:
                     Player.ReleasedByInteraction();
-                    Game.Dialogue.Hide();
                     DialoguePhase = 0;
+                    Game.Dialogue.Hide();
+                    HideMessage();
 
                     ProgressManager.SetQuest(EQuest.AssistantTower, 1);
                     Player.Interaction -= FirstReplica;
+                    Inside = false;
                     break;
             }
         }
@@ -134,11 +136,13 @@ namespace Platformer
                     break;
                 case 1:
                     Player.ReleasedByInteraction();
-                    Game.Dialogue.Hide();
                     DialoguePhase = 0;
+                    Game.Dialogue.Hide();
+                    HideMessage();
 
                     ProgressManager.SetQuest(EQuest.AssistantTower, 2);
                     Player.Interaction -= SecondReplica;
+                    Inside = false;
                     break;
             }
         }
@@ -159,16 +163,17 @@ namespace Platformer
                     break;
                 case 1:
                     Player.ReleasedByInteraction();
-                    Game.Dialogue.Hide();
                     DialoguePhase = 0;
+                    Game.Dialogue.Hide();
+                    HideMessage();
 
                     PlatformActivation.Activate();
                     ProgressManager.SetQuest(EQuest.AssistantTower, 3);
                     ProgressManager.AddValue(EQuest.Money, -PassPrice);
                     Game.HUD.UpdateResourceAmount(); // show new money
 
-                    HideMessage();
                     Player.Interaction -= DealAccepted;
+                    Inside = false;
                     break;
             }
         }
@@ -189,11 +194,12 @@ namespace Platformer
                     break;
                 case 1:
                     Player.ReleasedByInteraction();
-                    Game.Dialogue.Hide();
                     DialoguePhase = 0;
-
+                    Game.Dialogue.Hide();
                     HideMessage();
+
                     Player.Interaction -= DealDeclined;
+                    Inside = false;
                     break;
             }
         }
@@ -214,11 +220,12 @@ namespace Platformer
                     break;
                 case 1:
                     Player.ReleasedByInteraction();
-                    Game.Dialogue.Hide();
                     DialoguePhase = 0;
-
+                    Game.Dialogue.Hide();
                     HideMessage();
+
                     Player.Interaction -= LastWithAssistance;
+                    Inside = false;
                     break;
             }
         }
@@ -239,11 +246,12 @@ namespace Platformer
                     break;
                 case 1:
                     Player.ReleasedByInteraction();
-                    Game.Dialogue.Hide();
                     DialoguePhase = 0;
-
+                    Game.Dialogue.Hide();
                     HideMessage();
+
                     Player.Interaction -= LastNoAssistance;
+                    Inside = false;
                     break;
             }
         }

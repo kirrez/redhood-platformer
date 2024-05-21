@@ -120,11 +120,13 @@ namespace Platformer
                     break;
                 case 1:
                     Player.ReleasedByInteraction();
-                    Game.Dialogue.Hide();
                     DialoguePhase = 0;
+                    Game.Dialogue.Hide();
+                    HideMessage();
 
                     ProgressManager.SetQuest(EQuest.AssistantMegafrog, 1);
                     Player.Interaction -= FirstReplica;
+                    Inside = false;
                     break;
             }
         }
@@ -146,11 +148,13 @@ namespace Platformer
                     break;
                 case 1:
                     Player.ReleasedByInteraction();
-                    Game.Dialogue.Hide();
                     DialoguePhase = 0;
+                    Game.Dialogue.Hide();
+                    HideMessage();
 
                     ProgressManager.SetQuest(EQuest.AssistantMegafrog, 2);
                     Player.Interaction -= SecondReplica;
+                    Inside = false;
                     break;
             }
         }
@@ -170,12 +174,7 @@ namespace Platformer
                     DialoguePhase++;
                     break;
                 case 1:
-                    Player.ReleasedByInteraction();
-                    Game.Dialogue.Hide();
-                    DialoguePhase = 0;
-
                     ProgressManager.SetQuest(EQuest.AssistantMegafrog, 3);
-
                     var health = Mathf.CeilToInt(ProgressManager.GetQuest(EQuest.MegafrogMaxHealth) / 2);
                     ProgressManager.SetQuest(EQuest.MegafrogMaxHealth, health);
 
@@ -184,8 +183,12 @@ namespace Platformer
 
                     AudioManager.PlaySound(ESounds.CursedCampFire);
 
+                    Player.ReleasedByInteraction();
+                    DialoguePhase = 0;
+                    Game.Dialogue.Hide();
                     HideMessage();
                     Player.Interaction -= DealAccepted;
+                    Inside = false;
                     break;
             }
         }
@@ -206,11 +209,12 @@ namespace Platformer
                     break;
                 case 1:
                     Player.ReleasedByInteraction();
-                    Game.Dialogue.Hide();
                     DialoguePhase = 0;
-
+                    Game.Dialogue.Hide();
                     HideMessage();
+
                     Player.Interaction -= DealDeclined;
+                    Inside = false;
                     break;
             }
         }
@@ -231,11 +235,12 @@ namespace Platformer
                     break;
                 case 1:
                     Player.ReleasedByInteraction();
-                    Game.Dialogue.Hide();
                     DialoguePhase = 0;
-
+                    Game.Dialogue.Hide();
                     HideMessage();
+
                     Player.Interaction -= PoisonedButAlive;
+                    Inside = false;
                     break;
             }
         }
@@ -256,11 +261,12 @@ namespace Platformer
                     break;
                 case 1:
                     Player.ReleasedByInteraction();
-                    Game.Dialogue.Hide();
                     DialoguePhase = 0;
-
+                    Game.Dialogue.Hide();
                     HideMessage();
+
                     Player.Interaction -= LastWithAssistance;
+                    Inside = false;
                     break;
             }
         }
@@ -281,11 +287,12 @@ namespace Platformer
                     break;
                 case 1:
                     Player.ReleasedByInteraction();
-                    Game.Dialogue.Hide();
                     DialoguePhase = 0;
-
+                    Game.Dialogue.Hide();
                     HideMessage();
+
                     Player.Interaction -= LastNoAssistance;
+                    Inside = false;
                     break;
             }
         }

@@ -4,9 +4,10 @@ namespace Platformer
 {
     public class UpgradeHealthSpawner : MonoBehaviour
     {
-        public bool ItemPhysics;
+        [SerializeField]
+        private Vector2 JumpForce;
 
-        private EQuest Item;
+        private EQuest Item = EQuest.UpgradeHealth;
 
         private IProgressManager ProgressManager;
         private IResourceManager ResourceManager;
@@ -15,8 +16,6 @@ namespace Platformer
         {
             ProgressManager = CompositionRoot.GetProgressManager();
             ResourceManager = CompositionRoot.GetResourceManager();
-
-            Item = EQuest.UpgradeHealth;
         }
 
         private void OnEnable()
@@ -29,8 +28,10 @@ namespace Platformer
             if (ProgressManager.GetQuest(Item) == 1)
             {
                 var instance = ResourceManager.CreatePrefab<UpgradeHealth, EQuest>(Item);
+                instance.PhysicsOn(true);
+
                 instance.transform.SetParent(gameObject.transform, false);
-                instance.PhysicsOn(ItemPhysics);
+                instance.GetComponent<Rigidbody2D>().AddForce(JumpForce, ForceMode2D.Impulse);
             }
         }
     }

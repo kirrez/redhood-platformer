@@ -4434,12 +4434,12 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ShootingMask_grey
+      name: MaskVert_Gray
       rect:
         serializedVersion: 2
         x: 376
         y: 112
-        width: 33
+        width: 32
         height: 32
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -4455,12 +4455,12 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ShootingMask_blue
+      name: MaskVert_Blue
       rect:
         serializedVersion: 2
-        x: 409
+        x: 408
         y: 112
-        width: 33
+        width: 32
         height: 32
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -4476,12 +4476,12 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ShootingMask_green
+      name: MaskVert_Green
       rect:
         serializedVersion: 2
         x: 376
         y: 80
-        width: 33
+        width: 32
         height: 32
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -4769,6 +4769,174 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: MaskHoriz_Blue
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 80
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9f51d2a8fd2f264e9a91063dedd6405
+      internalID: 431965025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MaskHoriz_Grey
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 48
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4baaaa8e5d929164584b492412df363d
+      internalID: 232091385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MaskHoriz_Green
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 48
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3895aa28ae3023a49b02ca5caa3bed9a
+      internalID: -1952287814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostWall_0
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 360
+        width: 16
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b9bc4e42a856b94e97a4f93e0100fbe
+      internalID: -731660435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostWall_1
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 360
+        width: 16
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f4060b4cbc8ae8488a2fc2b9873a0f1
+      internalID: -1606641592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CursedFlame_0
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 376
+        width: 16
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc284ab92af09f449862972770fa35b1
+      internalID: 1125792211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CursedFlame_1
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 376
+        width: 16
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbdb8147ad96910408ca4ebc7357adf9
+      internalID: -115050906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CursedFlame_2
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 376
+        width: 16
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cad8763591d6034d836589d0d76f542
+      internalID: 548608075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -4837,6 +5005,9 @@ TextureImporter:
       Cloacked_1: 1650267948
       Coin: -1532539009
       Crate: -614448405
+      CursedFlame_0: 1125792211
+      CursedFlame_1: -115050906
+      CursedFlame_2: 548608075
       Danger_sign: -1908153735
       DarkCloudsL1: -1662598905
       DarkCloudsL1_0: 1666325539
@@ -4915,6 +5086,8 @@ TextureImporter:
       FrogHeart_1: -1243356468
       FrogHeart_2: 907619741
       FrogHeart_3: -1463721226
+      GhostWall_0: -731660435
+      GhostWall_1: -1606641592
       HealthBar_Background: 667426782
       HealthBar_Frame: -458936447
       HealthBar_Red: -1302089048
@@ -4948,6 +5121,12 @@ TextureImporter:
       ManBlond_1: 113528172
       ManBrown_0: 2005081732
       ManBrown_1: 964522010
+      MaskHoriz_Blue: 431965025
+      MaskHoriz_Green: -1952287814
+      MaskHoriz_Grey: 232091385
+      MaskVert_Blue: 624509136
+      MaskVert_Gray: 223023099
+      MaskVert_Green: 450195709
       MaxHealthUp: 2022743721
       Megafrog_Icon: -734977053
       MotherPie: -1015853895
@@ -4977,9 +5156,6 @@ TextureImporter:
       Ropes_1: 2084056853
       Ropes_2: 2037492357
       Ropes_3: 860458067
-      ShootingMask_blue: 624509136
-      ShootingMask_green: 450195709
-      ShootingMask_grey: 223023099
       Soldier_0: 390478329
       Soldier_1: -1451179720
       SpikeBullet: 1601082217

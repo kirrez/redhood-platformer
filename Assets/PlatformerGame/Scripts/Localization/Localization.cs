@@ -187,8 +187,9 @@ namespace Platformer
             Texts[ETexts.Commoner_Title] = "* Village Commoner *";
             Texts[ETexts.Gatekeeper_Title] = "* Gatekeeper *";
             Texts[ETexts.Shopkeeper_Title] = "* Shopkeeper *";
-            Texts[ETexts.Commoner1_1] = "Market elevator is not working now, come back later.";
-            Texts[ETexts.Commoner1_2] = "Don't walk around the ruins, it's dangerous!";
+            Texts[ETexts.VillageElevator_1] = "Market elevator is not working now, come back later.";
+            Texts[ETexts.VillageElevator_2] = "The maintenance work has been completed, so you can easily ascend and reach artisan district.";
+            Texts[ETexts.GatekeeperWarning] = "Don't walk around the ruins, it's dangerous!";
             Texts[ETexts.Gatekeeper1_1] = "If you want to pass freely through this gate, go ask the smith to make you a new grey key, since I've lost a spare one.";
             Texts[ETexts.Gatekeeper1_2] = "Be careful, child!";
             Texts[ETexts.CommonerSecret] = "Psst! There is a secret place in the village. You can only reach it by crushing the cursed wall. You obviousely need a holy weapon for it...";
@@ -244,7 +245,7 @@ namespace Platformer
             Texts[ETexts.Assistant_tower1] = "I'm here to assist curious travellers, who find this tower too difficult to traverse.";
             Texts[ETexts.Assistant_tower2_1] = "I can switch on this old rusty platform elevator. For a reasonable price, ofcourse! Talk to me again and bring along ";
             Texts[ETexts.Assistant_tower2_2] = " shiny circles with you so we can make a deal!";
-            Texts[ETexts.Assistant_tower3] = "That's it! OPEN SESAME! Et voila.. ";
+            Texts[ETexts.Assistant_tower3] = "That's it, applying some grease.. and it's working!";
             Texts[ETexts.Assistant_tower4] = "Let's see.. you don't have enough shiny circles! Sorry, no charity, lass.";
             Texts[ETexts.Assistant_tower5] = "Feel free to use it any time you need.";
             Texts[ETexts.Assistant_tower6] = "Hmm, another boring day in a middle of nowhere..";
@@ -253,6 +254,7 @@ namespace Platformer
             Texts[ETexts.Guide_v01_1] = "Hello, my dear! I'm here to guide you right to the final part of your adventure in this version of game. The best thing you can do for now is to visit your mother's house and come back to me.";
             Texts[ETexts.Guide_v01_2] = "I also have gifts for you! Try to use your new axe to deal with these tangled roots, blocking your way. Have fun exploring the Cave Labyrinth location.";
             Texts[ETexts.Guide_v01_3] = "I hope you liked this oldschool platformer and look forward for to the full story, which is under active development ))) Follow the upgrades and thank you for playing!";
+            Texts[ETexts.Guide_v01_remind] = "Use your axe to clear this path!";
 
             Texts[ETexts.Commoner3] = "My Klaus is hunting on the Wolf Trail, deep in the forest. He's brave and experienced, but I'm still worried for him.";
         }
@@ -321,7 +323,7 @@ namespace Platformer
             Texts[ETexts.Father_5] = "Я в порядке, мама тоже. Она по тебе соскучилась, возвращайся скорее!";
             Texts[ETexts.Father_6] = "Грввах, уваах.";
             Texts[ETexts.Father_7] = "О, твой старый топор! Спасибо, я возьму его!";
-            Texts[ETexts.Father_8] = "Ты починил мост? Как здорово! Тогда я побегу домой, до встречи!";
+            Texts[ETexts.Father_8] = "Ты починил мост? Как здорово! Тогда я побегу домой, до встречи!"; // maybe i should remove this..
 
             Texts[ETexts.PieDialogue2_Title] = "* Собранные ингредиенты *";
             Texts[ETexts.DialoguePie2_1] = "- Я принесла всё, что ты просила. Давай скорее готовить! (- о -)/";
@@ -352,8 +354,9 @@ namespace Platformer
             Texts[ETexts.Blacksmith2_3] = "- Хорошо, вот твой ключ, я как раз его закончил.";
             Texts[ETexts.Blacksmith2_4] = "- Эмм... нет, но я стараюсь!";
 
-            Texts[ETexts.Commoner1_1] = "Лифт на рынке сейчас не работает, приходи позже.";
-            Texts[ETexts.Commoner1_2] = "Не играй на развалинах, девочка, там опасно!";
+            Texts[ETexts.VillageElevator_1] = "Лифт на рынке сейчас не работает, приходи позже.";
+            Texts[ETexts.VillageElevator_2] = "Работы по обслуживанию лифта закончены, теперь легко можно попасть в ремесленный квартал.";
+            Texts[ETexts.GatekeeperWarning] = "Не играй на развалинах, девочка, там опасно!";
             Texts[ETexts.Gatekeeper_Title] = "* Привратник *";
             Texts[ETexts.Gatekeeper1_1] = "Если хочешь свободно пройти через эти ворота, иди попроси кузнеца сделать тебе новый серый ключ, а то я потерял запасной.";
             Texts[ETexts.Gatekeeper1_2] = "Будь осторожна, девочка!";
@@ -372,7 +375,7 @@ namespace Platformer
             Texts[ETexts.BrokenLeverTip_Title] = "* Любопытная находка *";
             Texts[ETexts.BrokenLever1] = "Что это за штука такая? Похожа на детальку от какого-то механизма. Пригодится!";
             Texts[ETexts.BrokenLeverInCave_Title] = "* Дверь с переключателем *";
-            Texts[ETexts.BrokenLeverInCave1] = "Это дверь со сломанным выключателем! Хмм.. мне нужно как-то починить выключатель, чтобы попасть внутрь (*__*)";
+            Texts[ETexts.BrokenLeverInCave1] = "Это дверь со сломанным выключателем! Хмм.. мне нужно как-то починить его, чтобы попасть внутрь (*__*)";
             Texts[ETexts.BrokenLeverInCave_HandleNotFound] = "У меня нет нужной вещи для ремонта..";
             Texts[ETexts.BrokenLeverInCave_HandleFound] = "Ура, подходит! Эта штука теперь работает!";
 
@@ -395,25 +398,32 @@ namespace Platformer
             Texts[ETexts.HollyMolly1_10] = "- Perform your show again!.. since I'm your biggest fan!"; //repeats the show, for free ))
 
             Texts[ETexts.ForsakenCamp_Title] = "* Заброшенный лагерь *";
-            Texts[ETexts.ForsakenCamp_1] = "Oh my! I must be lost here! At least I can always come back and have some rest..";
+            Texts[ETexts.ForsakenCamp_1] = "Ой, похоже, я опять заблудилась! Если устану, всегда смогу сюда вернуться..";
 
-            Texts[ETexts.Assistant_Title] = "* Mysterious Assistant *";
-            Texts[ETexts.Assistant_frog1] = "I'm here to assist the brave souls, who find this foul beast too difficult to be dealt with.";
-            Texts[ETexts.Assistant_frog2_1] = "I can sell you strong amphibian poison, which halvens it's strength. For a reasonable price, ofcourse! Talk to me again and bring along ";
-            Texts[ETexts.Assistant_frog2_2] = " shiny circles with you so we can make a deal!";
-            Texts[ETexts.Assistant_frog3] = "That's it, pour the poison into the pond! I wish you a good luck with your daring effort, ha-ha!";
-            Texts[ETexts.Assistant_frog4] = "Let's see.. you don't have enough shiny circles! Sorry, no charity, lass.";
-            Texts[ETexts.Assistant_frog5] = "I belive you can do it!";
-            Texts[ETexts.Assistant_frog6] = "Oh, you did it! Way to go, my dear!";
-            Texts[ETexts.Assistant_frog7] = "I see, you've managed this problem somehow. My congratulations, he-he!";
+            Texts[ETexts.Assistant_Title] = "* Таинственный помощник *";
+            Texts[ETexts.Assistant_frog1] = "Я здесь, чтобы помогать храбрецам, для которых это жуткое чудовище, эмм, слишком жуткое!";
+            Texts[ETexts.Assistant_frog2_1] = "Могу продать тебе яд для земноводных, который уменьшит здоровье чудовища вполовину. По разумной цене, конечно же! Обращайся, если принесешь ";
+            Texts[ETexts.Assistant_frog2_2] = " блестящих кружочков, тогда по рукам!";
+            Texts[ETexts.Assistant_frog3] = "О-о-о, денеж..кхм! кружочки! Давай сюда )) Вот так, выливаем яд в пруд! Удачной охоты тебе, ха-ха!";
+            Texts[ETexts.Assistant_frog4] = "Посмотрим.. недостаточно блестящих кружочков! Прости, девочка, не занимаюсь благотворительностью.";
+            Texts[ETexts.Assistant_frog5] = "Ты сможешь, я верю в твой успех!";
+            Texts[ETexts.Assistant_frog6] = "У тебя получилось, девочка, молодец!";
+            Texts[ETexts.Assistant_frog7] = "Вижу, что ты сама разобралась с этой проблемой. Поздравляю, ха-ха!";
 
-            Texts[ETexts.Assistant_tower1] = "I'm here to assist curious travellers, who find this tower too difficult to traverse.";
-            Texts[ETexts.Assistant_tower2_1] = "I can switch on this old rusty platform elevator. For a reasonable price, ofcourse! Talk to me again and bring along ";
-            Texts[ETexts.Assistant_tower2_2] = " shiny circles with you so we can make a deal!";
-            Texts[ETexts.Assistant_tower3] = "That's it! OPEN SESAME! Et voila.. ";
-            Texts[ETexts.Assistant_tower4] = "Let's see.. you don't have enough shiny circles! Sorry, no charity, lass.";
-            Texts[ETexts.Assistant_tower5] = "Feel free to use it any time you need.";
-            Texts[ETexts.Assistant_tower6] = "Hmm, another boring day in a middle of nowhere..";
+            Texts[ETexts.Assistant_tower1] = "Я здесь, чтобы помогать путешественникам, которые не могут самостоятельно подняться на вершину башни.";
+            Texts[ETexts.Assistant_tower2_1] = "Могу включить этот старый проржавевший лифт наверх. По разумной цене, конечно же! Обращайся, если принесешь ";
+            Texts[ETexts.Assistant_tower2_2] = " блестящих кружочков, тогда по рукам!";
+            Texts[ETexts.Assistant_tower3] = "О-о-о, кружочки! Давай сюда )) Вот так, смазываем механизмы, и теперь все работает!";
+            Texts[ETexts.Assistant_tower4] = "Посмотрим.. недостаточно блестящих кружочков! Прости, девочка, не занимаюсь благотворительностью.";
+            Texts[ETexts.Assistant_tower5] = "Можешь свободно пользоваться лифтом в любое время.";
+            Texts[ETexts.Assistant_tower6] = "Эхх, еще один скучный день у черта на куличках..";
+
+            Texts[ETexts.Guide_v01_Title] = "* Гид версии 0.1 *";
+            Texts[ETexts.Guide_v01_1] = "Привет! Я здесь, чтобы провести тебя к заключительной части приключения в этой версии игры. Красная шапочка, отнеси волшебные конфеты маме и возвращайся сюда.";
+            Texts[ETexts.Guide_v01_2] = "А еще у меня есть для тебя подарки! Новый топор поможет справиться с ветками, преграждающими путь. Удачи в исследовании Пещерного лабиринта!";
+            Texts[ETexts.Guide_v01_3] = "Надеюсь, тебе понравился этот олдскульный платформер, и ты будешь ждать окончания истории, которая сейчас в стадии активной разработки ))) Следи за обновлениями и спасибо за игру!";
+            Texts[ETexts.Guide_v01_remind] = "Попробуй расчистить дорогу с помощью топорика!";
+
 
             Texts[ETexts.Commoner3] = "Мой Клаус охотится на волчьей тропе далеко в лесу. Он смелый и опытный, но я все равно волнуюсь за него.";
         }

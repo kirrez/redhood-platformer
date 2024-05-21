@@ -85,6 +85,7 @@ namespace Platformer
                     HideMessage();
                     Player.Interaction -= OnKeyQuestPhase0;
                     DialoguePhase = 0;
+                    Inside = false;
                     break;
             }
         }
@@ -124,10 +125,7 @@ namespace Platformer
                     break;
                 case 7:
                     Player.ReleasedByInteraction();
-                    Game.Dialogue.Hide();
                     ProgressManager.SetQuest(EQuest.Blacksmith, 2);
-                    HideMessage();
-                    Player.Interaction -= OnKeyQuestPhase1;
 
                     var oreRest = oreAmount - 3;
                     ProgressManager.SetQuest(EQuest.OreCollected, oreRest);
@@ -135,7 +133,12 @@ namespace Platformer
 
                     ProgressManager.SetQuest(EQuest.KeyGrey, 0);
                     Spawner.SpawnItem();
+
+                    Game.Dialogue.Hide();
+                    HideMessage();
                     DialoguePhase = 0;
+                    Player.Interaction -= OnKeyQuestPhase1;
+                    Inside = false;
                     break;
 
                 case 10:
@@ -146,8 +149,9 @@ namespace Platformer
                     Player.ReleasedByInteraction();
                     Game.Dialogue.Hide();
                     HideMessage();
-                    Player.Interaction -= OnKeyQuestPhase1;
                     DialoguePhase = 0;
+                    Player.Interaction -= OnKeyQuestPhase1;
+                    Inside = false;
                     break;
             }
         }

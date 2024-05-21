@@ -37,6 +37,7 @@ namespace Platformer
         private void OnInteraction()
         {
             ProgressManager.SetQuest(EQuest.PlatformSuspended, 1);
+            Player.HoldByInteraction();
             SwitchObstacle();
 
             Vector3 newPosition;
@@ -50,6 +51,7 @@ namespace Platformer
 
             AudioManager.PlaySound(ESounds.BlastShort3);
 
+            Player.ReleasedByInteraction();
             Player.Interaction -= OnInteraction;
             HideMessage();
         }

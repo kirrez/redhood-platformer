@@ -35,7 +35,7 @@ namespace Platformer
             ProgressManager.SetQuest(EQuest.AxeLevel, 0);        // 0
             ProgressManager.SetQuest(EQuest.HolyWaterLevel, 0);  // 0
 
-            ProgressManager.SetQuest(EQuest.MaxLives, 4); // 3
+            ProgressManager.SetQuest(EQuest.MaxLives, 3); // 3
             Player.UpdateMaxLives();
 
             Player.UpdateAllWeaponLevel();

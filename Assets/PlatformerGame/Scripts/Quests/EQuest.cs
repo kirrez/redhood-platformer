@@ -16,7 +16,7 @@ namespace Platformer
         //
 
         SuspensionBridge, //Suspension bridge quest
-        Drawbridge,
+        Drawbridge, // Second bridge with lever in Western Forest
         UpgradeHealth, // repeating quest, giving health upgrades infinitely
         Blacksmith, // giving GREY key for 3 ore
         PlatformSuspended, //quest in mountains
@@ -29,6 +29,8 @@ namespace Platformer
         AssistantTower, // assists with tower in WesternForest for money, mentioned to be used on EASY level.
         Guide_v01, // character with explanation in v 0.1
         StartGameWeaponsReset, // configurates weapons right after tutorial in "TheVillage" stage
+        TheVillageCursedSecret, // accessible when "HolyWaterLevel" becomes > 0
+        Cave13Block, //Permanent Trap in CaveLabyrinth
 
         SwitchHandleItem, // item accessible after defeating Megafrog, for broken lever repair
         CrippledAxeItem, // appears as collectible item in Western Forest
@@ -79,6 +81,7 @@ namespace Platformer
         Cave1Platform,
         Cave6Platform,
         KeyCave3Platform,
+        VillageSecretPlatform,
 
         Mushroom0,
         Mushroom1,
@@ -89,6 +92,7 @@ namespace Platformer
         Blackberry2,
         Blackberry3,
 
+        //Price for 4-6th lives - 5 food. For 7,8 lives - 7 food
         Food00,
         Food01,
         Food02,
@@ -109,6 +113,17 @@ namespace Platformer
         Food17,
         Food18,
         Food19,
+        Food20,
+        Food21,
+        Food22,
+        Food23,
+        Food24,
+        Food25,
+        Food26,
+        Food27,
+        Food28,
+        Food29,
+        Food30,
 
         Ore00,
         Ore01,
@@ -204,6 +219,46 @@ namespace Platformer
         Coin50_58,
         Coin50_59,
         Coin50_60,
+        Coin50_61,
+        Coin50_62,
+        Coin50_63,
+        Coin50_64,
+        Coin50_65,
+        Coin50_66,
+        Coin50_67,
+        Coin50_68,
+        Coin50_69,
+        Coin50_70,
+        Coin50_71,
+        Coin50_72,
+        Coin50_73,
+        Coin50_74,
+        Coin50_75,
+        Coin50_76,
+        Coin50_77,
+        Coin50_78,
+        Coin50_79,
+        Coin50_80,
+        Coin50_81,
+        Coin50_82,
+        Coin50_83,
+        Coin50_84,
+        Coin50_85,
+        Coin50_86,
+        Coin50_87,
+        Coin50_88,
+        Coin50_89,
+        Coin50_90,
+        Coin50_91,
+        Coin50_92,
+        Coin50_93,
+        Coin50_94,
+        Coin50_95,
+        Coin50_96,
+        Coin50_97,
+        Coin50_98,
+        Coin50_99,
+        Coin50_100,
 
         Bag250_00,
         Bag250_01,
@@ -215,6 +270,27 @@ namespace Platformer
         Bag250_07,
         Bag250_08,
         Bag250_09,
+        Bag250_10,
+        Bag250_11,
+        Bag250_12,
+        Bag250_13,
+        Bag250_14,
+        Bag250_15,
+        Bag250_16,
+        Bag250_17,
+        Bag250_18,
+        Bag250_19,
+        Bag250_20,
+        Bag250_21,
+        Bag250_22,
+        Bag250_23,
+        Bag250_24,
+        Bag250_25,
+        Bag250_26,
+        Bag250_27,
+        Bag250_28,
+        Bag250_29,
+        Bag250_30,
 
         Bag600_00,
         Bag600_01,

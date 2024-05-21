@@ -64,6 +64,7 @@ namespace Platformer
                     DialoguePhase = 0;
                     HideMessage();
                     Player.Interaction -= Gatekeeper1;
+                    Inside = false;
                     break;
             }
         }
@@ -88,6 +89,7 @@ namespace Platformer
                     DialoguePhase = 0;
                     HideMessage();
                     Player.Interaction -= Gatekeeper2;
+                    Inside = false;
                     break;
             }
         }

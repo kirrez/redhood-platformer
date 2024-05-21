@@ -58,12 +58,12 @@ namespace Platformer
             //Storage.Save(playerStateToSave);
 
             // Only this for "LOAD TEST CONFIG"
-            //var playerState = LoadTestConfig();
-            //ProgressManager.SetState(playerState);
+            var playerState = LoadTestConfig();
+            ProgressManager.SetState(playerState);
 
             // Only for "START NEW GAME"
-            var playerState = ProgressManager.CreateState(1, "name");
-            ProgressManager.SetState(playerState);
+            //var playerState = ProgressManager.CreateState(1, "name");
+            //ProgressManager.SetState(playerState);
 
             GameOverModel = new GameOverModel();
             GameOverModel.TryingAgain += TryAgain;
@@ -143,9 +143,9 @@ namespace Platformer
             //Got red key
             playerState.SetQuest(EQuest.KeyRed, 1);
             //Upper village testing
-            playerState.SetQuest(EQuest.KeyGrey, 1);
+            //playerState.SetQuest(EQuest.KeyGrey, 1);
             //SetQuest(EQuest.KeyGreen, 1);
-            //Repaired bridge (BearQuest, Suspension bridge)
+            //Repaired bridge
             playerState.SetQuest(EQuest.SuspensionBridge, 3);
 
             //CaveLabyrinth Cave8 : Loc. 1, SP : 16, Conf : 8
@@ -171,9 +171,9 @@ namespace Platformer
 
             // Cave Labyrinth
             //playerState.SetQuest(EQuest.Stage, (int)EStages.CaveLabyrinth);
-            //playerState.SetQuest(EQuest.Location, 2);
-            //playerState.SetQuest(EQuest.SpawnPoint, 24); // - test
-            //playerState.SetQuest(EQuest.Confiner, 10);
+            //playerState.SetQuest(EQuest.Location, 0);
+            //playerState.SetQuest(EQuest.SpawnPoint, 24); //46
+            //playerState.SetQuest(EQuest.Confiner, 1);    //16
 
             // Mountains
             //playerState.SetQuest(EQuest.Stage, (int)EStages.Mountains);
@@ -182,18 +182,24 @@ namespace Platformer
             //playerState.SetQuest(EQuest.Confiner, 0);
 
             // StartOrTutorial
-            playerState.SetQuest(EQuest.Stage, (int)EStages.StartOrTutorial);
+            //playerState.SetQuest(EQuest.Stage, (int)EStages.StartOrTutorial);
+            //playerState.SetQuest(EQuest.Location, 0);
+            //playerState.SetQuest(EQuest.SpawnPoint, 0);
+            //playerState.SetQuest(EQuest.Confiner, 0);
+
+            // The Village
+            playerState.SetQuest(EQuest.Stage, (int)EStages.TheVillage);
             playerState.SetQuest(EQuest.Location, 0);
             playerState.SetQuest(EQuest.SpawnPoint, 0);
             playerState.SetQuest(EQuest.Confiner, 0);
 
-            playerState.SetQuest(EQuest.KnifeLevel, 0);
-            playerState.SetQuest(EQuest.AxeLevel, 0);
-            playerState.SetQuest(EQuest.HolyWaterLevel, 0);
+            playerState.SetQuest(EQuest.KnifeLevel, 1);
+            playerState.SetQuest(EQuest.AxeLevel, 1);
+            playerState.SetQuest(EQuest.HolyWaterLevel, 1);
 
-            playerState.SetQuest(EQuest.MaxLives, 5);
-            playerState.SetQuest(EQuest.FoodCollected, 0);
-            playerState.SetQuest(EQuest.OreCollected, 0);
+            playerState.SetQuest(EQuest.MaxLives, 3);
+            playerState.SetQuest(EQuest.FoodCollected, 13);
+            playerState.SetQuest(EQuest.OreCollected, 2);
 
             //Finished Mother's Pie quest will be with mushrooms 3 and berries 4
             playerState.SetQuest(EQuest.MushroomsCollected, 3);

@@ -80,6 +80,7 @@ namespace Platformer
                     DialoguePhase = 0;
                     HideMessage();
                     Player.Interaction -= Hermit1;
+                    Inside = false;
                     break;
             }
         }
@@ -104,6 +105,7 @@ namespace Platformer
                     DialoguePhase = 0;
                     HideMessage();
                     Player.Interaction -= Hermit2;
+                    Inside = false;
                     break;
             }
         }

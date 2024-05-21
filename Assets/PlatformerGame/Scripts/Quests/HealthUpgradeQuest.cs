@@ -78,12 +78,13 @@ namespace Platformer
                     DialoguePhase++;
                     break;
                 case 5:
+                    ProgressManager.SetQuest(EQuest.UpgradeHealth, 2);
                     Player.ReleasedByInteraction();
                     DialoguePhase = 0;
                     Game.Dialogue.Hide();
-                    ProgressManager.SetQuest(EQuest.UpgradeHealth, 2);
+                    HideMessage();
                     Player.Interaction -= OnFirstInteraction;
-                    Player.Interaction += OnInteraction;
+                    Inside = false;
                     break;
             }
         }
@@ -119,18 +120,19 @@ namespace Platformer
                     DialoguePhase = 6;
                     break;
                 case 6:
-                    Player.ReleasedByInteraction();
-                    DialoguePhase = 0;
-                    Game.Dialogue.Hide();
-                    HideMessage();
-                    Player.Interaction -= OnInteraction;
-
                     var foodRest = foodAmount - upgradeCost;
                     ProgressManager.SetQuest(EQuest.FoodCollected, foodRest);
                     Game.HUD.UpdateResourceAmount();
 
                     ProgressManager.SetQuest(EQuest.UpgradeHealth, 1); //reset value to 1 for spawner
                     Spawner.SpawnItem();
+
+                    Player.ReleasedByInteraction();
+                    DialoguePhase = 0;
+                    Game.Dialogue.Hide();
+                    HideMessage();
+                    Player.Interaction -= OnInteraction;
+                    Inside = false;
                     break;
                 
                 // Insufficient amount :
@@ -144,6 +146,7 @@ namespace Platformer
                     Game.Dialogue.Hide();
                     HideMessage();
                     Player.Interaction -= OnInteraction;
+                    Inside = false;
                     break;
             }
         }

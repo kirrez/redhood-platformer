@@ -12,6 +12,9 @@ namespace Platformer
         [SerializeField]
         private BatSpawner BatSpawner;
 
+        [SerializeField]
+        private List<GhostWall> Walls;
+
         private void OnEnable()
         {
             int spirit = ProgressManager.GetQuest(EQuest.VengefulSpiritDisturbed);
@@ -26,6 +29,7 @@ namespace Platformer
             {
                 Spawner.gameObject.SetActive(true);
                 BatSpawner.gameObject.SetActive(false);
+                SetupWalls();
             }
         }
 
@@ -42,6 +46,14 @@ namespace Platformer
                     Player.Interaction += SpiritAppears;
                     SpiritAppears();
                 }
+            }
+        }
+
+        private void SetupWalls()
+        {
+            foreach (var wall in Walls)
+            {
+                wall.Activate();
             }
         }
 
@@ -71,6 +83,7 @@ namespace Platformer
                     BatSpawner.gameObject.SetActive(false);
                     Spawner.gameObject.SetActive(true);
                     Spawner.Spawn();
+                    SetupWalls();
                     Game.Dialogue.ChangeContent(Localization.Text(ETexts.DisturbSpirit4));
                     DialoguePhase++;
                     break;

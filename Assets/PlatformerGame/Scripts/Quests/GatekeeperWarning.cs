@@ -32,7 +32,7 @@ namespace Platformer
                     Message.StopBlinking();
                     Game.Dialogue.Show();
                     Game.Dialogue.SetDialogueName(Localization.Text(ETexts.Gatekeeper_Title));
-                    Game.Dialogue.ChangeContent(Localization.Text(ETexts.Commoner1_2));
+                    Game.Dialogue.ChangeContent(Localization.Text(ETexts.GatekeeperWarning));
                     DialoguePhase++;
                     break;
                 case 1:
@@ -41,6 +41,7 @@ namespace Platformer
                     DialoguePhase = 0;
                     HideMessage();
                     Player.Interaction -= OnInteraction;
+                    Inside = false;
                     break;
             }
         }

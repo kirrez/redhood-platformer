@@ -82,6 +82,7 @@ namespace Platformer
 
                     ProgressManager.SetQuest(EQuest.MotherPie, 4);
                     Spawner.SpawnItem();
+                    Inside = false;
                     break;
             }
         }

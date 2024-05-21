@@ -4,10 +4,11 @@ namespace Platformer
 {
     public class MotherPieSpawner : MonoBehaviour
     {
-        public bool ItemPhysics;
+        [SerializeField]
+        private Vector2 JumpForce;
 
         private bool IsSpawned;
-        private EQuest Item;
+        private EQuest Item = EQuest.MotherPie;
 
         private IProgressManager ProgressManager;
         private IResourceManager ResourceManager;
@@ -16,8 +17,6 @@ namespace Platformer
         {
             ProgressManager = CompositionRoot.GetProgressManager();
             ResourceManager = CompositionRoot.GetResourceManager();
-
-            Item = EQuest.MotherPie;
         }
 
         private void OnEnable()
@@ -30,8 +29,10 @@ namespace Platformer
             if (ProgressManager.GetQuest(EQuest.MotherPie) == 4 && !IsSpawned)
             {
                 var instance = ResourceManager.CreatePrefab<MotherPie, EQuest>(Item);
+                instance.PhysicsOn(true);
                 instance.transform.SetParent(gameObject.transform, false);
-                instance.PhysicsOn(ItemPhysics);
+                instance.GetComponent<Rigidbody2D>().AddForce(JumpForce, ForceMode2D.Impulse);
+
                 IsSpawned = true;
             }
         }
