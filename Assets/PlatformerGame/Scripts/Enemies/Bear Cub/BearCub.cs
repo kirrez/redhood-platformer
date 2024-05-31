@@ -52,18 +52,36 @@ namespace Platformer
             Body.transform.position = startPosition;
             DirectionX = 1f;
 
-            Animator.PlayWalk();
-            Animator.Begin();
-
             if (DirectionX == 1f) Animator.SetFlip(false);
             if (DirectionX == -1f) Animator.SetFlip(true);
             
-            SetMask(LayerNames.EnemySolid);
-            UnfreezeBody();
-            DamageTrigger.enabled = true;
+            Animator.PlayAppear();
+            Animator.Begin();
 
-            IsRoamingState = true;
-            CurrentState = StateRoaming;
+            SetMask(LayerNames.EnemyInactive);
+            FreezeBody();
+            DamageTrigger.enabled = false;
+
+            Timer = 1f;
+            IsRoamingState = false;
+            CurrentState = StateAppear;
+        }
+
+        private void StateAppear()
+        {
+            Timer -= Time.fixedDeltaTime;
+
+            if (Timer <= 0)
+            {
+                Animator.PlayWalk();
+
+                SetMask(LayerNames.EnemySolid);
+                UnfreezeBody();
+                DamageTrigger.enabled = true;
+
+                IsRoamingState = true;
+                CurrentState = StateRoaming;
+            }
         }
 
         private void OnDisable()

@@ -6,17 +6,13 @@ namespace Platformer.MegafrogBoss
 {
     public class Defeat
     {
-        private IResourceManager ResourceManager;
-        private IDynamicsContainer DynamicsContainer;
         private Megafrog Megafrog;
 
         private float Timer;
-        private int BlastCount = 18;
+        private int BlastCount = 12;
 
         public Defeat(Megafrog megafrog)
         {
-            ResourceManager = CompositionRoot.GetResourceManager();
-            DynamicsContainer = CompositionRoot.GetDynamicsContainer();
             Megafrog = megafrog;
         }
 
@@ -32,13 +28,15 @@ namespace Platformer.MegafrogBoss
             Megafrog.FrogAnimator.StartEndlessBlinking();
             Megafrog.HitBox.Hide();
 
-            DynamicsContainer.DeactivateMain();
+            Megafrog.DynamicsContainer.DeactivateMain();
             Megafrog.DisableBodyDamage();
 
             var game = CompositionRoot.GetGame();
             game.FadeScreen.FadeOut(Color.white, 2f);
 
             Timer = 0.25f;
+            Megafrog.AudioManager.PlayMusic(EMusic.Boss_victory);
+
             SetState(Burning);
         }
 
@@ -46,11 +44,12 @@ namespace Platformer.MegafrogBoss
         {
             Timer -= Time.fixedDeltaTime;
             if (Timer > 0) return;
+
             Timer = 0.25f;
 
-            var instance = ResourceManager.GetFromPool(GFXs.FireBlast);
-            instance.transform.SetParent(DynamicsContainer.Temporary, false); // temporary container
-            DynamicsContainer.AddTemporary(instance);
+            var instance = Megafrog.ResourceManager.GetFromPool(GFXs.FireBlast);
+            instance.transform.SetParent(Megafrog.DynamicsContainer.Temporary, false); // temporary container
+            Megafrog.DynamicsContainer.AddTemporary(instance);
 
             Vector2 effectPosition = Megafrog.Body.transform.position + new Vector3(Random.Range(-2.5f, 2.5f), Random.Range(0f, 3.5f));
             BaseGFX effect = instance.GetComponent<BaseGFX>();

@@ -58,12 +58,12 @@ namespace Platformer
             //Storage.Save(playerStateToSave);
 
             // Only this for "LOAD TEST CONFIG"
-            var playerState = LoadTestConfig();
-            ProgressManager.SetState(playerState);
+            //var playerState = LoadTestConfig();
+            //ProgressManager.SetState(playerState);
 
             // Only for "START NEW GAME"
-            //var playerState = ProgressManager.CreateState(1, "name");
-            //ProgressManager.SetState(playerState);
+            var playerState = ProgressManager.CreateState(1, "name");
+            ProgressManager.SetState(playerState);
 
             GameOverModel = new GameOverModel();
             GameOverModel.TryingAgain += TryAgain;
@@ -160,7 +160,7 @@ namespace Platformer
             // Cave Labyrinth, Campfire boss
             //playerState.SetQuest(EQuest.Stage, (int)EStages.CaveLabyrinth);
             //playerState.SetQuest(EQuest.Location, 2);
-            //playerState.SetQuest(EQuest.SpawnPoint, 24); // - test
+            //playerState.SetQuest(EQuest.SpawnPoint, 19);
             //playerState.SetQuest(EQuest.Confiner, 10);
 
             // Cave Labyrinth, Chapel
@@ -193,9 +193,9 @@ namespace Platformer
             playerState.SetQuest(EQuest.SpawnPoint, 0);
             playerState.SetQuest(EQuest.Confiner, 0);
 
-            playerState.SetQuest(EQuest.KnifeLevel, 1);
-            playerState.SetQuest(EQuest.AxeLevel, 1);
-            playerState.SetQuest(EQuest.HolyWaterLevel, 1);
+            playerState.SetQuest(EQuest.KnifeLevel, 2);
+            playerState.SetQuest(EQuest.AxeLevel, 2);
+            playerState.SetQuest(EQuest.HolyWaterLevel, 0);
 
             playerState.SetQuest(EQuest.MaxLives, 3);
             playerState.SetQuest(EQuest.FoodCollected, 13);

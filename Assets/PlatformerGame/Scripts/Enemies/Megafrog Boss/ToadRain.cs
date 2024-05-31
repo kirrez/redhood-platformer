@@ -6,7 +6,6 @@ namespace Platformer.MegafrogBoss
 {
     public class ToadRain
     {
-        private IResourceManager ResourceManager;
         private Megafrog Megafrog;
 
         private int DropStartOffset = 2;
@@ -17,7 +16,6 @@ namespace Platformer.MegafrogBoss
 
         public ToadRain(Megafrog megafrog)
         {
-            ResourceManager = CompositionRoot.GetResourceManager();
             Megafrog = megafrog;
         }
         private void SetState(Megafrog.State state)
@@ -33,6 +31,8 @@ namespace Platformer.MegafrogBoss
             LaunchCount = 10;
             DropCount = 30;
 
+            //initial sound, like horn or something
+            Megafrog.AudioManager.PlaySound(ESounds.MFrog_CreepyScreech);
             SetState(LaunchToads);
         }
 
@@ -45,42 +45,36 @@ namespace Platformer.MegafrogBoss
             {
                 for (int i = 0; i < 4; i++)
                 {
-                    var instance = ResourceManager.GetFromPool(Enemies.ToadLaunch);
-                    var dynamics = CompositionRoot.GetDynamicsContainer();
-                    //instance.transform.SetParent(dynamics.Transform, false);
-                    dynamics.AddTemporary(instance);
+                    var instance = Megafrog.ResourceManager.GetFromPool(Enemies.ToadLaunch);
+                    Megafrog.DynamicsContainer.AddTemporary(instance);
                     instance.GetComponent<ToadLaunch>().Launch(Megafrog.WaterLevel.position);
                 }
+
+                Megafrog.AudioManager.PlaySound(ESounds.Splash2);
             }
             else if (LaunchCount > 0) 
             {
-                var instance = ResourceManager.GetFromPool(Enemies.ToadLaunch);
-                var dynamics = CompositionRoot.GetDynamicsContainer();
-                //instance.transform.SetParent(dynamics.Transform, false);
-                dynamics.AddTemporary(instance);
+                var instance = Megafrog.ResourceManager.GetFromPool(Enemies.ToadLaunch);
+                Megafrog.DynamicsContainer.AddTemporary(instance);
                 instance.GetComponent<ToadLaunch>().Launch(Megafrog.WaterLevel.position);
+
+                Megafrog.AudioManager.PlaySound(ESounds.Splash2);
             }
 
             if (LaunchCount < DropStartOffset)
             {
-                var instance = ResourceManager.GetFromPool(Enemies.ToadDrop);
-                var dynamics = CompositionRoot.GetDynamicsContainer();
-                //instance.transform.SetParent(dynamics.Transform, false);
-                dynamics.AddTemporary(instance);
+                var instance = Megafrog.ResourceManager.GetFromPool(Enemies.ToadDrop);
+                Megafrog.DynamicsContainer.AddTemporary(instance);
                 instance.GetComponent<ToadDrop>().Initiate(Megafrog.ToadRainLevel.position);
                 
                 if (DropCount % 3 == 0)
                 {
-                    instance = ResourceManager.GetFromPool(Enemies.ToadDrop);
-                    dynamics = CompositionRoot.GetDynamicsContainer();
-                    //instance.transform.SetParent(dynamics.Transform, false);
-                    dynamics.AddTemporary(instance);
+                    instance = Megafrog.ResourceManager.GetFromPool(Enemies.ToadDrop);
+                    Megafrog.DynamicsContainer.AddTemporary(instance);
                     instance.GetComponent<ToadDrop>().Initiate(Megafrog.ToadRainLevel.position);
 
-                    instance = ResourceManager.GetFromPool(Enemies.ToadDrop);
-                    dynamics = CompositionRoot.GetDynamicsContainer();
-                    //instance.transform.SetParent(dynamics.Transform, false);
-                    dynamics.AddTemporary(instance);
+                    instance = Megafrog.ResourceManager.GetFromPool(Enemies.ToadDrop);
+                    Megafrog.DynamicsContainer.AddTemporary(instance);
                     instance.GetComponent<ToadDrop>().Initiate(Megafrog.ToadRainLevel.position);
                 }
             }

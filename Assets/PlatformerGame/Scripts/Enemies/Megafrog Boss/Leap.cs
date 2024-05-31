@@ -6,9 +6,6 @@ namespace Platformer.MegafrogBoss
 {
     public class Leap
     {
-        private IResourceManager ResourceManager;
-        private IPlayer Player;
-
         private Megafrog Megafrog;
         private float Timer;
         private float LeapHorizontal = 418f;
@@ -27,8 +24,6 @@ namespace Platformer.MegafrogBoss
 
         public Leap(Megafrog megafrog)
         {
-            ResourceManager = CompositionRoot.GetResourceManager();
-            Player = CompositionRoot.GetPlayer();
             Megafrog = megafrog;
         }
 
@@ -47,6 +42,8 @@ namespace Platformer.MegafrogBoss
             Megafrog.Body.AddForce(new Vector2(LeapHorizontal * DirectionX, LeapVertical));
             Megafrog.FrogAnimator.PlayJumpRise();
 
+            //
+            Megafrog.AudioManager.PlaySound(ESounds.MFrog_Jump);
             SetState(JumpRising);
         }
 
@@ -57,17 +54,17 @@ namespace Platformer.MegafrogBoss
             Megafrog.HitBox.Show();
             Timer = 1.5f;
 
-            var instance = ResourceManager.GetFromPool(Enemies.BubbleBullet);
-            var dynamics = CompositionRoot.GetDynamicsContainer();
-            //instance.transform.SetParent(dynamics.Main, false);
-            dynamics.AddMain(instance);
+            var instance = Megafrog.ResourceManager.GetFromPool(Enemies.BubbleBullet);
+            Megafrog.DynamicsContainer.AddMain(instance);
 
             instance.transform.position = Megafrog.FirePoint.position;
 
-            var newPos = Player.Position;
+            var newPos = Megafrog.Player.Position;
             newPos.y = newPos.y + 0.5f;
             instance.GetComponent<Rigidbody2D>().velocity = (newPos - Megafrog.FirePoint.position).normalized * ShotForce;
 
+            //
+            Megafrog.AudioManager.PlaySound(ESounds.BulletShot1);
             SetState(FinishShot);
         }
 
@@ -78,6 +75,7 @@ namespace Platformer.MegafrogBoss
 
             Megafrog.FrogAnimator.PlayIdle();
             Megafrog.HitBox.Hide();
+
             SetState(StartLeap);
         }
 
@@ -85,7 +83,7 @@ namespace Platformer.MegafrogBoss
         {
             if (Megafrog.DeltaY < 0)
             {
-                Megafrog.SetMask("EnemySolid");
+                Megafrog.SetMask(LayerNames.EnemySolid);
                 Megafrog.FrogAnimator.PlayJumpFall();
 
                 SetState(JumpFalling);
@@ -106,6 +104,8 @@ namespace Platformer.MegafrogBoss
                     return;
                 }
 
+                //
+                Megafrog.AudioManager.PlaySound(ESounds.MFrog_Landing);
                 SetState(RestFinal);
             }
         }
@@ -119,6 +119,8 @@ namespace Platformer.MegafrogBoss
             Megafrog.HitBox.Show();
             Timer = 1.5f;
 
+            //
+            Megafrog.AudioManager.PlaySound(ESounds.MFrog_Quack);
             SetState(Quack);
         }
 
@@ -144,7 +146,7 @@ namespace Platformer.MegafrogBoss
 
         private void DefinePlayerArea()
         {
-            var playerX = Player.Position.x;
+            var playerX = Megafrog.Player.Position.x;
             var marks = Megafrog.Marks;
 
             if (playerX < marks[0].position.x)
@@ -201,7 +203,7 @@ namespace Platformer.MegafrogBoss
                 if (FrogArea == 0 || FrogArea == 2) TargetArea = 1;
                 if (FrogArea == 1)
                 {
-                    if (Megafrog.Body.transform.position.x <= Player.Position.x)
+                    if (Megafrog.Body.transform.position.x <= Megafrog.Player.Position.x)
                     {
                         TargetArea = 2;
                     }

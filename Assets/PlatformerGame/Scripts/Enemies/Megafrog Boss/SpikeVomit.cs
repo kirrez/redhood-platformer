@@ -6,17 +6,12 @@ namespace Platformer.MegafrogBoss
 {
     public class SpikeVomit
     {
-        private IResourceManager ResourceManager;
-        private IDynamicsContainer DynamicsContainer;
-
         private Megafrog Megafrog;
         private int ShotCount;
         private float Timer;
 
         public SpikeVomit(Megafrog megafrog)
         {
-            ResourceManager = CompositionRoot.GetResourceManager();
-            DynamicsContainer = CompositionRoot.GetDynamicsContainer();
             Megafrog = megafrog;
         }
 
@@ -33,6 +28,8 @@ namespace Platformer.MegafrogBoss
             Timer = 0.45f;
             ShotCount = 12;
 
+            //single sound ?
+            Megafrog.AudioManager.PlaySound(ESounds.MFrog_Roar);
             SetState(Shoot);
         }
 
@@ -42,9 +39,8 @@ namespace Platformer.MegafrogBoss
             if (Timer > 0) return;
 
             Timer = 0.45f;
-            var instance = ResourceManager.GetFromPool(Enemies.SpikedBullet);
-            //instance.transform.SetParent(DynamicsContainer.Transform, false);
-            DynamicsContainer.AddTemporary(instance);
+            var instance = Megafrog.ResourceManager.GetFromPool(Enemies.SpikedBullet);
+            Megafrog.DynamicsContainer.AddTemporary(instance);
             instance.transform.position = Megafrog.FirePoint.position;
 
             if (ShotCount == 10 || ShotCount == 4)
@@ -57,6 +53,7 @@ namespace Platformer.MegafrogBoss
             }
             instance.GetComponent<Rigidbody2D>().AddTorque(10f * -Megafrog.DirectionX, ForceMode2D.Impulse);
 
+            Megafrog.AudioManager.PlaySound(ESounds.EggDrop);
             SetState(Finish);
         }
 

@@ -256,8 +256,14 @@ MonoBehaviour:
   - {fileID: -421680923, guid: 30a63a1ac41609f47975f88f2ec706bf, type: 3}
   - {fileID: -1121714100, guid: 30a63a1ac41609f47975f88f2ec706bf, type: 3}
   - {fileID: -1121714100, guid: 30a63a1ac41609f47975f88f2ec706bf, type: 3}
+  Appear:
+  - {fileID: 1897256570, guid: 30a63a1ac41609f47975f88f2ec706bf, type: 3}
+  - {fileID: -1538530114, guid: 30a63a1ac41609f47975f88f2ec706bf, type: 3}
+  - {fileID: 1897256570, guid: 30a63a1ac41609f47975f88f2ec706bf, type: 3}
+  - {fileID: -1538530114, guid: 30a63a1ac41609f47975f88f2ec706bf, type: 3}
   WalkDelay: 0.25
   DyingDelay: 0.25
+  AppearBlinkDelay: 0.1
 --- !u!1 &1994337951925457809
 GameObject:
   m_ObjectHideFlags: 0

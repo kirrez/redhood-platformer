@@ -6,8 +6,6 @@ namespace Platformer.MegafrogBoss
 {
     public class MultipleShots
     {
-        private IResourceManager ResourceManager;
-
         private Megafrog Megafrog;
         private int ShotCount;
         private float Timer;
@@ -15,7 +13,6 @@ namespace Platformer.MegafrogBoss
 
         public MultipleShots(Megafrog megafrog)
         {
-            ResourceManager = CompositionRoot.GetResourceManager();
             Megafrog = megafrog;
         }
 
@@ -39,10 +36,8 @@ namespace Platformer.MegafrogBoss
             Timer -= Time.fixedDeltaTime;
             if (Timer > 0) return;
 
-            var instance = ResourceManager.GetFromPool(Enemies.BubbleBullet);
-            var dynamics = CompositionRoot.GetDynamicsContainer();
-            //instance.transform.SetParent(dynamics.Transform, false);
-            dynamics.AddMain(instance);
+            var instance = Megafrog.ResourceManager.GetFromPool(Enemies.BubbleBullet);
+            Megafrog.DynamicsContainer.AddMain(instance);
             instance.transform.position = Megafrog.FirePoint.position;
 
             var newPos = Megafrog.Player.Position;
@@ -51,6 +46,7 @@ namespace Platformer.MegafrogBoss
 
             Timer = 1f;
 
+            Megafrog.AudioManager.PlaySound(ESounds.BulletShot1);
             SetState(Finish);
         }
 

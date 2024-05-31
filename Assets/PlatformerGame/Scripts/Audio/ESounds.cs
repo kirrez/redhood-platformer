@@ -49,10 +49,23 @@ namespace Platformer
         Slash2, // Death Flame Effect
         Slash7, //Bear
         EnemyDamage2,
+        EnemyDamage6, //Megafrog damaged
+
         EnemyDying5,
         VoiceBeastUuu, // Bear killed
         VoiceEvilLaughter, // spirit appears
         Splash2,
+        Splash5, // Heavy Spikeballs
+
+        MFrog_Splash, //Megafrog
+        MFrog_Fall,
+        MFrog_Jump,
+        MFrog_Rise,
+        MFrog_Landing,
+        MFrog_Quack,
+        MFrog_Roar,
+        MFrog_CreepyScreech,
+
         Quack1,
         BulletShot1,
         FrogJump,

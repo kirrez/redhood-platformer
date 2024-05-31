@@ -453,27 +453,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: White_Cover
-      rect:
-        serializedVersion: 2
-        x: 280
-        y: 0
-        width: 40
-        height: 48
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 682eac87b2bf42846b2626cab21b88f2
-      internalID: -701195264
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Slash_0
       rect:
         serializedVersion: 2
@@ -558,7 +537,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slash_4
+      name: Empty
       rect:
         serializedVersion: 2
         x: 0
@@ -746,6 +725,48 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Brown_appear
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 0
+        width: 32
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d8608d4cf0e5da4fa05dedef00d1cce
+      internalID: -1021022737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blue_appear
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 48
+        width: 32
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bddd5f2885e5b1849a6ddeec421ae2da
+      internalID: 2009109678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -769,6 +790,7 @@ TextureImporter:
       Blue_Walk0: -1272824702
       Blue_Walk1: -30326315
       Blue_Walk2: -63119533
+      Blue_appear: 2009109678
       BrownDeath_0: -184470753
       BrownDeath_1: -718493588
       BrownDeath_2: -492595974
@@ -781,11 +803,12 @@ TextureImporter:
       Brown_Walk0: 1684512467
       Brown_Walk1: 1934333396
       Brown_Walk2: -1573684608
+      Brown_appear: -1021022737
+      Empty: 1892987332
       Slash_0: -1295192106
       Slash_1: -1155087847
       Slash_2: 480850816
       Slash_3: -439052773
-      Slash_4: 1892987332
       White_Cover: -701195264
   spritePackingTag: 
   pSDRemoveMatte: 0

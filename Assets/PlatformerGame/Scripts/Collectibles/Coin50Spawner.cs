@@ -7,7 +7,7 @@ namespace Platformer
         // base Coin50_00
 
         [SerializeField]
-        [Range(0, 100)]
+        [Range(0, 200)]
         private int ItemIndex;
 
         public bool ItemPhysics;

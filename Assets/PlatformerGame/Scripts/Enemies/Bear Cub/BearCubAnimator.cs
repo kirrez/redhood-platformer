@@ -16,10 +16,28 @@ namespace Platformer
         private List<Sprite> Dying;
 
         [SerializeField]
+        private List<Sprite> Appear;
+
+        [SerializeField]
         private float WalkDelay;
 
         [SerializeField]
         private float DyingDelay;
+
+        [SerializeField]
+        private float AppearBlinkDelay;
+
+        public float PlayAppear()
+        {
+            CurrentAnimation = Appear;
+            Renderer.sprite = CurrentAnimation[0];
+
+            Delay = AppearBlinkDelay;
+            Timer = Delay;
+            Index = 0;
+
+            return (CurrentAnimation.Count - 1) * Delay;
+        }
 
         public float PlayWalk()
         {

@@ -4937,6 +4937,69 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Sign_Brown
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 64
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07273313b6e3d564884746157a3f7aeb
+      internalID: -2124014580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sign_Grey
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 64
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67910be4804d3e64a8d7ec0eca440752
+      internalID: -1944668216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: House_Door_Grey
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 16
+        width: 32
+        height: 40
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6af572022a653474b9a3eba2e62730a9
+      internalID: 23970549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -5099,6 +5162,7 @@ TextureImporter:
       Holder: 479004354
       HolyWaterIcon_1: 818119534
       HolyWaterIcon_2: -111287172
+      House_Door_Grey: 23970549
       JumpSchroom_0: 846953423
       JumpSchroom_1: -1073559129
       Key_Green: 2089127135
@@ -5156,6 +5220,8 @@ TextureImporter:
       Ropes_1: 2084056853
       Ropes_2: 2037492357
       Ropes_3: 860458067
+      Sign_Brown: -2124014580
+      Sign_Grey: -1944668216
       Soldier_0: 390478329
       Soldier_1: -1451179720
       SpikeBullet: 1601082217

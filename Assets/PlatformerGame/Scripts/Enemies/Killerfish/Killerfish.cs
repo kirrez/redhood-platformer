@@ -62,7 +62,7 @@ namespace Platformer
         {
             CurrentState = Decide;
             CurrentAnimation = IdleAnimation;
-            gameObject.layer = LayerMask.NameToLayer("EnemyTransparent");
+            gameObject.layer = LayerMask.NameToLayer(LayerNames.EnemyTransparent);
 
             DamageTrigger.enabled = true;
         }
@@ -193,7 +193,7 @@ namespace Platformer
             AnimationIndex = 0;
             CurrentAnimation = DeathAnimation;
 
-            gameObject.layer = LayerMask.NameToLayer("EnemyInactive");
+            gameObject.layer = LayerMask.NameToLayer(LayerNames.EnemyInactive);
             Rigidbody.velocity = Vector2.zero;
 
 

@@ -6,7 +6,6 @@ namespace Platformer.MegafrogBoss
 {
     public class Disappearance
     {
-        IResourceManager ResourceManager;
         private Megafrog Megafrog;
         private float Timer;
 
@@ -19,7 +18,6 @@ namespace Platformer.MegafrogBoss
 
         public Disappearance(Megafrog megafrog)
         {
-            ResourceManager = CompositionRoot.GetResourceManager();
             Megafrog = megafrog;
         }
 
@@ -29,6 +27,8 @@ namespace Platformer.MegafrogBoss
 
             Megafrog.Body.AddForce(new Vector2(0f, JumpForce));
             Megafrog.FrogAnimator.PlayJumpRise();
+
+            Megafrog.AudioManager.PlaySound(ESounds.MFrog_Rise);
 
             SetState(JumpRising);
         }

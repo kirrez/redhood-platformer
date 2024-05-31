@@ -80,7 +80,7 @@ namespace Platformer
         private void OnHealthChanged()
         {
             Animator.StartBlinking();
-            SetMask("EnemyInactive");
+            SetMask(LayerNames.EnemyInactive);
             DamageTrigger.enabled = false;
 
             AudioManager.PlaySound(ESounds.EnemyDamage2);
@@ -90,7 +90,7 @@ namespace Platformer
         {
             if (Health.GetHitPoints > 0)
             {
-                SetMask("EnemySolid");
+                SetMask(LayerNames.EnemySolid);
                 DamageTrigger.enabled = true;
             }
         }
@@ -122,7 +122,7 @@ namespace Platformer
             Animator.SetNewAnimationPeriod(0.25f);
             Animator.PlayDeath();
 
-            SetMask("EnemyInactive");
+            SetMask(LayerNames.EnemyInactive);
             Body.velocity = Vector2.zero;
             FreezeBody();
             DamageTrigger.enabled = false;
@@ -210,7 +210,7 @@ namespace Platformer
         //All States here
         private void StateInitialJump()
         {
-            SetMask("EnemyTransparent");
+            SetMask(LayerNames.EnemyTransparent);
             SwitchColliderPaths(false);
             Animator.PlayJumpRise();
             Body.AddForce(new Vector2(0f, VeryHighJumpForce));
@@ -252,7 +252,7 @@ namespace Platformer
             {
                 Animator.PlayIdle();
                 SwitchColliderPaths(true);
-                SetMask("EnemySolid");
+                SetMask(LayerNames.EnemySolid);
                 Timer = 1f; // waiting for next move
 
                 AudioManager.PlaySound(ESounds.FrogJump);
@@ -398,7 +398,7 @@ namespace Platformer
                     {
                         Animator.PlayJumpRise();
                         SwitchColliderPaths(false);
-                        SetMask("EnemyTransparent");
+                        SetMask(LayerNames.EnemyTransparent);
                         Body.AddForce(new Vector2(0f, HighJumpForce));
                         CurrentState = StateLeaveJumpRising;
                     }

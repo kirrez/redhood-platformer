@@ -72,15 +72,6 @@ namespace Platformer
             Health.DamageCooldownExpired += OnDamageCooldownExpired;
         }
 
-        private void OnEnable()
-        {
-            StairTimer = 0.5f;
-            SetMask(LayerNames.EnemySolid);
-            UnfreezeBody();
-
-            DamageTrigger.enabled = true;
-        }
-
         private void OnDisable()
         {
             Animator.StopBlinking();
@@ -220,10 +211,34 @@ namespace Platformer
 
         private void StateInitial()
         {
-            Timer = 0f;
-            Animator.PlayWalk();
+            SetMask(LayerNames.EnemyInactive);
+            FreezeBody();
+            DamageTrigger.enabled = false;
+
+            Animator.PlayAppear();
             Animator.Begin();
-            CurrentState = StateRoaming;
+
+            StairTimer = 0.5f;
+            Timer = 1f;
+
+            CurrentState = StateAppear;
+        }
+
+        private void StateAppear()
+        {
+            Timer -= Time.fixedDeltaTime;
+
+            if (Timer <= 0)
+            {
+                SetMask(LayerNames.EnemySolid);
+                UnfreezeBody();
+                DamageTrigger.enabled = true;
+
+                Timer = 0f;
+                Animator.PlayWalk();
+
+                CurrentState = StateRoaming;
+            }
         }
 
         private bool CheckRageZone(float distance)

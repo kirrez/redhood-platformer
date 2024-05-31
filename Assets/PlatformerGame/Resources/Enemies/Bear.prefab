@@ -194,7 +194,13 @@ MonoBehaviour:
   - {fileID: 1252947400, guid: 7f592dc147167e3479ff3d7436fa9b99, type: 3}
   - {fileID: 1252947400, guid: 7f592dc147167e3479ff3d7436fa9b99, type: 3}
   - {fileID: 1252947400, guid: 7f592dc147167e3479ff3d7436fa9b99, type: 3}
+  Appear:
+  - {fileID: -1021022737, guid: 7f592dc147167e3479ff3d7436fa9b99, type: 3}
+  - {fileID: 1892987332, guid: 7f592dc147167e3479ff3d7436fa9b99, type: 3}
+  - {fileID: -1021022737, guid: 7f592dc147167e3479ff3d7436fa9b99, type: 3}
+  - {fileID: 1892987332, guid: 7f592dc147167e3479ff3d7436fa9b99, type: 3}
   AnimationDelay: 0.25
+  AppearBlinkDelay: 0.1
 --- !u!1 &2701388265984829030
 GameObject:
   m_ObjectHideFlags: 0

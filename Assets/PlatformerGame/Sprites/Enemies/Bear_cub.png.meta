@@ -201,7 +201,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mask
+      name: Appear
       rect:
         serializedVersion: 2
         x: 96
@@ -337,13 +337,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      Appear: 1897256570
       Dying_0: 487758183
       Dying_1: 335016069
       Dying_2: -421680923
       Dying_3: 536074902
       Empty: -1538530114
       Jump_0: -510019158
-      Mask: 1897256570
       Walk_0: -1294282598
       Walk_1: -1113652795
       Walk_2: -15314262

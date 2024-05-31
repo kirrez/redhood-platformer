@@ -7,7 +7,7 @@ namespace Platformer
         // base - Replenish00
 
         [SerializeField]
-        [Range(0, 9)]
+        [Range(0, 20)]
         private int ItemIndex;
 
         private int TargetValue;

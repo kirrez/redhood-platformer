@@ -10,5 +10,6 @@ namespace Platformer
         TheVillage_Night,
         Mountains_1,
         Boss_theme,
+        Boss_victory,
     }
 }

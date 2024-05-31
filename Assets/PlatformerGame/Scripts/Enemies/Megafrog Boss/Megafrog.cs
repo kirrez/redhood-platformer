@@ -62,9 +62,13 @@ namespace Platformer
         public int Phase { get; set; }
 
         public delegate void State();
-        State CurrentState = () => { };
+        public State CurrentState = () => { };
 
         public IPlayer Player;
+        public IAudioManager AudioManager;
+        public IProgressManager ProgressManager;
+        public IResourceManager ResourceManager;
+        public IDynamicsContainer DynamicsContainer;
 
         public void SetState(State state)
         {
@@ -90,8 +94,7 @@ namespace Platformer
             Health.SetMaxLives(maxLives);
 
             HitPoints = Health.GetHitPoints;
-            Health.HealthChanged = null;
-            Health.HealthChanged += OnHealthChanged;
+            Health.HealthChanged = OnHealthChanged;
 
             SetState(Appearance.StartFirstTime);
         }
@@ -104,6 +107,7 @@ namespace Platformer
 
             if (HitPoints > 0)
             {
+                AudioManager.PlaySound(ESounds.EnemyDamage6);
                 FrogAnimator.StartBlinking();
             }
 
@@ -116,6 +120,11 @@ namespace Platformer
         private void Awake()
         {
             Player = CompositionRoot.GetPlayer();
+            AudioManager = CompositionRoot.GetAudioManager();
+            ResourceManager = CompositionRoot.GetResourceManager();
+            ProgressManager = CompositionRoot.GetProgressManager();
+            DynamicsContainer = CompositionRoot.GetDynamicsContainer();
+
             Collider = Body.GetComponent<Collider2D>();
             FrogAnimator = GetComponent<FrogAnimator>();
 

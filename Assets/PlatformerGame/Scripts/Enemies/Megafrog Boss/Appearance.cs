@@ -6,8 +6,6 @@ namespace Platformer.MegafrogBoss
 {
     public class Appearance
     {
-        private IDynamicsContainer DynamicsContainer;
-        private IResourceManager ResourceManager;
         private Megafrog Megafrog;
 
         private float Timer;
@@ -21,8 +19,6 @@ namespace Platformer.MegafrogBoss
 
         public Appearance(Megafrog megafrog)
         {
-            DynamicsContainer = CompositionRoot.GetDynamicsContainer();
-            ResourceManager = CompositionRoot.GetResourceManager();
             Megafrog = megafrog;
         }
 
@@ -37,12 +33,12 @@ namespace Platformer.MegafrogBoss
             Megafrog.Body.transform.position = Megafrog.TopRow[choises[chance]].position;
 
             Megafrog.FacePlayer();
-            Megafrog.SetMask("EnemySolid");
+            Megafrog.SetMask(LayerNames.EnemySolid);
             Megafrog.FrogAnimator.PlayJumpFall();
             Timer = 1.2f;
-
             LaunchShardDropper();
 
+            Megafrog.AudioManager.PlaySound(ESounds.Splash5);
             SetState(RestBeforeFall);
         }
 
@@ -65,6 +61,7 @@ namespace Platformer.MegafrogBoss
                 Megafrog.Phase++;
                 Timer = 1f;
 
+                Megafrog.AudioManager.PlaySound(ESounds.MFrog_Landing);
                 SetState(RestFinal);
             }
         }
@@ -88,7 +85,7 @@ namespace Platformer.MegafrogBoss
             Megafrog.Body.transform.position = Megafrog.BottomRow[choises[chance]].position;
 
             Megafrog.FacePlayer();
-            Megafrog.SetMask("EnemyTransparent");
+            Megafrog.SetMask(LayerNames.EnemyTransparent);
             Megafrog.FrogAnimator.PlayJumpRise();
 
             Megafrog.UpdateLastBodyPosition();
@@ -106,7 +103,7 @@ namespace Platformer.MegafrogBoss
             Megafrog.Body.transform.position = Megafrog.BottomRow[0].position;
 
             Megafrog.FacePlayer();
-            Megafrog.SetMask("EnemyTransparent");
+            Megafrog.SetMask(LayerNames.EnemyTransparent);
             Megafrog.FrogAnimator.PlayJumpRise();
             Megafrog.FrogAnimator.Begin(); // first animator run
 
@@ -142,11 +139,13 @@ namespace Platformer.MegafrogBoss
                 LaunchSplash(-3.2f);
                 LaunchSplash(1.5f);
                 LaunchSplash(3.2f);
+
+                Megafrog.AudioManager.PlaySound(ESounds.MFrog_Splash);
             }
 
             if (Megafrog.DeltaY < 0)
             {
-                Megafrog.SetMask("EnemySolid");
+                Megafrog.SetMask(LayerNames.EnemySolid);
                 Megafrog.FrogAnimator.PlayJumpFall();
 
                 SetState(JumpFalling);
@@ -155,28 +154,25 @@ namespace Platformer.MegafrogBoss
 
         private void LaunchSplash(float offsetX)
         {
-            var instance = ResourceManager.GetFromPool(GFXs.BlueSplash);
+            var instance = Megafrog.ResourceManager.GetFromPool(GFXs.BlueSplash);
             var position = Megafrog.WaterLevel.position;
-            //instance.transform.SetParent(DynamicsContainer.Main, false);
-            DynamicsContainer.AddMain(instance);
+            Megafrog.DynamicsContainer.AddMain(instance);
             position.x = Megafrog.Body.transform.position.x + offsetX;
             instance.transform.position = position;
         }
 
         private void LaunchHeavySpikedBalls()
         {
-            var instance = ResourceManager.GetFromPool(Enemies.HeavySpikedBall);
+            var instance = Megafrog.ResourceManager.GetFromPool(Enemies.HeavySpikedBall);
             var marks = Megafrog.Marks;
-            //instance.transform.SetParent(DynamicsContainer.Temporary, false);
-            DynamicsContainer.AddTemporary(instance);
+            Megafrog.DynamicsContainer.AddTemporary(instance);
 
             instance.transform.position = marks[0].position;
             instance.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 25f);
             instance.GetComponent<Rigidbody2D>().AddTorque(10f, ForceMode2D.Impulse);
 
-            instance = ResourceManager.GetFromPool(Enemies.HeavySpikedBall);
-            //instance.transform.SetParent(DynamicsContainer.Transform, false);
-            DynamicsContainer.AddTemporary(instance);
+            instance = Megafrog.ResourceManager.GetFromPool(Enemies.HeavySpikedBall);
+            Megafrog.DynamicsContainer.AddTemporary(instance);
 
             instance.transform.position = marks[1].position;
             instance.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 25f);
@@ -185,9 +181,8 @@ namespace Platformer.MegafrogBoss
 
         private void LaunchShardDropper()
         {
-            var instance = ResourceManager.GetFromPool(GFXs.ShardDropper);
-            //instance.transform.SetParent(DynamicsContainer.Transform, false);
-            DynamicsContainer.AddTemporary(instance);
+            var instance = Megafrog.ResourceManager.GetFromPool(GFXs.ShardDropper);
+            Megafrog.DynamicsContainer.AddTemporary(instance);
 
             ShardDropper dropper = instance.GetComponent<ShardDropper>();
             dropper.Initiate(Megafrog.Body.transform.position);

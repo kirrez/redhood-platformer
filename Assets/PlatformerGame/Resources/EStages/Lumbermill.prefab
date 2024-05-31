@@ -1,36 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &381945472873201898
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 652884044970622081}
-  m_Layer: 0
-  m_Name: GeneralDecorations
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &652884044970622081
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 381945472873201898}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4682247050534509403}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1885853165748492161
 GameObject:
   m_ObjectHideFlags: 0
@@ -158,7 +127,6 @@ Transform:
   - {fileID: 6984975028448592061}
   - {fileID: 574677291695524654}
   - {fileID: 2740901590548084391}
-  - {fileID: 652884044970622081}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -184,7 +152,7 @@ MonoBehaviour:
     - {fileID: 5781002913005511192}
     - {fileID: 6293382477085916761}
     - {fileID: 3548493330744462131}
-    - {fileID: 381945472873201898}
+    - {fileID: 0}
     OriginLocation: []
   Music: 02000000
 --- !u!1 &5317272545900306341
@@ -2887,7 +2855,7 @@ TilemapCollider2D:
   m_UsedByComposite: 1
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
-  m_ExtrusionFactor: 0.00001
+  m_ExtrusionFactor: 0
 --- !u!66 &2971535226938623282
 CompositeCollider2D:
   m_ObjectHideFlags: 0
