@@ -20,24 +20,42 @@ namespace Platformer
 
         protected override void RequirementsCheck()
         {
-            if (ProgressManager.GetQuest(EQuest.Guide_v01) > 0) return;
+            var quest = ProgressManager.GetQuest(EQuest.Guide_v01);
 
-            if (Trigger.bounds.Contains(Player.Position) == true && !Inside)
+            if (quest == 0)
             {
-                Inside = true;
-                Player.Interaction += OnInteraction;
-                // instant beginning
-                OnInteraction();
+                if (Trigger.bounds.Contains(Player.Position) == true && !Inside)
+                {
+                    Inside = true;
+                    Player.Interaction += OnInteractionFirst;
+                    // instant beginning
+                    OnInteractionFirst();
+                }
+
+                if (Trigger.bounds.Contains(Player.Position) == false && Inside)
+                {
+                    Inside = false;
+                    Player.Interaction -= OnInteractionFirst;
+                }
             }
-
-            if (Trigger.bounds.Contains(Player.Position) == false && Inside)
+            
+            if (quest == 1)
             {
-                Inside = false;
-                Player.Interaction -= OnInteraction;
+                if (Trigger.bounds.Contains(Player.Position) == true && !Inside)
+                {
+                    Inside = true;
+                    Player.Interaction += OnInteractionLast;
+                }
+
+                if (Trigger.bounds.Contains(Player.Position) == false && Inside)
+                {
+                    Inside = false;
+                    Player.Interaction -= OnInteractionLast;
+                }
             }
         }
 
-        private void OnInteraction()
+        private void OnInteractionFirst()
         {
             var Game = CompositionRoot.GetGame();
 
@@ -75,7 +93,31 @@ namespace Platformer
                     HideMessage();
                     Inside = false;
                     ProgressManager.SetQuest(EQuest.Guide_v01, 1);
-                    Player.Interaction -= OnInteraction;
+                    Player.Interaction -= OnInteractionFirst;
+                    break;
+            }
+        }
+
+        private void OnInteractionLast()
+        {
+            var Game = CompositionRoot.GetGame();
+
+            switch (DialoguePhase)
+            {
+                case 0:
+                    Player.HoldByInteraction();
+                    Game.Dialogue.Show();
+                    Game.Dialogue.SetDialogueName(Localization.Text(ETexts.Guide_v01_Title));
+                    Game.Dialogue.ChangeContent(Localization.Text(ETexts.Guide_v01_remind));
+                    DialoguePhase++;
+                    break;
+                case 1:
+                    Player.ReleasedByInteraction();
+                    DialoguePhase = 0;
+                    Game.Dialogue.Hide();
+                    HideMessage();
+                    Inside = false;
+                    Player.Interaction -= OnInteractionLast;
                     break;
             }
         }

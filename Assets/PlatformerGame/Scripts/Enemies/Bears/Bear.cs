@@ -21,6 +21,7 @@ namespace Platformer
         [SerializeField]
         private Collider2D DamageTrigger;
 
+        private float AppearanceDuration = 1f;
         private BearAnimator Animator;
         private Collider2D Collider;
 
@@ -153,11 +154,12 @@ namespace Platformer
             gameObject.SetActive(false);
         }
 
-        public void Initiate(float direction, Vector2 startPosition)
+        public void Initiate(float direction, Vector2 startPosition, float duration)
         {
             DirectionX = direction;
             CheckDirection();
             Body.transform.position = startPosition;
+            AppearanceDuration = duration;
 
             CurrentState = StateInitial;
         }
@@ -211,7 +213,7 @@ namespace Platformer
             Animator.Begin();
 
             StairTimer = 0.5f;
-            Timer = 1f;
+            Timer = AppearanceDuration;
 
             CurrentState = StateAppear;
         }

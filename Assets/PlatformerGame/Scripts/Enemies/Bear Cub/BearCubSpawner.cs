@@ -16,6 +16,9 @@ namespace Platformer
         private float RespawnCooldown;
 
         [SerializeField]
+        private float AppearanceDuration = 1f;
+
+        [SerializeField]
         private bool AlwaysSpawn;
 
         private IDynamicsContainer DynamicsContainer;
@@ -65,7 +68,7 @@ namespace Platformer
                 var instance = ResourceManager.GetFromPool(Enemies.BearCub);
                 DynamicsContainer.AddEnemy(instance);
                 BearCub BearCub = instance.GetComponent<BearCub>();
-                BearCub.Initiate(SpawnPoint.position);
+                BearCub.Initiate(SpawnPoint.position, AppearanceDuration);
 
                 IsSpawned = true;
                 BearCub.Killed -= OnBearKilled;

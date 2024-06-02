@@ -11,9 +11,12 @@ namespace Platformer
 
         [SerializeField]
         private float RespawnCooldown = 3f;
+        
         [SerializeField]
         private int MaxSpawnCount = 2;
-        
+
+        [SerializeField]
+        private float AppearanceDuration = 1f;
 
         private IDynamicsContainer DynamicsContainer;
         private IResourceManager ResourceManager;
@@ -83,7 +86,7 @@ namespace Platformer
                 DynamicsContainer.AddEnemy(instance);
                 Bear Bear = instance.GetComponent<Bear>();
 
-                Bear.Initiate(direction, SpawnPoint.transform.position);
+                Bear.Initiate(direction, SpawnPoint.transform.position, AppearanceDuration);
                 Bear.Killed -= OnBearKilled;
                 Bear.Killed += OnBearKilled;
             }

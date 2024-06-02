@@ -21,6 +21,7 @@ namespace Platformer
         private Health Health;
 
         private BearCubAnimator Animator;
+        //private float AppearanceDuration;
 
         delegate void State();
         State CurrentState = () => { };
@@ -47,7 +48,7 @@ namespace Platformer
             Health.HealthChanged += OnHealthChanged;
             Health.DamageCooldownExpired += OnDamageCooldownExpired;
         }
-        public void Initiate(Vector2 startPosition)
+        public void Initiate(Vector2 startPosition, float appearanceDuration)
         {
             Body.transform.position = startPosition;
             DirectionX = 1f;
@@ -61,8 +62,9 @@ namespace Platformer
             SetMask(LayerNames.EnemyInactive);
             FreezeBody();
             DamageTrigger.enabled = false;
+            //AppearanceDuration = appearanceDuration;
 
-            Timer = 1f;
+            Timer = appearanceDuration;
             IsRoamingState = false;
             CurrentState = StateAppear;
         }
