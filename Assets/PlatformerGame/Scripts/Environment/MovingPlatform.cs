@@ -10,6 +10,9 @@ namespace Platformer
         private Vector2 Velocity;
         private IPlayer Player;
 
+        private EPlatformVerticalDirection Direction;
+        private Vector2 LastPosition;
+
         [SerializeField]
         private Collider2D ComeThroughTrigger;
 
@@ -26,9 +29,15 @@ namespace Platformer
             Player = CompositionRoot.GetPlayer();
         }
 
+        private void OnEnable()
+        {
+            LastPosition = transform.position;
+        }
+
         protected override void FixedUpdate()
         {
             var distance = Vector2.Distance(Waypoints[Index].position, transform.position);
+            
             if ( distance > 0.1f)
             {
                 Velocity = (Waypoints[Index].position - transform.position).normalized * Force;
@@ -49,9 +58,11 @@ namespace Platformer
                 {
                     Index = 0;
                 }
-
-
             }
+
+            CheckVerticalDirection();
+            LastPosition = transform.position; // update last position
+
 
             if (!IsActive) return;
 
@@ -72,6 +83,29 @@ namespace Platformer
                 gameObject.layer = (int)Layers.PlatformOneWay;
                 IsActive = false;
             }
+        }
+
+        private void CheckVerticalDirection()
+        {
+            if (LastPosition.y == transform.position.y)
+            {
+                Direction = EPlatformVerticalDirection.Still;
+            }
+
+            if (LastPosition.y < transform.position.y)
+            {
+                Direction = EPlatformVerticalDirection.Upward;
+            }
+
+            if (LastPosition.y > transform.position.y)
+            {
+                Direction = EPlatformVerticalDirection.Downward;
+            }
+        }
+
+        public EPlatformVerticalDirection GetDirection()
+        {
+            return Direction;
         }
     }
 }

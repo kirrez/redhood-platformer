@@ -9,7 +9,7 @@ namespace Platformer
         [SerializeField]
         private GameObject Character;
 
-        private int PoisonPrice = 100;
+        private int PoisonPrice = 3000;
 
         protected override void RequirementsCheck()
         {
@@ -75,6 +75,11 @@ namespace Platformer
                     Player.Interaction -= FirstReplica;
                 }
 
+                if (quest == 1 && megafrog == 0)
+                {
+                    Player.Interaction -= SecondReplica;
+                }
+
                 if (quest > 0 && quest != 4 && megafrog == 1)
                 {
                     Player.Interaction -= LastNoAssistance;
@@ -125,8 +130,8 @@ namespace Platformer
                     HideMessage();
 
                     ProgressManager.SetQuest(EQuest.AssistantMegafrog, 1);
-                    Player.Interaction -= FirstReplica;
                     Inside = false;
+                    Player.Interaction -= FirstReplica;
                     break;
             }
         }

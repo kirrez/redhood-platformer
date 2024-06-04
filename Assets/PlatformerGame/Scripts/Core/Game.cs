@@ -4,8 +4,6 @@ namespace Platformer
 {
     public class Game : MonoBehaviour, IGame
     {
-        //private IPlayer Player;
-        //private IResourceManager ResourceManager;
         private IProgressManager ProgressManager;
         private IDynamicsContainer DynamicsContainer;
         private IAudioManager AudioManager;
@@ -188,18 +186,18 @@ namespace Platformer
             //playerState.SetQuest(EQuest.Confiner, 0);
 
             // The Village
-            playerState.SetQuest(EQuest.Stage, (int)EStages.TheVillage);
+            playerState.SetQuest(EQuest.Stage, (int)EStages.WesternForest);
             playerState.SetQuest(EQuest.Location, 0);
-            playerState.SetQuest(EQuest.SpawnPoint, 0);
+            playerState.SetQuest(EQuest.SpawnPoint, 4);
             playerState.SetQuest(EQuest.Confiner, 0);
 
-            playerState.SetQuest(EQuest.KnifeLevel, 2);
-            playerState.SetQuest(EQuest.AxeLevel, 2);
+            playerState.SetQuest(EQuest.KnifeLevel, 1);
+            playerState.SetQuest(EQuest.AxeLevel, 0);
             playerState.SetQuest(EQuest.HolyWaterLevel, 0);
 
             playerState.SetQuest(EQuest.MaxLives, 3);
-            playerState.SetQuest(EQuest.FoodCollected, 13);
-            playerState.SetQuest(EQuest.OreCollected, 2);
+            playerState.SetQuest(EQuest.FoodCollected, 0);
+            playerState.SetQuest(EQuest.OreCollected, 0);
 
             //Finished Mother's Pie quest will be with mushrooms 3 and berries 4
             playerState.SetQuest(EQuest.MushroomsCollected, 3);

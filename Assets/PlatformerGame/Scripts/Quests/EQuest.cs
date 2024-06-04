@@ -31,6 +31,7 @@ namespace Platformer
         StartGameWeaponsReset, // configurates weapons right after tutorial in "TheVillage" stage
         TheVillageCursedSecret, // accessible when "HolyWaterLevel" becomes > 0
         Cave13Block, //Permanent Trap in CaveLabyrinth
+        ZombiePit, // wicked growling from a pit in a Key Cave 1
 
         SwitchHandleItem, // item accessible after defeating Megafrog, for broken lever repair
         CrippledAxeItem, // appears as collectible item in Western Forest

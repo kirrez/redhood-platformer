@@ -11,5 +11,6 @@ namespace Platformer
         Mountains_1,
         Boss_theme,
         Boss_victory,
+        Flower_Fields,
     }
 }

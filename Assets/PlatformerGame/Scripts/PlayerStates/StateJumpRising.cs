@@ -41,7 +41,25 @@ namespace Platformer.PlayerStates
             // Check MovingPlatform again after cooldown
             if (Timer <= 0)
             {
-                Model.Grounded(LayerMasks.Platforms);
+                // Model.Grounded(LayerMasks.PlatformOneWay);
+
+                // 02.06.2024 update of MovingPlatform behaviour
+                if (Model.Grounded(LayerMasks.PlatformOneWay))
+                {
+                    Model.StickToPlatform();
+                    if (Model.Horizontal == 0)
+                    {
+                        Model.Animations.Idle();
+                        Model.SetState(EPlayerStates.Idle);
+                    }
+                    
+                    if (Model.Horizontal != 0)
+                    {
+                        Model.Animations.Walk();
+                        Model.SetState(EPlayerStates.Walk);
+                    }
+                }
+                // update
             }
 
             // State Walk, while in jump on a steep slope  "Solid"

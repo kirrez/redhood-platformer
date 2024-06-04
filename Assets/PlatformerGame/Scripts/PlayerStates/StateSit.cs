@@ -26,7 +26,7 @@ namespace Platformer.PlayerStates
             base.FixedUpdate();
 
             // Carried by MovingPlatform
-            if (Model.Grounded(LayerMasks.Platforms))
+            if (Model.Grounded(LayerMasks.PlatformOneWay))
             {
                 Model.StickToPlatform();
             }

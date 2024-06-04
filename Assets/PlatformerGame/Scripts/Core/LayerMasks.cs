@@ -16,6 +16,6 @@ namespace Platformer
 
         public static readonly LayerMask Walkable = Solid + OneWay + PlatformOneWay;
 
-        public static readonly LayerMask Platforms = PlatformOneWay;
+        //public static readonly LayerMask Platforms = PlatformOneWay;
     }
 }

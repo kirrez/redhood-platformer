@@ -12,7 +12,7 @@ namespace Platformer
         [SerializeField]
         private PlatformActivation PlatformActivation;
 
-        private int PassPrice = 250;
+        private int PassPrice = 1000;
 
         protected override void RequirementsCheck()
         {
@@ -66,6 +66,11 @@ namespace Platformer
                 if (quest == 0)
                 {
                     Player.Interaction -= FirstReplica;
+                }
+
+                if (quest == 1 && elevator == 0)
+                {
+                    Player.Interaction -= SecondReplica;
                 }
 
                 if (quest > 0 && quest != 3 && elevator == 1)

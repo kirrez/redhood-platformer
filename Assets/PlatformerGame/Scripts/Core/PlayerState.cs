@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 public class PlayerState : IPlayerState
 {
-    public int ID { get; set; }
-    public string Name { get; set; }
-    public float ElapsedTime { get; set; }
+    public int ID { get; set; } //slot 1,2 or 3
+    public string Name { get; set; } // name of a game slot
+    public float ElapsedTime { get; set; } // time spent in game
 
     private Dictionary<EQuest, int> Quests = new Dictionary<EQuest, int>();
 

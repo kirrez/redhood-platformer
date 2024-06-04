@@ -76,7 +76,6 @@ namespace Platformer
         public void StopBlinking()
         {
             Text.enabled = true;
-            CurrentState = null;
             CurrentState = () => { };
         }
 

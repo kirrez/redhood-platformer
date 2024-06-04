@@ -45,9 +45,23 @@ namespace Platformer.PlayerStates
             }
 
             // Trying to stick..
-            if (Model.Grounded(LayerMasks.Platforms))
+            if (Model.Grounded(LayerMasks.PlatformOneWay))
             {
                 Model.StickToPlatform();
+                Model.PushDown();
+                //update
+                if (Model.Horizontal == 0)
+                {
+                    Model.Animations.Idle();
+                    Model.SetState(EPlayerStates.Idle);
+                }
+
+                if (Model.Horizontal != 0)
+                {
+                    Model.Animations.Walk();
+                    Model.SetState(EPlayerStates.Walk);
+                }
+                //
             }
 
 

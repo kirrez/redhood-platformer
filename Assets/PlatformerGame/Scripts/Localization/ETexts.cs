@@ -131,5 +131,9 @@ namespace Platformer
         Guide_v01_2,
         Guide_v01_3,
         Guide_v01_remind,
+
+        ZombiePit_Title,
+        ZombiePit_1,
+        ZombiePit_2,
     }
 }

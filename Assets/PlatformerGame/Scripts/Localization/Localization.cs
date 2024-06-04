@@ -252,11 +252,15 @@ namespace Platformer
 
             Texts[ETexts.Guide_v01_Title] = "* Guide v 0.1 *";
             Texts[ETexts.Guide_v01_1] = "Hello, my dear! I'm here to guide you right to the final part of your adventure in this version of game. The best thing you can do for now is to visit your mother's house and come back to me.";
-            Texts[ETexts.Guide_v01_2] = "I also have gifts for you! Try to use your new axe to deal with these tangled roots, blocking your way. Have fun exploring the Cave Labyrinth location.";
+            Texts[ETexts.Guide_v01_2] = "I also have a gift for you! Have fun exploring the Cave Labyrinth location.";
             Texts[ETexts.Guide_v01_3] = "I hope you liked this oldschool platformer and look forward for to the full story, which is under active development ))) Follow the upgrades and thank you for playing!";
-            Texts[ETexts.Guide_v01_remind] = "Use your axe to clear this path!";
+            Texts[ETexts.Guide_v01_remind] = "Try to get back home with a green key!";
 
             Texts[ETexts.Commoner3] = "My Klaus is hunting on the Wolf Trail, deep in the forest. He's brave and experienced, but I'm still worried for him.";
+
+            Texts[ETexts.ZombiePit_Title] = "* Bottomless Pit *";
+            Texts[ETexts.ZombiePit_1] = "Oh...";
+            Texts[ETexts.ZombiePit_2] = "Good things won't howl creepy from some dark pit in a desolate cave..";
         }
 
         private void LoadRussian()
@@ -420,12 +424,16 @@ namespace Platformer
 
             Texts[ETexts.Guide_v01_Title] = "* Гид версии 0.1 *";
             Texts[ETexts.Guide_v01_1] = "Привет! Я здесь, чтобы провести тебя к заключительной части приключения в этой версии игры. Красная шапочка, отнеси волшебные конфеты маме и возвращайся сюда.";
-            Texts[ETexts.Guide_v01_2] = "А еще у меня есть для тебя подарки! Новый топор поможет справиться с ветками, преграждающими путь. Удачи в исследовании Пещерного лабиринта!";
+            Texts[ETexts.Guide_v01_2] = "А еще у меня есть для тебя подарок! Удачи в исследовании пещерного лабиринта!";
             Texts[ETexts.Guide_v01_3] = "Надеюсь, тебе понравился этот олдскульный платформер, и ты будешь ждать окончания истории, которая сейчас в стадии активной разработки ))) Следи за обновлениями и спасибо за игру!";
-            Texts[ETexts.Guide_v01_remind] = "Попробуй расчистить дорогу с помощью топорика!";
+            Texts[ETexts.Guide_v01_remind] = "Попробуй вернуться домой с зелёным ключом!";
 
 
             Texts[ETexts.Commoner3] = "Мой Клаус охотится на волчьей тропе далеко в лесу. Он смелый и опытный, но я все равно волнуюсь за него.";
+
+            Texts[ETexts.ZombiePit_Title] = "* Глубокая яма *";
+            Texts[ETexts.ZombiePit_1] = "Охх...";
+            Texts[ETexts.ZombiePit_2] = "Добрые вещи не воют жутко из какой-то темной ямы в заброшенной пещере..";
         }
     }
 }

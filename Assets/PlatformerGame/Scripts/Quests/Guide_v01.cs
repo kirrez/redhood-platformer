@@ -44,12 +44,14 @@ namespace Platformer
                 if (Trigger.bounds.Contains(Player.Position) == true && !Inside)
                 {
                     Inside = true;
+                    ShowMessage(Localization.Label(ELabels.Talk));
                     Player.Interaction += OnInteractionLast;
                 }
 
                 if (Trigger.bounds.Contains(Player.Position) == false && Inside)
                 {
                     Inside = false;
+                    HideMessage();
                     Player.Interaction -= OnInteractionLast;
                 }
             }
@@ -72,14 +74,14 @@ namespace Platformer
                     Game.Dialogue.ChangeContent(Localization.Text(ETexts.Guide_v01_2));
                     DialoguePhase++;
                     ProgressManager.SetQuest(EQuest.FarmerKnifeItem, 1);
-                    ProgressManager.SetQuest(EQuest.SharpenedAxeItem, 1);
+                    //ProgressManager.SetQuest(EQuest.SharpenedAxeItem, 1);
                     KnifeSpawner.SpawnItem();
-                    AxeSpawner.SpawnItem();
+                    //AxeSpawner.SpawnItem();
 
                     //just in case you forget about key
-                    ProgressManager.SetQuest(EQuest.Blacksmith, 2);
-                    ProgressManager.SetQuest(EQuest.KeyGrey, 0);
-                    KeySpawner.SpawnItem();
+                    //ProgressManager.SetQuest(EQuest.Blacksmith, 2);
+                    //ProgressManager.SetQuest(EQuest.KeyGrey, 0);
+                    //KeySpawner.SpawnItem();
 
                     break;
                 case 2:
@@ -106,6 +108,7 @@ namespace Platformer
             {
                 case 0:
                     Player.HoldByInteraction();
+                    Message.StopBlinking();
                     Game.Dialogue.Show();
                     Game.Dialogue.SetDialogueName(Localization.Text(ETexts.Guide_v01_Title));
                     Game.Dialogue.ChangeContent(Localization.Text(ETexts.Guide_v01_remind));
@@ -116,6 +119,7 @@ namespace Platformer
                     DialoguePhase = 0;
                     Game.Dialogue.Hide();
                     HideMessage();
+
                     Inside = false;
                     Player.Interaction -= OnInteractionLast;
                     break;

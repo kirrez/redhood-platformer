@@ -73,5 +73,6 @@ namespace Platformer
         EggCrush,
         EggDrop,
         Flames2, // spirit pursuing
+        Zombie_2, // Zombie Pit
     }
 }
