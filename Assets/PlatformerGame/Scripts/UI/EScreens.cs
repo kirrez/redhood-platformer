@@ -9,6 +9,11 @@ namespace Platformer
         FadeScreenView,
         DialogueView,
         GameOverView,
-        HUDView
+        HUDView,
+
+        TitleScreenView,
+        PlayScreenView,
+        SettingsScreenView,
+        CreditsScreenView,
     }
 }

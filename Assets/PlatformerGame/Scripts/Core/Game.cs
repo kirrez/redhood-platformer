@@ -8,8 +8,8 @@ namespace Platformer
         private IDynamicsContainer DynamicsContainer;
         private IAudioManager AudioManager;
         private INavigation Navigation;
-        private IPlayer Player;
         private IStorage Storage;
+        private IPlayer Player;
 
         public DialogueModel Dialogue => DialogueModel;
         private DialogueModel DialogueModel;
@@ -22,6 +22,18 @@ namespace Platformer
 
         public HUDModel HUD => HUDModel;
         private HUDModel HUDModel;
+
+        public TitleScreenModel TitleScreen => TitleScreenModel;
+        private TitleScreenModel TitleScreenModel;
+
+        public PlayScreenModel PlayScreen => PlayScreenModel;
+        private PlayScreenModel PlayScreenModel;
+
+        public CreditsScreenModel CreditsScreen => CreditsScreenModel;
+        private CreditsScreenModel CreditsScreenModel;
+
+        public SettingsScreenModel SettingsScreen => SettingsScreenModel;
+        private SettingsScreenModel SettingsScreenModel;
 
         private void Awake()
         {
@@ -63,34 +75,103 @@ namespace Platformer
             var playerState = ProgressManager.CreateState(1, "name");
             ProgressManager.SetState(playerState);
 
+            // Title
+            TitleScreenModel = new TitleScreenModel();
+            TitleScreen.Show();
+            TitleScreenModel.ClickingPlay += FromTitleToPlay;
+            TitleScreenModel.ClickingSettings += FromTitleToSettings;
+            TitleScreenModel.ClickingCredits += FromTitleToCredits;
+            TitleScreenModel.ClickingQuit += QuitApplication;
+
+            // Play
+            PlayScreenModel = new PlayScreenModel();
+            PlayScreenModel.ClickingBackToMenu += FromPlayToTitle;
+            PlayScreen.Hide();
+
+            // Credits
+            CreditsScreenModel = new CreditsScreenModel();
+            CreditsScreenModel.ClickingBackToMenu += FromCreditsToTitle;
+            CreditsScreen.Hide();
+
+            // Settings
+            SettingsScreenModel = new SettingsScreenModel();
+            SettingsScreenModel.ClickingBackToMenu += FromSettingsToTitle;
+            SettingsScreen.Hide();
+            
+            //-----------------
             GameOverModel = new GameOverModel();
             GameOverModel.TryingAgain += TryAgain;
-            GameOverModel.Hide();
+            GameOver.Hide();
 
             DialogueModel = new DialogueModel();
-            DialogueModel.Hide();
-            
-            // as the last screen on MenuCanvas it can be used for fading menues too
-            FadeScreenModel = new FadeScreenModel();
-            FadeScreenModel.Show();
+            Dialogue.Hide();
 
             HUDModel = new HUDModel();
-            HUDModel.Show();//in StartGame
-            HUDModel.SetMaxLives(ProgressManager.GetQuest(EQuest.MaxLives));
-            HUDModel.UpdateResourceAmount();
+            HUD.Hide();
 
-            Player = CompositionRoot.GetPlayer();
-            Player.Initiate(this);
-            Player.Revive();
+            // as the last screen on MenuCanvas it can be used for fading menues too
+            FadeScreenModel = new FadeScreenModel();
+            FadeScreen.Hide();
+
+            // in the beginning of Game
+            //HUD.Show();
+            //FadeScreen.Show();
+            //HUD.SetMaxLives(ProgressManager.GetQuest(EQuest.MaxLives));
+            //HUD.UpdateResourceAmount();
+
+            //Player = CompositionRoot.GetPlayer();
+            //Player.Initiate(this);
+            //Player.Revive();
 
             //should be in "StartGame" and "ContinueGame"
-            LoadPlayerLocation();
+            //LoadPlayerLocation();
+        }
+
+        public void FromPlayToTitle()
+        {
+            PlayScreen.Hide();
+            TitleScreen.Show();
+        }
+
+        public void FromSettingsToTitle()
+        {
+            SettingsScreen.Hide();
+            TitleScreen.Show();
+        }
+
+        public void FromCreditsToTitle()
+        {
+            CreditsScreen.Hide();
+            TitleScreen.Show();
+        }
+
+        public void FromTitleToPlay()
+        {
+            TitleScreen.Hide();
+            PlayScreen.Show();
+        }
+
+        public void FromTitleToSettings()
+        {
+            TitleScreen.Hide();
+            SettingsScreen.Show();
+        }
+
+        public void FromTitleToCredits()
+        {
+            TitleScreen.Hide();
+            CreditsScreen.Show();
+        }
+
+        public void QuitApplication()
+        {
+            Application.Quit();
         }
 
         public void GameOverMenu()
         {
-            HUDModel.Hide();
-            GameOverModel.Show();
+            HUD.Hide();
+            GameOver.Show();
         }
 
         private void LoadPlayerLocation()
@@ -113,13 +194,13 @@ namespace Platformer
             ProgressManager.RefillRenewables();
             LoadPlayerLocation();
 
-            GameOverModel.Hide();
-            HUDModel.Show();
+            GameOver.Hide();
+            HUD.Show();
             Player.Revive();
             AudioManager.ReplayMusic();
 
-            FadeScreenModel.DelayBefore(Color.black, 1f);
-            FadeScreenModel.FadeOut(Color.black, 1f);
+            FadeScreen.DelayBefore(Color.black, 1f);
+            FadeScreen.FadeOut(Color.black, 1f);
         }
 
         private void SaveGame()

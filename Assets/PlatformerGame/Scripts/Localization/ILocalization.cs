@@ -17,5 +17,7 @@ namespace Platformer
         string Label(ELabels name);
 
         void LoadLocalization(ELocalizations localization);
+
+        ELocalizations GetLocalization();
     }
 }

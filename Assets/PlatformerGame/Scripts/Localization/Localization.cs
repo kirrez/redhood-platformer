@@ -11,6 +11,8 @@ namespace Platformer
         private Dictionary<EUtilitary, string> Utilitaries = new Dictionary<EUtilitary, string>();
         private Dictionary<ELabels, string> Labels = new Dictionary<ELabels, string>();
 
+        private ELocalizations CurrentLocalization;
+
         public Localization()
         {
             var type = typeof(ETexts);
@@ -43,8 +45,8 @@ namespace Platformer
                 Labels.Add(item, "");
             }
 
-            //LoadLocalization(ELocalizations.English);
-            LoadLocalization(ELocalizations.Russian);
+            LoadLocalization(ELocalizations.English);
+            //LoadLocalization(ELocalizations.Russian);
         }
 
         public string Text(ETexts key)
@@ -74,6 +76,8 @@ namespace Platformer
 
         public void LoadLocalization(ELocalizations localization)
         {
+            CurrentLocalization = localization;
+
             if (localization == ELocalizations.English)
             {
                 LoadEnglish();
@@ -83,6 +87,11 @@ namespace Platformer
             {
                 LoadRussian();
             }
+        }
+
+        public ELocalizations GetLocalization()
+        {
+            return CurrentLocalization;
         }
 
         //←♥↑→↓
@@ -122,8 +131,29 @@ namespace Platformer
             Labels[ELabels.RemoveAnObstacle] = "REMOVE AN OBSTACLE";
             Labels[ELabels.HollyMolly] = "Holly & Molly";
 
+            // Utilitaries
+            Utilitaries[EUtilitary.Play_deselected] = "PLAY";
+            Utilitaries[EUtilitary.Settings_deselected] = "SETTINGS";
+            Utilitaries[EUtilitary.Credits_deselected] = "CREDITS";
+            Utilitaries[EUtilitary.Quit_deselected] = "QUIT";
+            Utilitaries[EUtilitary.Play_selected] = "* PLAY *";
+            Utilitaries[EUtilitary.Settings_selected] = "* SETTINGS *";
+            Utilitaries[EUtilitary.Credits_selected] = "* CREDITS *";
+            Utilitaries[EUtilitary.Quit_selected] = "* QUIT *";
+
+            Utilitaries[EUtilitary.English] = "English";
+            Utilitaries[EUtilitary.Russian] = "Русский";
+
             Utilitaries[EUtilitary.TryAgain] = "Try Again";
             Utilitaries[EUtilitary.ToMenu] = "Menu";
+
+            Utilitaries[EUtilitary.Back] = "Back";
+            Utilitaries[EUtilitary.Auto] = "Auto";
+            Utilitaries[EUtilitary.Manual] = "Manual";
+            Utilitaries[EUtilitary.Forth] = "Forth";
+            Utilitaries[EUtilitary.BackToTitle] = "Back to Title";
+
+            Utilitaries[EUtilitary.SelectYourGame_Title] = "* Select your game *";
 
             Texts[ETexts.PieDialogue1_Title] = "* A Pie for a Grandma *";
             Texts[ETexts.DialoguePie1_1] = "- Hello, mom!";
@@ -298,8 +328,29 @@ namespace Platformer
             Labels[ELabels.RemoveAnObstacle] = "УБРАТЬ ПРЕПЯТСТВИЕ";
             Labels[ELabels.HollyMolly] = "ЁЛКА и ПАЛКА";
 
+            // Utilitaries
+            Utilitaries[EUtilitary.Play_deselected] = "ИГРАТЬ";
+            Utilitaries[EUtilitary.Settings_deselected] = "НАСТРОЙКИ";
+            Utilitaries[EUtilitary.Credits_deselected] = "ОБ АВТОРЕ";
+            Utilitaries[EUtilitary.Quit_deselected] = "ВЫХОД";
+            Utilitaries[EUtilitary.Play_selected] = "* ИГРАТЬ *";
+            Utilitaries[EUtilitary.Settings_selected] = "* НАСТРОЙКИ *";
+            Utilitaries[EUtilitary.Credits_selected] = "* ОБ АВТОРЕ *";
+            Utilitaries[EUtilitary.Quit_selected] = "* ВЫХОД *";
+
+            Utilitaries[EUtilitary.English] = "English";
+            Utilitaries[EUtilitary.Russian] = "Русский";
+
             Utilitaries[EUtilitary.TryAgain] = "Ещё разок";
             Utilitaries[EUtilitary.ToMenu] = "В меню";
+
+            Utilitaries[EUtilitary.Back] = "Назад";
+            Utilitaries[EUtilitary.Auto] = "Авто";
+            Utilitaries[EUtilitary.Manual] = "Вручную";
+            Utilitaries[EUtilitary.Forth] = "Вперед";
+            Utilitaries[EUtilitary.BackToTitle] = "В Меню";
+
+            Utilitaries[EUtilitary.SelectYourGame_Title] = "* Выберите вашу игру *";
 
             Texts[ETexts.PieDialogue1_Title] = "* Пирог для Бабули *";
             Texts[ETexts.DialoguePie1_1] = "- Привет, мама!";

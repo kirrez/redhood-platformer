@@ -6,6 +6,11 @@ namespace Platformer
 {
     public enum ESounds
     {
+        //Menu
+        ChooseOption,
+        SelectOption,
+        Silence, // for silent selecting of buttons in UI navigation
+
         //Player Sounds
         ThrowKnife1,
         ThrowKnife2,
