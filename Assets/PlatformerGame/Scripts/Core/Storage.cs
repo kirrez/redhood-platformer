@@ -10,6 +10,8 @@ namespace Platformer
         private const string PlayerStateKey = "PlayerState_{0}";
         private const string QuestKey = "PlayerState_{0}_{1}";
 
+        private const string KeyName = "Name";
+
         public bool IsPlayerStateExists(int ID)
         {
             if (PlayerPrefs.HasKey(StorageVersionKey))
@@ -35,6 +37,8 @@ namespace Platformer
 
         public IPlayerState LoadPlayerState(int ID)
         {
+            string key;
+
             if (PlayerPrefs.HasKey(StorageVersionKey))
             {
                 var version = PlayerPrefs.GetInt(StorageVersionKey);
@@ -54,6 +58,15 @@ namespace Platformer
             }
 
             var result = new PlayerState();
+
+            //
+            // params not from EQuest
+            key = string.Format(PlayerStateKey, KeyName);
+            result.Name = PlayerPrefs.GetString(key);
+
+
+            //
+
             var values = Enum.GetValues(typeof(EQuest));
 
             foreach (var value in values)
@@ -70,6 +83,8 @@ namespace Platformer
 
         public void Save(IPlayerState playerState)
         {
+            string key;
+
             if (PlayerPrefs.HasKey(StorageVersionKey))
             {
                 var version = PlayerPrefs.GetInt(StorageVersionKey);
@@ -81,6 +96,15 @@ namespace Platformer
             }
 
             PlayerPrefs.SetInt(StorageVersionKey, StorageVersion);
+            //update
+            var playerStateKey = string.Format(PlayerStateKey, playerState.ID);
+            PlayerPrefs.SetInt(playerStateKey, 0);
+            //
+
+            // params not from EQuest
+            key = string.Format(PlayerStateKey, KeyName);
+            PlayerPrefs.SetString(key, playerState.Name);
+            //
 
             var values = Enum.GetValues(typeof(EQuest));
 
@@ -91,6 +115,30 @@ namespace Platformer
                 var questKey = string.Format(QuestKey, playerState.ID, questType);
 
                 PlayerPrefs.SetInt(questKey, questValue);
+            }
+        }
+
+        public void Delete(IPlayerState playerState)
+        {
+            string key;
+
+            if (IsPlayerStateExists(playerState.ID) == true)
+            {
+                key = string.Format(PlayerStateKey, playerState.ID);
+                PlayerPrefs.DeleteKey(key);
+
+                key = string.Format(PlayerStateKey, KeyName);
+                PlayerPrefs.DeleteKey(key);
+
+                var values = Enum.GetValues(typeof(EQuest));
+                foreach (var value in values)
+                {
+                    var questType = (EQuest)value;
+                    //var questValue = playerState.GetQuest(questType);
+                    var questKey = string.Format(QuestKey, playerState.ID, questType);
+
+                    PlayerPrefs.DeleteKey(questKey);
+                }
             }
         }
     }

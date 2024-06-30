@@ -141,6 +141,16 @@ namespace Platformer
             Utilitaries[EUtilitary.Credits_selected] = "* CREDITS *";
             Utilitaries[EUtilitary.Quit_selected] = "* QUIT *";
 
+            Utilitaries[EUtilitary.GameNameLabel] = "NAME :";
+            Utilitaries[EUtilitary.DifficultyModeLabel] = "MODE :";
+            Utilitaries[EUtilitary.EasyMode] = "EASY";
+            Utilitaries[EUtilitary.TimePlayed] = "Time Played :";
+            Utilitaries[EUtilitary.CreateButton] = "CREATE";
+            Utilitaries[EUtilitary.RenameButton] = "RENAME";
+            Utilitaries[EUtilitary.DeleteButton] = "DELETE";
+            Utilitaries[EUtilitary.PlayButton] = "PLAY";
+            Utilitaries[EUtilitary.NoData] = "NO DATA";
+
             Utilitaries[EUtilitary.English] = "English";
             Utilitaries[EUtilitary.Russian] = "Русский";
 
@@ -337,6 +347,16 @@ namespace Platformer
             Utilitaries[EUtilitary.Settings_selected] = "* НАСТРОЙКИ *";
             Utilitaries[EUtilitary.Credits_selected] = "* ОБ АВТОРЕ *";
             Utilitaries[EUtilitary.Quit_selected] = "* ВЫХОД *";
+
+            Utilitaries[EUtilitary.GameNameLabel] = "НАЗВАНИЕ :";
+            Utilitaries[EUtilitary.DifficultyModeLabel] = "РЕЖИМ :";
+            Utilitaries[EUtilitary.EasyMode] = "ЛЕГКИЙ";
+            Utilitaries[EUtilitary.TimePlayed] = "Время в игре :";
+            Utilitaries[EUtilitary.CreateButton] = "СОЗДАТЬ";
+            Utilitaries[EUtilitary.RenameButton] = "НАЗВАНИЕ";
+            Utilitaries[EUtilitary.DeleteButton] = "УДАЛИТЬ";
+            Utilitaries[EUtilitary.PlayButton] = "ИГРАТЬ";
+            Utilitaries[EUtilitary.NoData] = "ПУСТО";
 
             Utilitaries[EUtilitary.English] = "English";
             Utilitaries[EUtilitary.Russian] = "Русский";

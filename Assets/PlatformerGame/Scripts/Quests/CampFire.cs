@@ -28,6 +28,14 @@ namespace Platformer
         [SerializeField]
         private SpriteRenderer Renderer;
 
+        private IStorage Storage;
+
+        protected override void Awake()
+        {
+            base.Awake();
+            Storage = CompositionRoot.GetStorage();
+        }
+
         private void OnEnable()
         {
             if (ProgressManager.GetQuest(EQuest.SpawnPoint) == SpawnPointIndex)
@@ -66,6 +74,9 @@ namespace Platformer
             ProgressManager.SetQuest(EQuest.SpawnPoint, SpawnPointIndex);
             ProgressManager.SetQuest(EQuest.Location, LocationIndex);
             ProgressManager.SetQuest(EQuest.Confiner, ConfinerIndex);
+
+            Storage.Save(ProgressManager.PlayerState);
+
             SwitchFire(true);
             AudioManager.PlayRedhoodSound(EPlayerSounds.LightCampFire);
             Player.UpdateMaxLives(); //refills health and updates HUD..

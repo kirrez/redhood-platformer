@@ -4,11 +4,10 @@ namespace Platformer
     {
         public IPlayerState PlayerState { get; private set; }
 
-        public IPlayerState CreateState(int id, string name)
+        public IPlayerState CreateState(int id)
         {
             var playerState = new PlayerState();
             playerState.ID = id;
-            playerState.Name = name;
 
             playerState.SetQuest(EQuest.GameMode, 0);// easy, infinite tries
 

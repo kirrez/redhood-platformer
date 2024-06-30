@@ -8,7 +8,6 @@ namespace Platformer
         private IDynamicsContainer DynamicsContainer;
         private IAudioManager AudioManager;
         private INavigation Navigation;
-        private IStorage Storage;
         private IPlayer Player;
 
         public DialogueModel Dialogue => DialogueModel;
@@ -41,27 +40,9 @@ namespace Platformer
             ProgressManager = CompositionRoot.GetProgressManager();
             AudioManager = CompositionRoot.GetAudioManager();
             Navigation = CompositionRoot.GetNavigation();
-            Storage = CompositionRoot.GetStorage();
 
             var eventSystem = CompositionRoot.GetEventSystem();
             var mainCMCamera = CompositionRoot.GetMainCMCamera();
-
-            ////Check player state before Slot choosing
-            //var playerState1 = Storage.LoadPlayerState(1);
-            //var playerState2 = Storage.LoadPlayerState(2);
-            //var playerState3 = Storage.LoadPlayerState(3);
-
-            //// Show UI
-            ////Create Slot1
-            //playerState1 = ProgressManager.CreateState(1, "name");
-            ////Create Slot2
-            //playerState2 = ProgressManager.CreateState(2, "name");
-            ////Create Slot3
-            //playerState3 = ProgressManager.CreateState(3, "name");
-            ////
-
-            ////Start Game
-            //ProgressManager.SetState(playerState2);
 
             ////Save Game
             //var playerStateToSave = ProgressManager.PlayerState;
@@ -72,8 +53,8 @@ namespace Platformer
             //ProgressManager.SetState(playerState);
 
             // Only for "START NEW GAME"
-            var playerState = ProgressManager.CreateState(1, "name");
-            ProgressManager.SetState(playerState);
+            //var playerState = ProgressManager.CreateState(1);
+            //ProgressManager.SetState(playerState);
 
             // Title
             TitleScreenModel = new TitleScreenModel();
@@ -86,6 +67,7 @@ namespace Platformer
             // Play
             PlayScreenModel = new PlayScreenModel();
             PlayScreenModel.ClickingBackToMenu += FromPlayToTitle;
+            PlayScreenModel.ClickingPlayGame += FromPlayToGame;
             PlayScreen.Hide();
 
             // Credits
@@ -125,6 +107,23 @@ namespace Platformer
 
             //should be in "StartGame" and "ContinueGame"
             //LoadPlayerLocation();
+        }
+
+        public void FromPlayToGame()
+        {
+            // Here starts actual game process !
+            PlayScreen.Hide();
+
+            HUD.Show();
+            FadeScreen.Show();
+            HUD.SetMaxLives(ProgressManager.GetQuest(EQuest.MaxLives));
+            HUD.UpdateResourceAmount();
+
+            Player = CompositionRoot.GetPlayer();
+            Player.Initiate(this);
+            Player.Revive();
+
+            LoadPlayerLocation();
         }
 
         public void FromPlayToTitle()
@@ -210,7 +209,7 @@ namespace Platformer
 
         public IPlayerState LoadTestConfig()
         {
-            var playerState = ProgressManager.CreateState(1, "test");
+            var playerState = ProgressManager.CreateState(1);
 
             //Testing game mode
             playerState.SetQuest(EQuest.GameMode, 0);// normal, few tries

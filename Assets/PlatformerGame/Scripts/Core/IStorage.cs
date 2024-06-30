@@ -6,5 +6,7 @@ namespace Platformer
 
         IPlayerState LoadPlayerState(int ID);
         void Save(IPlayerState playerState);
+
+        void Delete(IPlayerState playerState);
     }
 }

@@ -6,6 +6,7 @@ namespace Platformer
 {
     public enum EUtilitary
     {
+        //TitleScreen
         Play_deselected,
         Settings_deselected,
         Credits_deselected,
@@ -15,13 +16,27 @@ namespace Platformer
         Settings_selected,
         Credits_selected,
         Quit_selected,
+        //
 
         Back,
         Auto,
         Manual,
         Forth,
         BackToTitle,
+
+        //PlayScreen
         SelectYourGame_Title,
+        GameNameLabel,
+        DifficultyModeLabel,
+        EasyMode,
+        // NormalMode,
+        TimePlayed,
+        CreateButton,
+        RenameButton,
+        DeleteButton,
+        PlayButton,
+        NoData,
+        //
 
         TryAgain,
         ToMenu,

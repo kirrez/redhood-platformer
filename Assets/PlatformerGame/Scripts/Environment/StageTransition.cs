@@ -26,6 +26,7 @@ namespace Platformer
         private IProgressManager ProgressManager;
         private IDynamicsContainer Dynamics;
         private INavigation Navigation;
+        private IStorage Storage;
 
         private float Timer;
         private bool Inside;
@@ -35,6 +36,7 @@ namespace Platformer
             ProgressManager = CompositionRoot.GetProgressManager();
             Dynamics = CompositionRoot.GetDynamicsContainer();
             Navigation = CompositionRoot.GetNavigation();
+            Storage = CompositionRoot.GetStorage();
         }
 
         private void Update()
@@ -60,6 +62,8 @@ namespace Platformer
                     ProgressManager.SetQuest(EQuest.Location, LocationIndex);
                     ProgressManager.SetQuest(EQuest.SpawnPoint, SpawnPointIndex);
                     ProgressManager.SetQuest(EQuest.Confiner, ConfinerIndex);
+
+                    Storage.Save(ProgressManager.PlayerState);
                 }
             }
         }

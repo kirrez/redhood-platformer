@@ -4,7 +4,9 @@ namespace Platformer
     {
         IPlayerState PlayerState { get; }
 
-        IPlayerState CreateState(int ID, string name);
+        //IPlayerState CreateState(int ID, string name);
+        IPlayerState CreateState(int ID);
+
         void SetState(IPlayerState playerState);
 
         void RefillRenewables();

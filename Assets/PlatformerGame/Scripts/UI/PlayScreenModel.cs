@@ -8,6 +8,7 @@ namespace Platformer
     public class PlayScreenModel
     {
         public event Action ClickingBackToMenu = () => { };
+        public event Action ClickingPlayGame = () => { };
 
         private PlayScreenView View;
 
@@ -19,12 +20,18 @@ namespace Platformer
             View = resourceManager.CreatePrefab<PlayScreenView, EScreens>(EScreens.PlayScreenView);
             View.SetParent(uiRoot.MenuCanvas.transform);
 
-            View.BackToMenuClicked += OnClickingBactToMenu;
+            View.BackToMenuClicked += OnClickingBackToMenu;
+            View.PlayGameClicked += OnClickingPlayGame;
         }
 
-        private void OnClickingBactToMenu()
+        private void OnClickingBackToMenu()
         {
             ClickingBackToMenu?.Invoke();
+        }
+
+        private void OnClickingPlayGame()
+        {
+            ClickingPlayGame?.Invoke();
         }
 
         public void Show()
