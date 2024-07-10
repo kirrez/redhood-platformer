@@ -5000,6 +5000,69 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Furniture_Bed
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 312
+        width: 48
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70ebcbe4601ec3a49b77ae196ce80cbb
+      internalID: -799917370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Furniture_Table
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 280
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86008d0994f0f96418d8002eca53436c
+      internalID: -1366847184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Furniture_Chair
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 280
+        width: 16
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a1233da4555f8d44a93def7c2201adb
+      internalID: -944812361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -5149,6 +5212,9 @@ TextureImporter:
       FrogHeart_1: -1243356468
       FrogHeart_2: 907619741
       FrogHeart_3: -1463721226
+      Furniture_Bed: -799917370
+      Furniture_Chair: -944812361
+      Furniture_Table: -1366847184
       GhostWall_0: -731660435
       GhostWall_1: -1606641592
       HealthBar_Background: 667426782

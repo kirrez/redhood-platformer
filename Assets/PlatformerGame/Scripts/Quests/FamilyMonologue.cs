@@ -41,8 +41,6 @@ namespace Platformer
 
         private void OnInteraction()
         {
-            var Game = CompositionRoot.GetGame();
-
             switch (DialoguePhase)
             {
                 case 0:

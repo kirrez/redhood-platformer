@@ -47,8 +47,6 @@ namespace Platformer
 
         private void Hermit1()
         {
-            var Game = CompositionRoot.GetGame();
-
             switch (DialoguePhase)
             {
                 case 0:
@@ -87,8 +85,6 @@ namespace Platformer
 
         private void Hermit2()
         {
-            var Game = CompositionRoot.GetGame();
-
             switch (DialoguePhase)
             {
                 case 0:

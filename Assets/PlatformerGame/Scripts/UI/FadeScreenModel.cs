@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Platformer
 {
-    public class FadeScreenModel
+    public class FadeScreenModel : IFadeScreen
     {
         private FadeScreenView View;
 

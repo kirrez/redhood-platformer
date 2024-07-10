@@ -6,10 +6,10 @@ namespace Platformer
 {
     public interface IGame
     {
-        public HUDModel HUD { get; }
-        public DialogueModel Dialogue { get; }
-        public FadeScreenModel FadeScreen { get; }
-        public GameOverModel GameOver { get; }
+        public static HUDModel HUD { get; }
+        public static DialogueModel Dialogue { get; }
+        public static FadeScreenModel FadeScreen { get; }
+        public static GameOverModel GameOver { get; }
 
         public void GameOverMenu();
     }

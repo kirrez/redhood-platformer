@@ -3,7 +3,6 @@ using UnityEngine.EventSystems;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using UnityEngine;
-using System;
 
 namespace Platformer
 {
@@ -118,16 +117,26 @@ namespace Platformer
                 NameValue.text = PlayerState.Name;
 
                 //must add 'NORMAL' and 'HARD' in future 
-                if (PlayerState.DifficultyMode == 0)
+                if (PlayerState.GetQuest(EQuest.DifficultyMode) == 0)
                 {
                     ModeValue.text = Localization.Utilitary(EUtilitary.EasyMode);
                 }
 
-                DateValue.text = $"{PlayerState.DateYear}.{PlayerState.DateMonth}.{PlayerState.DateDay}";
+                var year = PlayerState.GetQuest(EQuest.DateYear).ToString("0000");
+                var month = PlayerState.GetQuest(EQuest.DateMonth).ToString("00");
+                var day = PlayerState.GetQuest(EQuest.DateDay).ToString("00");
 
-                TimeValue.text = $"{PlayerState.TimeHours}:{PlayerState.TimeMinutes}";
+                DateValue.text = $"{year}.{month}.{day}";
 
-                TimePlayedValue.text = $"{PlayerState.ElapsedHours}h {PlayerState.ElapsedMinutes}min";
+                var hours = PlayerState.GetQuest(EQuest.TimeHours).ToString("00");
+                var minutes = PlayerState.GetQuest(EQuest.TimeMinutes).ToString("00");
+
+                TimeValue.text = $"{hours}:{minutes}";
+
+                hours = PlayerState.GetQuest(EQuest.ElapsedHours).ToString("00");
+                minutes = PlayerState.GetQuest(EQuest.ElapsedMinutes).ToString("00");
+
+                TimePlayedValue.text = $"{hours}h {minutes}min";
             }
 
             if (PlayerState == null)

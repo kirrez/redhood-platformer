@@ -36,6 +36,10 @@ namespace Platformer
         DeleteButton,
         PlayButton,
         NoData,
+        EnterYourName_Title,
+        AreYouSure_Title,
+        Submit,
+        Cancel,
         //
 
         TryAgain,

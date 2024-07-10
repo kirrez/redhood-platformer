@@ -101,9 +101,8 @@ namespace Platformer
 
         private void OnHealthChanged()
         {
-            var game = CompositionRoot.GetGame();
             HitPoints = Health.GetHitPoints;
-            game.HUD.SetEnemyCurrentHealth(HitPoints);
+            Game.HUD.SetEnemyCurrentHealth(HitPoints);
 
             if (HitPoints > 0)
             {

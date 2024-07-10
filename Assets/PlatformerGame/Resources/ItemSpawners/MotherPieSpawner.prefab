@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5283cdf1797fba443b29579e335a68ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ItemPhysics: 1
+  JumpForce: {x: 0, y: 0}
 --- !u!1 &4951525492032001390
 GameObject:
   m_ObjectHideFlags: 0
@@ -119,7 +119,7 @@ SpriteRenderer:
   m_SortingLayerID: -1802282183
   m_SortingLayer: 1
   m_SortingOrder: 7
-  m_Sprite: {fileID: 1752684501, guid: 2d3029c57dfb86b4a87ff8c7f64ee3cb, type: 3}
+  m_Sprite: {fileID: -1015853895, guid: 2d3029c57dfb86b4a87ff8c7f64ee3cb, type: 3}
   m_Color: {r: 0.38002843, g: 0.990566, b: 0.53944653, a: 0.54509807}
   m_FlipX: 0
   m_FlipY: 0

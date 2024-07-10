@@ -59,8 +59,6 @@ namespace Platformer
 
         private void OnInteractionFirst()
         {
-            var Game = CompositionRoot.GetGame();
-
             switch (DialoguePhase)
             {
                 case 0:
@@ -102,8 +100,6 @@ namespace Platformer
 
         private void OnInteractionLast()
         {
-            var Game = CompositionRoot.GetGame();
-
             switch (DialoguePhase)
             {
                 case 0:

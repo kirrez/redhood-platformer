@@ -130,6 +130,7 @@ namespace Platformer
             Labels[ELabels.KindleAFire] = "KINDLE A FIRE";
             Labels[ELabels.RemoveAnObstacle] = "REMOVE AN OBSTACLE";
             Labels[ELabels.HollyMolly] = "Holly & Molly";
+            Labels[ELabels.SaveGame] = "SAVE GAME";
 
             // Utilitaries
             Utilitaries[EUtilitary.Play_deselected] = "PLAY";
@@ -150,6 +151,10 @@ namespace Platformer
             Utilitaries[EUtilitary.DeleteButton] = "DELETE";
             Utilitaries[EUtilitary.PlayButton] = "PLAY";
             Utilitaries[EUtilitary.NoData] = "NO DATA";
+            Utilitaries[EUtilitary.EnterYourName_Title] = "Enter your name";
+            Utilitaries[EUtilitary.Submit] = "SUBMIT";
+            Utilitaries[EUtilitary.Cancel] = "CANCEL";
+            Utilitaries[EUtilitary.AreYouSure_Title] = "Are you sure?";
 
             Utilitaries[EUtilitary.English] = "English";
             Utilitaries[EUtilitary.Russian] = "Русский";
@@ -337,6 +342,7 @@ namespace Platformer
             Labels[ELabels.KindleAFire] = "РАЗЖЕЧЬ ОГОНЬ";
             Labels[ELabels.RemoveAnObstacle] = "УБРАТЬ ПРЕПЯТСТВИЕ";
             Labels[ELabels.HollyMolly] = "ЁЛКА и ПАЛКА";
+            Labels[ELabels.SaveGame] = "СОХРАНИТЬ ИГРУ";
 
             // Utilitaries
             Utilitaries[EUtilitary.Play_deselected] = "ИГРАТЬ";
@@ -357,6 +363,10 @@ namespace Platformer
             Utilitaries[EUtilitary.DeleteButton] = "УДАЛИТЬ";
             Utilitaries[EUtilitary.PlayButton] = "ИГРАТЬ";
             Utilitaries[EUtilitary.NoData] = "ПУСТО";
+            Utilitaries[EUtilitary.EnterYourName_Title] = "Введите ваше имя";
+            Utilitaries[EUtilitary.Submit] = "ГОТОВО";
+            Utilitaries[EUtilitary.Cancel] = "ОТМЕНА";
+            Utilitaries[EUtilitary.AreYouSure_Title] = "Вы уверены?";
 
             Utilitaries[EUtilitary.English] = "English";
             Utilitaries[EUtilitary.Russian] = "Русский";

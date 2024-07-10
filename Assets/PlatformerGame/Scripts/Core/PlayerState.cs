@@ -1,32 +1,36 @@
-using Platformer;
 using System.Collections.Generic;
+using Platformer;
+using System;
 
 public class PlayerState : IPlayerState
 {
     public int ID { get; set; } //slot 0,1 or 2
     public string Name { get; set; } // name of a game
 
-    // Date
-    public int DateYear { get; set; }
-
-    public int DateMonth { get; set; }
-
-    public int DateDay { get; set; }
-
-    // Time
-    public int TimeHours { get; set; }
-
-    public int TimeMinutes { get; set; }
-
-    // Elapsed Time
-    public int ElapsedHours { get; set; }
-    public int ElapsedMinutes { get; set; }
-
-    public int DifficultyMode { get; set; }
-
-    //public float ElapsedTime { get; set; } // time spent in game
-
     private Dictionary<EQuest, int> Quests = new Dictionary<EQuest, int>();
+
+    public void UpdateTimeAndDate()
+    {
+        DateTime dateTime;
+        int data;
+
+        dateTime = DateTime.Now;
+
+        data = dateTime.Year;
+        SetQuest(EQuest.DateYear, data);
+
+        data = dateTime.Month;
+        SetQuest(EQuest.DateMonth, data);
+
+        data = dateTime.Day;
+        SetQuest(EQuest.DateDay, data);
+
+        data = dateTime.Hour;
+        SetQuest(EQuest.TimeHours, data);
+
+        data = dateTime.Minute;
+        SetQuest(EQuest.TimeMinutes, data);
+    }
 
     public int GetQuest(EQuest key)
     {

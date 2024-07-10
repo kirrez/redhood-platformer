@@ -22,6 +22,7 @@ namespace Platformer
 
         private static IPlayer Player;
 
+        private static ITimePlayedCounter TimePlayedCounter;
         private static IResourceManager ResourceManager;
         private static IProgressManager ProgressManager;
         private static ILocalization Localization;
@@ -45,6 +46,18 @@ namespace Platformer
             }
             return AudioManager;
         }
+
+        public static ITimePlayedCounter GetTimePlayedCounter()
+        {
+            if (TimePlayedCounter == null)
+            {
+                var resourceManager = GetResourceManager();
+                TimePlayedCounter = resourceManager.CreatePrefab<ITimePlayedCounter, EComponents>(EComponents.TimePlayedCounter);
+            }
+
+            return TimePlayedCounter;
+        }
+
         public static IDynamicsContainer GetDynamicsContainer()
         {
             if (DynamicsContainer == null)
@@ -184,6 +197,7 @@ namespace Platformer
             ResourceManager = null;
             VirtualPlayerCamera = null;
             EventSystemContainer = null;
+            TimePlayedCounter = null;
             DynamicsContainer = null;
         }
     }

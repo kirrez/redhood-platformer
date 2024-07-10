@@ -25,8 +25,6 @@ namespace Platformer
             {
                 var axeLevel = ProgressManager.GetQuest(EQuest.AxeLevel);
 
-                var game = CompositionRoot.GetGame();
-
                 if (axeLevel == 1)
                 {
                     ProgressManager.SetQuest(EQuest.AxeLevel, 2);
@@ -34,7 +32,7 @@ namespace Platformer
 
                     Player.UpdateAllWeaponLevel();
 
-                    game.HUD.UpdateWeaponIcons();
+                    Game.HUD.UpdateWeaponIcons();
                     //game.FadeScreen.FadeOut(Color.white, 1.5f);
                     //AudioManager.PauseMusic(7f, true);
                     //AudioManager.PlaySound(ESounds.Collect10LifeUpgrade);

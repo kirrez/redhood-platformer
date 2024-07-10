@@ -59,8 +59,6 @@ namespace Platformer
 
         private void SpiritAppears()
         {
-            var Game = CompositionRoot.GetGame();
-
             switch (DialoguePhase)
             {
                 case 0:

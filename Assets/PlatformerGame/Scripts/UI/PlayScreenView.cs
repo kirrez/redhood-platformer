@@ -11,6 +11,8 @@ namespace Platformer
         public event Action BackToMenuClicked = () => { };
         public event Action PlayGameClicked = () => { };
 
+        private const string NoName = "NoName";
+
         public Text Title;
         public NavigationButton BackToMenu;
 
@@ -29,6 +31,31 @@ namespace Platformer
         [SerializeField]
         private SubmitButton DeleteButton;
 
+        [Header("Input Name Window")]
+        [Space(20)]
+
+        [SerializeField]
+        private GameObject InputNameWindow;
+
+        [SerializeField]
+        private InputField NameInput;
+
+        [SerializeField]
+        private Text InputWindowTitle;
+
+        [SerializeField]
+        private Text SubmitText;
+
+        [SerializeField]
+        private Text CancelText;
+
+        [SerializeField]
+        private Button SubmitInputName;
+
+        [SerializeField]
+        private Button CancelInputName;
+
+        //--------------------------------
         private ILocalization Localization;
         private IAudioManager AudioManager;
 
@@ -60,6 +87,7 @@ namespace Platformer
         {
             if (ScreenCreated == true)
             {
+                ResetButtonTexts();
                 ResetSelectedView();
 
                 SelectedSlotID = 0;
@@ -73,6 +101,8 @@ namespace Platformer
                 CreatePlayButton.SetAvailable(false);
                 RenameButton.SetAvailable(false);
                 DeleteButton.SetAvailable(false);
+
+                SwitchMainLayer(true);
             }
         }
 
@@ -116,9 +146,15 @@ namespace Platformer
                 DeleteButton.SetAvailable(false);
             }
 
+            // Input Name WindowSection, events
+            InputNameWindow.SetActive(true);
+            SubmitInputName.onClick.AddListener(OnInputNameSubmit);
+            CancelInputName.onClick.AddListener(OnInputNameCancel);
+            InputNameWindow.SetActive(false);
+
             ScreenCreated = true;
+            ResetButtonTexts();
             ResetSelectedView();
-            //Debug.Log("PLAY SCREEN START!");
         }
 
         private void Update()
@@ -135,15 +171,13 @@ namespace Platformer
 
         private void ResetSelectedView()
         {
-            SetButtonTexts();
-
             BackToMenu.SetSound(ESounds.Silence);
             EventSystem.current.SetSelectedGameObject(BackToMenu.gameObject);
             BackToMenu.SelectedLook();
             BackToMenu.SetSound(ESounds.ChooseOption);
         }
 
-        private void SetButtonTexts()
+        private void ResetButtonTexts()
         {
             Title.text = Localization.Utilitary(EUtilitary.SelectYourGame_Title);
             BackToMenu.SetProperties(TextColors, Localization.Utilitary(EUtilitary.BackToTitle));
@@ -159,9 +193,15 @@ namespace Platformer
             {
                 slot.ResetTexts();
             }
+
+            InputNameWindow.SetActive(true);
+            InputWindowTitle.text = Localization.Utilitary(EUtilitary.EnterYourName_Title);
+            SubmitText.text = Localization.Utilitary(EUtilitary.Submit);
+            CancelText.text = Localization.Utilitary(EUtilitary.Cancel);
+            InputNameWindow.SetActive(false);
         }
 
-        private void SwitchButtons(bool flag)
+        private void SwitchMainLayer(bool flag)
         {
             foreach (var slot in Slots)
             {
@@ -175,7 +215,7 @@ namespace Platformer
             DeleteButton.SetInteractable(flag);
         }
 
-        private void UpdateActionButtons()
+        private void UpdateButtonActions()
         {
             if (PlayerStates[SelectedSlotID] == null)
             {
@@ -207,9 +247,41 @@ namespace Platformer
             }
 
             //they work only when slot is submitted
-            UpdateActionButtons();
+            UpdateButtonActions();
 
             CreatePlayButton.SetAvailable(true);
+        }
+
+        //Input Name Window
+        private void OnInputNameSubmit()
+        {
+            if (NameInput.text == "")
+            {
+                PlayerStates[SelectedSlotID].Name = NoName;
+            }
+            else
+            {
+                PlayerStates[SelectedSlotID].Name = NameInput.text;
+            }
+            
+            ProgressManager.SetState(PlayerStates[SelectedSlotID]);
+            Storage.Save(ProgressManager.PlayerState);
+            Slots[SelectedSlotID].ResetTexts();
+
+            InputNameWindow.SetActive(false);
+            RenameButton.DeselectedLook();
+            ResetSelectedView();
+            SwitchMainLayer(true);
+            UpdateButtonActions();
+        }
+
+        private void OnInputNameCancel()
+        {
+            InputNameWindow.SetActive(false);
+            RenameButton.DeselectedLook();
+            ResetSelectedView();
+            SwitchMainLayer(true);
+            UpdateButtonActions();
         }
 
         private void OnBackToMenu()
@@ -224,8 +296,9 @@ namespace Platformer
         private void OnRename()
         {
             RenameButton.SubmittedLook();
-
-            Debug.Log("RENAME");
+            SwitchMainLayer(false);
+            InputNameWindow.SetActive(true);
+            NameInput.text = PlayerStates[SelectedSlotID].Name;
         }
 
         private void OnDelete()
@@ -241,8 +314,9 @@ namespace Platformer
             Slots[SelectedSlotID].ResetTexts();
 
             SelectedSlotID = 0;
-
-            UpdateActionButtons();
+            DeleteButton.DeselectedLook();
+            ResetSelectedView();
+            UpdateButtonActions();
         }
 
         private void OnCreateGame()
@@ -251,7 +325,7 @@ namespace Platformer
 
             PlayerStates[SelectedSlotID] = ProgressManager.CreateState(SelectedSlotID);
 
-            PlayerStates[SelectedSlotID].Name = "NoName";
+            PlayerStates[SelectedSlotID].Name = NoName;
 
             ProgressManager.SetState(PlayerStates[SelectedSlotID]);
             Storage.Save(ProgressManager.PlayerState);
@@ -260,7 +334,9 @@ namespace Platformer
             Slots[SelectedSlotID].SetProperties(SelectedSlotID, PlayerStates[SelectedSlotID]);
             Slots[SelectedSlotID].ResetTexts();
 
-            UpdateActionButtons();
+            CreatePlayButton.DeselectedLook();
+            ResetSelectedView();
+            UpdateButtonActions();
         }
 
         private void OnPlayGame()
@@ -268,10 +344,11 @@ namespace Platformer
             CreatePlayButton.SubmittedLook();
 
             Timer = ClickDelay;
-            SwitchButtons(false);
+            SwitchMainLayer(false);
             ProgressManager.SetState(PlayerStates[SelectedSlotID]);
             AudioManager.PlaySound(SelectSound);
 
+            UpdateButtonActions();
             CurrentAction = PlayGameClicked;
         }
     }

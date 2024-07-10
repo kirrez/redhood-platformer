@@ -16,6 +16,7 @@ namespace Platformer
         SwitchOn,
         Repair,
         KindleAFire,
+        SaveGame,
         RemoveAnObstacle,
         UpgradeHealth,
         HollyMolly,

@@ -122,7 +122,6 @@ namespace Platformer
         private IResourceManager ResourceManager;
         private IProgressManager ProgressManager;
         private IAudioManager AudioManager;
-        private IGame Game;
 
         private void Awake()
         {
@@ -159,11 +158,6 @@ namespace Platformer
             StateStunned = new StateStunned(this);
 
             Config = new PlayerConfig();
-        }
-
-        public void Initiate(IGame game)
-        {
-            Game = game;
         }
 
         private void OnEnable()
@@ -663,7 +657,7 @@ namespace Platformer
 
         public void EnableGameOver()
         {
-            Game.GameOverMenu();
+            CompositionRoot.GetGame().GameOverMenu();
         }
 
         public void JumpDown()

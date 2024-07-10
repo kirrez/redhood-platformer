@@ -15,6 +15,7 @@ namespace Platformer
         AudioManager,
         EventSystemContainer,
         DynamicsContainer,
+        TimePlayedCounter,
         Game
     }
 }

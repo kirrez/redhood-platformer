@@ -50,12 +50,13 @@ namespace Platformer
                     Dynamics.DeactivateEnemies();
                     Dynamics.DeactivateTemporary(); //temporary solution )))
 
+
                     Navigation.LoadStage(Stage);
                     Navigation.SetLocation(LocationIndex, SpawnPointIndex, ConfinerIndex);
 
                     var game = CompositionRoot.GetGame();
-                    game.FadeScreen.DelayBefore(Color.black, 1f);
-                    game.FadeScreen.FadeOut(Color.black, 1f);
+                    Game.FadeScreen.DelayBefore(Color.black, 1f);
+                    Game.FadeScreen.FadeOut(Color.black, 1f);
 
                     // saving location data
                     ProgressManager.SetQuest(EQuest.Stage, (int)Stage);
@@ -63,6 +64,7 @@ namespace Platformer
                     ProgressManager.SetQuest(EQuest.SpawnPoint, SpawnPointIndex);
                     ProgressManager.SetQuest(EQuest.Confiner, ConfinerIndex);
 
+                    ProgressManager.AddPlayedTime();
                     Storage.Save(ProgressManager.PlayerState);
                 }
             }
@@ -76,8 +78,8 @@ namespace Platformer
                 Inside = true;
                 Timer = TransitionTime;
                 var game = CompositionRoot.GetGame();
-                game.FadeScreen.FadeIn(Color.black, 1f);
-                game.FadeScreen.DelayAfter(1f);
+                Game.FadeScreen.FadeIn(Color.black, 1f);
+                Game.FadeScreen.DelayAfter(1f);
             }
         }
 
@@ -88,7 +90,7 @@ namespace Platformer
                 Inside = false;
                 Timer = 0f;
                 var game = CompositionRoot.GetGame();
-                game.FadeScreen.FadeOut(Color.black, 1f);
+                Game.FadeScreen.FadeOut(Color.black, 1f);
             }
         }
     }

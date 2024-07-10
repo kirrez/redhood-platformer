@@ -38,7 +38,6 @@ namespace Platformer
 
         //Commands
 
-        void Initiate(IGame game);
         void UpdateMaxLives();
         void Revive();
         void SetState(EPlayerStates state, float time = 0f);

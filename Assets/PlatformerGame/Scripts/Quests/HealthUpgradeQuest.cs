@@ -49,8 +49,6 @@ namespace Platformer
 
         private void OnFirstInteraction()
         {
-            var Game = CompositionRoot.GetGame();
-
             switch (DialoguePhase)
             {
                 case 0:
@@ -91,7 +89,6 @@ namespace Platformer
 
         private void OnInteraction()
         {
-            var Game = CompositionRoot.GetGame();
             var foodAmount = ProgressManager.GetQuest(EQuest.FoodCollected);
             var upgradeCost = ProgressManager.GetQuest(EQuest.LifeUpgradeCost);
 

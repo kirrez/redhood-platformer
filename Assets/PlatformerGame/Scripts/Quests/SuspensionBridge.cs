@@ -16,6 +16,14 @@ namespace Platformer
         [SerializeField]
         private GameObject Shatters;
 
+        private IFadeScreen FadeScreen;
+
+        protected override void Awake()
+        {
+            base.Awake();
+            // FadeScreen
+        }
+
         private void OnEnable()
         {
             var quest = ProgressManager.GetQuest(EQuest.SuspensionBridge);
@@ -47,7 +55,7 @@ namespace Platformer
                 Bridge.SetActive(false);
                 LooseRopes.SetActive(true);
                 Shatters.SetActive(true);
-                game.FadeScreen.FadeOut(new Color(1f, 1f, 1f, 1f), 1f);
+                Game.FadeScreen.FadeOut(new Color(1f, 1f, 1f, 1f), 1f);
 
                 //In-quest SpawnPoint update!
                 ProgressManager.SetQuest(EQuest.Location, 0);

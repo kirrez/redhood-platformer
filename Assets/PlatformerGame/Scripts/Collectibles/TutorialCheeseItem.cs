@@ -27,8 +27,6 @@ namespace Platformer
             {
                 var waterLevel = ProgressManager.GetQuest(EQuest.HolyWaterLevel);
 
-                var game = CompositionRoot.GetGame();
-
                 if (waterLevel == 0)
                 {
                     ProgressManager.SetQuest(EQuest.HolyWaterLevel, 3);
@@ -36,7 +34,7 @@ namespace Platformer
 
                     Player.UpdateAllWeaponLevel();
 
-                    game.HUD.UpdateWeaponIcons();
+                    Game.HUD.UpdateWeaponIcons();
                     AudioManager.PlaySound(ESounds.Collect1QuestItems); // tutorial
                 }
 

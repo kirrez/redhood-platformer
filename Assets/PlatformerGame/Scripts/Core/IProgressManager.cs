@@ -9,6 +9,8 @@ namespace Platformer
 
         void SetState(IPlayerState playerState);
 
+        void AddPlayedTime();
+
         void RefillRenewables();
         int GetQuest(EQuest key);
         void SetQuest(EQuest key, int value);

@@ -41,8 +41,6 @@ namespace Platformer
 
         private void OnInteraction()
         {
-            var Game = CompositionRoot.GetGame();
-
             switch (DialoguePhase)
             {
                 case 0:
@@ -82,6 +80,7 @@ namespace Platformer
                 case 6:
                     Game.Dialogue.ChangeContent(Localization.Text(ETexts.Father_7));
                     DialoguePhase++;
+
                     //spawn axe here
                     ProgressManager.SetQuest(EQuest.CrippledAxeItem, 1);
                     Spawner.SpawnItem();

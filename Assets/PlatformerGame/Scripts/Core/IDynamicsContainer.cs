@@ -12,14 +12,14 @@ namespace Platformer
         Transform Sounds { get; }
         Transform Temporary { get; }
 
-        public void AddEnemy(GameObject item);
-        public void AddMain(GameObject item);
-        public void AddMusic(GameObject item);
-        public void AddSound(GameObject item);
-        public void AddTemporary(GameObject item);
+        void AddEnemy(GameObject item);
+        void AddMain(GameObject item);
+        void AddMusic(GameObject item);
+        void AddSound(GameObject item);
+        void AddTemporary(GameObject item);
 
-        public void DeactivateEnemies();
-        public void DeactivateMain();
-        public void DeactivateTemporary();
+        void DeactivateEnemies();
+        void DeactivateMain();
+        void DeactivateTemporary();
     }
 }

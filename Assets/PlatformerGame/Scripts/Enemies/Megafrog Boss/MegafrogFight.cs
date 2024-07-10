@@ -83,8 +83,6 @@ namespace Platformer
         {
             if (Trigger.bounds.Contains(Player.Position) && !Inside)
             {
-                var game = CompositionRoot.GetGame();
-
                 Inside = true;
                 IsFighting = true;
                 Blocks.SetActive(true);
@@ -93,9 +91,9 @@ namespace Platformer
 
                 Megafrog.Initiate(this, ProgressManager.GetQuest(EQuest.MegafrogMaxHealth));
 
-                game.HUD.SetEnemyIcon(0);
-                game.HUD.ShowEnemyHealthBar();
-                game.HUD.SetEnemyMaxHealth(ProgressManager.GetQuest(EQuest.MegafrogMaxHealth));
+                Game.HUD.SetEnemyIcon(0);
+                Game.HUD.ShowEnemyHealthBar();
+                Game.HUD.SetEnemyMaxHealth(ProgressManager.GetQuest(EQuest.MegafrogMaxHealth));
 
                 AudioManager.PlayMusic(Stage.Music[1]);
                 IsFighting = true;
@@ -113,7 +111,7 @@ namespace Platformer
             BossCamera.m_Priority = 5;
             PlayerCamera.Follow = Player.Transform;
 
-            game.HUD.HideEnemyHealthBar();
+            Game.HUD.HideEnemyHealthBar();
             AudioManager.PlayMusic(Stage.Music[0]);
         }
 

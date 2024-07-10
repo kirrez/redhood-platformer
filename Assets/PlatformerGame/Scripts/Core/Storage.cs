@@ -9,7 +9,6 @@ namespace Platformer
         private const string StorageVersionKey = "StorageVersion";
         private const string PlayerStateKey = "PlayerState_{0}";
         private const string QuestKey = "PlayerState_{0}_{1}";
-
         private const string KeyName = "Name";
 
         public bool IsPlayerStateExists(int ID)
@@ -61,9 +60,8 @@ namespace Platformer
 
             //
             // params not from EQuest
-            key = string.Format(PlayerStateKey, KeyName);
+            key = string.Format(PlayerStateKey, ID) + "_" + KeyName;
             result.Name = PlayerPrefs.GetString(key);
-
 
             //
 
@@ -96,15 +94,14 @@ namespace Platformer
             }
 
             PlayerPrefs.SetInt(StorageVersionKey, StorageVersion);
-            //update
+
             var playerStateKey = string.Format(PlayerStateKey, playerState.ID);
             PlayerPrefs.SetInt(playerStateKey, 0);
-            //
 
-            // params not from EQuest
-            key = string.Format(PlayerStateKey, KeyName);
+            key = string.Format(PlayerStateKey, playerState.ID) + "_" + KeyName;
             PlayerPrefs.SetString(key, playerState.Name);
-            //
+
+            playerState.UpdateTimeAndDate();
 
             var values = Enum.GetValues(typeof(EQuest));
 
@@ -127,7 +124,7 @@ namespace Platformer
                 key = string.Format(PlayerStateKey, playerState.ID);
                 PlayerPrefs.DeleteKey(key);
 
-                key = string.Format(PlayerStateKey, KeyName);
+                key = string.Format(PlayerStateKey, playerState.ID) + "_" + KeyName;
                 PlayerPrefs.DeleteKey(key);
 
                 var values = Enum.GetValues(typeof(EQuest));

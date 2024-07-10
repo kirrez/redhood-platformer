@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace Platformer
 {
     public class ProgressManager : IProgressManager
@@ -9,7 +11,7 @@ namespace Platformer
             var playerState = new PlayerState();
             playerState.ID = id;
 
-            playerState.SetQuest(EQuest.GameMode, 0);// easy, infinite tries
+            playerState.SetQuest(EQuest.DifficultyMode, 0);// easy, infinite tries
 
             playerState.SetQuest(EQuest.MaxLives, 3);
             playerState.SetQuest(EQuest.MaxLivesCap, 8);
@@ -41,6 +43,53 @@ namespace Platformer
             playerState.SetQuest(EQuest.MegafrogMaxHealth, 90); // 90 (45 * 2, 30 * 3)
 
             return playerState;
+        }
+
+        public void AddPlayedTime()
+        {
+            var counter = CompositionRoot.GetTimePlayedCounter();
+            var seconds = counter.GetTimeAndReset();
+
+            int hours = Mathf.FloorToInt(seconds / 3600);
+            seconds -= hours * 3600;
+
+            int minutes = Mathf.FloorToInt(seconds / 60);
+            seconds -= minutes * 60;
+
+            var rest = GetQuest(EQuest.ElapsedSeconds);
+            seconds += rest;
+
+            //Seconds addition
+            if (seconds < 60)
+            {
+                SetQuest(EQuest.ElapsedSeconds, seconds);
+            }
+
+            if (seconds >= 60)
+            {
+                minutes++;
+                seconds -= 60;
+                SetQuest(EQuest.ElapsedSeconds, seconds);
+            }
+
+            //Minutes addition
+            rest = GetQuest(EQuest.ElapsedMinutes);
+            minutes += rest;
+
+            if (minutes < 60)
+            {
+                SetQuest(EQuest.ElapsedMinutes, minutes);
+            }
+
+            if (minutes >= 60)
+            {
+                hours++;
+                minutes -= 60;
+                SetQuest(EQuest.ElapsedMinutes, minutes);
+            }
+
+            //Hours addition
+            AddValue(EQuest.ElapsedHours, hours);
         }
 
         public void SetState(IPlayerState playerState)

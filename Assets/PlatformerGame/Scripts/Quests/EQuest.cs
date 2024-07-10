@@ -2,6 +2,20 @@ namespace Platformer
 {
     public enum EQuest
     {
+        //Game save properties
+        DateYear,
+        DateMonth,
+        DateDay,
+
+        TimeHours,
+        TimeMinutes,
+        ElapsedHours,
+        ElapsedMinutes,
+        ElapsedSeconds,
+        
+        DifficultyMode,    //Determins implementation of Lives concept. Easy mode - infinite lives, Normal mode - limited amount
+        //
+        
         Stage,
         Location,
         SpawnPoint,
@@ -61,7 +75,6 @@ namespace Platformer
         MaxLivesCap, //Health
         Money,
         TriesLeft,   //Lives
-        GameMode,    //Determins implementation of Lives concept. Easy mode - infinite lives, Normal mode - limited amount
 
         LifeUpgradeCost,
         FoodCollected,

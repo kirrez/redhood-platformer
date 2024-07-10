@@ -56,8 +56,6 @@ namespace Platformer
 
         private void MQ1First()
         {
-            var Game = CompositionRoot.GetGame();
-
             switch (DialoguePhase)
             {
                 case 0:
@@ -105,8 +103,6 @@ namespace Platformer
 
         private void MQ1Second()
         {
-            var Game = CompositionRoot.GetGame();
-
             var schrooms = ProgressManager.GetQuest(EQuest.MushroomsCollected);
             var berries = ProgressManager.GetQuest(EQuest.BlackberriesCollected);
             var schroomsRequired = ProgressManager.GetQuest(EQuest.MushroomsRequired);

@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine.UI;
 using UnityEngine;
 
 namespace Platformer
@@ -29,15 +26,19 @@ namespace Platformer
         private SpriteRenderer Renderer;
 
         private IStorage Storage;
+        private INavigation Navigation;
 
         protected override void Awake()
         {
             base.Awake();
             Storage = CompositionRoot.GetStorage();
+            Navigation = CompositionRoot.GetNavigation();
         }
 
         private void OnEnable()
         {
+            Navigation.ChangingCheckpoint += OnCheckpointChanged;
+
             if (ProgressManager.GetQuest(EQuest.SpawnPoint) == SpawnPointIndex)
             {
                 SwitchFire(true);
@@ -48,42 +49,17 @@ namespace Platformer
             }
         }
 
-        protected override void RequirementsCheck()
+        private void OnDisable()
         {
-            if (ProgressManager.GetQuest(EQuest.SpawnPoint) == SpawnPointIndex) return;
-
-            if (Trigger.bounds.Contains(Player.Position) == true && !Inside)
-            {
-                Inside = true;
-                Player.Interaction += OnInteraction;
-                ShowMessage(Localization.Label(ELabels.KindleAFire));
-            }
-
-            if (Trigger.bounds.Contains(Player.Position) == false && Inside)
-            {
-                Inside = false;
-                Player.Interaction -= OnInteraction;
-                HideMessage();
-            }
-            //SwitchFire(false); //every frame..
+            Navigation.ChangingCheckpoint -= OnCheckpointChanged;
         }
 
-        private void OnInteraction()
+        private void OnCheckpointChanged()
         {
-            Player.HoldByInteraction();
-            ProgressManager.SetQuest(EQuest.SpawnPoint, SpawnPointIndex);
-            ProgressManager.SetQuest(EQuest.Location, LocationIndex);
-            ProgressManager.SetQuest(EQuest.Confiner, ConfinerIndex);
-
-            Storage.Save(ProgressManager.PlayerState);
-
-            SwitchFire(true);
-            AudioManager.PlayRedhoodSound(EPlayerSounds.LightCampFire);
-            Player.UpdateMaxLives(); //refills health and updates HUD..
-
-            HideMessage();
-            Player.ReleasedByInteraction();
-            Player.Interaction -= OnInteraction;
+            if (SpawnPointIndex != ProgressManager.GetQuest(EQuest.SpawnPoint))
+            {
+                SwitchFire(false);
+            }
         }
 
         private void SwitchFire(bool active)
@@ -99,6 +75,81 @@ namespace Platformer
                 Renderer.sprite = FireOff;
                 Fire.SetActive(false);
             }
+        }
+
+        protected override void RequirementsCheck()
+        {
+            var quest = ProgressManager.GetQuest(EQuest.SpawnPoint);
+
+            if ( quest != SpawnPointIndex)
+            {
+                if (Trigger.bounds.Contains(Player.Position) == true && !Inside)
+                {
+                    Inside = true;
+                    Player.Interaction += OnKindleFire;
+                    ShowMessage(Localization.Label(ELabels.KindleAFire));
+                }
+
+                if (Trigger.bounds.Contains(Player.Position) == false && Inside)
+                {
+                    Inside = false;
+                    Player.Interaction -= OnKindleFire;
+                    HideMessage();
+                }
+            }
+ 
+            if (quest == SpawnPointIndex)
+            {
+                if (Trigger.bounds.Contains(Player.Position) == true && !Inside)
+                {
+                    Inside = true;
+                    Player.Interaction += OnSaveGame;
+                    ShowMessage(Localization.Label(ELabels.SaveGame));
+                }
+
+                if (Trigger.bounds.Contains(Player.Position) == false && Inside)
+                {
+                    Inside = false;
+                    Player.Interaction -= OnSaveGame;
+                    HideMessage();
+                }
+            }
+        }
+
+        private void OnSaveGame()
+        {
+            Player.HoldByInteraction();
+
+            ProgressManager.AddPlayedTime();
+            Storage.Save(ProgressManager.PlayerState);
+
+            // add visual effect
+            AudioManager.PlayRedhoodSound(EPlayerSounds.LightCampFire);
+
+            Player.ReleasedByInteraction();
+            Player.Interaction -= OnSaveGame;
+        }
+
+        private void OnKindleFire()
+        {
+            Player.HoldByInteraction();
+            ProgressManager.SetQuest(EQuest.SpawnPoint, SpawnPointIndex);
+            ProgressManager.SetQuest(EQuest.Location, LocationIndex);
+            ProgressManager.SetQuest(EQuest.Confiner, ConfinerIndex);
+
+            ProgressManager.AddPlayedTime();
+            Storage.Save(ProgressManager.PlayerState);
+
+            SwitchFire(true);
+            Navigation.ChangeCheckpoint();
+
+            //add visual effect
+            AudioManager.PlayRedhoodSound(EPlayerSounds.LightCampFire);
+            Player.UpdateMaxLives(); //refills health and updates HUD..
+
+            HideMessage();
+            Player.ReleasedByInteraction();
+            Player.Interaction -= OnKindleFire;
         }
     }
 }

@@ -28,11 +28,18 @@ namespace Platformer
         private SpriteRenderer Renderer;
 
         private IStorage Storage;
+        private INavigation Navigation;
 
         protected override void Awake()
         {
             base.Awake();
             Storage = CompositionRoot.GetStorage();
+            Navigation = CompositionRoot.GetNavigation();
+        }
+
+        private void Start()
+        {
+            Navigation.ChangingCheckpoint += OnCheckpointChanged;
         }
 
         private void OnEnable()
@@ -45,6 +52,14 @@ namespace Platformer
                 SwitchFire(true);
             }
             else
+            {
+                SwitchFire(false);
+            }
+        }
+
+        private void OnCheckpointChanged()
+        {
+            if (SpawnPointIndex != ProgressManager.GetQuest(EQuest.SpawnPoint))
             {
                 SwitchFire(false);
             }
@@ -71,8 +86,6 @@ namespace Platformer
 
         private void OnInteraction()
         {
-            var Game = CompositionRoot.GetGame();
-
             switch (DialoguePhase)
             {
                 case 0:
@@ -90,9 +103,11 @@ namespace Platformer
                     ProgressManager.SetQuest(EQuest.Location, LocationIndex);
                     ProgressManager.SetQuest(EQuest.Confiner, ConfinerIndex);
 
+                    ProgressManager.AddPlayedTime();
                     Storage.Save(ProgressManager.PlayerState);
 
                     SwitchFire(true);
+                    Navigation.ChangeCheckpoint();
                     AudioManager.PlayRedhoodSound(EPlayerSounds.LightCursedCampFire);
 
                     Player.Interaction -= OnInteraction;

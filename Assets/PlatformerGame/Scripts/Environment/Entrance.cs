@@ -90,19 +90,21 @@ namespace Platformer
         {
             var navigation = CompositionRoot.GetNavigation();
             Player.HoldByInteraction();
+
             if (NoDynamicsReload == false)
             {
                 DynamicsContainer.DeactivateMain();
                 DynamicsContainer.DeactivateEnemies();
                 DynamicsContainer.DeactivateTemporary(); // temporary ))
+
             }
 
             navigation.SetLocation(LocationIndex, SpawnPointIndex, ConfinerIndex);
             AudioManager.PlaySound(ESounds.StairSteps);
 
             var game = CompositionRoot.GetGame();
-            game.FadeScreen.DelayBefore(Color.black, 0.5f);
-            game.FadeScreen.FadeOut(Color.black, 1f);
+            Game.FadeScreen.DelayBefore(Color.black, 0.5f);
+            Game.FadeScreen.FadeOut(Color.black, 1f);
             Player.ReleasedByInteraction();
         }
 

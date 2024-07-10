@@ -27,8 +27,6 @@ namespace Platformer
 
         private void OnInteraction()
         {
-            var Game = CompositionRoot.GetGame();
-
             ProgressManager.SetQuest(EQuest.StartGameWeaponsReset, 1);
 
             ProgressManager.SetQuest(EQuest.KnifeLevel, 1);      // 1

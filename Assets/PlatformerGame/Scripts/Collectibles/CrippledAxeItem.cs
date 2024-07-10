@@ -34,8 +34,7 @@ namespace Platformer
 
                     Player.UpdateAllWeaponLevel();
                     
-                    game.HUD.UpdateWeaponIcons();
-                    game.FadeScreen.FadeOut(Color.white, 1.5f);
+                    Game.FadeScreen.FadeOut(Color.white, 1.5f);
                     AudioManager.PauseMusic(7f, true);
                     AudioManager.PlaySound(ESounds.Collect10LifeUpgrade);
                 }

@@ -10,17 +10,17 @@ namespace Platformer
         private INavigation Navigation;
         private IPlayer Player;
 
-        public DialogueModel Dialogue => DialogueModel;
-        private DialogueModel DialogueModel;
+        public static DialogueModel Dialogue => DialogueModel;
+        private static DialogueModel DialogueModel;
 
-        public FadeScreenModel FadeScreen => FadeScreenModel;
-        private FadeScreenModel FadeScreenModel;
+        public static FadeScreenModel FadeScreen => FadeScreenModel;
+        private static FadeScreenModel FadeScreenModel;
 
-        public GameOverModel GameOver => GameOverModel;
-        private GameOverModel GameOverModel;
+        public static GameOverModel GameOver => GameOverModel;
+        private static GameOverModel GameOverModel;
 
-        public HUDModel HUD => HUDModel;
-        private HUDModel HUDModel;
+        public static HUDModel HUD => HUDModel;
+        private static HUDModel HUDModel;
 
         public TitleScreenModel TitleScreen => TitleScreenModel;
         private TitleScreenModel TitleScreenModel;
@@ -44,17 +44,7 @@ namespace Platformer
             var eventSystem = CompositionRoot.GetEventSystem();
             var mainCMCamera = CompositionRoot.GetMainCMCamera();
 
-            ////Save Game
-            //var playerStateToSave = ProgressManager.PlayerState;
-            //Storage.Save(playerStateToSave);
-
-            // Only this for "LOAD TEST CONFIG"
-            //var playerState = LoadTestConfig();
-            //ProgressManager.SetState(playerState);
-
-            // Only for "START NEW GAME"
-            //var playerState = ProgressManager.CreateState(1);
-            //ProgressManager.SetState(playerState);
+            
 
             // Title
             TitleScreenModel = new TitleScreenModel();
@@ -80,7 +70,7 @@ namespace Platformer
             SettingsScreenModel.ClickingBackToMenu += FromSettingsToTitle;
             SettingsScreen.Hide();
             
-            //-----------------
+            // In-game screens
             GameOverModel = new GameOverModel();
             GameOverModel.TryingAgain += TryAgain;
             GameOver.Hide();
@@ -94,23 +84,13 @@ namespace Platformer
             // as the last screen on MenuCanvas it can be used for fading menues too
             FadeScreenModel = new FadeScreenModel();
             FadeScreen.Hide();
-
-            // in the beginning of Game
-            //HUD.Show();
-            //FadeScreen.Show();
-            //HUD.SetMaxLives(ProgressManager.GetQuest(EQuest.MaxLives));
-            //HUD.UpdateResourceAmount();
-
-            //Player = CompositionRoot.GetPlayer();
-            //Player.Initiate(this);
-            //Player.Revive();
-
-            //should be in "StartGame" and "ContinueGame"
-            //LoadPlayerLocation();
         }
 
         public void FromPlayToGame()
         {
+            //Only this for "LOAD TEST CONFIG"
+            //LoadTestConfig(); ???
+
             // Here starts actual game process !
             PlayScreen.Hide();
 
@@ -120,8 +100,11 @@ namespace Platformer
             HUD.UpdateResourceAmount();
 
             Player = CompositionRoot.GetPlayer();
-            Player.Initiate(this);
             Player.Revive();
+
+            //Start TimeCounter
+            var counter = CompositionRoot.GetTimePlayedCounter();
+            counter.StartCount();
 
             LoadPlayerLocation();
         }
@@ -202,17 +185,12 @@ namespace Platformer
             FadeScreen.FadeOut(Color.black, 1f);
         }
 
-        private void SaveGame()
-        {
-
-        }
-
         public IPlayerState LoadTestConfig()
         {
             var playerState = ProgressManager.CreateState(1);
 
             //Testing game mode
-            playerState.SetQuest(EQuest.GameMode, 0);// normal, few tries
+            playerState.SetQuest(EQuest.DifficultyMode, 0);// normal, few tries
             playerState.SetQuest(EQuest.TriesLeft, 2);
 
             //Visited WF, took the pie

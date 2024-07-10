@@ -50,8 +50,6 @@ namespace Platformer
 
         private void OnKeyQuestPhase0()
         {
-            var Game = CompositionRoot.GetGame();
-
             switch (DialoguePhase)
             {
                 case 0:
@@ -92,7 +90,6 @@ namespace Platformer
 
         private void OnKeyQuestPhase1()
         {
-            var Game = CompositionRoot.GetGame();
             var oreAmount = ProgressManager.GetQuest(EQuest.OreCollected);
 
             switch (DialoguePhase)

@@ -27,8 +27,6 @@ namespace Platformer
             {
                 var knifeLevel = ProgressManager.GetQuest(EQuest.KnifeLevel);
 
-                var game = CompositionRoot.GetGame();
-
                 if (knifeLevel == 0)
                 {
                     ProgressManager.SetQuest(EQuest.KnifeLevel, 1);
@@ -36,7 +34,7 @@ namespace Platformer
 
                     Player.UpdateAllWeaponLevel();
 
-                    game.HUD.UpdateWeaponIcons();
+                    Game.HUD.UpdateWeaponIcons();
                     AudioManager.PlaySound(ESounds.Collect1QuestItems); // tutorial
                 }
 

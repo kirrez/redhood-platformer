@@ -75,8 +75,6 @@ namespace Platformer
 
         private void Consideration()
         {
-            var Game = CompositionRoot.GetGame();
-
             switch (DialoguePhase)
             {
                 case 0:
@@ -139,8 +137,6 @@ namespace Platformer
 
         private void HandleNotFound()
         {
-            var Game = CompositionRoot.GetGame();
-
             switch (DialoguePhase)
             {
                 case 0:
@@ -164,8 +160,6 @@ namespace Platformer
 
         private void HandleFound()
         {
-            var Game = CompositionRoot.GetGame();
-
             switch (DialoguePhase)
             {
                 case 0:

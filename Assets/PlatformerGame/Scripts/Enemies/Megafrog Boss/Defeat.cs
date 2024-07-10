@@ -32,7 +32,7 @@ namespace Platformer.MegafrogBoss
             Megafrog.DisableBodyDamage();
 
             var game = CompositionRoot.GetGame();
-            game.FadeScreen.FadeOut(Color.white, 2f);
+            Game.FadeScreen.FadeOut(Color.white, 2f);
 
             Timer = 0.25f;
             Megafrog.AudioManager.PlayMusic(EMusic.Boss_victory);

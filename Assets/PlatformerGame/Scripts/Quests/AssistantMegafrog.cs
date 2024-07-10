@@ -111,8 +111,6 @@ namespace Platformer
 
         private void FirstReplica()
         {
-            var Game = CompositionRoot.GetGame();
-            
             switch (DialoguePhase)
             {
                 case 0:
@@ -138,8 +136,6 @@ namespace Platformer
 
         private void SecondReplica()
         {
-            var Game = CompositionRoot.GetGame();
-
             switch (DialoguePhase)
             {
                 case 0:
@@ -166,8 +162,6 @@ namespace Platformer
 
         private void DealAccepted()
         {
-            var Game = CompositionRoot.GetGame();
-
             switch (DialoguePhase)
             {
                 case 0:
@@ -200,8 +194,6 @@ namespace Platformer
 
         private void DealDeclined()
         {
-            var Game = CompositionRoot.GetGame();
-
             switch (DialoguePhase)
             {
                 case 0:
@@ -226,8 +218,6 @@ namespace Platformer
 
         private void PoisonedButAlive()
         {
-            var Game = CompositionRoot.GetGame();
-
             switch (DialoguePhase)
             {
                 case 0:
@@ -252,8 +242,6 @@ namespace Platformer
 
         private void LastWithAssistance()
         {
-            var Game = CompositionRoot.GetGame();
-
             switch (DialoguePhase)
             {
                 case 0:
@@ -278,8 +266,6 @@ namespace Platformer
 
         private void LastNoAssistance()
         {
-            var Game = CompositionRoot.GetGame();
-
             switch (DialoguePhase)
             {
                 case 0:

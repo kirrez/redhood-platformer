@@ -37,7 +37,6 @@ namespace Platformer
                 ProgressManager.SetQuest(Item, 1);
                 ProgressManager.AddValue(EQuest.Money, CurrencyValue);
 
-                var Game = CompositionRoot.GetGame();
                 Game.HUD.UpdateResourceAmount();
                 AudioManager.PlaySound(ESounds.Collect9Coin);
 
