@@ -17,10 +17,6 @@ namespace Platformer
             playerState.SetQuest(EQuest.MaxLivesCap, 8);
             playerState.SetQuest(EQuest.LifeUpgradeCost, 5);
 
-            playerState.SetQuest(EQuest.KnifeLevel, 0);
-            playerState.SetQuest(EQuest.AxeLevel, 0);
-            playerState.SetQuest(EQuest.HolyWaterLevel, 0);
-
             //Start Player's location
             playerState.SetQuest(EQuest.Stage, (int)EStages.StartOrTutorial);
             playerState.SetQuest(EQuest.Location, 0);

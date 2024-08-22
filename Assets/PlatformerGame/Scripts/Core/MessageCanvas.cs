@@ -5,12 +5,10 @@ using UnityEngine;
 
 namespace Platformer
 {
-    public class MessageCanvas : MonoBehaviour
+    public class MessageCanvas : MonoBehaviour, IMessageCanvas
     {
         [SerializeField]
         private Text Text;
-
-        private IDynamicsContainer DynamicsContainer;
 
         private bool IsBlinking;
         private float Timer;
@@ -19,15 +17,8 @@ namespace Platformer
         private delegate void State();
         State CurrentState = () => { };
 
-        private void Awake()
-        {
-            DynamicsContainer = CompositionRoot.GetDynamicsContainer();
-        }
-
         private void OnEnable()
         {
-            DynamicsContainer.AddMain(this.gameObject);
-
             if (IsBlinking)
             {
                 CurrentState = StartVisible;
@@ -98,6 +89,21 @@ namespace Platformer
         public void SetMessage(string message)
         {
             Text.text = message;
+        }
+
+        public void Show()
+        {
+            Text.enabled = true;
+        }
+
+        public void Hide()
+        {
+            if (Text != null)
+            {
+                Text.enabled = false;
+            }
+            IsBlinking = false;
+            CurrentState = () => { };
         }
     }
 }

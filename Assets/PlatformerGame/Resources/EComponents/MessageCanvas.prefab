@@ -80,11 +80,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.5
-  m_Text: 'TALK TO MOM "C"
-
-    THERE IS f d fdfd
-
-    SOmeTHING WROnG'
+  m_Text: 
 --- !u!114 &2221206698561230487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -228,5 +224,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bcd3aa78777deb44a5ecad5e65b2175, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Canvas: {fileID: 2221206698668715617}
   Text: {fileID: 2221206698561230484}

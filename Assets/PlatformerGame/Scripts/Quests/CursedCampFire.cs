@@ -37,13 +37,10 @@ namespace Platformer
             Navigation = CompositionRoot.GetNavigation();
         }
 
-        private void Start()
-        {
-            Navigation.ChangingCheckpoint += OnCheckpointChanged;
-        }
-
         private void OnEnable()
         {
+            Navigation.ChangingCheckpoint += OnCheckpointChanged;
+
             Inside = false;
             DialoguePhase = 0;
 
@@ -55,6 +52,11 @@ namespace Platformer
             {
                 SwitchFire(false);
             }
+        }
+
+        private void OnDisable()
+        {
+            Navigation.ChangingCheckpoint -= OnCheckpointChanged;
         }
 
         private void OnCheckpointChanged()

@@ -32,7 +32,6 @@ namespace Platformer
         private List<GameObject> MusicContent;
         private List<GameObject> SoundsContent;
         private List<GameObject> TemporaryContent;
-        private List<GameObject> CampFiresContent;
 
         public void AddEnemy(GameObject item)
         {
@@ -113,7 +112,6 @@ namespace Platformer
             MusicContent = new List<GameObject>();
             SoundsContent = new List<GameObject>();
             TemporaryContent = new List<GameObject>();
-            CampFiresContent = new List<GameObject>();
         }
     }
 }

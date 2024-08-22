@@ -5,11 +5,10 @@ namespace Platformer
     public class Entrance : MonoBehaviour
     {
         private IDynamicsContainer DynamicsContainer;
-        private IResourceManager ResourceManager;
         private ILocalization Localization;
         private IAudioManager AudioManager;
+        private IMessageCanvas Message;
         private IPlayer Player;
-        private MessageCanvas Message = null;
 
         [SerializeField]
         private int LocationIndex;
@@ -32,30 +31,23 @@ namespace Platformer
         private void Awake()
         {
             DynamicsContainer = CompositionRoot.GetDynamicsContainer();
-            ResourceManager = CompositionRoot.GetResourceManager();
             Localization = CompositionRoot.GetLocalization();
             AudioManager = CompositionRoot.GetAudioManager();
+
+            Message = CompositionRoot.GetMessageCanvas();
         }
 
         private void ShowMessage(string text)
         {
-            if (Message == null)
-            {
-                var instance = ResourceManager.GetFromPool(EComponents.MessageCanvas);
-                Message = instance.GetComponent<MessageCanvas>();
-                Message.SetPosition(MessageTransform.position);
-                Message.SetMessage(text);
-                Message.SetBlinking(true, 0.5f);
-            }
+            Message.Show();
+            Message.SetPosition(MessageTransform.position);
+            Message.SetMessage(text);
+            Message.SetBlinking(true, 0.5f);
         }
 
         private void HideMessage()
         {
-            if (Message != null)
-            {
-                Message.gameObject.SetActive(false);
-                Message = null;
-            }
+            Message.Hide();
         }
 
         private void OnTriggerEnter2D(Collider2D collision)

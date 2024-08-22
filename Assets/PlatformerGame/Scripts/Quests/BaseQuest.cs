@@ -18,7 +18,8 @@ namespace Platformer
         protected ILocalization Localization;
         protected IPlayer Player;
 
-        protected MessageCanvas Message = null;
+        protected IMessageCanvas Message;
+
         protected bool Inside = false;
         protected int DialoguePhase = 0;
 
@@ -29,6 +30,8 @@ namespace Platformer
             AudioManager = CompositionRoot.GetAudioManager();
             Localization = CompositionRoot.GetLocalization();
             Player = CompositionRoot.GetPlayer();
+
+            Message = CompositionRoot.GetMessageCanvas();
         }
 
         protected virtual void Update()
@@ -40,25 +43,16 @@ namespace Platformer
 
         protected void ShowMessage(string text)
         {
-            if (Message == null)
-            {
-                var instance = ResourceManager.GetFromPool(EComponents.MessageCanvas);
-                Message = instance.GetComponent<MessageCanvas>();
-                Message.SetPosition(MessageTransform.position);
-                Message.SetMessage(text);
-                Message.SetBlinking(true, 0.5f);
-            }
+            Message.Show();
+            Message.SetPosition(MessageTransform.position);
+            Message.SetMessage(text);
+            Message.SetBlinking(true, 0.5f);
         }
 
         protected void HideMessage()
         {
-            if (Message != null)
-            {
-                Message.gameObject.SetActive(false);
-                Message = null;
-            }
+            Message.Hide();
         }
-
 
     }
 }

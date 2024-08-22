@@ -58,7 +58,6 @@ namespace Platformer
 
             var result = new PlayerState();
 
-            //
             // params not from EQuest
             key = string.Format(PlayerStateKey, ID) + "_" + KeyName;
             result.Name = PlayerPrefs.GetString(key);
@@ -100,6 +99,8 @@ namespace Platformer
 
             key = string.Format(PlayerStateKey, playerState.ID) + "_" + KeyName;
             PlayerPrefs.SetString(key, playerState.Name);
+
+
 
             playerState.UpdateTimeAndDate();
 

@@ -174,14 +174,17 @@ namespace Platformer
             DynamicsContainer.DeactivateTemporary(); // temp
 
             ProgressManager.RefillRenewables();
-            LoadPlayerLocation();
 
             GameOver.Hide();
             HUD.Show();
             Player.Revive();
             AudioManager.ReplayMusic();
 
+            LoadPlayerLocation();
+
+            Player.HoldByInteraction();
             FadeScreen.DelayBefore(Color.black, 1f);
+            Player.ReleasedByInteraction();
             FadeScreen.FadeOut(Color.black, 1f);
         }
 

@@ -15,21 +15,20 @@ namespace Platformer
         [SerializeField]
         private Transform MessageTransform;
 
-        private IResourceManager ResourceManager;
         private IAudioManager AudioManager;
         private ILocalization Localization;
+        private IMessageCanvas Message;
         private IPlayer Player;
 
         private SpriteRenderer Renderer;
-        private MessageCanvas Message;
         private bool Interacted;
         private bool Inside;
 
         private void Awake()
         {
-            ResourceManager = CompositionRoot.GetResourceManager();
             Localization = CompositionRoot.GetLocalization();
             AudioManager = CompositionRoot.GetAudioManager();
+            Message = CompositionRoot.GetMessageCanvas();
             Player = CompositionRoot.GetPlayer();
 
             Renderer = GetComponent<SpriteRenderer>();
@@ -79,23 +78,15 @@ namespace Platformer
 
         private void ShowMessage(string text)
         {
-            if (Message == null)
-            {
-                var instance = ResourceManager.GetFromPool(EComponents.MessageCanvas);
-                Message = instance.GetComponent<MessageCanvas>();
-                Message.SetPosition(MessageTransform.position);
-                Message.SetMessage(text);
-                Message.SetBlinking(true, 0.5f);
-            }
+            Message.Show();
+            Message.SetPosition(MessageTransform.position);
+            Message.SetMessage(text);
+            Message.SetBlinking(true, 0.5f);
         }
 
         private void HideMessage()
         {
-            if (Message != null)
-            {
-                Message.gameObject.SetActive(false);
-                Message = null;
-            }
+            Message.Hide();
         }
     }
 }

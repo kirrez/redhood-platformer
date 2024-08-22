@@ -15,17 +15,17 @@ namespace Platformer
         [SerializeField]
         private Collider2D Trigger;
 
-        private IResourceManager ResourceManager;
         private ILocalization Localization;
+        private IMessageCanvas Message;
         private IPlayer Player;
 
-        private MessageCanvas Message;
         private bool Inside;
 
         private void Awake()
         {
-            ResourceManager = CompositionRoot.GetResourceManager();
             Localization = CompositionRoot.GetLocalization();
+            Message = CompositionRoot.GetMessageCanvas();
+
             Player = CompositionRoot.GetPlayer();
         }
 
@@ -46,25 +46,16 @@ namespace Platformer
 
         private void ShowMessage(string text)
         {
-            if (Message == null)
-            {
-                var instance = ResourceManager.GetFromPool(EComponents.MessageCanvas);
-                Message = instance.GetComponent<MessageCanvas>();
-                Message.SetPosition(MessageTransform.position);
-                Message.SetMessage(text);
-                Message.StopBlinking();
-            }
+            Message.Show();
+            Message.SetPosition(MessageTransform.position);
+            Message.SetMessage(text);
+            Message.StopBlinking();
         }
 
         private void HideMessage()
         {
-            if (Message != null)
-            {
-                Message.gameObject.SetActive(false);
-                Message = null;
-            }
+            Message.Hide();
         }
-
 
     }
 }

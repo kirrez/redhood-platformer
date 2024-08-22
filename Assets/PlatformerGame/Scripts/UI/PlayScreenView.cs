@@ -55,6 +55,32 @@ namespace Platformer
         [SerializeField]
         private Button CancelInputName;
 
+        [Header("Deletion Window")]
+        [Space(20)]
+
+        [SerializeField]
+        private GameObject DeletionWindow;
+
+        [SerializeField]
+        private Text DeletionWindowTitle;
+
+        [SerializeField]
+        private Text SubmitDeletionText;
+
+        [SerializeField]
+        private Text CancelDeletionText;
+
+        [SerializeField]
+        private Button SubmitDeletion;
+
+        [SerializeField]
+        private Button CancelDeletion;
+
+        //----- DEBUG --------------------
+
+        [SerializeField]
+        private Text SelectedIDText;
+
         //--------------------------------
         private ILocalization Localization;
         private IAudioManager AudioManager;
@@ -72,7 +98,7 @@ namespace Platformer
 
         private IProgressManager ProgressManager;
 
-        private int SelectedSlotID;
+        private int SelectedSlotID = -1;
 
         private void Awake()
         {
@@ -90,7 +116,7 @@ namespace Platformer
                 ResetButtonTexts();
                 ResetSelectedView();
 
-                SelectedSlotID = 0;
+                SelectedSlotID = -1;
 
                 foreach (var slot in Slots)
                 {
@@ -139,18 +165,23 @@ namespace Platformer
             DeleteButton.SetAction(OnDelete);
 
             //
-            if (SelectedSlotID == 0)
+            if (SelectedSlotID == -1)
             {
                 CreatePlayButton.SetAvailable(false);
                 RenameButton.SetAvailable(false);
                 DeleteButton.SetAvailable(false);
             }
 
-            // Input Name WindowSection, events
+            // Input Name WindowSection, events     CHECK SetActive(true) reason !
             InputNameWindow.SetActive(true);
             SubmitInputName.onClick.AddListener(OnInputNameSubmit);
             CancelInputName.onClick.AddListener(OnInputNameCancel);
             InputNameWindow.SetActive(false);
+
+            DeletionWindow.SetActive(true);
+            SubmitDeletion.onClick.AddListener(OnDeletionSubmit);
+            CancelDeletion.onClick.AddListener(OnDeletionCancel);
+            DeletionWindow.SetActive(false);
 
             ScreenCreated = true;
             ResetButtonTexts();
@@ -159,6 +190,10 @@ namespace Platformer
 
         private void Update()
         {
+            // DEBUG
+            SelectedIDText.text = SelectedSlotID.ToString();
+            //
+
             if (Timer > 0)
             {
                 Timer -= Time.deltaTime;
@@ -182,9 +217,9 @@ namespace Platformer
             Title.text = Localization.Utilitary(EUtilitary.SelectYourGame_Title);
             BackToMenu.SetProperties(TextColors, Localization.Utilitary(EUtilitary.BackToTitle));
 
-            if (SelectedSlotID == 0) CreatePlayButton.SetProperties(Localization.Utilitary(EUtilitary.CreateButton));
-            if (SelectedSlotID != 0 && PlayerStates[SelectedSlotID] == null) CreatePlayButton.SetProperties(Localization.Utilitary(EUtilitary.CreateButton));
-            if (SelectedSlotID != 0 && PlayerStates[SelectedSlotID] != null) CreatePlayButton.SetProperties(Localization.Utilitary(EUtilitary.PlayButton));
+            if (SelectedSlotID == -1) CreatePlayButton.SetProperties(Localization.Utilitary(EUtilitary.CreateButton));
+            if (SelectedSlotID > 0 && PlayerStates[SelectedSlotID] == null) CreatePlayButton.SetProperties(Localization.Utilitary(EUtilitary.CreateButton));
+            if (SelectedSlotID > 0 && PlayerStates[SelectedSlotID] != null) CreatePlayButton.SetProperties(Localization.Utilitary(EUtilitary.PlayButton));
 
             RenameButton.SetProperties(Localization.Utilitary(EUtilitary.RenameButton));
             DeleteButton.SetProperties(Localization.Utilitary(EUtilitary.DeleteButton));
@@ -194,11 +229,19 @@ namespace Platformer
                 slot.ResetTexts();
             }
 
+            // INPUT WINDOW
             InputNameWindow.SetActive(true);
             InputWindowTitle.text = Localization.Utilitary(EUtilitary.EnterYourName_Title);
             SubmitText.text = Localization.Utilitary(EUtilitary.Submit);
             CancelText.text = Localization.Utilitary(EUtilitary.Cancel);
             InputNameWindow.SetActive(false);
+
+            // DELETION WINDOW
+            DeletionWindow.SetActive(true);
+            DeletionWindowTitle.text = Localization.Utilitary(EUtilitary.AreYouSure_Title);
+            SubmitDeletionText.text = Localization.Utilitary(EUtilitary.Submit);
+            CancelDeletionText.text = Localization.Utilitary(EUtilitary.Cancel);
+            DeletionWindow.SetActive(false);
         }
 
         private void SwitchMainLayer(bool flag)
@@ -268,11 +311,8 @@ namespace Platformer
             Storage.Save(ProgressManager.PlayerState);
             Slots[SelectedSlotID].ResetTexts();
 
-            InputNameWindow.SetActive(false);
-            RenameButton.DeselectedLook();
-            ResetSelectedView();
-            SwitchMainLayer(true);
-            UpdateButtonActions();
+            //visual
+            OnInputNameCancel();
         }
 
         private void OnInputNameCancel()
@@ -304,18 +344,34 @@ namespace Platformer
         private void OnDelete()
         {
             DeleteButton.SubmittedLook();
+            SwitchMainLayer(false);
+            DeletionWindow.SetActive(true);
+        }
 
+        private void OnDeletionSubmit()
+        {
             Storage.Delete(PlayerStates[SelectedSlotID]);
             ProgressManager.SetState(null);
-
             PlayerStates[SelectedSlotID] = null;
 
             Slots[SelectedSlotID].SetProperties(SelectedSlotID, null);
             Slots[SelectedSlotID].ResetTexts();
 
-            SelectedSlotID = 0;
+            UpdateButtonActions();
+            SelectedSlotID = -1;
+
+            DeletionWindow.SetActive(false);
             DeleteButton.DeselectedLook();
             ResetSelectedView();
+            SwitchMainLayer(true);
+        }
+
+        private void OnDeletionCancel()
+        {
+            DeletionWindow.SetActive(false);
+            DeleteButton.DeselectedLook();
+            ResetSelectedView();
+            SwitchMainLayer(true);
             UpdateButtonActions();
         }
 

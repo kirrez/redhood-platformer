@@ -28,11 +28,27 @@ namespace Platformer
         private IStorage Storage;
         private INavigation Navigation;
 
+        private float Timer;
+        private float Delay = 2f;
+
+        private delegate void State();
+        private State CurrentState = () => { };
+
         protected override void Awake()
         {
             base.Awake();
             Storage = CompositionRoot.GetStorage();
             Navigation = CompositionRoot.GetNavigation();
+        }
+
+        protected override void Update()
+        {
+            // CurrentState works incorrect here
+        }
+
+        private void FixedUpdate()
+        {
+            CurrentState();
         }
 
         private void OnEnable()
@@ -47,6 +63,11 @@ namespace Platformer
             {
                 SwitchFire(false);
             }
+
+            Inside = false;
+            Timer = Delay;
+
+            CurrentState = StateRest;
         }
 
         private void OnDisable()
@@ -77,11 +98,24 @@ namespace Platformer
             }
         }
 
+        private void StateRest()
+        {
+            Timer -= Time.deltaTime;
+            if (Timer > 0) return;
+
+            CurrentState = StateCheck;
+        }
+
+        private void StateCheck()
+        {
+            RequirementsCheck();
+        }
+
         protected override void RequirementsCheck()
         {
             var quest = ProgressManager.GetQuest(EQuest.SpawnPoint);
 
-            if ( quest != SpawnPointIndex)
+            if (quest != SpawnPointIndex)
             {
                 if (Trigger.bounds.Contains(Player.Position) == true && !Inside)
                 {
@@ -97,7 +131,7 @@ namespace Platformer
                     HideMessage();
                 }
             }
- 
+
             if (quest == SpawnPointIndex)
             {
                 if (Trigger.bounds.Contains(Player.Position) == true && !Inside)
@@ -126,8 +160,13 @@ namespace Platformer
             // add visual effect
             AudioManager.PlayRedhoodSound(EPlayerSounds.LightCampFire);
 
+            Inside = false;
+            HideMessage();
             Player.ReleasedByInteraction();
             Player.Interaction -= OnSaveGame;
+
+            Timer = Delay * 2;
+            CurrentState = StateRest;
         }
 
         private void OnKindleFire()
@@ -147,9 +186,13 @@ namespace Platformer
             AudioManager.PlayRedhoodSound(EPlayerSounds.LightCampFire);
             Player.UpdateMaxLives(); //refills health and updates HUD..
 
+            Inside = false;
             HideMessage();
             Player.ReleasedByInteraction();
             Player.Interaction -= OnKindleFire;
+
+            Timer = Delay * 2;
+            CurrentState = StateRest;
         }
     }
 }

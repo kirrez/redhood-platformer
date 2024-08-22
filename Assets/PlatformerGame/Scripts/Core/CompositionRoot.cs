@@ -14,6 +14,7 @@ namespace Platformer
         private static GameObject MainCMCamera;
         private static INavigation Navigation;
         private static IAudioManager AudioManager;
+        private static IMessageCanvas MessageCanvas;
         private static IDynamicsContainer DynamicsContainer;
         private static GameObject EventSystemContainer;
 
@@ -35,6 +36,17 @@ namespace Platformer
             }
 
             return Storage;
+        }
+
+        public static IMessageCanvas GetMessageCanvas()
+        {
+            if (MessageCanvas == null)
+            {
+                var resourceManager = GetResourceManager();
+                MessageCanvas = resourceManager.CreatePrefab<IMessageCanvas, EComponents>(EComponents.MessageCanvas);
+            }
+
+            return MessageCanvas;
         }
 
         public static IAudioManager GetAudioManager()
@@ -199,6 +211,8 @@ namespace Platformer
             EventSystemContainer = null;
             TimePlayedCounter = null;
             DynamicsContainer = null;
+
+            MessageCanvas = null;
         }
     }
 }

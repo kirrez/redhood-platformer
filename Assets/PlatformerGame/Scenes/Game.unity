@@ -238,7 +238,7 @@ PrefabInstance:
     - target: {fileID: 6704454291984588727, guid: d567834cb3a3bc54d83e8fc25561e865, type: 3}
       propertyPath: m_Icon
       value: 
-      objectReference: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
+      objectReference: {fileID: 0}
     - target: {fileID: 6704454291984588727, guid: d567834cb3a3bc54d83e8fc25561e865, type: 3}
       propertyPath: m_Name
       value: CompositionRoot

@@ -15,10 +15,64 @@ namespace Platformer
 
         private IStorage Storage;
 
+        private float Timer;
+        private float Delay = 3f;
+
+        private delegate void State();
+        private State CurrentState = () => { };
+
         protected override void Awake()
         {
             base.Awake();
             Storage = CompositionRoot.GetStorage();
+        }
+
+        private void OnEnable()
+        {
+            Inside = false;
+            Timer = Delay;
+            CurrentState = StateRest;
+        }
+
+        protected override void Update()
+        {
+            CurrentState();
+        }
+
+        private void StateRest()
+        {
+            Timer -= Time.deltaTime;
+            if (Timer > 0) return;
+
+            CurrentState = StateCheck;
+        }
+
+        private void StateCheck()
+        {
+            RequirementsCheck();
+        }
+
+        private void StateFadeIn()
+        {
+            Timer -= Time.deltaTime;
+            if (Timer > 0) return;
+
+            Game.FadeScreen.DelayAfter(1f);
+            Timer = 1f;
+
+            CurrentState = StateDelayAfter;
+        }
+
+        private void StateDelayAfter()
+        {
+            Timer -= Time.deltaTime;
+            if (Timer > 0) return;
+
+            Player.ReleasedByInteraction();
+            Game.FadeScreen.FadeOut(Color.black, 1f);
+            Timer = Delay + 1f;
+
+            CurrentState = StateRest;
         }
 
         protected override void RequirementsCheck()
@@ -48,12 +102,19 @@ namespace Platformer
             ProgressManager.AddPlayedTime();
             Storage.Save(ProgressManager.PlayerState);
 
-            // add visual effect
             AudioManager.PlayRedhoodSound(EPlayerSounds.LightCampFire);
 
+            Inside = false;
+            HideMessage();
             Player.UpdateMaxLives();
-            Player.ReleasedByInteraction();
+            //Player.ReleasedByInteraction();
             Player.Interaction -= OnSaveGame;
+
+            // visual effect
+            Timer = 1f;
+            Game.FadeScreen.FadeIn(Color.black, 1f);
+
+            CurrentState = StateFadeIn;
         }
     }
 }
