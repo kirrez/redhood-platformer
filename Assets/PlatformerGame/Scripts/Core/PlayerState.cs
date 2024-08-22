@@ -4,7 +4,6 @@ using System;
 
 public class PlayerState : IPlayerState
 {
-    public int ID { get; set; } //slot 0,1 or 2
     public string Name { get; set; } // name of a game
 
     private Dictionary<EQuest, int> Quests = new Dictionary<EQuest, int>();

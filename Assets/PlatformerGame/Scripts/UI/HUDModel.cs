@@ -16,7 +16,7 @@ namespace Platformer
 
             ProgressManager = CompositionRoot.GetProgressManager();
 
-            View = resourceManager.CreatePrefab<HUDView, EScreens>(EScreens.HUDView);
+            View = resourceManager.CreatePrefab<HUDView, EViews>(EViews.HUDView);
             View.SetParent(uiRoot.HUDCanvas.transform);
         }
 

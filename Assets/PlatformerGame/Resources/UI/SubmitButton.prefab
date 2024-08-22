@@ -136,7 +136,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 543361a8d0e864940919551417060d21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsAvailable: 0
+  Button: {fileID: 4736511055752004395}
+  Image: {fileID: 5634894233616425446}
+  Text: {fileID: 7967343489050694645}
   Sprites:
   - {fileID: 1251077793, guid: a592b2609c6bb564cb43922d1a17de76, type: 3}
   - {fileID: 287470708, guid: a592b2609c6bb564cb43922d1a17de76, type: 3}

@@ -25,8 +25,8 @@ namespace Platformer
         public TitleScreenModel TitleScreen => TitleScreenModel;
         private TitleScreenModel TitleScreenModel;
 
-        public PlayScreenModel PlayScreen => PlayScreenModel;
-        private PlayScreenModel PlayScreenModel;
+        public PlayScreen PlayScreen => PlayScreenModel;
+        private PlayScreen PlayScreenModel;
 
         public CreditsScreenModel CreditsScreen => CreditsScreenModel;
         private CreditsScreenModel CreditsScreenModel;
@@ -55,9 +55,9 @@ namespace Platformer
             TitleScreenModel.ClickingQuit += QuitApplication;
 
             // Play
-            PlayScreenModel = new PlayScreenModel();
-            PlayScreenModel.ClickingBackToMenu += FromPlayToTitle;
-            PlayScreenModel.ClickingPlayGame += FromPlayToGame;
+            PlayScreenModel = new PlayScreen();
+            PlayScreenModel.Canceled += FromPlayToTitle;
+            PlayScreenModel.Started += FromPlayToGame;
             PlayScreen.Hide();
 
             // Credits

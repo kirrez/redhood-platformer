@@ -155,7 +155,7 @@ namespace Platformer
             Player.HoldByInteraction();
 
             ProgressManager.AddPlayedTime();
-            Storage.Save(ProgressManager.PlayerState);
+            Storage.Save(ProgressManager.ID, ProgressManager.PlayerState);
 
             // add visual effect
             AudioManager.PlayRedhoodSound(EPlayerSounds.LightCampFire);
@@ -177,7 +177,7 @@ namespace Platformer
             ProgressManager.SetQuest(EQuest.Confiner, ConfinerIndex);
 
             ProgressManager.AddPlayedTime();
-            Storage.Save(ProgressManager.PlayerState);
+            Storage.Save(ProgressManager.ID, ProgressManager.PlayerState);
 
             SwitchFire(true);
             Navigation.ChangeCheckpoint();

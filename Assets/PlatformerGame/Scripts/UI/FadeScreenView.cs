@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace Platformer
 {
-    public class FadeScreenView : BaseScreenView
+    public class FadeScreenView : BaseView
     {
         private Image Image;
 

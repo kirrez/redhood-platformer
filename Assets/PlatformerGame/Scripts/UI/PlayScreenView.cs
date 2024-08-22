@@ -1,411 +1,295 @@
-using System.Collections.Generic;
-using UnityEngine.EventSystems;
-using UnityEngine.UI;
-using UnityEngine;
 using System;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
 
 namespace Platformer
 {
-    public class PlayScreenView : BaseScreenView
+    public class PlayScreenView : BaseView, IPlayScreenView
     {
-        public event Action BackToMenuClicked = () => { };
-        public event Action PlayGameClicked = () => { };
+        private const string DefaultName = "NoName";
 
-        private const string NoName = "NoName";
+        public event Action<int> SlotSelected = slotIndex => { };
+
+        public event Action<int> PlayClicked = slotIndex => { };
+        public event Action<int> CreateClicked = slotIndex => { };
+        public event Action<int> RenameClicked = slotIndex => { };
+        public event Action<int> DeleteClicked = slotIndex => { };
+
+        public event Action DeleteCanceled = () => { };
+        public event Action RenameCanceled = () => { };
+        public event Action<int> DeleteSubmitted = slotIndex => { };
+        public event Action<int, string> RenameSubmitted = (slotIndex, name) => { };
+
+        public event Action BackClicked = () => { };
 
         public Text Title;
-        public NavigationButton BackToMenu;
 
-        [SerializeField]
-        private List<Color> TextColors;
-
-        [SerializeField]
-        private List<GameSlot> Slots;
-
-        [SerializeField]
-        private SubmitButton CreatePlayButton;
-
-        [SerializeField]
-        private SubmitButton RenameButton;
-
-        [SerializeField]
-        private SubmitButton DeleteButton;
-
-        [Header("Input Name Window")]
+        [Header("Buttons")]
         [Space(20)]
+        public ColoredButton BackButton;
+        public SubmitButton CreateButton;
+        public SubmitButton PlayButton;
+        public SubmitButton RenameButton;
+        public SubmitButton DeleteButton;
 
-        [SerializeField]
-        private GameObject InputNameWindow;
-
-        [SerializeField]
-        private InputField NameInput;
-
-        [SerializeField]
-        private Text InputWindowTitle;
-
-        [SerializeField]
-        private Text SubmitText;
-
-        [SerializeField]
-        private Text CancelText;
-
-        [SerializeField]
-        private Button SubmitInputName;
-
-        [SerializeField]
-        private Button CancelInputName;
-
-        [Header("Deletion Window")]
+        [Header("Rename Window")]
         [Space(20)]
+        public GameObject RenamePopup;
+        public Text RenamePopupTitle;
+        public InputField RenameInputField;
+        public Text RenameSubmitText;
+        public Text RenameCancelText;
+        public Button RenameSubmitButton;
+        public Button RenameCancelButton;
 
-        [SerializeField]
-        private GameObject DeletionWindow;
+        [Header("Delete Window")]
+        [Space(20)]
+        public GameObject DeletePopup;
+        public Text DeletePopupTitle;
+        public Text DeleteSubmitText;
+        public Text DeleteCancelText;
+        public Button DeleteSubmitButton;
+        public Button DeleteCancelButton;
 
-        [SerializeField]
-        private Text DeletionWindowTitle;
+        public List<Color> TextColors;
+        public List<SlotWidget> Slots;
 
-        [SerializeField]
-        private Text SubmitDeletionText;
+        private int SelectedSlotIndex = -1;
 
-        [SerializeField]
-        private Text CancelDeletionText;
-
-        [SerializeField]
-        private Button SubmitDeletion;
-
-        [SerializeField]
-        private Button CancelDeletion;
-
-        //----- DEBUG --------------------
-
-        [SerializeField]
-        private Text SelectedIDText;
-
-        //--------------------------------
         private ILocalization Localization;
         private IAudioManager AudioManager;
-
-        private Action CurrentAction = () => { };
-        private ESounds SelectSound = ESounds.SelectOption;
-
-        private float Timer;
-        private float ClickDelay = 0.35f;
-        private bool ScreenCreated;
-
-        private IStorage Storage;
-
-        private IPlayerState[] PlayerStates = new IPlayerState[3];
-
-        private IProgressManager ProgressManager;
-
-        private int SelectedSlotID = -1;
-
+        
         private void Awake()
         {
-            Storage = CompositionRoot.GetStorage();
             Localization = CompositionRoot.GetLocalization();
             AudioManager = CompositionRoot.GetAudioManager();
 
-            ProgressManager = CompositionRoot.GetProgressManager();
+            BackButton.Clicked += OnBackClicked;
+            CreateButton.Clicked += OnCreateClicked;
+            PlayButton.Clicked += OnPlayClicked;
+            RenameButton.Clicked += OnRenameClicked;
+            DeleteButton.Clicked += OnDeleteClicked;
+
+            RenameCancelButton.onClick.AddListener(OnRenameCanceled);
+            RenameSubmitButton.onClick.AddListener(OnRenameSubmitted);
+            DeleteSubmitButton.onClick.AddListener(OnDeleteSubmitted);
+            DeleteCancelButton.onClick.AddListener(OnDeleteCanceled);
+
+            foreach (var slot in Slots)
+            {
+                slot.Clicked += OnSlotClicked;
+                slot.Hovered += OnSlotHovered;
+            }
+
+            ShowCreateButton();
         }
 
         private void OnEnable()
         {
-            if (ScreenCreated == true)
-            {
-                ResetButtonTexts();
-                ResetSelectedView();
-
-                SelectedSlotID = -1;
-
-                foreach (var slot in Slots)
-                {
-                    slot.SelectSlot(false);
-                    slot.DeselectedLook();
-                }
-
-                CreatePlayButton.SetAvailable(false);
-                RenameButton.SetAvailable(false);
-                DeleteButton.SetAvailable(false);
-
-                SwitchMainLayer(true);
-            }
+            ResetButtonTexts();
         }
 
-        private void Start()
+        public void ShowRenamePopup(string name)
         {
-            if (Storage.IsPlayerStateExists(0))
-            {
-                PlayerStates[0] = Storage.LoadPlayerState(0);
-            }
+            RenameInputField.text = name;
+            RenamePopup.gameObject.SetActive(true);
+        }
 
-            if (Storage.IsPlayerStateExists(1))
-            {
-                PlayerStates[1] = Storage.LoadPlayerState(1);
-            }
+        public void HideRenamePopup()
+        {
+            RenamePopup.gameObject.SetActive(false);
+        }
 
-            if (Storage.IsPlayerStateExists(2))
-            {
-                PlayerStates[2] = Storage.LoadPlayerState(2);
-            }
+        public void ShowDeletePopup(string name)
+        {
+            DeletePopupTitle.text = name;
+            DeletePopup.gameObject.SetActive(true);
+        }
 
-            Slots[0].SetProperties(0, PlayerStates[0]);
-            Slots[1].SetProperties(1, PlayerStates[1]);
-            Slots[2].SetProperties(2, PlayerStates[2]);
+        public void HideDeletePopup()
+        {
+            DeletePopup.gameObject.SetActive(false);
+        }
+
+        public void ShowPlayButton()
+        {
+            PlayButton.gameObject.SetActive(true);
+            CreateButton.gameObject.SetActive(false);
+        }
+
+        public void ShowCreateButton()
+        {
+            PlayButton.gameObject.SetActive(false);
+            CreateButton.gameObject.SetActive(true);
+        }
+
+        public void FillSlot(int index)
+        {
+            var slot = Slots[index];
+            slot.HideEmptyMessage();
+        }
+
+        public void EmptySlot(int index)
+        {
+            var slot = Slots[index];
+            slot.ShowEmptyMessage();
+        }
+
+        public void SelectSlot(int index)
+        {
+            SelectedSlotIndex = index;
+
+            var widget = Slots[index];
 
             foreach (var slot in Slots)
             {
-                slot.SendID += OnSendID;
-                slot.SetAction(slot.PerformSubmit);
-            }
-
-            BackToMenu.SetAction(OnBackToMenu);
-
-            RenameButton.SetAction(OnRename);
-            DeleteButton.SetAction(OnDelete);
-
-            //
-            if (SelectedSlotID == -1)
-            {
-                CreatePlayButton.SetAvailable(false);
-                RenameButton.SetAvailable(false);
-                DeleteButton.SetAvailable(false);
-            }
-
-            // Input Name WindowSection, events     CHECK SetActive(true) reason !
-            InputNameWindow.SetActive(true);
-            SubmitInputName.onClick.AddListener(OnInputNameSubmit);
-            CancelInputName.onClick.AddListener(OnInputNameCancel);
-            InputNameWindow.SetActive(false);
-
-            DeletionWindow.SetActive(true);
-            SubmitDeletion.onClick.AddListener(OnDeletionSubmit);
-            CancelDeletion.onClick.AddListener(OnDeletionCancel);
-            DeletionWindow.SetActive(false);
-
-            ScreenCreated = true;
-            ResetButtonTexts();
-            ResetSelectedView();
-        }
-
-        private void Update()
-        {
-            // DEBUG
-            SelectedIDText.text = SelectedSlotID.ToString();
-            //
-
-            if (Timer > 0)
-            {
-                Timer -= Time.deltaTime;
-                if (Timer <= 0)
+                if (slot == widget)
                 {
-                    CurrentAction?.Invoke();
+                    slot.SetSelectedBorder();
+                }
+                else
+                {
+                    slot.SetDefaultBorder();
                 }
             }
+
+            SlotSelected(index);
         }
 
-        private void ResetSelectedView()
+        public void SetSlotName(int index, string name)
         {
-            BackToMenu.SetSound(ESounds.Silence);
-            EventSystem.current.SetSelectedGameObject(BackToMenu.gameObject);
-            BackToMenu.SelectedLook();
-            BackToMenu.SetSound(ESounds.ChooseOption);
+            var slot = Slots[index];
+            slot.SetName(name);
+        }
+
+        public void SetSlotDate(int index, DateTime date)
+        {
+            var slot = Slots[index];
+            slot.SetDate(date);
+        }
+
+        public void SetSlotPlayedTime(int index, TimeSpan time)
+        {
+            var slot = Slots[index];
+            slot.SetPlayedTime(time);
         }
 
         private void ResetButtonTexts()
         {
-            Title.text = Localization.Utilitary(EUtilitary.SelectYourGame_Title);
-            BackToMenu.SetProperties(TextColors, Localization.Utilitary(EUtilitary.BackToTitle));
+            var title = Localization.Utilitary(EUtilitary.SelectYourGame_Title);
+            var backButtonLabel = Localization.Utilitary(EUtilitary.BackToTitle);
+            var renameButtonLabel = Localization.Utilitary(EUtilitary.RenameButton);
+            var deleteButtonLabel = Localization.Utilitary(EUtilitary.DeleteButton);
+            var playButtonLabel = Localization.Utilitary(EUtilitary.PlayButton);
+            var createButtonLabel = Localization.Utilitary(EUtilitary.CreateButton);
 
-            if (SelectedSlotID == -1) CreatePlayButton.SetProperties(Localization.Utilitary(EUtilitary.CreateButton));
-            if (SelectedSlotID > 0 && PlayerStates[SelectedSlotID] == null) CreatePlayButton.SetProperties(Localization.Utilitary(EUtilitary.CreateButton));
-            if (SelectedSlotID > 0 && PlayerStates[SelectedSlotID] != null) CreatePlayButton.SetProperties(Localization.Utilitary(EUtilitary.PlayButton));
+            Title.text = title;
 
-            RenameButton.SetProperties(Localization.Utilitary(EUtilitary.RenameButton));
-            DeleteButton.SetProperties(Localization.Utilitary(EUtilitary.DeleteButton));
-            
-            foreach (var slot in Slots)
-            {
-                slot.ResetTexts();
-            }
+            BackButton.SetColors(TextColors);
+            BackButton.SetLabel(backButtonLabel);
+
+            //if (SelectedSlotID == -1) CreatePlayButton.SetProperties(Localization.Utilitary(EUtilitary.CreateButton));
+            //if (SelectedSlotID > 0 && PlayerStates[SelectedSlotID] == null) CreatePlayButton.SetProperties(Localization.Utilitary(EUtilitary.CreateButton));
+            //if (SelectedSlotID > 0 && PlayerStates[SelectedSlotID] != null) CreatePlayButton.SetProperties(Localization.Utilitary(EUtilitary.PlayButton));
+
+            PlayButton.SetProperties(playButtonLabel);
+            CreateButton.SetProperties(createButtonLabel);
+            RenameButton.SetProperties(renameButtonLabel);
+            DeleteButton.SetProperties(deleteButtonLabel);
+
+            //foreach (var slot in Slots)
+            //{
+            //    slot.UpdateLocalization();
+            //}
 
             // INPUT WINDOW
-            InputNameWindow.SetActive(true);
-            InputWindowTitle.text = Localization.Utilitary(EUtilitary.EnterYourName_Title);
-            SubmitText.text = Localization.Utilitary(EUtilitary.Submit);
-            CancelText.text = Localization.Utilitary(EUtilitary.Cancel);
-            InputNameWindow.SetActive(false);
+            RenamePopup.SetActive(true);
+            RenamePopupTitle.text = Localization.Utilitary(EUtilitary.EnterYourName_Title);
+            RenameSubmitText.text = Localization.Utilitary(EUtilitary.Submit);
+            RenameCancelText.text = Localization.Utilitary(EUtilitary.Cancel);
+            RenamePopup.SetActive(false);
 
             // DELETION WINDOW
-            DeletionWindow.SetActive(true);
-            DeletionWindowTitle.text = Localization.Utilitary(EUtilitary.AreYouSure_Title);
-            SubmitDeletionText.text = Localization.Utilitary(EUtilitary.Submit);
-            CancelDeletionText.text = Localization.Utilitary(EUtilitary.Cancel);
-            DeletionWindow.SetActive(false);
+            DeletePopup.SetActive(true);
+            DeletePopupTitle.text = Localization.Utilitary(EUtilitary.AreYouSure_Title);
+            DeleteSubmitText.text = Localization.Utilitary(EUtilitary.Submit);
+            DeleteCancelText.text = Localization.Utilitary(EUtilitary.Cancel);
+            DeletePopup.SetActive(false);
         }
 
-        private void SwitchMainLayer(bool flag)
+        private void OnDeleteSubmitted()
         {
+            DeleteSubmitted(SelectedSlotIndex);
+        }
+
+        private void OnRenameSubmitted()
+        {
+            RenameSubmitted(SelectedSlotIndex, RenameInputField.text);
+        }
+
+        private void OnRenameCanceled()
+        {
+            RenameCanceled();
+        }
+
+        private void OnDeleteClicked()
+        {
+            DeleteClicked(SelectedSlotIndex);
+        }
+
+        private void OnDeleteCanceled()
+        {
+            DeleteCanceled();
+        }
+
+        private void OnRenameClicked()
+        {
+            RenameClicked(SelectedSlotIndex);
+        }
+
+        private void OnPlayClicked()
+        {
+            PlayClicked(SelectedSlotIndex);
+        }
+
+        private void OnCreateClicked()
+        {
+            CreateClicked(SelectedSlotIndex);
+        }
+
+        private void OnSlotClicked(SlotWidget widget)
+        {
+            var index = Slots.IndexOf(widget);
+
+            SelectSlot(index);
+        }
+
+        private void OnSlotHovered(SlotWidget widget)
+        {
+            var selectedWidget = SelectedSlotIndex == -1 ? null : Slots[SelectedSlotIndex];
+
             foreach (var slot in Slots)
             {
-                slot.SetInteractable(flag);
-            }
+                if (slot == selectedWidget)
+                {
+                    continue;
+                }
 
-            BackToMenu.SetInteractable(flag);
-
-            CreatePlayButton.SetInteractable(flag);
-            RenameButton.SetInteractable(flag);
-            DeleteButton.SetInteractable(flag);
-        }
-
-        private void UpdateButtonActions()
-        {
-            if (PlayerStates[SelectedSlotID] == null)
-            {
-                CreatePlayButton.SetProperties(Localization.Utilitary(EUtilitary.CreateButton));
-                CreatePlayButton.SetAction(OnCreateGame);
-
-                RenameButton.SetAvailable(false);
-                DeleteButton.SetAvailable(false);
-            }
-
-            if (PlayerStates[SelectedSlotID] != null)
-            {
-                CreatePlayButton.SetProperties(Localization.Utilitary(EUtilitary.PlayButton));
-                CreatePlayButton.SetAction(OnPlayGame);
-
-                RenameButton.SetAvailable(true);
-                DeleteButton.SetAvailable(true);
+                if (slot == widget)
+                {
+                    slot.SetHoveredBorder();
+                }
+                else
+                {
+                    slot.SetDefaultBorder();
+                }
             }
         }
 
-        private void OnSendID(int id)
+        private void OnBackClicked()
         {
-            SelectedSlotID = id;
-            foreach (var slot in Slots)
-            {
-                // resetting previous submitted slot
-                slot.SelectSlot(false);
-                slot.DeselectedLook();
-            }
-
-            //they work only when slot is submitted
-            UpdateButtonActions();
-
-            CreatePlayButton.SetAvailable(true);
-        }
-
-        //Input Name Window
-        private void OnInputNameSubmit()
-        {
-            if (NameInput.text == "")
-            {
-                PlayerStates[SelectedSlotID].Name = NoName;
-            }
-            else
-            {
-                PlayerStates[SelectedSlotID].Name = NameInput.text;
-            }
-            
-            ProgressManager.SetState(PlayerStates[SelectedSlotID]);
-            Storage.Save(ProgressManager.PlayerState);
-            Slots[SelectedSlotID].ResetTexts();
-
-            //visual
-            OnInputNameCancel();
-        }
-
-        private void OnInputNameCancel()
-        {
-            InputNameWindow.SetActive(false);
-            RenameButton.DeselectedLook();
-            ResetSelectedView();
-            SwitchMainLayer(true);
-            UpdateButtonActions();
-        }
-
-        private void OnBackToMenu()
-        {
-            BackToMenu.SubmittedLook();
-            Timer = ClickDelay;
-            CurrentAction = BackToMenuClicked;
-
-            AudioManager.PlaySound(SelectSound);
-        }
-
-        private void OnRename()
-        {
-            RenameButton.SubmittedLook();
-            SwitchMainLayer(false);
-            InputNameWindow.SetActive(true);
-            NameInput.text = PlayerStates[SelectedSlotID].Name;
-        }
-
-        private void OnDelete()
-        {
-            DeleteButton.SubmittedLook();
-            SwitchMainLayer(false);
-            DeletionWindow.SetActive(true);
-        }
-
-        private void OnDeletionSubmit()
-        {
-            Storage.Delete(PlayerStates[SelectedSlotID]);
-            ProgressManager.SetState(null);
-            PlayerStates[SelectedSlotID] = null;
-
-            Slots[SelectedSlotID].SetProperties(SelectedSlotID, null);
-            Slots[SelectedSlotID].ResetTexts();
-
-            UpdateButtonActions();
-            SelectedSlotID = -1;
-
-            DeletionWindow.SetActive(false);
-            DeleteButton.DeselectedLook();
-            ResetSelectedView();
-            SwitchMainLayer(true);
-        }
-
-        private void OnDeletionCancel()
-        {
-            DeletionWindow.SetActive(false);
-            DeleteButton.DeselectedLook();
-            ResetSelectedView();
-            SwitchMainLayer(true);
-            UpdateButtonActions();
-        }
-
-        private void OnCreateGame()
-        {
-            CreatePlayButton.SubmittedLook();
-
-            PlayerStates[SelectedSlotID] = ProgressManager.CreateState(SelectedSlotID);
-
-            PlayerStates[SelectedSlotID].Name = NoName;
-
-            ProgressManager.SetState(PlayerStates[SelectedSlotID]);
-            Storage.Save(ProgressManager.PlayerState);
-
-            //Updating data for selected slot
-            Slots[SelectedSlotID].SetProperties(SelectedSlotID, PlayerStates[SelectedSlotID]);
-            Slots[SelectedSlotID].ResetTexts();
-
-            CreatePlayButton.DeselectedLook();
-            ResetSelectedView();
-            UpdateButtonActions();
-        }
-
-        private void OnPlayGame()
-        {
-            CreatePlayButton.SubmittedLook();
-
-            Timer = ClickDelay;
-            SwitchMainLayer(false);
-            ProgressManager.SetState(PlayerStates[SelectedSlotID]);
-            AudioManager.PlaySound(SelectSound);
-
-            UpdateButtonActions();
-            CurrentAction = PlayGameClicked;
+            BackClicked();
         }
     }
 }

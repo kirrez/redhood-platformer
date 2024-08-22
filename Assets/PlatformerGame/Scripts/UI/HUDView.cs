@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Platformer
 {
-    public class HUDView : BaseScreenView
+    public class HUDView : BaseView
     {
         [SerializeField]
         private List<GameObject> LivesBack;

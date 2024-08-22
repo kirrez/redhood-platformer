@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Platformer
 {
-    public class DialogueView : BaseScreenView
+    public class DialogueView : BaseView
     {
         [SerializeField]
         private Text DialogueName;

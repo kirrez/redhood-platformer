@@ -4,12 +4,13 @@ namespace Platformer
 {
     public class ProgressManager : IProgressManager
     {
+        public int ID { get; private set; }
         public IPlayerState PlayerState { get; private set; }
 
         public IPlayerState CreateState(int id)
         {
+            ID = id;
             var playerState = new PlayerState();
-            playerState.ID = id;
 
             playerState.SetQuest(EQuest.DifficultyMode, 0);// easy, infinite tries
 

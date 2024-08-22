@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using System;
 
 namespace Platformer
@@ -19,7 +16,7 @@ namespace Platformer
             var resourceManager = CompositionRoot.GetResourceManager();
             var uiRoot = CompositionRoot.GetUIRoot();
 
-            View = resourceManager.CreatePrefab<TitleScreenView, EScreens>(EScreens.TitleScreenView);
+            View = resourceManager.CreatePrefab<TitleScreenView, EViews>(EViews.TitleScreenView);
             View.SetParent(uiRoot.MenuCanvas.transform);
 
             View.PlayClicked += OnClickingPlay;

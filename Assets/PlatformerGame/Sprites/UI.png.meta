@@ -117,7 +117,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: GameSlot_0
+      name: GameSlot_Default
       rect:
         serializedVersion: 2
         x: 0
@@ -138,7 +138,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GameSlot_1
+      name: GameSlot_Hovered
       rect:
         serializedVersion: 2
         x: 24
@@ -159,7 +159,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GameSlot_2
+      name: GameSlot_Selected
       rect:
         serializedVersion: 2
         x: 48
@@ -274,9 +274,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      GameSlot_0: -1408946134
-      GameSlot_1: -446739163
-      GameSlot_2: -1722368140
+      GameSlot_Default: -1408946134
+      GameSlot_Hovered: -446739163
+      GameSlot_Selected: -1722368140
       Submit_deselected: 1251077793
       Submit_inactive: 860043638
       Submit_selected: 287470708

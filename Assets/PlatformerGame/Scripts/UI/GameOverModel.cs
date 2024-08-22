@@ -16,7 +16,7 @@ namespace Platformer
             var resourceManager = CompositionRoot.GetResourceManager();
             var uiRoot = CompositionRoot.GetUIRoot();
 
-            View = resourceManager.CreatePrefab<GameOverView, EScreens>(EScreens.GameOverView);
+            View = resourceManager.CreatePrefab<GameOverView, EViews>(EViews.GameOverView);
             View.SetParent(uiRoot.MenuCanvas.transform);
 
             View.TryAgainClicked += OnTryAgainClicked;

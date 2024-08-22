@@ -16,7 +16,7 @@ namespace Platformer
             var resourceManager = CompositionRoot.GetResourceManager();
             var uiRoot = CompositionRoot.GetUIRoot();
 
-            View = resourceManager.CreatePrefab<CreditsScreenView, EScreens>(EScreens.CreditsScreenView);
+            View = resourceManager.CreatePrefab<CreditsScreenView, EViews>(EViews.CreditsScreenView);
             View.SetParent(uiRoot.MenuCanvas.transform);
 
             View.BackToMenuClicked += OnClickingBactToMenu;

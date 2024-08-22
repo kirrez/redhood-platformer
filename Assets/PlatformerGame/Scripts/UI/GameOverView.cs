@@ -1,12 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using System;
-using UnityEngine;
 using UnityEngine.UI;
 
 namespace Platformer
 {
-    public class GameOverView : BaseScreenView
+    public class GameOverView : BaseView
     {
         public event Action TryAgainClicked = () => {};
 

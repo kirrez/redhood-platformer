@@ -5,7 +5,7 @@ using System;
 
 namespace Platformer
 {
-    public class CreditsScreenView : BaseScreenView
+    public class CreditsScreenView : BaseView
     {
         public event Action BackToMenuClicked = () => { };
 

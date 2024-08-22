@@ -5,7 +5,7 @@ using System;
 
 namespace Platformer
 {
-    public class TitleScreenView : BaseScreenView
+    public class TitleScreenView : BaseView
     {
         public event Action PlayClicked = () => { };
         public event Action SettingsClicked = () => { };

@@ -50,6 +50,7 @@ namespace Platformer
             where E : Enum
         {
             var path = type.GetType().Name + "/" + type.ToString();
+
             var asset = Resources.Load<GameObject>(path);
             var instance = GameObject.Instantiate(asset);
             var component = instance.GetComponent<T>();

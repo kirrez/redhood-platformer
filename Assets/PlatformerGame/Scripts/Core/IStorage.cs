@@ -2,11 +2,10 @@ namespace Platformer
 {
     public interface IStorage
     {
-        bool IsPlayerStateExists(int ID);
+        bool IsExists(int id);
 
-        IPlayerState LoadPlayerState(int ID);
-        void Save(IPlayerState playerState);
-
-        void Delete(IPlayerState playerState);
+        IPlayerState Load(int id);
+        void Save(int id, IPlayerState playerState);
+        void Delete(int id);
     }
 }

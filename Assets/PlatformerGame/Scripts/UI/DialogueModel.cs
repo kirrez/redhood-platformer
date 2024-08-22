@@ -13,7 +13,7 @@ namespace Platformer
             var resourceManager = CompositionRoot.GetResourceManager();
             var uiRoot = CompositionRoot.GetUIRoot();
 
-            View = resourceManager.CreatePrefab<DialogueView, EScreens>(EScreens.DialogueView);
+            View = resourceManager.CreatePrefab<DialogueView, EViews>(EViews.DialogueView);
             View.SetParent(uiRoot.MenuCanvas.transform);
         }
 

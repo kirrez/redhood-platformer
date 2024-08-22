@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine.EventSystems;
-using UnityEngine.Events;
 using UnityEngine.UI;
 using UnityEngine;
 using System;
@@ -9,8 +8,13 @@ namespace Platformer
 {
     public class SubmitButton : MonoBehaviour, ISelectHandler, IDeselectHandler, ISubmitHandler, IPointerEnterHandler
     {
+        public event Action Clicked = () => { };
+
+        [SerializeField]
         private Button Button;
+        [SerializeField]
         private Image Image;
+        [SerializeField]
         private Text Text;
 
         private bool Available;
@@ -23,21 +27,12 @@ namespace Platformer
 
         private void Awake()
         {
-            Button = GetComponent<Button>();
-            Image = GetComponent<Image>();
-            Text = GetComponentInChildren<Text>();
+            Button.onClick.AddListener(OnClicked);
         }
 
         public void SetProperties(string label)
         {
             Text.text = label;
-        }
-
-        public void SetAction(UnityAction action)
-        {
-            // some buttons can change their function
-            Button.onClick.RemoveAllListeners();
-            Button.onClick.AddListener(action);
         }
 
         public void SetInteractable(bool flag)
@@ -92,7 +87,6 @@ namespace Platformer
             }
         }
 
-
         public void OnSelect(BaseEventData eventData)
         {
             if (Button.interactable == false) return;
@@ -125,6 +119,11 @@ namespace Platformer
             if (Available == false) return;
 
             SubmittedLook();
+        }
+
+        private void OnClicked()
+        {
+            Clicked();
         }
     }
 }

@@ -100,7 +100,7 @@ namespace Platformer
             ProgressManager.SetQuest(EQuest.Confiner, ConfinerIndex);
 
             ProgressManager.AddPlayedTime();
-            Storage.Save(ProgressManager.PlayerState);
+            Storage.Save(ProgressManager.ID, ProgressManager.PlayerState);
 
             AudioManager.PlayRedhoodSound(EPlayerSounds.LightCampFire);
 
