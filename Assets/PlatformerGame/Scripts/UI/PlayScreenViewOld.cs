@@ -269,7 +269,7 @@ namespace Platformer
                 PlayerStates[SelectedSlotID].Name = NameInput.text;
             }
             
-            ProgressManager.SetState(PlayerStates[SelectedSlotID]);
+            ProgressManager.SetState(SelectedSlotID, PlayerStates[SelectedSlotID]);
             //Storage.Save(ProgressManager.PlayerState);
             Slots[SelectedSlotID].UpdateLocalization();
 
@@ -313,7 +313,7 @@ namespace Platformer
         private void OnDeletionSubmit()
         {
             //Storage.Delete(PlayerStates[SelectedSlotID]);
-            ProgressManager.SetState(null);
+            ProgressManager.SetState(SelectedSlotID, null);
             PlayerStates[SelectedSlotID] = null;
 
             //Slots[SelectedSlotID].SetProperties(SelectedSlotID, null);
@@ -345,7 +345,7 @@ namespace Platformer
 
             PlayerStates[SelectedSlotID].Name = DefaultName;
 
-            ProgressManager.SetState(PlayerStates[SelectedSlotID]);
+            ProgressManager.SetState(SelectedSlotID, PlayerStates[SelectedSlotID]);
             //Storage.Save(ProgressManager.PlayerState);
 
             //Updating data for selected slot
@@ -363,7 +363,7 @@ namespace Platformer
 
             Timer = ClickDelay;
             SwitchMainLayer(false);
-            ProgressManager.SetState(PlayerStates[SelectedSlotID]);
+            ProgressManager.SetState(SelectedSlotID, PlayerStates[SelectedSlotID]);
             AudioManager.PlaySound(SelectSound);
 
             UpdateButtonActions();

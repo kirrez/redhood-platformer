@@ -145,6 +145,7 @@ namespace Platformer
             Utilitaries[EUtilitary.GameNameLabel] = "NAME :";
             Utilitaries[EUtilitary.DifficultyModeLabel] = "MODE :";
             Utilitaries[EUtilitary.EasyMode] = "EASY";
+            Utilitaries[EUtilitary.NormalMode] = "NORMAL";
             Utilitaries[EUtilitary.TimePlayed] = "Time Played :";
             Utilitaries[EUtilitary.CreateButton] = "CREATE";
             Utilitaries[EUtilitary.RenameButton] = "RENAME";
@@ -357,6 +358,7 @@ namespace Platformer
             Utilitaries[EUtilitary.GameNameLabel] = "НАЗВАНИЕ :";
             Utilitaries[EUtilitary.DifficultyModeLabel] = "РЕЖИМ :";
             Utilitaries[EUtilitary.EasyMode] = "ЛЕГКИЙ";
+            Utilitaries[EUtilitary.NormalMode] = "НОРМАЛЬНЫЙ";
             Utilitaries[EUtilitary.TimePlayed] = "Время в игре :";
             Utilitaries[EUtilitary.CreateButton] = "СОЗДАТЬ";
             Utilitaries[EUtilitary.RenameButton] = "НАЗВАНИЕ";

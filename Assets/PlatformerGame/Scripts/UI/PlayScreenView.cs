@@ -7,7 +7,7 @@ namespace Platformer
 {
     public class PlayScreenView : BaseView, IPlayScreenView
     {
-        private const string DefaultName = "NoName";
+        //private const string DefaultName = "NoName";
 
         public event Action<int> SlotSelected = slotIndex => { };
 
@@ -163,16 +163,22 @@ namespace Platformer
             slot.SetName(name);
         }
 
-        public void SetSlotDate(int index, DateTime date)
+        public void SetSlotDateTime(int index, DateTime date, TimeSpan time)
         {
             var slot = Slots[index];
-            slot.SetDate(date);
+            slot.SetDateTime(date, time);
         }
 
         public void SetSlotPlayedTime(int index, TimeSpan time)
         {
             var slot = Slots[index];
             slot.SetPlayedTime(time);
+        }
+
+        public void SetSlotDifficulty(int index, int difficultyMode)
+        {
+            var slot = Slots[index];
+            slot.SetDifficulty(difficultyMode);
         }
 
         private void ResetButtonTexts()

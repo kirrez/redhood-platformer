@@ -7,9 +7,9 @@ namespace Platformer
         public int ID { get; private set; }
         public IPlayerState PlayerState { get; private set; }
 
-        public IPlayerState CreateState(int id)
+        public IPlayerState CreateState()
         {
-            ID = id;
+            //ID = id; //
             var playerState = new PlayerState();
 
             playerState.SetQuest(EQuest.DifficultyMode, 0);// easy, infinite tries
@@ -89,8 +89,9 @@ namespace Platformer
             AddValue(EQuest.ElapsedHours, hours);
         }
 
-        public void SetState(IPlayerState playerState)
+        public void SetState(int id, IPlayerState playerState)
         {
+            ID = id;
             PlayerState = playerState;
         }
 

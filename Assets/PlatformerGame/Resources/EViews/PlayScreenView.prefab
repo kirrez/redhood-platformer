@@ -772,7 +772,7 @@ GameObject:
   - component: {fileID: 1595732444803685748}
   - component: {fileID: 8865563767964284952}
   m_Layer: 5
-  m_Name: Title
+  m_Name: DeleteTitle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3556,7 +3556,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &9133355250663941495
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3632,7 +3632,7 @@ GameObject:
   - component: {fileID: 4870503078938284940}
   - component: {fileID: 2930074681544054882}
   m_Layer: 5
-  m_Name: Title
+  m_Name: RenameTitle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3935,9 +3935,13 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5397018749953236602, guid: f23d522d20f665645b160b5104140956, type: 3}
+      propertyPath: m_Name
+      value: PlayText
+      objectReference: {fileID: 0}
     - target: {fileID: 7967343489050694645, guid: f23d522d20f665645b160b5104140956, type: 3}
       propertyPath: m_Text
-      value: PL
+      value: PL - -
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f23d522d20f665645b160b5104140956, type: 3}
@@ -4139,6 +4143,30 @@ PrefabInstance:
     - target: {fileID: 4449421087362470018, guid: 3e5a264838cb6214ab7f1ed0270595bc, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4897815846194500436, guid: 3e5a264838cb6214ab7f1ed0270595bc, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4897815846194500436, guid: 3e5a264838cb6214ab7f1ed0270595bc, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4897815846194500436, guid: 3e5a264838cb6214ab7f1ed0270595bc, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 164
+      objectReference: {fileID: 0}
+    - target: {fileID: 4897815846194500436, guid: 3e5a264838cb6214ab7f1ed0270595bc, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 41
+      objectReference: {fileID: 0}
+    - target: {fileID: 4897815846194500436, guid: 3e5a264838cb6214ab7f1ed0270595bc, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 132
+      objectReference: {fileID: 0}
+    - target: {fileID: 4897815846194500436, guid: 3e5a264838cb6214ab7f1ed0270595bc, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -80
       objectReference: {fileID: 0}
     - target: {fileID: 4904964120716271317, guid: 3e5a264838cb6214ab7f1ed0270595bc, type: 3}
       propertyPath: m_Name
@@ -4354,6 +4382,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8295456064386859236, guid: 3e5a264838cb6214ab7f1ed0270595bc, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8421936223765627697, guid: 3e5a264838cb6214ab7f1ed0270595bc, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -5074,6 +5106,18 @@ PrefabInstance:
     - target: {fileID: 5089117317895196381, guid: f23d522d20f665645b160b5104140956, type: 3}
       propertyPath: m_Name
       value: CreateButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 5397018749953236602, guid: f23d522d20f665645b160b5104140956, type: 3}
+      propertyPath: m_Name
+      value: CreateText
+      objectReference: {fileID: 0}
+    - target: {fileID: 7967343489050694645, guid: f23d522d20f665645b160b5104140956, type: 3}
+      propertyPath: m_Text
+      value: CR - -
+      objectReference: {fileID: 0}
+    - target: {fileID: 7967343489050694645, guid: f23d522d20f665645b160b5104140956, type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f23d522d20f665645b160b5104140956, type: 3}

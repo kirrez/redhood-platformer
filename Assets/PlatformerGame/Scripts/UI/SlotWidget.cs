@@ -54,13 +54,16 @@ namespace Platformer
             NameValue.text = text;
         }
 
-        public void SetDate(DateTime value)
+        public void SetDateTime(DateTime newDate, TimeSpan newTime)
         {
-            var date = value.ToString("yyyy.MM.dd");
-            var time = value.ToString("HH:mm");
+            var date = newDate.ToString("yyyy.MM.dd");
+
+            var hours = newTime.Hours;
+            var minutes = newTime.Minutes;
 
             DateValue.text = date;
-            TimeValue.text = time;
+            //TimeValue.text = string.Format("{0} : {1}", hours, minutes);
+            TimeValue.text = hours.ToString("00") + " : " + minutes.ToString("00");
         }
 
         public void SetPlayedTime(TimeSpan value)
@@ -68,7 +71,21 @@ namespace Platformer
             var hours = value.Hours;
             var minutes = value.Minutes;
 
-            TimePlayedValue.text = string.Format("{0}h {1}min", hours, minutes);
+            //TimePlayedValue.text = string.Format("{0}h {1}min", hours, minutes);
+            TimePlayedValue.text = hours.ToString("00") + "h " + minutes.ToString("00") + "min";
+        }
+
+        public void SetDifficulty(int mode)
+        {
+            if (mode == 0)
+            {
+                ModeValue.text = Localization.Utilitary(EUtilitary.EasyMode);
+            }
+            if (mode == 1)
+            {
+                ModeValue.text = Localization.Utilitary(EUtilitary.NormalMode);
+            }
+            // hard and whatever we'll add later ))
         }
 
         public void SetHoveredBorder()

@@ -5,6 +5,7 @@ namespace Platformer
 {
     public class PlayScreen
     {
+        private const string DefaultName = "NoName"; //in use
         private const int SlotCount = 3;
 
         public event Action Started = () => { };
@@ -56,20 +57,26 @@ namespace Platformer
 
                 PlayerStates[i] = playerState;
 
-                var name = playerState.Name;
                 var dateYear = playerState.GetQuest(EQuest.DateYear);
                 var dateMonth = playerState.GetQuest(EQuest.DateMonth);
-                var dateday = playerState.GetQuest(EQuest.DateDay);
+                var dateDay = playerState.GetQuest(EQuest.DateDay);
+
                 var timeHours = playerState.GetQuest(EQuest.TimeHours);
                 var timeMinutes = playerState.GetQuest(EQuest.TimeMinutes);
 
-                var date = new DateTime(dateYear, dateMonth, dateday);
-                var playedTime = new TimeSpan(timeHours, timeMinutes, 0);
+                var elapsedHours = playerState.GetQuest(EQuest.ElapsedHours);
+                var elapsedMinutes = playerState.GetQuest(EQuest.ElapsedMinutes);
+
+                var date = new DateTime(dateYear, dateMonth, dateDay);
+                var time = new TimeSpan(timeHours, timeMinutes, 0);
+
+                var elapsedTime = new TimeSpan(elapsedHours, elapsedMinutes, 0);
 
                 View.FillSlot(i);
                 View.SetSlotName(i, playerState.Name);
-                View.SetSlotDate(i, date);
-                View.SetSlotPlayedTime(i, playedTime);
+                View.SetSlotDateTime(i, date, time);
+                View.SetSlotPlayedTime(i, elapsedTime);
+                View.SetSlotDifficulty(i, playerState.GetQuest(EQuest.DifficultyMode)); //
             }
         }
 
@@ -132,7 +139,10 @@ namespace Platformer
 
         private void OnCreateClicked(int id)
         {
-            var playerState = ProgressManager.CreateState(id);
+            var playerState = ProgressManager.CreateState(); //
+            playerState.Name = DefaultName; //
+            playerState.UpdateTimeAndDate(); //
+
             Storage.Save(id, playerState);
 
             View.ShowPlayButton();
@@ -187,7 +197,7 @@ namespace Platformer
         {
             var selectedPlayerState = PlayerStates[slotID];
 
-            ProgressManager.SetState(selectedPlayerState);
+            ProgressManager.SetState(slotID, selectedPlayerState);
 
             Started?.Invoke();
         }

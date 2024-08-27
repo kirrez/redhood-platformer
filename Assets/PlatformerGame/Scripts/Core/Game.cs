@@ -188,9 +188,10 @@ namespace Platformer
             FadeScreen.FadeOut(Color.black, 1f);
         }
 
+        //should check if it works correctly !! 
         public IPlayerState LoadTestConfig()
         {
-            var playerState = ProgressManager.CreateState(1);
+            var playerState = ProgressManager.CreateState();
 
             //Testing game mode
             playerState.SetQuest(EQuest.DifficultyMode, 0);// normal, few tries

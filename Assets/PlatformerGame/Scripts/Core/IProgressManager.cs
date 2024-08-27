@@ -6,9 +6,9 @@ namespace Platformer
         IPlayerState PlayerState { get; }
 
         //IPlayerState CreateState(int ID, string name);
-        IPlayerState CreateState(int id);
+        IPlayerState CreateState();
 
-        void SetState(IPlayerState playerState);
+        void SetState(int id, IPlayerState playerState);
 
         void AddPlayedTime();
 

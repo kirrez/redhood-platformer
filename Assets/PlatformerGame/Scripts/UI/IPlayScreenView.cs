@@ -24,8 +24,9 @@ namespace Platformer
         void EmptySlot(int index);
 
         void SetSlotName(int index, string name);
-        void SetSlotDate(int index, DateTime date);
+        void SetSlotDateTime(int index, DateTime date, TimeSpan time);
         void SetSlotPlayedTime(int index, TimeSpan time);
+        void SetSlotDifficulty(int index, int difficultyMode);
 
         void ShowPlayButton();
         void ShowCreateButton();

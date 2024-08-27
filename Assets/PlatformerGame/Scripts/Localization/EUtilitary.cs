@@ -27,9 +27,11 @@ namespace Platformer
         //PlayScreen
         SelectYourGame_Title,
         GameNameLabel,
+
         DifficultyModeLabel,
         EasyMode,
-        // NormalMode,
+        NormalMode,
+
         TimePlayed,
         CreateButton,
         RenameButton,
