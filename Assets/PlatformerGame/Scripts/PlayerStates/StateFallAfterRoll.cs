@@ -4,11 +4,12 @@ using UnityEngine;
 
 namespace Platformer.PlayerStates
 {
-    public class StateJumpFalling : BaseState
+    public class StateFallAfterRoll : BaseState
     {
         private IAudioManager AudioManager;
+        private bool InputBreak;
 
-        public StateJumpFalling(IPlayer model)
+        public StateFallAfterRoll(IPlayer model)
         {
             Model = model;
             AudioManager = CompositionRoot.GetAudioManager();
@@ -17,16 +18,54 @@ namespace Platformer.PlayerStates
         public override void OnEnable(float time = 0)
         {
             base.OnEnable(time);
-            Model.UpdateStateName("Jump Falling");
+            Model.UpdateStateName("Fall After Roll");
+            InputBreak = false;
+        }
+
+        public override void Update()
+        {
+            base.Update();
         }
 
         public override void FixedUpdate()
         {
+            float inputDirection = 0f;
+            float currentDirection = 0f;
+
             base.FixedUpdate();
 
-            Model.DirectionCheck();
+            if (Model.Horizontal != 0)
+            {
+                inputDirection = Model.Horizontal;
+                currentDirection = Model.GetDirectionX();
 
-            //StandUp happens immediately or after a delay, if something is passed in Activate()
+                if (inputDirection == currentDirection)
+                {
+                    //Model.Walk();
+                }
+
+                if (inputDirection != currentDirection)
+                {
+                    Model.DirectionCheck();
+                    InputBreak = true;
+                }
+            }
+
+            if (Model.Horizontal == 0)
+            {
+                if (InputBreak == false)
+                {
+
+                    //Model.Walk();
+                }
+
+                if (InputBreak == true)
+                {
+                    Model.StopHorizontalMotion();
+                }
+            }
+
+            // when Timer is out we're standing up..
             if (Timer >= 0)
             {
                 Timer -= Time.fixedDeltaTime;
@@ -37,20 +76,7 @@ namespace Platformer.PlayerStates
                 }
             }
 
-            //------------
-            // Horizontal movement, controllable jump
-            if (Model.Horizontal != 0)
-            {
-                Model.Walk();
-            }
-
-            if (Model.Horizontal == 0)
-            {
-                Model.StopHorizontalMotion();
-            }
-            //------------
-
-            // Trying to stick..
+            // Trying to stick to platforms..
             if (Model.Grounded(LayerMasks.PlatformOneWay))
             {
                 Model.StickToPlatform();
@@ -69,7 +95,6 @@ namespace Platformer.PlayerStates
                 }
                 //
             }
-
 
             // State Idle
             if (Model.Horizontal == 0 && Model.Grounded(LayerMasks.Walkable))
@@ -93,7 +118,6 @@ namespace Platformer.PlayerStates
             }
 
             // State JumpRising, happens after mushroom jump
-
             if (Model.DeltaY > 0)
             {
                 Model.Animations.JumpRising();
@@ -101,23 +125,15 @@ namespace Platformer.PlayerStates
                 Model.SetState(EPlayerStates.JumpRising);
             }
 
-            // Attack Checks. Animations could be different, but they are not ))
-            if (Model.IsAxeAttack())
+            // may happen in air after Timer is out
+            if (Timer < 0)
             {
-                Model.ShootAxe();
-                Model.SetState(EPlayerStates.JumpFallingAttack, Model.Animations.AirAttack());
-            }
-
-            if (Model.IsKnifeAttack())
-            {
-                Model.ShootKnife();
-                Model.SetState(EPlayerStates.JumpFallingAttack, Model.Animations.AirAttack());
-            }
-
-            if (Model.IsHolyWaterAttack())
-            {
-                Model.ShootHolyWater();
-                Model.SetState(EPlayerStates.JumpFallingAttack, Model.Animations.AirAttack());
+                // State JumpFalling
+                if (Model.Grounded(LayerMasks.Walkable) == false)
+                {
+                    Model.Animations.JumpFalling();
+                    Model.SetState(EPlayerStates.JumpFalling);
+                }
             }
         }
     }

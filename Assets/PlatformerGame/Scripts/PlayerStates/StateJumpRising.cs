@@ -32,11 +32,18 @@ namespace Platformer.PlayerStates
                 Model.PushDown();
             }
 
+            //------------
             // Horizontal movement, controllable jump
             if (Model.Horizontal != 0)
             {
                 Model.Walk();
             }
+
+            if (Model.Horizontal == 0)
+            {
+                Model.StopHorizontalMotion();
+            }
+            //------------
 
             // Check MovingPlatform again after cooldown
             if (Timer <= 0)

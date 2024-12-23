@@ -6,11 +6,12 @@ namespace Platformer
 {
     public class PlayerConfig
     {
-        public float HorizontalSpeed { get; private set; }
+        public float WalkSpeed { get; private set; }
         public float CrouchSpeed { get; private set; }
-        public float PushDownForce { get; private set; }
+        public float PushDownSpeed { get; private set; }
         public float JumpForce { get; private set; }
         public float RollDownForce { get; private set; }
+        public float PushBackForce { get; private set; }
 
         public float PrimaryAttackCooldown { get; private set; }
         public float JumpDownTime { get; private set; }
@@ -23,11 +24,18 @@ namespace Platformer
 
         public PlayerConfig()
         {
-            HorizontalSpeed    = 300f;
-            CrouchSpeed        = 175f;
-            PushDownForce      = 50f;
+            //HorizontalSpeed    = 300f;
+            WalkSpeed      = 6f;
+
+            //CrouchSpeed        = 175f;
+            CrouchSpeed          = 3.5f;
+
+            //PushDownSpeed      = 50f;
+            PushDownSpeed        = 1.2f;
+
             JumpForce          = 360f; //350
             RollDownForce      = 310f;
+            PushBackForce      = 130f;
 
             PrimaryAttackCooldown = 0.5f;
 

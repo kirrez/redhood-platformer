@@ -25,10 +25,7 @@ namespace Platformer.PlayerStates
 
         public override void Update()
         {
-            //if (Timer <= 0)
-            //{
-            //    Model.GetInput();
-            //}
+            base.Update();
         }
 
         public override void FixedUpdate()
@@ -37,56 +34,45 @@ namespace Platformer.PlayerStates
 
             Timer -= Time.fixedDeltaTime;
 
+            // State (Jump Falling) FallAfterRoll, something disappeared right beneath your feet or you slided down from a solid surface
+            if (Model.DeltaY < 0 && !Model.Grounded(LayerMasks.Walkable))
+            {
+                //Debug.Log("ROLL -> FALL AFTER ROLL");
+                Model.SetState(EPlayerStates.FallAfterRoll, Timer);
+            }
+
             if (Timer <= 0)
             {
-                // Idle and Walk
-                if (!Model.Ceiled(LayerMasks.Solid) && Model.Vertical > -1)
+                // IDLE
+
+                if (Model.Ceiled(LayerMasks.Solid) == false && Model.Vertical > -1)
                 {
-                    if (Model.Horizontal == 0)
-                    {
-                        Model.Animations.Idle();
-                        Model.SetState(EPlayerStates.Idle);
-                    }
-                    else if (Model.Horizontal != 0)
-                    {
-                        Model.Animations.Walk();
-                        Model.SetState(EPlayerStates.Walk);
-                    }
+                    //Debug.Log("ROLL -> IDLE");
+                    Model.Animations.Idle();
+                    Model.SetState(EPlayerStates.Idle);
                 }
 
-                // Sit and Crouch
-                if (Model.Ceiled(LayerMasks.Solid) || Model.Vertical == -1)
+                // SIT
+
+                if (Model.Ceiled(LayerMasks.Solid) == true || Model.Vertical == -1)
                 {
-                    if (Model.Horizontal == 0)
-                    {
-                        Model.Animations.Sit();
-                        Model.SetState(EPlayerStates.Sit);
-                    }
-                    else if (Model.Horizontal != 0)
-                    {
-                        Model.Animations.Crouch();
-                        Model.SetState(EPlayerStates.SitCrouch);
-                    }
+                    //Debug.Log("ROLL -> SIT");
+                    Model.Animations.Sit();
+                    Model.SetState(EPlayerStates.Sit);
                 }
             }
 
             // State Jump Rising without hitting "Jump" button ))
-            if (Model.DeltaY > 0 && !Model.Grounded(LayerMasks.Walkable))
+            if (Model.DeltaY > 0.1f && Model.Grounded(LayerMasks.Walkable) == false && Model.Ceiled(LayerMasks.Solid) == false)
             {
                 Timer = 0f;
                 //Model.UpdateInAir(true);
+                //Debug.Log("ROLL -> JUMP RISING");
                 Model.Animations.JumpRising();
                 Model.SetState(EPlayerStates.JumpRising);
             }
 
-            // State Jump Falling, something disappeared right beneath your feet or you slided down from a solid surface
-            if (Model.DeltaY < 0 && !Model.Grounded(LayerMasks.Walkable))
-            {
-                Timer = 0f;
-                //Model.UpdateInAir(true);
-                Model.Animations.JumpFalling();
-                Model.SetState(EPlayerStates.JumpFalling, 0.75f);
-            }
+           
         }
     }
 }

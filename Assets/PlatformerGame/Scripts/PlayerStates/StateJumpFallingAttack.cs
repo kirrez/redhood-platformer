@@ -28,11 +28,18 @@ namespace Platformer.PlayerStates
 
             Timer -= Time.fixedDeltaTime;
 
-            // controllable horizontal
+            //------------
+            // Horizontal movement, controllable jump
             if (Model.Horizontal != 0)
             {
                 Model.Walk();
             }
+
+            if (Model.Horizontal == 0)
+            {
+                Model.StopHorizontalMotion();
+            }
+            //------------
 
             // State JumpFalling
             if (Model.DeltaY < 0 && Timer <= 0)

@@ -29,11 +29,18 @@ namespace Platformer.PlayerStates
                 Model.PushDown();
             }
 
+            //------------
             // Horizontal movement, controllable jump
             if (Model.Horizontal != 0)
             {
                 Model.Walk();
             }
+
+            if (Model.Horizontal == 0)
+            {
+                Model.StopHorizontalMotion();
+            }
+            //------------
 
             // State Idle, animation interrupted
             if (Model.Horizontal == 0 && Model.Grounded(LayerMasks.Walkable))

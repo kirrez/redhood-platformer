@@ -35,6 +35,7 @@ namespace Platformer
         bool Ceiled(LayerMask mask);
         bool StandingCeiled(LayerMask mask);
         float DirectionCheck();
+        float GetDirectionX();
 
         //Commands
 
@@ -43,6 +44,7 @@ namespace Platformer
         void SetState(EPlayerStates state, float time = 0f);
         void SetDeltaY();
         void Walk();
+        void StopHorizontalMotion(); // flag for better maneuvering on horizontal while in air
         void Crouch();
         void StickToPlatform();
         void ResetVelocity();

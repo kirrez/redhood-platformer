@@ -19,6 +19,8 @@ namespace Platformer
         DamageTaken,
         Dying,
         Interaction,
-        Stunned
+        Stunned,
+
+        FallAfterRoll, //
     }
 }

@@ -1,3 +1,4 @@
+using UnityEngine;
 
 namespace Platformer.PlayerStates
 {
@@ -54,6 +55,8 @@ namespace Platformer.PlayerStates
             {
                 Model.HitJump = false;
                 Model.Animations.RollDown();
+                //Debug.Log("SIT CROUCH -> ROLL DOWN");
+                
                 Model.SetState(EPlayerStates.RollDown, Model.RollDownTime);
             }
 

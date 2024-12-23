@@ -21,7 +21,7 @@ namespace Platformer
         public Transform Transform => transform;
 
         public Rigidbody2D Body
-        { 
+        {
             get { return Rigidbody; }
             set { Rigidbody = value; }
         }
@@ -63,6 +63,7 @@ namespace Platformer
         private StateSitDamageTaken StateSitDamageTaken;
         private StateInteraction StateInteraction;
         private StateStunned StateStunned;
+        private StateFallAfterRoll StateFallAfterRoll;
 
         private BaseState CurrentState;
 
@@ -76,9 +77,11 @@ namespace Platformer
 
         private PlayerConfig Config;
 
-        private float HorizontalSpeed;
+        private float WalkSpeed;
         private float CrouchSpeed;
-        private float PushDownForce;
+        private float PushDownSpeed;
+
+        private float PushBackForce;
         private float JumpForce;
         private float RollDownForce;
 
@@ -156,6 +159,7 @@ namespace Platformer
             StateSitDamageTaken = new StateSitDamageTaken(this);
             StateInteraction = new StateInteraction(this);
             StateStunned = new StateStunned(this);
+            StateFallAfterRoll = new StateFallAfterRoll(this);
 
             Config = new PlayerConfig();
         }
@@ -275,6 +279,10 @@ namespace Platformer
                 case EPlayerStates.Stunned:
                     CurrentState = StateStunned;
                     break;
+
+                case EPlayerStates.FallAfterRoll:
+                    CurrentState = StateFallAfterRoll;
+                    break;
             }
             CurrentState.OnEnable(time);
         }
@@ -293,6 +301,14 @@ namespace Platformer
                 SetPlayerDirection(false);
                 return -1f;
             }
+
+            // if (Horizontal == 0) then just do nothing and keep previous DirectionX value
+
+            return DirectionX;
+        }
+
+        public float GetDirectionX()
+        {
             return DirectionX;
         }
 
@@ -327,27 +343,35 @@ namespace Platformer
 
         public void Walk()
         {
+            // no more *Time.fixedDeltaTime
             if (PlatformRigidbody != null)
             {
-                Rigidbody.velocity = new Vector2(Horizontal * Time.fixedDeltaTime * HorizontalSpeed, 0f) + PlatformRigidbody.velocity;
+                Rigidbody.velocity = new Vector2(Horizontal * WalkSpeed, 0f) + PlatformRigidbody.velocity;
             }
 
             if (PlatformRigidbody == null)
             {
-                Rigidbody.velocity = new Vector2(Horizontal * Time.fixedDeltaTime * HorizontalSpeed, Rigidbody.velocity.y);
+                Rigidbody.velocity = new Vector2(Horizontal * WalkSpeed, Rigidbody.velocity.y);
             }
+        }
+
+        public void StopHorizontalMotion()
+        {
+            // horizontal = 0
+            Rigidbody.velocity = new Vector2(0f, Rigidbody.velocity.y);
         }
 
         public void Crouch()
         {
+            // no more *Time.fixedDeltaTime
             if (PlatformRigidbody != null)
             {
-                Rigidbody.velocity = new Vector2(Horizontal * Time.fixedDeltaTime * CrouchSpeed, 0f) + PlatformRigidbody.velocity;
+                Rigidbody.velocity = new Vector2(Horizontal * CrouchSpeed, 0f) + PlatformRigidbody.velocity;
             }
 
             if (PlatformRigidbody == null)
             {
-                Rigidbody.velocity = new Vector2(Horizontal * Time.fixedDeltaTime * CrouchSpeed, Rigidbody.velocity.y);
+                Rigidbody.velocity = new Vector2(Horizontal * CrouchSpeed, Rigidbody.velocity.y);
             }
         }
 
@@ -367,7 +391,8 @@ namespace Platformer
         // vertical movement for correcting height in JumpRising state
         public void PushDown()
         {
-            Rigidbody.velocity = new Vector2(Rigidbody.velocity.x, Rigidbody.velocity.y + PushDownForce * Time.fixedDeltaTime * (-1));
+            // no more *Time.fixedDeltaTime
+            Rigidbody.velocity = new Vector2(Rigidbody.velocity.x, Rigidbody.velocity.y + PushDownSpeed * (-1));
         }
 
         public void Jump()
@@ -392,8 +417,8 @@ namespace Platformer
             }
 
             DirectionCheck();
-            // magic numbers, no need to take out into config.. 2.3f / 1.75f
-            Rigidbody.AddForce(new Vector2(HorizontalSpeed / 2.3f * direction, JumpForce / 1.75f));
+
+            Rigidbody.AddForce(new Vector2(PushBackForce * direction, JumpForce / 1.75f));
         }
 
         public void RollDown()
@@ -758,11 +783,15 @@ namespace Platformer
 
         private void LoadConfigData()
         {
-            HorizontalSpeed = Config.HorizontalSpeed;
+            WalkSpeed = Config.WalkSpeed;
             CrouchSpeed = Config.CrouchSpeed;
-            PushDownForce = Config.PushDownForce;
+            PushDownSpeed = Config.PushDownSpeed;
+
+            PushBackForce = Config.PushBackForce;
             JumpForce = Config.JumpForce;
             RollDownForce = Config.RollDownForce;
+
+
             DeathShockTime = Config.DeathShockTime;
             RollDownTime = Config.RollDownTime;
             JumpDownTime = Config.JumpDownTime;

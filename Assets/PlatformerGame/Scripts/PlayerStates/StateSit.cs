@@ -75,6 +75,8 @@ namespace Platformer.PlayerStates
             {
                 Model.HitJump = false;
                 Model.Animations.RollDown();
+                //Debug.Log("SIT -> ROLL DOWN");
+
                 Model.SetState(EPlayerStates.RollDown, Model.RollDownTime);
             }
 

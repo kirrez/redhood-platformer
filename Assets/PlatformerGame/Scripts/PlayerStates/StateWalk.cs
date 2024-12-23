@@ -13,6 +13,8 @@ namespace Platformer.PlayerStates
             base.OnEnable(time);
             Model.UpdateStateName("Walk");
             Model.StandUp();
+
+            //Model.StopHorizontal = false;
         }
 
         public override void FixedUpdate()
